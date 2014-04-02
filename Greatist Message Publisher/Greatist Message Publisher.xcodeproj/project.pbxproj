@@ -23,6 +23,10 @@
 		0FA8357418EB70A4003C8687 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0FA8357218EB70A4003C8687 /* InfoPlist.strings */; };
 		0FA8357618EB70A4003C8687 /* Greatist_Message_PublisherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA8357518EB70A4003C8687 /* Greatist_Message_PublisherTests.m */; };
 		0FA8358018EB70FD003C8687 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FA8357F18EB70FD003C8687 /* Main.storyboard */; };
+		388D5989D77F4F8992BFE80F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2782B750FC4349E3AB0AFCDF /* libPods.a */; };
+		55912DB218EC54360069FEEC /* GRTMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DB118EC54360069FEEC /* GRTMainTableViewCell.m */; };
+		55912DB518EC5AED0069FEEC /* GRTMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DB418EC5AED0069FEEC /* GRTMainViewController.m */; };
+		55912DB718EC5C050069FEEC /* greatist_logo_600px.png in Resources */ = {isa = PBXBuildFile; fileRef = 55912DB618EC5C050069FEEC /* greatist_logo_600px.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,13 @@
 		0FA8357318EB70A4003C8687 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0FA8357518EB70A4003C8687 /* Greatist_Message_PublisherTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Greatist_Message_PublisherTests.m; sourceTree = "<group>"; };
 		0FA8357F18EB70FD003C8687 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
+		2782B750FC4349E3AB0AFCDF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		55912DB018EC54360069FEEC /* GRTMainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTMainTableViewCell.h; sourceTree = "<group>"; };
+		55912DB118EC54360069FEEC /* GRTMainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTMainTableViewCell.m; sourceTree = "<group>"; };
+		55912DB318EC5AED0069FEEC /* GRTMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTMainViewController.h; sourceTree = "<group>"; };
+		55912DB418EC5AED0069FEEC /* GRTMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTMainViewController.m; sourceTree = "<group>"; };
+		55912DB618EC5C050069FEEC /* greatist_logo_600px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greatist_logo_600px.png; sourceTree = "<group>"; };
+		FDF4DEBDD8B24F48886FE495 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +77,7 @@
 				0FA8355118EB70A4003C8687 /* CoreData.framework in Frameworks */,
 				0FA8354F18EB70A4003C8687 /* UIKit.framework in Frameworks */,
 				0FA8354B18EB70A4003C8687 /* Foundation.framework in Frameworks */,
+				388D5989D77F4F8992BFE80F /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +102,7 @@
 				0FA8356F18EB70A4003C8687 /* Greatist Message PublisherTests */,
 				0FA8354918EB70A3003C8687 /* Frameworks */,
 				0FA8354818EB70A3003C8687 /* Products */,
+				FDF4DEBDD8B24F48886FE495 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,6 +123,7 @@
 				0FA8354E18EB70A4003C8687 /* UIKit.framework */,
 				0FA8355018EB70A4003C8687 /* CoreData.framework */,
 				0FA8356818EB70A4003C8687 /* XCTest.framework */,
+				2782B750FC4349E3AB0AFCDF /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -117,9 +131,13 @@
 		0FA8355218EB70A4003C8687 /* Greatist Message Publisher */ = {
 			isa = PBXGroup;
 			children = (
-				0FA8357F18EB70FD003C8687 /* Main.storyboard */,
 				0FA8355B18EB70A4003C8687 /* GRTAppDelegate.h */,
 				0FA8355C18EB70A4003C8687 /* GRTAppDelegate.m */,
+				0FA8357F18EB70FD003C8687 /* Main.storyboard */,
+				55912DB318EC5AED0069FEEC /* GRTMainViewController.h */,
+				55912DB418EC5AED0069FEEC /* GRTMainViewController.m */,
+				55912DB018EC54360069FEEC /* GRTMainTableViewCell.h */,
+				55912DB118EC54360069FEEC /* GRTMainTableViewCell.m */,
 				0FA8356118EB70A4003C8687 /* Images.xcassets */,
 				0FA8355E18EB70A4003C8687 /* Greatist_Message_Publisher.xcdatamodeld */,
 				0FA8355318EB70A4003C8687 /* Supporting Files */,
@@ -131,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				0FA8355418EB70A4003C8687 /* Greatist Message Publisher-Info.plist */,
+				55912DB618EC5C050069FEEC /* greatist_logo_600px.png */,
 				0FA8355518EB70A4003C8687 /* InfoPlist.strings */,
 				0FA8355818EB70A4003C8687 /* main.m */,
 				0FA8355A18EB70A4003C8687 /* Greatist Message Publisher-Prefix.pch */,
@@ -163,9 +182,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0FA8357918EB70A4003C8687 /* Build configuration list for PBXNativeTarget "Greatist Message Publisher" */;
 			buildPhases = (
+				136B8014864748C5BF060A8B /* Check Pods Manifest.lock */,
 				0FA8354318EB70A3003C8687 /* Sources */,
 				0FA8354418EB70A3003C8687 /* Frameworks */,
 				0FA8354518EB70A3003C8687 /* Resources */,
+				CD6184747E6D4D5EB4E1A848 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -234,6 +255,7 @@
 			files = (
 				0FA8358018EB70FD003C8687 /* Main.storyboard in Resources */,
 				0FA8355718EB70A4003C8687 /* InfoPlist.strings in Resources */,
+				55912DB718EC5C050069FEEC /* greatist_logo_600px.png in Resources */,
 				0FA8356218EB70A4003C8687 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -248,14 +270,49 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		136B8014864748C5BF060A8B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CD6184747E6D4D5EB4E1A848 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0FA8354318EB70A3003C8687 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55912DB218EC54360069FEEC /* GRTMainTableViewCell.m in Sources */,
 				0FA8356018EB70A4003C8687 /* Greatist_Message_Publisher.xcdatamodeld in Sources */,
 				0FA8355D18EB70A4003C8687 /* GRTAppDelegate.m in Sources */,
 				0FA8355918EB70A4003C8687 /* main.m in Sources */,
+				55912DB518EC5AED0069FEEC /* GRTMainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +426,7 @@
 		};
 		0FA8357A18EB70A4003C8687 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDF4DEBDD8B24F48886FE495 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -382,6 +440,7 @@
 		};
 		0FA8357B18EB70A4003C8687 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDF4DEBDD8B24F48886FE495 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -452,6 +511,7 @@
 				0FA8357B18EB70A4003C8687 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0FA8357C18EB70A4003C8687 /* Build configuration list for PBXNativeTarget "Greatist Message PublisherTests" */ = {
 			isa = XCConfigurationList;
@@ -460,6 +520,7 @@
 				0FA8357E18EB70A4003C8687 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
