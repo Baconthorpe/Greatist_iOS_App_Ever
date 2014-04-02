@@ -11,7 +11,7 @@
 @interface GRTComposePostViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextView *postContentTextView;
-@property (nonatomic, assign) id<UITextFieldDelegate> delegate;
+@property (weak, nonatomic) IBOutlet UIView *postView;
 
 @end
 
@@ -31,6 +31,10 @@
     [super viewDidLoad];
     self.postContentTextView.delegate = self;
     [self.postContentTextView setTextColor:[UIColor lightGrayColor]];
+    [[self.postContentTextView layer] setBorderColor:[[UIColor lightGrayColor] CGColor]];
+    [[self.postContentTextView layer] setBorderWidth:1];
+    [[self.postContentTextView layer] setCornerRadius:15];
+    self.postContentTextView.textContainerInset = UIEdgeInsetsMake(15.0, 10.0, 15.0, 10.0);
     
     // Do any additional setup after loading the view.
 }
@@ -52,12 +56,11 @@
 }
 */
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField
+- (void)textViewDidBeginEditing:(UITextView *)textView
 {
-    NSLog(@"%@", textField);
-    [self.postContentTextView setTextColor:[UIColor blackColor]];
-    [self.postContentTextView setSelectedRange:NSMakeRange(0, self.postContentTextView.text.length)];
-    [self.postContentTextView setText:@""];
+    NSLog(@"%@", textView.text);
+    [textView setTextColor:[UIColor blackColor]];
+    [textView setText:@""];
 }
 
 @end

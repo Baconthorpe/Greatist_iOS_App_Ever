@@ -141,7 +141,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="”" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EU6-QT-8ud">
-                                        <rect key="frame" x="267" y="206" width="33" height="48"/>
+                                        <rect key="frame" x="274" y="206" width="33" height="48"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -159,6 +159,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="postContentTextView" destination="gf9-pJ-3nY" id="F6Q-XP-mdQ"/>
+                        <outlet property="postView" destination="5qo-we-Wmv" id="8If-nJ-Y9Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XsK-Nh-RO5" userLabel="First Responder" sceneMemberID="firstResponder"/>

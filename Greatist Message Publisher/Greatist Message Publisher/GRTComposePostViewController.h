@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GRTComposePostViewController : UIViewController <UITextFieldDelegate>
+@interface GRTComposePostViewController : UIViewController <UITextViewDelegate>
 
 @end
