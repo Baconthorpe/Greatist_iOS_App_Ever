@@ -36,6 +36,8 @@
 		55912DB218EC54360069FEEC /* GRTMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DB118EC54360069FEEC /* GRTMainTableViewCell.m */; };
 		55912DB518EC5AED0069FEEC /* GRTMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DB418EC5AED0069FEEC /* GRTMainViewController.m */; };
 		55912DB718EC5C050069FEEC /* greatist_logo_600px.png in Resources */ = {isa = PBXBuildFile; fileRef = 55912DB618EC5C050069FEEC /* greatist_logo_600px.png */; };
+		55912DBA18EC68B00069FEEC /* GRTPostDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DB918EC68B00069FEEC /* GRTPostDetailViewController.m */; };
+		55912DBD18EC68E50069FEEC /* GRTComposePostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DBC18EC68E50069FEEC /* GRTComposePostViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +94,10 @@
 		55912DB318EC5AED0069FEEC /* GRTMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTMainViewController.h; sourceTree = "<group>"; };
 		55912DB418EC5AED0069FEEC /* GRTMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTMainViewController.m; sourceTree = "<group>"; };
 		55912DB618EC5C050069FEEC /* greatist_logo_600px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greatist_logo_600px.png; sourceTree = "<group>"; };
+		55912DB818EC68B00069FEEC /* GRTPostDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTPostDetailViewController.h; sourceTree = "<group>"; };
+		55912DB918EC68B00069FEEC /* GRTPostDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTPostDetailViewController.m; sourceTree = "<group>"; };
+		55912DBB18EC68E50069FEEC /* GRTComposePostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTComposePostViewController.h; sourceTree = "<group>"; };
+		55912DBC18EC68E50069FEEC /* GRTComposePostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTComposePostViewController.m; sourceTree = "<group>"; };
 		FDF4DEBDD8B24F48886FE495 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -192,6 +198,10 @@
 				55912DB418EC5AED0069FEEC /* GRTMainViewController.m */,
 				55912DB018EC54360069FEEC /* GRTMainTableViewCell.h */,
 				55912DB118EC54360069FEEC /* GRTMainTableViewCell.m */,
+				55912DB818EC68B00069FEEC /* GRTPostDetailViewController.h */,
+				55912DB918EC68B00069FEEC /* GRTPostDetailViewController.m */,
+				55912DBB18EC68E50069FEEC /* GRTComposePostViewController.h */,
+				55912DBC18EC68E50069FEEC /* GRTComposePostViewController.m */,
 				0FA8356118EB70A4003C8687 /* Images.xcassets */,
 				0FA8355E18EB70A4003C8687 /* Greatist_Message_Publisher.xcdatamodeld */,
 				0FA8355318EB70A4003C8687 /* Supporting Files */,
@@ -362,6 +372,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55912DBD18EC68E50069FEEC /* GRTComposePostViewController.m in Sources */,
 				55912DB218EC54360069FEEC /* GRTMainTableViewCell.m in Sources */,
 				0F1AFFD518EC58ED006BB25B /* User.m in Sources */,
 				0F1AFFDB18EC5928006BB25B /* Section.m in Sources */,
@@ -373,6 +384,7 @@
 				0F1AFFE718EC5D49006BB25B /* Response+Methods.m in Sources */,
 				0F1AFFDE18EC5A29006BB25B /* Section+Methods.m in Sources */,
 				0F1AFFE118EC5BF1006BB25B /* User+Methods.m in Sources */,
+				55912DBA18EC68B00069FEEC /* GRTPostDetailViewController.m in Sources */,
 				0FA8355918EB70A4003C8687 /* main.m in Sources */,
 				55912DB518EC5AED0069FEEC /* GRTMainViewController.m in Sources */,
 				0F1AFFD218EC58ED006BB25B /* Post.m in Sources */,

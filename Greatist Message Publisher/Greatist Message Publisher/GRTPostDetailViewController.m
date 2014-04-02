@@ -1,21 +1,18 @@
 //
-//  GRTMainViewController.m
+//  GRTPostDetailViewController.m
 //  Greatist Message Publisher
 //
 //  Created by Elizabeth Choy on 4/2/14.
 //  Copyright (c) 2014 Ezekiel Abuhoff. All rights reserved.
 //
 
-#import "GRTMainViewController.h"
+#import "GRTPostDetailViewController.h"
 
-@interface GRTMainViewController ()
-
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *composePostButton;
-- (IBAction)composePostButtonTapped:(id)sender;
+@interface GRTPostDetailViewController ()
 
 @end
 
-@implementation GRTMainViewController
+@implementation GRTPostDetailViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,13 +26,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    FAKFontAwesome *composePostIcon = [FAKFontAwesome pencilSquareOIconWithSize:25];
-    [composePostIcon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
-    UIImage *composePostImage = [composePostIcon imageWithSize:CGSizeMake(30, 30)];
-    composePostIcon.iconFontSize = 25;
-   
-    [self.composePostButton setImage:composePostImage];
-    
     // Do any additional setup after loading the view.
 }
 
@@ -56,8 +46,4 @@
 }
 */
 
-
-- (IBAction)composePostButtonTapped:(id)sender {
-
-}
 @end
