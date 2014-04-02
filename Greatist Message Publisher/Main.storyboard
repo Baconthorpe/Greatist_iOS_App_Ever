@@ -24,6 +24,19 @@
                                 <rect key="frame" x="0.0" y="109" width="320" height="415"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="jLw-GT-4Nr" customClass="GRTMainTableViewCell">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jLw-GT-4Nr" id="oiv-k6-X8r">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Bbk-ZY-vJO" kind="push" id="lVg-9I-fKZ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ntT-Qb-ejK">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
@@ -33,6 +46,7 @@
                                     <barButtonItem title="Item" id="Jce-oV-dpT">
                                         <connections>
                                             <action selector="composePostButtonTapped:" destination="8aK-fq-krb" id="Xhk-QR-s8s"/>
+                                            <segue destination="wto-gA-KYW" kind="modal" id="fY9-34-qyp"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="oaO-DQ-wEw"/>
@@ -43,9 +57,9 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <items>
-                                    <tabBarItem systemItem="favorites" id="ccO-YO-ZBD"/>
-                                    <tabBarItem title="Item" id="Ucu-26-aSt"/>
-                                    <tabBarItem systemItem="more" id="LKJ-Fh-1Lx"/>
+                                    <tabBarItem title="Fitness" id="ccO-YO-ZBD"/>
+                                    <tabBarItem title="Health" id="Ucu-26-aSt"/>
+                                    <tabBarItem title="Happiness" id="LKJ-Fh-1Lx"/>
                                 </items>
                             </tabBar>
                         </subviews>
@@ -60,10 +74,10 @@
             </objects>
             <point key="canvasLocation" x="599" y="104"/>
         </scene>
-        <!--View Controller-->
+        <!--Post Detail View Controller-->
         <scene sceneID="cYX-sP-fX9">
             <objects>
-                <viewController id="Bbk-ZY-vJO" sceneMemberID="viewController">
+                <viewController id="Bbk-ZY-vJO" customClass="GRTPostDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="G8x-IH-bTf"/>
                         <viewControllerLayoutGuide type="bottom" id="gV4-dx-dDQ"/>
@@ -73,15 +87,16 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="U9t-fd-E62"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dsL-b7-6dW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1064" y="463"/>
         </scene>
-        <!--View Controller-->
+        <!--Compose Post View Controller-->
         <scene sceneID="8lP-4M-jjE">
             <objects>
-                <viewController id="wto-gA-KYW" sceneMemberID="viewController">
+                <viewController id="wto-gA-KYW" customClass="GRTComposePostViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Iy1-XH-Tx4"/>
                         <viewControllerLayoutGuide type="bottom" id="Tta-Ou-UMV"/>
@@ -89,9 +104,62 @@
                     <view key="view" contentMode="scaleToFill" id="33Z-uS-GDD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5qo-we-Wmv">
+                                <rect key="frame" x="0.0" y="66" width="320" height="320"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bPC-GH-bd4">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <items>
+                                            <tabBarItem title="Fitness" id="evs-1I-zLr"/>
+                                            <tabBarItem title="Health" id="Uos-UF-qH2"/>
+                                            <tabBarItem title="Happiness" id="jh5-a9-wPU"/>
+                                        </items>
+                                    </tabBar>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gf9-pJ-3nY">
+                                        <rect key="frame" x="55" y="105" width="211" height="127"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="How do you feel today?">
+                                                <attributes>
+                                                    <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="light"/>
+                                    </textView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="“" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ue-CW-ror">
+                                        <rect key="frame" x="27" y="105" width="33" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="”" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EU6-QT-8ud">
+                                        <rect key="frame" x="267" y="206" width="33" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="xtm-mL-LnX"/>
+                    <navigationItem key="navigationItem" id="xtm-mL-LnX">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="JPl-hm-dHC"/>
+                        <barButtonItem key="rightBarButtonItem" title="Post" id="wm3-X5-jPo"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="postContentTextView" destination="gf9-pJ-3nY" id="F6Q-XP-mdQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XsK-Nh-RO5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
