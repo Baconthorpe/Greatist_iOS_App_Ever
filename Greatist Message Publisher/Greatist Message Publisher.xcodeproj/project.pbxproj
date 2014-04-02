@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F1AFF9C18EC4981006BB25B /* GRTDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1AFF9B18EC4981006BB25B /* GRTDataStore.m */; };
+		0F1AFFD218EC58ED006BB25B /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1AFFD118EC58ED006BB25B /* Post.m */; };
+		0F1AFFD518EC58ED006BB25B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1AFFD418EC58ED006BB25B /* User.m */; };
+		0F1AFFD818EC58ED006BB25B /* Response.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1AFFD718EC58ED006BB25B /* Response.m */; };
+		0F1AFFDB18EC5928006BB25B /* Section.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1AFFDA18EC5928006BB25B /* Section.m */; };
+		0F1AFFDE18EC5A29006BB25B /* Section+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1AFFDD18EC5A29006BB25B /* Section+Methods.m */; };
+		0F1AFFE118EC5BF1006BB25B /* User+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1AFFE018EC5BF1006BB25B /* User+Methods.m */; };
+		0F1AFFE418EC5CAF006BB25B /* Post+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1AFFE318EC5CAF006BB25B /* Post+Methods.m */; };
+		0F1AFFE718EC5D49006BB25B /* Response+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1AFFE618EC5D49006BB25B /* Response+Methods.m */; };
 		0FA8354B18EB70A4003C8687 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA8354A18EB70A3003C8687 /* Foundation.framework */; };
 		0FA8354D18EB70A4003C8687 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA8354C18EB70A4003C8687 /* CoreGraphics.framework */; };
 		0FA8354F18EB70A4003C8687 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA8354E18EB70A4003C8687 /* UIKit.framework */; };
@@ -40,6 +49,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F1AFF9A18EC4981006BB25B /* GRTDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTDataStore.h; sourceTree = "<group>"; };
+		0F1AFF9B18EC4981006BB25B /* GRTDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTDataStore.m; sourceTree = "<group>"; };
+		0F1AFFD018EC58ED006BB25B /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
+		0F1AFFD118EC58ED006BB25B /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
+		0F1AFFD318EC58ED006BB25B /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		0F1AFFD418EC58ED006BB25B /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		0F1AFFD618EC58ED006BB25B /* Response.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Response.h; sourceTree = "<group>"; };
+		0F1AFFD718EC58ED006BB25B /* Response.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Response.m; sourceTree = "<group>"; };
+		0F1AFFD918EC5928006BB25B /* Section.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Section.h; sourceTree = "<group>"; };
+		0F1AFFDA18EC5928006BB25B /* Section.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Section.m; sourceTree = "<group>"; };
+		0F1AFFDC18EC5A29006BB25B /* Section+Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Section+Methods.h"; sourceTree = "<group>"; };
+		0F1AFFDD18EC5A29006BB25B /* Section+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Section+Methods.m"; sourceTree = "<group>"; };
+		0F1AFFDF18EC5BF1006BB25B /* User+Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+Methods.h"; sourceTree = "<group>"; };
+		0F1AFFE018EC5BF1006BB25B /* User+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+Methods.m"; sourceTree = "<group>"; };
+		0F1AFFE218EC5CAF006BB25B /* Post+Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Post+Methods.h"; sourceTree = "<group>"; };
+		0F1AFFE318EC5CAF006BB25B /* Post+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Post+Methods.m"; sourceTree = "<group>"; };
+		0F1AFFE518EC5D49006BB25B /* Response+Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Response+Methods.h"; sourceTree = "<group>"; };
+		0F1AFFE618EC5D49006BB25B /* Response+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Response+Methods.m"; sourceTree = "<group>"; };
 		0FA8354718EB70A3003C8687 /* Greatist Message Publisher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Greatist Message Publisher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FA8354A18EB70A3003C8687 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0FA8354C18EB70A4003C8687 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -95,6 +122,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F1AFF9918EC48D5006BB25B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0F1AFFD918EC5928006BB25B /* Section.h */,
+				0F1AFFDA18EC5928006BB25B /* Section.m */,
+				0F1AFFDC18EC5A29006BB25B /* Section+Methods.h */,
+				0F1AFFDD18EC5A29006BB25B /* Section+Methods.m */,
+				0F1AFFD618EC58ED006BB25B /* Response.h */,
+				0F1AFFD718EC58ED006BB25B /* Response.m */,
+				0F1AFFE518EC5D49006BB25B /* Response+Methods.h */,
+				0F1AFFE618EC5D49006BB25B /* Response+Methods.m */,
+				0F1AFFD318EC58ED006BB25B /* User.h */,
+				0F1AFFD418EC58ED006BB25B /* User.m */,
+				0F1AFFDF18EC5BF1006BB25B /* User+Methods.h */,
+				0F1AFFE018EC5BF1006BB25B /* User+Methods.m */,
+				0F1AFFD018EC58ED006BB25B /* Post.h */,
+				0F1AFFD118EC58ED006BB25B /* Post.m */,
+				0F1AFFE218EC5CAF006BB25B /* Post+Methods.h */,
+				0F1AFFE318EC5CAF006BB25B /* Post+Methods.m */,
+				0F1AFF9A18EC4981006BB25B /* GRTDataStore.h */,
+				0F1AFF9B18EC4981006BB25B /* GRTDataStore.m */,
+			);
+			name = Model;
+			path = "/Users/eabuhoff/Flatiron/Greatist_iOS_App_Ever/Greatist Message Publisher/Greatist Message Publisher/Model";
+			sourceTree = "<absolute>";
+		};
 		0FA8353E18EB70A3003C8687 = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +184,7 @@
 		0FA8355218EB70A4003C8687 /* Greatist Message Publisher */ = {
 			isa = PBXGroup;
 			children = (
+				0F1AFF9918EC48D5006BB25B /* Model */,
 				0FA8355B18EB70A4003C8687 /* GRTAppDelegate.h */,
 				0FA8355C18EB70A4003C8687 /* GRTAppDelegate.m */,
 				0FA8357F18EB70FD003C8687 /* Main.storyboard */,
@@ -309,10 +363,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				55912DB218EC54360069FEEC /* GRTMainTableViewCell.m in Sources */,
+				0F1AFFD518EC58ED006BB25B /* User.m in Sources */,
+				0F1AFFDB18EC5928006BB25B /* Section.m in Sources */,
+				0F1AFFE418EC5CAF006BB25B /* Post+Methods.m in Sources */,
 				0FA8356018EB70A4003C8687 /* Greatist_Message_Publisher.xcdatamodeld in Sources */,
+				0F1AFF9C18EC4981006BB25B /* GRTDataStore.m in Sources */,
+				0F1AFFD818EC58ED006BB25B /* Response.m in Sources */,
 				0FA8355D18EB70A4003C8687 /* GRTAppDelegate.m in Sources */,
+				0F1AFFE718EC5D49006BB25B /* Response+Methods.m in Sources */,
+				0F1AFFDE18EC5A29006BB25B /* Section+Methods.m in Sources */,
+				0F1AFFE118EC5BF1006BB25B /* User+Methods.m in Sources */,
 				0FA8355918EB70A4003C8687 /* main.m in Sources */,
 				55912DB518EC5AED0069FEEC /* GRTMainViewController.m in Sources */,
+				0F1AFFD218EC58ED006BB25B /* Post.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
