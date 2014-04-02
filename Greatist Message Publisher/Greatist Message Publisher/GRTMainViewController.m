@@ -10,6 +10,9 @@
 
 @interface GRTMainViewController ()
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *composePostButton;
+- (IBAction)composePostButtonTapped:(id)sender;
+
 @end
 
 @implementation GRTMainViewController
@@ -26,6 +29,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    FAKFontAwesome *composePostIcon = [FAKFontAwesome pencilSquareOIconWithSize:25];
+    [composePostIcon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
+    UIImage *composePostImage = [composePostIcon imageWithSize:CGSizeMake(30, 30)];
+    composePostIcon.iconFontSize = 25;
+   
+    [self.composePostButton setImage:composePostImage];
+    
     // Do any additional setup after loading the view.
 }
 
@@ -46,4 +56,8 @@
 }
 */
 
+
+- (IBAction)composePostButtonTapped:(id)sender {
+
+}
 @end
