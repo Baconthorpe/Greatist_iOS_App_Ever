@@ -38,6 +38,13 @@
     return newPost;
 }
 
+- (NSInteger) countOfResponsesWithContent: (NSString *)responseContent
+{
+    NSPredicate *preciseContentSearch = [NSPredicate predicateWithFormat:@"content==%@",responseContent];
+    NSSet *setOfMatches = [self.responses filteredSetUsingPredicate:preciseContentSearch];
+    
+    return [setOfMatches count];
+}
 
 
 @end

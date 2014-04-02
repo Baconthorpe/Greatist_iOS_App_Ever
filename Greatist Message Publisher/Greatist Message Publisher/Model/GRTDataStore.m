@@ -7,12 +7,45 @@
 //
 
 #import "GRTDataStore.h"
+#import "User+Methods.h"
+#import "Post+Methods.h"
+#import "Response+Methods.h"
+#import "Section+Methods.h"
+
+@interface GRTDataStore ()
+
+@property (strong, nonatomic) NSFetchedResultsController *postFRController;
+
+@end
 
 @implementation GRTDataStore
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+
+#pragma mark - Lazy Instantiation
+
+- (NSFetchedResultsController *) postFRController
+{
+    if (!_postFRController)
+    {
+        NSFetchRequest *postFetch = [[NSFetchRequest alloc] initWithEntityName:@"Post"];
+        postFetch.fetchBatchSize = 20;
+        
+        NSSortDescriptor *postDate = [[NSSortDescriptor alloc] initWithKey:@"timeStamp" ascending:NO];
+        postFetch.sortDescriptors = @[postDate];
+        
+        [NSFetchedResultsController deleteCacheWithName:@"postCache"];
+        _postFRController = [[NSFetchedResultsController alloc] initWithFetchRequest:postFetch managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"postCache"];
+        
+        [_postFRController performFetch:nil];
+    }
+    
+    return _postFRController;
+}
+
+#pragma mark - Singleton Method
 
 + (instancetype) sharedDataStore
 {
@@ -120,6 +153,18 @@
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
+#pragma mark - Basic Fetches
+
+- (User *) retrieveUserByUniqueID: (NSString *)uniqueID
+{
+    NSFetchRequest *userFetch = [NSFetchRequest fetchRequestWithEntityName:@"User"];
+    NSSortDescriptor *usersAlphabetical = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    userFetch.sortDescriptors = @[usersAlphabetical];
+    NSPredicate *uniqueIDPredicate = [NSPredicate predicateWithFormat:@"uniqueID==%@",uniqueID];
+    userFetch.predicate = uniqueIDPredicate;
+    
+    return [self.managedObjectContext executeFetchRequest:userFetch error:nil][0];
+}
 
 
 @end

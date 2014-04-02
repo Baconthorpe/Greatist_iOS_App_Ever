@@ -19,4 +19,6 @@
 + (instancetype) postWithContent: (NSString *)content
                        inContext: (NSManagedObjectContext *)context;
 
+- (NSInteger) countOfResponsesWithContent: (NSString *)responseContent;
+
 @end
