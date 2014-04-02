@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0F1AFFED18ECAABE006BB25B /* GRTImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1AFFEC18ECAABE006BB25B /* GRTImporter.m */; };
+		0F1AFFF018ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0F1AFFEE18ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodeld */; };
 		0FA8354B18EB70A4003C8687 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA8354A18EB70A3003C8687 /* Foundation.framework */; };
 		0FA8354D18EB70A4003C8687 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA8354C18EB70A4003C8687 /* CoreGraphics.framework */; };
 		0FA8354F18EB70A4003C8687 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA8354E18EB70A4003C8687 /* UIKit.framework */; };
@@ -53,6 +54,7 @@
 /* Begin PBXFileReference section */
 		0F1AFFEB18ECAABE006BB25B /* GRTImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTImporter.h; sourceTree = "<group>"; };
 		0F1AFFEC18ECAABE006BB25B /* GRTImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTImporter.m; sourceTree = "<group>"; };
+		0F1AFFEF18ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Greatist_Message_Publisher.xcdatamodel; sourceTree = "<group>"; };
 		0FA8354718EB70A3003C8687 /* Greatist Message Publisher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Greatist Message Publisher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FA8354A18EB70A3003C8687 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0FA8354C18EB70A4003C8687 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -224,6 +226,7 @@
 		55912DDB18EC86840069FEEC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0F1AFFEE18ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodeld */,
 				55912DDC18EC86840069FEEC /* GRTDataStore.h */,
 				55912DDD18EC86840069FEEC /* GRTDataStore.m */,
 				0F1AFFEB18ECAABE006BB25B /* GRTImporter.h */,
@@ -385,6 +388,7 @@
 				55912DBD18EC68E50069FEEC /* GRTComposePostViewController.m in Sources */,
 				55912DF218EC86840069FEEC /* Response.m in Sources */,
 				55912DF518EC86840069FEEC /* User+Methods.m in Sources */,
+				0F1AFFF018ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodeld in Sources */,
 				55912DF118EC86840069FEEC /* Response+Methods.m in Sources */,
 				55912DF618EC86840069FEEC /* User.m in Sources */,
 				55912DF418EC86840069FEEC /* Section.m in Sources */,
@@ -607,6 +611,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0F1AFFEE18ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0F1AFFEF18ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodel */,
+			);
+			currentVersion = 0F1AFFEF18ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodel */;
+			path = Greatist_Message_Publisher.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0FA8353F18EB70A3003C8687 /* Project object */;
 }
