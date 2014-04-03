@@ -8,8 +8,10 @@
 
 #import "GRTMainViewController.h"
 #import "GRTDataStore.h"
-#import "GRTMainTableViewCell.h"
+//#import "GRTtableViewCell.h"
 #import "Post+Methods.h"
+#import "GRTPostTableViewCell.h"
+#import "GRTtableViewCell.h"
 
 @interface GRTMainViewController ()
 
@@ -35,6 +37,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.postsTableView registerNib:[UINib nibWithNibName:@"GRTTableViewCell" bundle:nil] forCellReuseIdentifier:@"postCell"];
     
     self.dataStore = [GRTDataStore sharedDataStore];
     
@@ -53,6 +56,8 @@
     UIImage *composePostImage = [composePostIcon imageWithSize:CGSizeMake(30, 30)];
     composePostIcon.iconFontSize = 25;
     
+
+    
    
     [self.composePostButton setImage:composePostImage];
     
@@ -67,10 +72,17 @@
 
 #pragma mark - Table View Methods
 
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 150;
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    GRTMainTableViewCell *cell = [self configureCellForMainTableViewWithIndexPath:indexPath];
-    
+    GRTPostTableViewCell *cell = [self configureCellForMainTableViewWithIndexPath:indexPath];
+    Post *post = [self.dataStore.postFRController objectAtIndexPath:indexPath];
+    [cell configureWithPost:post];
+//    cell.postLabel.text= @"random string";
     return cell;
 }
 
@@ -82,6 +94,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [self.dataStore.postFRController.sections[section] numberOfObjects];
+    //return 20;
 }
 
 /*
@@ -97,7 +110,6 @@
 
 #pragma mark - FetchedResultsController Methods
 
-#warning These methods are not complete - complete them once this view controller's table view is referenced as an outlet
 
 - (void)controller:(NSFetchedResultsController *)controller
   didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
@@ -160,11 +172,12 @@
 
 #pragma mark - Cell Methods
 
-- (GRTMainTableViewCell *) configureCellForMainTableViewWithIndexPath: (NSIndexPath *)indexPath
+- (GRTPostTableViewCell *) configureCellForMainTableViewWithIndexPath: (NSIndexPath *)indexPath
 {
-    GRTMainTableViewCell *cell = [self.postsTableView dequeueReusableCellWithIdentifier:@"postCell" forIndexPath:indexPath];
+    GRTPostTableViewCell *cell = [self.postsTableView dequeueReusableCellWithIdentifier:@"postCell"];
     Post *post = [self.dataStore.postFRController objectAtIndexPath:indexPath];
     [cell configureWithPost:post];
+//    cell.postLabel.text= @"random string";
     
     return cell;
 }
