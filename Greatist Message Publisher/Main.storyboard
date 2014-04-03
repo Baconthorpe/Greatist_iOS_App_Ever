@@ -48,16 +48,16 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="oaO-DQ-wEw"/>
                                 </items>
                             </toolbar>
-                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o6F-5r-EyK">
-                                <rect key="frame" x="0.0" y="60" width="320" height="49"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <items>
-                                    <tabBarItem title="Fitness" id="ccO-YO-ZBD"/>
-                                    <tabBarItem title="Health" id="Ucu-26-aSt"/>
-                                    <tabBarItem title="Happiness" id="LKJ-Fh-1Lx"/>
-                                </items>
-                            </tabBar>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="egE-d9-qup">
+                                <rect key="frame" x="0.0" y="64" width="320" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8fc-xP-PtR">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="14"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>

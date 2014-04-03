@@ -25,6 +25,7 @@
 		0FA8357618EB70A4003C8687 /* Greatist_Message_PublisherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA8357518EB70A4003C8687 /* Greatist_Message_PublisherTests.m */; };
 		0FA8358018EB70FD003C8687 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FA8357F18EB70FD003C8687 /* Main.storyboard */; };
 		388D5989D77F4F8992BFE80F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2782B750FC4349E3AB0AFCDF /* libPods.a */; };
+		550D3D3C18EDC2A0009A9406 /* navbarLogo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 550D3D3B18EDC2A0009A9406 /* navbarLogo.xib */; };
 		55912DB218EC54360069FEEC /* GRTMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DB118EC54360069FEEC /* GRTMainTableViewCell.m */; };
 		55912DB518EC5AED0069FEEC /* GRTMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DB418EC5AED0069FEEC /* GRTMainViewController.m */; };
 		55912DBA18EC68B00069FEEC /* GRTPostDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DB918EC68B00069FEEC /* GRTPostDetailViewController.m */; };
@@ -103,6 +104,7 @@
 		0FA8357518EB70A4003C8687 /* Greatist_Message_PublisherTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Greatist_Message_PublisherTests.m; sourceTree = "<group>"; };
 		0FA8357F18EB70FD003C8687 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
 		2782B750FC4349E3AB0AFCDF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		550D3D3B18EDC2A0009A9406 /* navbarLogo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = navbarLogo.xib; sourceTree = "<group>"; };
 		55912DB018EC54360069FEEC /* GRTMainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTMainTableViewCell.h; sourceTree = "<group>"; };
 		55912DB118EC54360069FEEC /* GRTMainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTMainTableViewCell.m; sourceTree = "<group>"; };
 		55912DB318EC5AED0069FEEC /* GRTMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTMainViewController.h; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 				55912DB918EC68B00069FEEC /* GRTPostDetailViewController.m */,
 				55912DBB18EC68E50069FEEC /* GRTComposePostViewController.h */,
 				55912DBC18EC68E50069FEEC /* GRTComposePostViewController.m */,
+				550D3D3B18EDC2A0009A9406 /* navbarLogo.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -520,6 +523,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				550D3D3C18EDC2A0009A9406 /* navbarLogo.xib in Resources */,
 				87674FDF18EDAF0500231453 /* Grow_Colored.png in Resources */,
 				87674FCE18EDAF0500231453 /* Discover_Gray.png in Resources */,
 				87674FE918EDAF0500231453 /* Move_Colored.png in Resources */,
