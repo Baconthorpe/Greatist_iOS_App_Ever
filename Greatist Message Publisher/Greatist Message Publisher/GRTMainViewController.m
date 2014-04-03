@@ -95,6 +95,7 @@
 //        case NSFetchedResultsChangeDelete:
 //            [self.foodTable deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
 //            break;
+//    }
 }
 
 - (void)controller:(NSFetchedResultsController *)controller
