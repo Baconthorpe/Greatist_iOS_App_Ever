@@ -1,8 +1,8 @@
 //
-//  GRTMainTableViewCell.h
+//  GRTPostTableViewCell.h
 //  Greatist Message Publisher
 //
-//  Created by Elizabeth Choy on 4/2/14.
+//  Created by Anne Lindsley on 4/3/14.
 //  Copyright (c) 2014 Ezekiel Abuhoff. All rights reserved.
 //
 
@@ -10,8 +10,9 @@
 
 @class Post;
 
-@interface GRTMainTableViewCell : UITableViewCell
+@interface GRTPostTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *postLabel;
 @property (strong, nonatomic) Post *post;
 
 + (instancetype) cellConfiguredWithPost: (Post *)post;
