@@ -76,6 +76,7 @@
 		87674FFA18EDAF0500231453 /* Play_White.png in Resources */ = {isa = PBXBuildFile; fileRef = 87674FBE18EDAF0500231453 /* Play_White.png */; };
 		8767500F18EE124300231453 /* UIImage+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 8767500E18EE124300231453 /* UIImage+Helpers.m */; };
 		8767501118EE13C100231453 /* Greatist_Logo_Badge_Blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 8767501018EE13C100231453 /* Greatist_Logo_Badge_Blue.png */; };
+		8767501418EE1E8D00231453 /* UIColor+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 8767501318EE1E8D00231453 /* UIColor+Helpers.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -178,6 +179,8 @@
 		8767500D18EE124300231453 /* UIImage+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Helpers.h"; path = "Model/UIImage+Helpers.h"; sourceTree = "<group>"; };
 		8767500E18EE124300231453 /* UIImage+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Helpers.m"; path = "Model/UIImage+Helpers.m"; sourceTree = "<group>"; };
 		8767501018EE13C100231453 /* Greatist_Logo_Badge_Blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Greatist_Logo_Badge_Blue.png; sourceTree = "<group>"; };
+		8767501218EE1E8D00231453 /* UIColor+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Helpers.h"; sourceTree = "<group>"; };
+		8767501318EE1E8D00231453 /* UIColor+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Helpers.m"; sourceTree = "<group>"; };
 		FDF4DEBDD8B24F48886FE495 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -460,6 +463,8 @@
 		87674FFB18EDB19400231453 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8767501218EE1E8D00231453 /* UIColor+Helpers.h */,
+				8767501318EE1E8D00231453 /* UIColor+Helpers.m */,
 				8767500D18EE124300231453 /* UIImage+Helpers.h */,
 				8767500E18EE124300231453 /* UIImage+Helpers.m */,
 				55912DB018EC54360069FEEC /* GRTtableViewCell.h */,
@@ -659,6 +664,7 @@
 				0FA8355918EB70A4003C8687 /* main.m in Sources */,
 				55912DEF18EC86840069FEEC /* Post+Methods.m in Sources */,
 				55912DB518EC5AED0069FEEC /* GRTMainViewController.m in Sources */,
+				8767501418EE1E8D00231453 /* UIColor+Helpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

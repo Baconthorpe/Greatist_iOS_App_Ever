@@ -16,4 +16,5 @@
     #import <CoreData/CoreData.h>
     #import <FontAwesomeKit/FontAwesomeKit.h>
     #import "UIImage+Helpers.h"
+    #import "UIColor+Helpers.h"
 #endif
