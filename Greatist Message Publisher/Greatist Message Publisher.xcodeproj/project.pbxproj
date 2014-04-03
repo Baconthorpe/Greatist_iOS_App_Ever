@@ -27,7 +27,6 @@
 		0FA8358018EB70FD003C8687 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FA8357F18EB70FD003C8687 /* Main.storyboard */; };
 		388D5989D77F4F8992BFE80F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2782B750FC4349E3AB0AFCDF /* libPods.a */; };
 		550D3D3C18EDC2A0009A9406 /* navbarLogo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 550D3D3B18EDC2A0009A9406 /* navbarLogo.xib */; };
-		55912DB218EC54360069FEEC /* GRTMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DB118EC54360069FEEC /* GRTMainTableViewCell.m */; };
 		55912DB518EC5AED0069FEEC /* GRTMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DB418EC5AED0069FEEC /* GRTMainViewController.m */; };
 		55912DBA18EC68B00069FEEC /* GRTPostDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DB918EC68B00069FEEC /* GRTPostDetailViewController.m */; };
 		55912DBD18EC68E50069FEEC /* GRTComposePostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DBC18EC68E50069FEEC /* GRTComposePostViewController.m */; };
@@ -107,8 +106,8 @@
 		0FA8357F18EB70FD003C8687 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
 		2782B750FC4349E3AB0AFCDF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		550D3D3B18EDC2A0009A9406 /* navbarLogo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = navbarLogo.xib; sourceTree = "<group>"; };
-		55912DB018EC54360069FEEC /* GRTMainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTMainTableViewCell.h; sourceTree = "<group>"; };
-		55912DB118EC54360069FEEC /* GRTMainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTMainTableViewCell.m; sourceTree = "<group>"; };
+		55912DB018EC54360069FEEC /* GRTMainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GRTMainTableViewCell.h; path = "/Users/eabuhoff/Flatiron/Greatist_iOS_App_Ever/Greatist Message Publisher/Greatist Message Publisher/GRTMainTableViewCell.h"; sourceTree = "<absolute>"; };
+		55912DB118EC54360069FEEC /* GRTMainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GRTMainTableViewCell.m; path = "/Users/eabuhoff/Flatiron/Greatist_iOS_App_Ever/Greatist Message Publisher/Greatist Message Publisher/GRTMainTableViewCell.m"; sourceTree = "<absolute>"; };
 		55912DB318EC5AED0069FEEC /* GRTMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTMainViewController.h; sourceTree = "<group>"; };
 		55912DB418EC5AED0069FEEC /* GRTMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTMainViewController.m; sourceTree = "<group>"; };
 		55912DB818EC68B00069FEEC /* GRTPostDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTPostDetailViewController.h; sourceTree = "<group>"; };
@@ -275,9 +274,6 @@
 			children = (
 				55912DB318EC5AED0069FEEC /* GRTMainViewController.h */,
 				55912DB418EC5AED0069FEEC /* GRTMainViewController.m */,
-				55912DB018EC54360069FEEC /* GRTMainTableViewCell.h */,
-				55912DB118EC54360069FEEC /* GRTMainTableViewCell.m */,
-				0F3012DB18EDB411008A4FCB /* GRTTableViewCell.xib */,
 				55912DB818EC68B00069FEEC /* GRTPostDetailViewController.h */,
 				55912DB918EC68B00069FEEC /* GRTPostDetailViewController.m */,
 				55912DBB18EC68E50069FEEC /* GRTComposePostViewController.h */,
@@ -445,6 +441,7 @@
 			children = (
 				55912DB018EC54360069FEEC /* GRTMainTableViewCell.h */,
 				55912DB118EC54360069FEEC /* GRTMainTableViewCell.m */,
+				0F3012DB18EDB411008A4FCB /* GRTTableViewCell.xib */,
 				0FA8357F18EB70FD003C8687 /* Main.storyboard */,
 			);
 			name = Views;
@@ -624,7 +621,6 @@
 				55912DF418EC86840069FEEC /* Section.m in Sources */,
 				0F1AFFED18ECAABE006BB25B /* GRTImporter.m in Sources */,
 				55912DEE18EC86840069FEEC /* GRTDataStore.m in Sources */,
-				55912DB218EC54360069FEEC /* GRTMainTableViewCell.m in Sources */,
 				0FA8355D18EB70A4003C8687 /* GRTAppDelegate.m in Sources */,
 				55912DF018EC86840069FEEC /* Post.m in Sources */,
 				55912DBA18EC68B00069FEEC /* GRTPostDetailViewController.m in Sources */,
