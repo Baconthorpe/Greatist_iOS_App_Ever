@@ -11,6 +11,10 @@
 		03A2662518EDFD11002790AB /* GRTPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A2662418EDFD11002790AB /* GRTPostTableViewCell.m */; };
 		0F1AFFED18ECAABE006BB25B /* GRTImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1AFFEC18ECAABE006BB25B /* GRTImporter.m */; };
 		0F1AFFF018ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0F1AFFEE18ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodeld */; };
+		0F30132A18EE0F2D008A4FCB /* Eat_Colored60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F30132918EE0F2D008A4FCB /* Eat_Colored60x60.png */; };
+		0F30132C18EE0F77008A4FCB /* Grow_Colored60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F30132B18EE0F77008A4FCB /* Grow_Colored60x60.png */; };
+		0F30132E18EE0F80008A4FCB /* Move_Colored60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F30132D18EE0F80008A4FCB /* Move_Colored60x60.png */; };
+		0F30133018EE0FB6008A4FCB /* Play_Colored60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F30132F18EE0FB6008A4FCB /* Play_Colored60x60.png */; };
 		0FA8354B18EB70A4003C8687 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA8354A18EB70A3003C8687 /* Foundation.framework */; };
 		0FA8354D18EB70A4003C8687 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA8354C18EB70A4003C8687 /* CoreGraphics.framework */; };
 		0FA8354F18EB70A4003C8687 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA8354E18EB70A4003C8687 /* UIKit.framework */; };
@@ -89,6 +93,10 @@
 		0F1AFFEB18ECAABE006BB25B /* GRTImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTImporter.h; sourceTree = "<group>"; };
 		0F1AFFEC18ECAABE006BB25B /* GRTImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTImporter.m; sourceTree = "<group>"; };
 		0F1AFFEF18ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Greatist_Message_Publisher.xcdatamodel; sourceTree = "<group>"; };
+		0F30132918EE0F2D008A4FCB /* Eat_Colored60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Eat_Colored60x60.png; path = Colored/Eat_Colored60x60.png; sourceTree = "<group>"; };
+		0F30132B18EE0F77008A4FCB /* Grow_Colored60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Grow_Colored60x60.png; path = Colored/Grow_Colored60x60.png; sourceTree = "<group>"; };
+		0F30132D18EE0F80008A4FCB /* Move_Colored60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Move_Colored60x60.png; path = Colored/Move_Colored60x60.png; sourceTree = "<group>"; };
+		0F30132F18EE0FB6008A4FCB /* Play_Colored60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Play_Colored60x60.png; path = Colored/Play_Colored60x60.png; sourceTree = "<group>"; };
 		0FA8354718EB70A3003C8687 /* Greatist Message Publisher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Greatist Message Publisher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FA8354A18EB70A3003C8687 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0FA8354C18EB70A4003C8687 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -402,6 +410,7 @@
 		87674F8718EDAF0500231453 /* Eat */ = {
 			isa = PBXGroup;
 			children = (
+				0F30132918EE0F2D008A4FCB /* Eat_Colored60x60.png */,
 				87674F8B18EDAF0500231453 /* Eat_Colored.png */,
 				87674F8F18EDAF0500231453 /* Eat_Gray.png */,
 				87674F9418EDAF0500231453 /* Eat_White.png */,
@@ -412,6 +421,7 @@
 		87674F9518EDAF0500231453 /* Grow */ = {
 			isa = PBXGroup;
 			children = (
+				0F30132B18EE0F77008A4FCB /* Grow_Colored60x60.png */,
 				87674F9918EDAF0500231453 /* Grow_Colored.png */,
 				87674F9D18EDAF0500231453 /* Grow_Gray.png */,
 				87674FA218EDAF0500231453 /* Grow_White.png */,
@@ -422,6 +432,7 @@
 		87674FA318EDAF0500231453 /* Move */ = {
 			isa = PBXGroup;
 			children = (
+				0F30132D18EE0F80008A4FCB /* Move_Colored60x60.png */,
 				87674FA718EDAF0500231453 /* Move_Colored.png */,
 				87674FAB18EDAF0500231453 /* Move_Gray.png */,
 				87674FAF18EDAF0500231453 /* Move_White.png */,
@@ -432,6 +443,7 @@
 		87674FB118EDAF0500231453 /* Play */ = {
 			isa = PBXGroup;
 			children = (
+				0F30132F18EE0FB6008A4FCB /* Play_Colored60x60.png */,
 				87674FB518EDAF0500231453 /* Play_Colored.png */,
 				87674FB918EDAF0500231453 /* Play_Gray.png */,
 				87674FBE18EDAF0500231453 /* Play_White.png */,
@@ -534,8 +546,10 @@
 				87674FDF18EDAF0500231453 /* Grow_Colored.png in Resources */,
 				87674FCE18EDAF0500231453 /* Discover_Gray.png in Resources */,
 				87674FE918EDAF0500231453 /* Move_Colored.png in Resources */,
+				0F30132A18EE0F2D008A4FCB /* Eat_Colored60x60.png in Resources */,
 				03A2662218EDFABF002790AB /* GRTTableViewCell.xib in Resources */,
 				87674FCB18EDAF0500231453 /* Discover_Colored.png in Resources */,
+				0F30132C18EE0F77008A4FCB /* Grow_Colored60x60.png in Resources */,
 				0FA8358018EB70FD003C8687 /* Main.storyboard in Resources */,
 				87674FF318EDAF0500231453 /* Play_Colored.png in Resources */,
 				87674FD218EDAF0500231453 /* Discover_White.png in Resources */,
@@ -551,6 +565,7 @@
 				87674FC118EDAF0500231453 /* Connect_Colored.png in Resources */,
 				87674FE618EDAF0500231453 /* Grow_White.png in Resources */,
 				87674F6518ECB64A00231453 /* ArcherPro-Semibold.otf in Resources */,
+				0F30133018EE0FB6008A4FCB /* Play_Colored60x60.png in Resources */,
 				55912DF818ECB9510069FEEC /* Greatist_Logo_small.png in Resources */,
 				87674F6418ECB64A00231453 /* ArcherPro-Medium.otf in Resources */,
 				87674FEF18EDAF0500231453 /* Move_White.png in Resources */,
@@ -562,6 +577,7 @@
 				87674F6718ECB64A00231453 /* DINOT-Bold.otf in Resources */,
 				87674F6218ECB64A00231453 /* ArcherPro-BookItalic.otf in Resources */,
 				87674F6018ECB64A00231453 /* ArcherPro-Bold.otf in Resources */,
+				0F30132E18EE0F80008A4FCB /* Move_Colored60x60.png in Resources */,
 				55912DFA18ECBA390069FEEC /* Greatist_Logo86x50.png in Resources */,
 				87674FC418EDAF0500231453 /* Connect_Gray.png in Resources */,
 				87674FC818EDAF0500231453 /* Connect_White.png in Resources */,
