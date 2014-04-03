@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GRTMainViewController : UIViewController
+@interface GRTMainViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate>
 
 @end
