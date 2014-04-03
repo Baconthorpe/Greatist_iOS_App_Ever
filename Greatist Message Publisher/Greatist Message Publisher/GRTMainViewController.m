@@ -8,6 +8,8 @@
 
 #import "GRTMainViewController.h"
 #import "GRTDataStore.h"
+#import "GRTMainTableViewCell.h"
+#import "Post+Methods.h"
 
 @interface GRTMainViewController ()
 
@@ -35,6 +37,10 @@
     [super viewDidLoad];
     
     self.dataStore = [GRTDataStore sharedDataStore];
+    
+    self.postsTableView.delegate = self;
+    self.postsTableView.dataSource = self;
+    self.dataStore.postFRController.delegate = self;
  
     UIImageView *greatistLogo = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"Greatist_Logo86x50.png"]];
     [self.navigationController.navigationBar.topItem setTitleView:greatistLogo];
@@ -63,17 +69,19 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return nil;
+    GRTMainTableViewCell *cell = [self configureCellForMainTableViewWithIndexPath:indexPath];
+    
+    return cell;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return [self.dataStore.postFRController.sections count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return [self.dataStore.postFRController.sections[section] numberOfObjects];
 }
 
 /*
@@ -95,15 +103,15 @@
   didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
            atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
 {
-//    switch(type) {
-//        case NSFetchedResultsChangeInsert:
-//            [self.foodTable insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
-//            break;
-//            
-//        case NSFetchedResultsChangeDelete:
-//            [self.foodTable deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
-//            break;
-//    }
+    switch(type) {
+        case NSFetchedResultsChangeInsert:
+            [self.postsTableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [self.postsTableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
 }
 
 - (void)controller:(NSFetchedResultsController *)controller
@@ -112,36 +120,36 @@
      forChangeType:(NSFetchedResultsChangeType)type
       newIndexPath:(NSIndexPath *)newIndexPath
 {
-//    UITableView *tableView = self.foodTable;
-//    
-//    switch(type) {
-//            
-//        case NSFetchedResultsChangeInsert:
-//            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
-//                             withRowAnimation:UITableViewRowAnimationFade];
-//            break;
-//            
-//        case NSFetchedResultsChangeDelete:
-//            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-//                             withRowAnimation:UITableViewRowAnimationFade];
-//            break;
-//            
-//        case NSFetchedResultsChangeUpdate:
-//            [self configureFoodCellAtIndexPath:indexPath];
-//            break;
-//            
-//        case NSFetchedResultsChangeMove:
-//            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-//                             withRowAnimation:UITableViewRowAnimationFade];
-//            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
-//                             withRowAnimation:UITableViewRowAnimationFade];
-//            break;
-//    }
+    UITableView *tableView = self.postsTableView;
+    
+    switch(type) {
+            
+        case NSFetchedResultsChangeInsert:
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeUpdate:
+            [self configureCellForMainTableViewWithIndexPath:indexPath];
+            break;
+            
+        case NSFetchedResultsChangeMove:
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
 }
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
-//    [self.foodTable endUpdates];
+    [self.postsTableView endUpdates];
 }
 
 #pragma mark - Button Methods
@@ -149,4 +157,16 @@
 - (IBAction)composePostButtonTapped:(id)sender {
 
 }
+
+#pragma mark - Cell Methods
+
+- (GRTMainTableViewCell *) configureCellForMainTableViewWithIndexPath: (NSIndexPath *)indexPath
+{
+    GRTMainTableViewCell *cell = [self.postsTableView dequeueReusableCellWithIdentifier:@"postCell" forIndexPath:indexPath];
+    Post *post = [self.dataStore.postFRController objectAtIndexPath:indexPath];
+    [cell configureWithPost:post];
+    
+    return cell;
+}
+
 @end

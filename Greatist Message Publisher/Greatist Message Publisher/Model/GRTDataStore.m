@@ -14,7 +14,7 @@
 
 @interface GRTDataStore ()
 
-@property (strong, nonatomic) NSFetchedResultsController *postFRController;
+
 
 @end
 
