@@ -29,6 +29,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+ 
+    UIImageView *greatistLogo = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"Greatist_Logo86x50.png"]];
+    [self.navigationController.navigationBar.topItem setTitleView:greatistLogo];
+
+//    [self.navigationController.navigationBar setTintColor:[UIColor blueColor]]; 
+//    //self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:65/255.0 green:64/255.0 blue:66/255.0 alpha:1.0];
+//    self.navigationController.toolbar.tintColor = [UIColor colorWithRed:65/255.0 green:64/255.0 blue:66/255.0 alpha:1.0];
+   
+    
     FAKFontAwesome *composePostIcon = [FAKFontAwesome pencilSquareOIconWithSize:25];
     [composePostIcon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
     UIImage *composePostImage = [composePostIcon imageWithSize:CGSizeMake(30, 30)];

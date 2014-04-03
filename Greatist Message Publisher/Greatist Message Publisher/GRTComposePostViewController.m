@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextView *postContentTextView;
 @property (weak, nonatomic) IBOutlet UIView *postView;
+- (IBAction)backButtonTapped:(id)sender;
 
 @end
 
@@ -29,6 +30,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:65/255.0 green:64/255.0 blue:66/255.0 alpha:1.0];
+    self.navigationController.toolbar.backgroundColor = [UIColor colorWithRed:65/255.0 green:64/255.0 blue:66/255.0 alpha:1.0];
+    
     self.postContentTextView.delegate = self;
     [self.postContentTextView setTextColor:[UIColor lightGrayColor]];
     [[self.postContentTextView layer] setBorderColor:[[UIColor lightGrayColor] CGColor]];
@@ -63,4 +68,7 @@
     [textView setText:@""];
 }
 
+- (IBAction)backButtonTapped:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end

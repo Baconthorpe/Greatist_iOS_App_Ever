@@ -38,6 +38,8 @@
 		55912DF418EC86840069FEEC /* Section.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DE918EC86840069FEEC /* Section.m */; };
 		55912DF518EC86840069FEEC /* User+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DEB18EC86840069FEEC /* User+Methods.m */; };
 		55912DF618EC86840069FEEC /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DED18EC86840069FEEC /* User.m */; };
+		55912DF818ECB9510069FEEC /* Greatist_Logo_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 55912DF718ECB9510069FEEC /* Greatist_Logo_small.png */; };
+		55912DFA18ECBA390069FEEC /* Greatist_Logo86x50.png in Resources */ = {isa = PBXBuildFile; fileRef = 55912DF918ECBA390069FEEC /* Greatist_Logo86x50.png */; };
 		87674F6018ECB64A00231453 /* ArcherPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 87674F5418ECB64A00231453 /* ArcherPro-Bold.otf */; };
 		87674F6118ECB64A00231453 /* ArcherPro-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 87674F5518ECB64A00231453 /* ArcherPro-BoldItalic.otf */; };
 		87674F6218ECB64A00231453 /* ArcherPro-BookItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 87674F5618ECB64A00231453 /* ArcherPro-BookItalic.otf */; };
@@ -109,6 +111,8 @@
 		55912DEB18EC86840069FEEC /* User+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+Methods.m"; sourceTree = "<group>"; };
 		55912DEC18EC86840069FEEC /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		55912DED18EC86840069FEEC /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		55912DF718ECB9510069FEEC /* Greatist_Logo_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Greatist_Logo_small.png; sourceTree = "<group>"; };
+		55912DF918ECBA390069FEEC /* Greatist_Logo86x50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Greatist_Logo86x50.png; sourceTree = "<group>"; };
 		87674F5418ECB64A00231453 /* ArcherPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ArcherPro-Bold.otf"; sourceTree = "<group>"; };
 		87674F5518ECB64A00231453 /* ArcherPro-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ArcherPro-BoldItalic.otf"; sourceTree = "<group>"; };
 		87674F5618ECB64A00231453 /* ArcherPro-BookItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ArcherPro-BookItalic.otf"; sourceTree = "<group>"; };
@@ -314,6 +318,8 @@
 			isa = PBXGroup;
 			children = (
 				87674F5F18ECB64A00231453 /* Greatist_Logo.png */,
+				55912DF718ECB9510069FEEC /* Greatist_Logo_small.png */,
+				55912DF918ECBA390069FEEC /* Greatist_Logo86x50.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -403,12 +409,14 @@
 				0FA8356218EB70A4003C8687 /* Images.xcassets in Resources */,
 				87674F6818ECB64A00231453 /* DINOT-Medium.otf in Resources */,
 				87674F6518ECB64A00231453 /* ArcherPro-Semibold.otf in Resources */,
+				55912DF818ECB9510069FEEC /* Greatist_Logo_small.png in Resources */,
 				87674F6418ECB64A00231453 /* ArcherPro-Medium.otf in Resources */,
 				87674F6918ECB64A00231453 /* Greatist_Logo.png in Resources */,
 				87674F6318ECB64A00231453 /* ArcherPro-Light.otf in Resources */,
 				87674F6718ECB64A00231453 /* DINOT-Bold.otf in Resources */,
 				87674F6218ECB64A00231453 /* ArcherPro-BookItalic.otf in Resources */,
 				87674F6018ECB64A00231453 /* ArcherPro-Bold.otf in Resources */,
+				55912DFA18ECBA390069FEEC /* Greatist_Logo86x50.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
