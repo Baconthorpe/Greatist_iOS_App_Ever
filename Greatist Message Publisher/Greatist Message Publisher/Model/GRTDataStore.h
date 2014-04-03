@@ -17,5 +17,8 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
++ (instancetype) sharedDataStore;
+
+- (void) starterData;
 
 @end

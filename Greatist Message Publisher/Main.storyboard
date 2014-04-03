@@ -16,17 +16,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="greatist_logo_600px.png" translatesAutoresizingMaskIntoConstraints="NO" id="TfS-zK-fz8">
-                                <rect key="frame" x="100" y="0.0" width="100" height="49"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="86" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="UCw-px-WOv">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="UCw-px-WOv">
                                 <rect key="frame" x="0.0" y="109" width="320" height="415"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="86" id="jLw-GT-4Nr" customClass="GRTMainTableViewCell">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="86"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="jLw-GT-4Nr" customClass="GRTMainTableViewCell">
+                                        <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jLw-GT-4Nr" id="oiv-k6-X8r">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="85"/>
@@ -160,24 +156,17 @@
                                             <tabBarItem title="Happiness" id="jh5-a9-wPU"/>
                                         </items>
                                     </tabBar>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gf9-pJ-3nY">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="How do you feel today?" translatesAutoresizingMaskIntoConstraints="NO" id="gf9-pJ-3nY">
                                         <rect key="frame" x="55" y="105" width="211" height="127"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <attributedString key="attributedText">
-                                            <fragment content="How do you feel today?">
-                                                <attributes>
-                                                    <font key="NSFont" size="14" name="HelveticaNeue"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
+                                        <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="light"/>
                                     </textView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="“" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ue-CW-ror">
-                                        <rect key="frame" x="27" y="105" width="33" height="37"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="“   " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ue-CW-ror">
+                                        <rect key="frame" x="27" y="105" width="33" height="47"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -216,8 +205,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="xtm-mL-LnX"/>
                     <connections>
+                        <outlet property="leftQuoteLabel" destination="6ue-CW-ror" id="VLp-Sa-fPS"/>
                         <outlet property="postContentTextView" destination="gf9-pJ-3nY" id="F6Q-XP-mdQ"/>
                         <outlet property="postView" destination="5qo-we-Wmv" id="8If-nJ-Y9Z"/>
+                        <outlet property="rightQuoteLabel" destination="EU6-QT-8ud" id="X32-lI-7su"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XsK-Nh-RO5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -243,9 +234,6 @@
             <point key="canvasLocation" x="165" y="104"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="greatist_logo_600px.png" width="600" height="295"/>
-    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

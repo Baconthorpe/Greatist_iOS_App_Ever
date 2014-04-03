@@ -50,6 +50,24 @@
 		87674F6718ECB64A00231453 /* DINOT-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 87674F5C18ECB64A00231453 /* DINOT-Bold.otf */; };
 		87674F6818ECB64A00231453 /* DINOT-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 87674F5D18ECB64A00231453 /* DINOT-Medium.otf */; };
 		87674F6918ECB64A00231453 /* Greatist_Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 87674F5F18ECB64A00231453 /* Greatist_Logo.png */; };
+		87674FC118EDAF0500231453 /* Connect_Colored.png in Resources */ = {isa = PBXBuildFile; fileRef = 87674F6F18EDAF0500231453 /* Connect_Colored.png */; };
+		87674FC418EDAF0500231453 /* Connect_Gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 87674F7318EDAF0500231453 /* Connect_Gray.png */; };
+		87674FC818EDAF0500231453 /* Connect_White.png in Resources */ = {isa = PBXBuildFile; fileRef = 87674F7818EDAF0500231453 /* Connect_White.png */; };
+		87674FCB18EDAF0500231453 /* Discover_Colored.png in Resources */ = {isa = PBXBuildFile; fileRef = 87674F7D18EDAF0500231453 /* Discover_Colored.png */; };
+		87674FCE18EDAF0500231453 /* Discover_Gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 87674F8118EDAF0500231453 /* Discover_Gray.png */; };
+		87674FD218EDAF0500231453 /* Discover_White.png in Resources */ = {isa = PBXBuildFile; fileRef = 87674F8618EDAF0500231453 /* Discover_White.png */; };
+		87674FD518EDAF0500231453 /* Eat_Colored.png in Resources */ = {isa = PBXBuildFile; fileRef = 87674F8B18EDAF0500231453 /* Eat_Colored.png */; };
+		87674FD818EDAF0500231453 /* Eat_Gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 87674F8F18EDAF0500231453 /* Eat_Gray.png */; };
+		87674FDC18EDAF0500231453 /* Eat_White.png in Resources */ = {isa = PBXBuildFile; fileRef = 87674F9418EDAF0500231453 /* Eat_White.png */; };
+		87674FDF18EDAF0500231453 /* Grow_Colored.png in Resources */ = {isa = PBXBuildFile; fileRef = 87674F9918EDAF0500231453 /* Grow_Colored.png */; };
+		87674FE218EDAF0500231453 /* Grow_Gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 87674F9D18EDAF0500231453 /* Grow_Gray.png */; };
+		87674FE618EDAF0500231453 /* Grow_White.png in Resources */ = {isa = PBXBuildFile; fileRef = 87674FA218EDAF0500231453 /* Grow_White.png */; };
+		87674FE918EDAF0500231453 /* Move_Colored.png in Resources */ = {isa = PBXBuildFile; fileRef = 87674FA718EDAF0500231453 /* Move_Colored.png */; };
+		87674FEC18EDAF0500231453 /* Move_Gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 87674FAB18EDAF0500231453 /* Move_Gray.png */; };
+		87674FEF18EDAF0500231453 /* Move_White.png in Resources */ = {isa = PBXBuildFile; fileRef = 87674FAF18EDAF0500231453 /* Move_White.png */; };
+		87674FF318EDAF0500231453 /* Play_Colored.png in Resources */ = {isa = PBXBuildFile; fileRef = 87674FB518EDAF0500231453 /* Play_Colored.png */; };
+		87674FF618EDAF0500231453 /* Play_Gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 87674FB918EDAF0500231453 /* Play_Gray.png */; };
+		87674FFA18EDAF0500231453 /* Play_White.png in Resources */ = {isa = PBXBuildFile; fileRef = 87674FBE18EDAF0500231453 /* Play_White.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +141,24 @@
 		87674F5C18ECB64A00231453 /* DINOT-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINOT-Bold.otf"; sourceTree = "<group>"; };
 		87674F5D18ECB64A00231453 /* DINOT-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINOT-Medium.otf"; sourceTree = "<group>"; };
 		87674F5F18ECB64A00231453 /* Greatist_Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Greatist_Logo.png; sourceTree = "<group>"; };
+		87674F6F18EDAF0500231453 /* Connect_Colored.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Connect_Colored.png; path = Colored/Connect_Colored.png; sourceTree = "<group>"; };
+		87674F7318EDAF0500231453 /* Connect_Gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Connect_Gray.png; path = Gray/Connect_Gray.png; sourceTree = "<group>"; };
+		87674F7818EDAF0500231453 /* Connect_White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Connect_White.png; path = White/Connect_White.png; sourceTree = "<group>"; };
+		87674F7D18EDAF0500231453 /* Discover_Colored.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Discover_Colored.png; path = Colored/Discover_Colored.png; sourceTree = "<group>"; };
+		87674F8118EDAF0500231453 /* Discover_Gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Discover_Gray.png; path = Gray/Discover_Gray.png; sourceTree = "<group>"; };
+		87674F8618EDAF0500231453 /* Discover_White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Discover_White.png; path = White/Discover_White.png; sourceTree = "<group>"; };
+		87674F8B18EDAF0500231453 /* Eat_Colored.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Eat_Colored.png; path = Colored/Eat_Colored.png; sourceTree = "<group>"; };
+		87674F8F18EDAF0500231453 /* Eat_Gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Eat_Gray.png; path = Gray/Eat_Gray.png; sourceTree = "<group>"; };
+		87674F9418EDAF0500231453 /* Eat_White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Eat_White.png; path = White/Eat_White.png; sourceTree = "<group>"; };
+		87674F9918EDAF0500231453 /* Grow_Colored.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Grow_Colored.png; path = Colored/Grow_Colored.png; sourceTree = "<group>"; };
+		87674F9D18EDAF0500231453 /* Grow_Gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Grow_Gray.png; path = Gray/Grow_Gray.png; sourceTree = "<group>"; };
+		87674FA218EDAF0500231453 /* Grow_White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Grow_White.png; path = White/Grow_White.png; sourceTree = "<group>"; };
+		87674FA718EDAF0500231453 /* Move_Colored.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Move_Colored.png; path = Colored/Move_Colored.png; sourceTree = "<group>"; };
+		87674FAB18EDAF0500231453 /* Move_Gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Move_Gray.png; path = Gray/Move_Gray.png; sourceTree = "<group>"; };
+		87674FAF18EDAF0500231453 /* Move_White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Move_White.png; path = White/Move_White.png; sourceTree = "<group>"; };
+		87674FB518EDAF0500231453 /* Play_Colored.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Play_Colored.png; path = Colored/Play_Colored.png; sourceTree = "<group>"; };
+		87674FB918EDAF0500231453 /* Play_Gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Play_Gray.png; path = Gray/Play_Gray.png; sourceTree = "<group>"; };
+		87674FBE18EDAF0500231453 /* Play_White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Play_White.png; path = White/Play_White.png; sourceTree = "<group>"; };
 		FDF4DEBDD8B24F48886FE495 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -191,8 +227,8 @@
 			children = (
 				0FA8355B18EB70A4003C8687 /* GRTAppDelegate.h */,
 				0FA8355C18EB70A4003C8687 /* GRTAppDelegate.m */,
-				0FA8357F18EB70FD003C8687 /* Main.storyboard */,
 				55912DDB18EC86840069FEEC /* Model */,
+				87674FFB18EDB19400231453 /* Views */,
 				55912DDA18EC827B0069FEEC /* Controller */,
 				87674F5118ECB64A00231453 /* Resources */,
 				0FA8356118EB70A4003C8687 /* Images.xcassets */,
@@ -235,8 +271,6 @@
 			children = (
 				55912DB318EC5AED0069FEEC /* GRTMainViewController.h */,
 				55912DB418EC5AED0069FEEC /* GRTMainViewController.m */,
-				55912DB018EC54360069FEEC /* GRTMainTableViewCell.h */,
-				55912DB118EC54360069FEEC /* GRTMainTableViewCell.m */,
 				55912DB818EC68B00069FEEC /* GRTPostDetailViewController.h */,
 				55912DB918EC68B00069FEEC /* GRTPostDetailViewController.m */,
 				55912DBB18EC68E50069FEEC /* GRTComposePostViewController.h */,
@@ -320,8 +354,92 @@
 				87674F5F18ECB64A00231453 /* Greatist_Logo.png */,
 				55912DF718ECB9510069FEEC /* Greatist_Logo_small.png */,
 				55912DF918ECBA390069FEEC /* Greatist_Logo86x50.png */,
+				87674F6A18EDAF0500231453 /* Category Icons */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		87674F6A18EDAF0500231453 /* Category Icons */ = {
+			isa = PBXGroup;
+			children = (
+				87674F6B18EDAF0500231453 /* Connect */,
+				87674F7918EDAF0500231453 /* Discover */,
+				87674F8718EDAF0500231453 /* Eat */,
+				87674F9518EDAF0500231453 /* Grow */,
+				87674FA318EDAF0500231453 /* Move */,
+				87674FB118EDAF0500231453 /* Play */,
+			);
+			path = "Category Icons";
+			sourceTree = "<group>";
+		};
+		87674F6B18EDAF0500231453 /* Connect */ = {
+			isa = PBXGroup;
+			children = (
+				87674F7318EDAF0500231453 /* Connect_Gray.png */,
+				87674F6F18EDAF0500231453 /* Connect_Colored.png */,
+				87674F7818EDAF0500231453 /* Connect_White.png */,
+			);
+			path = Connect;
+			sourceTree = "<group>";
+		};
+		87674F7918EDAF0500231453 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				87674F7D18EDAF0500231453 /* Discover_Colored.png */,
+				87674F8118EDAF0500231453 /* Discover_Gray.png */,
+				87674F8618EDAF0500231453 /* Discover_White.png */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		87674F8718EDAF0500231453 /* Eat */ = {
+			isa = PBXGroup;
+			children = (
+				87674F8B18EDAF0500231453 /* Eat_Colored.png */,
+				87674F8F18EDAF0500231453 /* Eat_Gray.png */,
+				87674F9418EDAF0500231453 /* Eat_White.png */,
+			);
+			path = Eat;
+			sourceTree = "<group>";
+		};
+		87674F9518EDAF0500231453 /* Grow */ = {
+			isa = PBXGroup;
+			children = (
+				87674F9918EDAF0500231453 /* Grow_Colored.png */,
+				87674F9D18EDAF0500231453 /* Grow_Gray.png */,
+				87674FA218EDAF0500231453 /* Grow_White.png */,
+			);
+			path = Grow;
+			sourceTree = "<group>";
+		};
+		87674FA318EDAF0500231453 /* Move */ = {
+			isa = PBXGroup;
+			children = (
+				87674FA718EDAF0500231453 /* Move_Colored.png */,
+				87674FAB18EDAF0500231453 /* Move_Gray.png */,
+				87674FAF18EDAF0500231453 /* Move_White.png */,
+			);
+			path = Move;
+			sourceTree = "<group>";
+		};
+		87674FB118EDAF0500231453 /* Play */ = {
+			isa = PBXGroup;
+			children = (
+				87674FB518EDAF0500231453 /* Play_Colored.png */,
+				87674FB918EDAF0500231453 /* Play_Gray.png */,
+				87674FBE18EDAF0500231453 /* Play_White.png */,
+			);
+			path = Play;
+			sourceTree = "<group>";
+		};
+		87674FFB18EDB19400231453 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				55912DB018EC54360069FEEC /* GRTMainTableViewCell.h */,
+				55912DB118EC54360069FEEC /* GRTMainTableViewCell.m */,
+				0FA8357F18EB70FD003C8687 /* Main.storyboard */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -402,21 +520,39 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87674FDF18EDAF0500231453 /* Grow_Colored.png in Resources */,
+				87674FCE18EDAF0500231453 /* Discover_Gray.png in Resources */,
+				87674FE918EDAF0500231453 /* Move_Colored.png in Resources */,
+				87674FCB18EDAF0500231453 /* Discover_Colored.png in Resources */,
 				0FA8358018EB70FD003C8687 /* Main.storyboard in Resources */,
+				87674FF318EDAF0500231453 /* Play_Colored.png in Resources */,
+				87674FD218EDAF0500231453 /* Discover_White.png in Resources */,
+				87674FD518EDAF0500231453 /* Eat_Colored.png in Resources */,
+				87674FEC18EDAF0500231453 /* Move_Gray.png in Resources */,
+				87674FF618EDAF0500231453 /* Play_Gray.png in Resources */,
+				87674FDC18EDAF0500231453 /* Eat_White.png in Resources */,
 				0FA8355718EB70A4003C8687 /* InfoPlist.strings in Resources */,
 				87674F6618ECB64A00231453 /* ArcherPro-SemiboldItalic.otf in Resources */,
 				87674F6118ECB64A00231453 /* ArcherPro-BoldItalic.otf in Resources */,
 				0FA8356218EB70A4003C8687 /* Images.xcassets in Resources */,
 				87674F6818ECB64A00231453 /* DINOT-Medium.otf in Resources */,
+				87674FC118EDAF0500231453 /* Connect_Colored.png in Resources */,
+				87674FE618EDAF0500231453 /* Grow_White.png in Resources */,
 				87674F6518ECB64A00231453 /* ArcherPro-Semibold.otf in Resources */,
 				55912DF818ECB9510069FEEC /* Greatist_Logo_small.png in Resources */,
 				87674F6418ECB64A00231453 /* ArcherPro-Medium.otf in Resources */,
+				87674FEF18EDAF0500231453 /* Move_White.png in Resources */,
+				87674FD818EDAF0500231453 /* Eat_Gray.png in Resources */,
+				87674FFA18EDAF0500231453 /* Play_White.png in Resources */,
 				87674F6918ECB64A00231453 /* Greatist_Logo.png in Resources */,
 				87674F6318ECB64A00231453 /* ArcherPro-Light.otf in Resources */,
+				87674FE218EDAF0500231453 /* Grow_Gray.png in Resources */,
 				87674F6718ECB64A00231453 /* DINOT-Bold.otf in Resources */,
 				87674F6218ECB64A00231453 /* ArcherPro-BookItalic.otf in Resources */,
 				87674F6018ECB64A00231453 /* ArcherPro-Bold.otf in Resources */,
 				55912DFA18ECBA390069FEEC /* Greatist_Logo86x50.png in Resources */,
+				87674FC418EDAF0500231453 /* Connect_Gray.png in Resources */,
+				87674FC818EDAF0500231453 /* Connect_White.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

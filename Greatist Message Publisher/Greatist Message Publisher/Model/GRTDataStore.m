@@ -166,5 +166,34 @@
     return [self.managedObjectContext executeFetchRequest:userFetch error:nil][0];
 }
 
+#pragma mark - Startup
+
+- (void) starterData
+{
+    NSFetchRequest *sectionFetch = [NSFetchRequest fetchRequestWithEntityName:@"Section"];
+    
+    if ([[self.managedObjectContext executeFetchRequest:sectionFetch error:nil] count] == 0)
+    {
+        Section *move = [Section sectionWithName:@"Move" inContext:self.managedObjectContext];
+        Section *eat = [Section sectionWithName:@"Eat" inContext:self.managedObjectContext];
+        Section *play = [Section sectionWithName:@"Play" inContext:self.managedObjectContext];
+        Section *grow = [Section sectionWithName:@"Grow" inContext:self.managedObjectContext];
+        
+        User *anne = [User userWithName:@"Anne" uniqueID:@"anne" inContext:self.managedObjectContext];
+        User *zeke = [User userWithName:@"Zeke" uniqueID:@"zeke" inContext:self.managedObjectContext];
+        User *liz = [User userWithName:@"Liz" uniqueID:@"liz" inContext:self.managedObjectContext];
+        User *len = [User userWithName:@"Len" uniqueID:@"len" inContext:self.managedObjectContext];
+        
+        Post *anneOne = [Post postWithContent:@"I hate running!" author:anne section:move responses:nil inContext:self.managedObjectContext];
+        Post *zekeOne = [Post postWithContent:@"I like peanut M&Ms." author:zeke section:eat responses:nil inContext:self.managedObjectContext];
+        
+        Response *anneResponseOne = [Response responseWithContent:@"Cool." post:anneOne author:liz inContext:self.managedObjectContext];
+        Response *zekeResponseOne = [Response responseWithContent:@"Me, too." post:zekeOne author:len inContext:self.managedObjectContext];
+        
+        [self saveContext];
+    }
+    
+}
+
 
 @end
