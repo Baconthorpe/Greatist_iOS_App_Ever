@@ -223,8 +223,8 @@
 			children = (
 				0FA8355B18EB70A4003C8687 /* GRTAppDelegate.h */,
 				0FA8355C18EB70A4003C8687 /* GRTAppDelegate.m */,
-				0FA8357F18EB70FD003C8687 /* Main.storyboard */,
 				55912DDB18EC86840069FEEC /* Model */,
+				87674FFB18EDB19400231453 /* Views */,
 				55912DDA18EC827B0069FEEC /* Controller */,
 				87674F5118ECB64A00231453 /* Resources */,
 				0FA8356118EB70A4003C8687 /* Images.xcassets */,
@@ -267,8 +267,6 @@
 			children = (
 				55912DB318EC5AED0069FEEC /* GRTMainViewController.h */,
 				55912DB418EC5AED0069FEEC /* GRTMainViewController.m */,
-				55912DB018EC54360069FEEC /* GRTMainTableViewCell.h */,
-				55912DB118EC54360069FEEC /* GRTMainTableViewCell.m */,
 				55912DB818EC68B00069FEEC /* GRTPostDetailViewController.h */,
 				55912DB918EC68B00069FEEC /* GRTPostDetailViewController.m */,
 				55912DBB18EC68E50069FEEC /* GRTComposePostViewController.h */,
@@ -426,6 +424,16 @@
 				87674FBE18EDAF0500231453 /* Play_White.png */,
 			);
 			path = Play;
+			sourceTree = "<group>";
+		};
+		87674FFB18EDB19400231453 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				55912DB018EC54360069FEEC /* GRTMainTableViewCell.h */,
+				55912DB118EC54360069FEEC /* GRTMainTableViewCell.m */,
+				0FA8357F18EB70FD003C8687 /* Main.storyboard */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
