@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="63t-b3-iu9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="63t-b3-iu9">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--Main View Controller-->
@@ -64,6 +64,7 @@
                     <navigationItem key="navigationItem" id="huM-hs-ViC"/>
                     <connections>
                         <outlet property="composePostButton" destination="Jce-oV-dpT" id="M2t-ce-WkM"/>
+                        <outlet property="postsTableView" destination="UCw-px-WOv" id="e8e-Cw-6r8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zUo-sE-zde" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -125,6 +126,12 @@
                     <navigationItem key="navigationItem" id="U9t-fd-E62">
                         <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="9yR-J6-okh"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="awesomeIcon" destination="0Al-00-ZRh" id="xpp-1j-PAd"/>
+                        <outlet property="meTooIcon" destination="hw7-Zm-NUD" id="jKj-b0-Xk6"/>
+                        <outlet property="wayTogoIcon" destination="CkR-7e-K05" id="feh-g6-uMV"/>
+                        <outlet property="youcanDoBetterIcon" destination="BbI-Ic-xnM" id="P1h-IW-rdX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dsL-b7-6dW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

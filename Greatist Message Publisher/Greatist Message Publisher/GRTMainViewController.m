@@ -13,6 +13,7 @@
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *composePostButton;
 - (IBAction)composePostButtonTapped:(id)sender;
+@property (weak, nonatomic) IBOutlet UITableView *postsTableView;
 
 @property (strong, nonatomic) GRTDataStore *dataStore;
 
@@ -39,7 +40,7 @@
     [self.navigationController.navigationBar.topItem setTitleView:greatistLogo];
 
    
-    [[UIView appearance]setBackgroundColor:[UIColor colorWithRed:65/255.0 green:64/255.0 blue:66/255.0 alpha:1.0]];
+    //[[UIView appearance]setBackgroundColor:[UIColor colorWithRed:65/255.0 green:64/255.0 blue:66/255.0 alpha:1.0]];
     
     FAKFontAwesome *composePostIcon = [FAKFontAwesome pencilSquareOIconWithSize:25];
     [composePostIcon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];

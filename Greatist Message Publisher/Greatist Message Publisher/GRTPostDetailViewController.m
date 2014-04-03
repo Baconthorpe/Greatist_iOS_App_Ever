@@ -12,6 +12,10 @@
 @interface GRTPostDetailViewController ()
 
 @property (strong, nonatomic) GRTDataStore *dataStore;
+@property (weak, nonatomic) IBOutlet UITabBarItem *awesomeIcon;
+@property (weak, nonatomic) IBOutlet UITabBarItem *wayTogoIcon;
+@property (weak, nonatomic) IBOutlet UITabBarItem *meTooIcon;
+@property (weak, nonatomic) IBOutlet UITabBarItem *youcanDoBetterIcon;
 
 @end
 
