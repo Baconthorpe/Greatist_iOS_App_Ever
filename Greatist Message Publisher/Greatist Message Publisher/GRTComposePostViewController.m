@@ -41,12 +41,17 @@
     self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:65/255.0 green:64/255.0 blue:66/255.0 alpha:1.0];
     self.navigationController.toolbar.backgroundColor = [UIColor colorWithRed:65/255.0 green:64/255.0 blue:66/255.0 alpha:1.0];
     
+
+    [self createCategoryButtons];
+    
+    
     self.postContentTextView.delegate = self;
     [self.postContentTextView setTextColor:[UIColor colorWithRed:65/255 green:64/255.0 blue:66/255.0 alpha:1.0]];
     [[self.postContentTextView layer] setBorderColor:[[UIColor colorWithRed:65/255 green:64/255.0 blue:66/255.0 alpha:1.0] CGColor]];
     [[self.postContentTextView layer] setBorderWidth:1];
     [[self.postContentTextView layer] setCornerRadius:15];
     self.postContentTextView.textContainerInset = UIEdgeInsetsMake(15.0, 10.0, 15.0, 10.0);
+    
     self.leftQuoteLabel.font = [UIFont fontWithName:@"ArcherPro-Semibold" size:40];
     self.rightQuoteLabel.font = [UIFont fontWithName:@"ArcherPro-Semibold" size:40];
     // Do any additional setup after loading the view.
@@ -78,5 +83,53 @@
 
 - (IBAction)backButtonTapped:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - Helper Methods
+- (void)createCategoryButtons
+{
+    UIButton *eatButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [eatButton setFrame:CGRectMake(60, 20, 30, 30)];
+    [eatButton setBackgroundImage:[UIImage imageNamed:@"Eat_Colored60x60"] forState:UIControlStateNormal];
+    [self.postView addSubview:eatButton];
+    
+    UILabel *eatLabel = [[UILabel alloc] initWithFrame:CGRectMake(6, 25, 30, 30)];
+    [eatLabel setText:@"EAT"];
+    [eatLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:10]];
+    [eatLabel setTextColor:[UIColor colorWithRed:1/255.0 green:178/255.0 blue:148/255.0 alpha:0.5]];
+    [eatButton addSubview:eatLabel];
+    
+    UIButton *growButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [growButton setFrame:CGRectMake(110, 20, 30, 30)];
+    [growButton setBackgroundImage:[UIImage imageNamed:@"Grow_Colored60x60"] forState:UIControlStateNormal];
+    [self.postView addSubview:growButton];
+    
+    UILabel *growLabel = [[UILabel alloc] initWithFrame:CGRectMake(2, 25, 30, 30)];
+    [growLabel setText:@"GROW"];
+    [growLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:10]];
+    [growLabel setTextColor:[UIColor colorWithRed:244/255.0 green:201/255.0 blue:21/255.0 alpha:0.5]];
+    [growButton addSubview:growLabel];
+    
+    UIButton *moveButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [moveButton setFrame:CGRectMake(160, 20, 30, 30)];
+    [moveButton setBackgroundImage:[UIImage imageNamed:@"Move_Colored60x60"] forState:UIControlStateNormal];
+    [self.postView addSubview:moveButton];
+    
+    UILabel *moveLabel = [[UILabel alloc] initWithFrame:CGRectMake(2, 25, 30, 30)];
+    [moveLabel setText:@"MOVE"];
+    [moveLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:10]];
+    [moveLabel setTextColor:[UIColor colorWithRed:242/255.0 green:102/255.0 blue:48/255.0 alpha:0.5]];
+    [moveButton addSubview:moveLabel];
+    
+    UIButton *playButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [playButton setFrame:CGRectMake(210, 20, 30, 30)];
+    [playButton setBackgroundImage:[UIImage imageNamed:@"Play_Colored60x60"] forState:UIControlStateNormal];
+    [self.postView addSubview:playButton];
+    
+    UILabel *playLabel = [[UILabel alloc] initWithFrame:CGRectMake(2, 25, 30, 30)];
+    [playLabel setText:@"PLAY"];
+    [playLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:10]];
+    [playLabel setTextColor:[UIColor colorWithRed:177/255.0 green:49/255.0 blue:131/255.0 alpha:0.5]];
+    [playButton addSubview:playLabel];
 }
 @end
