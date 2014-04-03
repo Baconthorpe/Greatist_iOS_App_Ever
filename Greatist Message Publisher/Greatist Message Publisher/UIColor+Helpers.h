@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface UIColor (Helpers)
++ (UIColor *)greatistPrimaryColor;
 + (UIColor *)greatistBlueColor;
 + (UIColor *)greatistGrayColor;
 + (UIColor *)greatistLightGrayColor;

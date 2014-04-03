@@ -64,7 +64,7 @@
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
     NSLog(@"%@", textView.text);
-    [textView setTextColor:[UIColor colorWithRed:65/255 green:64/255.0 blue:66/255.0 alpha:1.0]];
+    [textView setTextColor:[UIColor greatistLightGrayColor]];
     [textView setText:@""];
 }
 
@@ -83,7 +83,7 @@
     UILabel *eatLabel = [[UILabel alloc] initWithFrame:CGRectMake(6, 25, 30, 30)];
     [eatLabel setText:@"EAT"];
     [eatLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:10]];
-    [eatLabel setTextColor:[UIColor colorWithRed:1/255.0 green:178/255.0 blue:148/255.0 alpha:0.5]];
+    [eatLabel setTextColor:[UIColor greatistEatColor]];
     [eatButton addSubview:eatLabel];
     
     UIButton *growButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -94,7 +94,7 @@
     UILabel *growLabel = [[UILabel alloc] initWithFrame:CGRectMake(2, 25, 30, 30)];
     [growLabel setText:@"GROW"];
     [growLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:10]];
-    [growLabel setTextColor:[UIColor colorWithRed:244/255.0 green:201/255.0 blue:21/255.0 alpha:0.5]];
+    [growLabel setTextColor:[UIColor greatistGrowColor]];
     [growButton addSubview:growLabel];
     
     UIButton *moveButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -105,7 +105,7 @@
     UILabel *moveLabel = [[UILabel alloc] initWithFrame:CGRectMake(2, 25, 30, 30)];
     [moveLabel setText:@"MOVE"];
     [moveLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:10]];
-    [moveLabel setTextColor:[UIColor colorWithRed:242/255.0 green:102/255.0 blue:48/255.0 alpha:0.5]];
+    [moveLabel setTextColor:[UIColor greatistMoveColor]];
     [moveButton addSubview:moveLabel];
     
     UIButton *playButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -116,7 +116,7 @@
     UILabel *playLabel = [[UILabel alloc] initWithFrame:CGRectMake(2, 25, 30, 30)];
     [playLabel setText:@"PLAY"];
     [playLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:10]];
-    [playLabel setTextColor:[UIColor colorWithRed:177/255.0 green:49/255.0 blue:131/255.0 alpha:0.5]];
+    [playLabel setTextColor:[UIColor greatistPlayColor]];
     [playButton addSubview:playLabel];
 }
 
@@ -124,8 +124,8 @@
 {
     self.postContentTextView.delegate = self;
     [self.postContentTextView setFrame:CGRectMake(0, 0, 320, 320)];
-    [self.postContentTextView setTextColor:[UIColor colorWithRed:65/255 green:64/255.0 blue:66/255.0 alpha:1.0]];
-    [[self.postContentTextView layer] setBorderColor:[[UIColor colorWithRed:65/255 green:64/255.0 blue:66/255.0 alpha:1.0] CGColor]];
+    [self.postContentTextView setTextColor:[UIColor greatistPrimaryColor]];
+    [[self.postContentTextView layer] setBorderColor:[[UIColor greatistLightGrayColor] CGColor]];
     [[self.postContentTextView layer] setBorderWidth:1];
     [[self.postContentTextView layer] setCornerRadius:15];
     self.postContentTextView.textContainerInset = UIEdgeInsetsMake(15.0, 10.0, 15.0, 10.0);
