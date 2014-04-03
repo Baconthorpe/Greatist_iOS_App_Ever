@@ -75,6 +75,7 @@
 		87674FF618EDAF0500231453 /* Play_Gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 87674FB918EDAF0500231453 /* Play_Gray.png */; };
 		87674FFA18EDAF0500231453 /* Play_White.png in Resources */ = {isa = PBXBuildFile; fileRef = 87674FBE18EDAF0500231453 /* Play_White.png */; };
 		8767500F18EE124300231453 /* UIImage+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 8767500E18EE124300231453 /* UIImage+Helpers.m */; };
+		8767501118EE13C100231453 /* Greatist_Logo_Badge_Blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 8767501018EE13C100231453 /* Greatist_Logo_Badge_Blue.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -176,6 +177,7 @@
 		87674FBE18EDAF0500231453 /* Play_White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Play_White.png; path = White/Play_White.png; sourceTree = "<group>"; };
 		8767500D18EE124300231453 /* UIImage+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Helpers.h"; path = "Model/UIImage+Helpers.h"; sourceTree = "<group>"; };
 		8767500E18EE124300231453 /* UIImage+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Helpers.m"; path = "Model/UIImage+Helpers.m"; sourceTree = "<group>"; };
+		8767501018EE13C100231453 /* Greatist_Logo_Badge_Blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Greatist_Logo_Badge_Blue.png; sourceTree = "<group>"; };
 		FDF4DEBDD8B24F48886FE495 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -369,6 +371,7 @@
 		87674F5E18ECB64A00231453 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				8767501018EE13C100231453 /* Greatist_Logo_Badge_Blue.png */,
 				87674F5F18ECB64A00231453 /* Greatist_Logo.png */,
 				55912DF718ECB9510069FEEC /* Greatist_Logo_small.png */,
 				55912DF918ECBA390069FEEC /* Greatist_Logo86x50.png */,
@@ -558,6 +561,7 @@
 				0FA8358018EB70FD003C8687 /* Main.storyboard in Resources */,
 				87674FF318EDAF0500231453 /* Play_Colored.png in Resources */,
 				87674FD218EDAF0500231453 /* Discover_White.png in Resources */,
+				8767501118EE13C100231453 /* Greatist_Logo_Badge_Blue.png in Resources */,
 				87674FD518EDAF0500231453 /* Eat_Colored.png in Resources */,
 				87674FEC18EDAF0500231453 /* Move_Gray.png in Resources */,
 				87674FF618EDAF0500231453 /* Play_Gray.png in Resources */,
