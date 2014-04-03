@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class Post;
+
 @interface GRTMainTableViewCell : UITableViewCell
+
+@property (strong, nonatomic) Post *post;
+
++ (instancetype) cellConfiguredWithPost: (Post *)post;
+- (instancetype) configureWithPost: (Post *)post;
 
 @end

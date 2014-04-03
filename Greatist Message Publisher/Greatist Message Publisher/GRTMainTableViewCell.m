@@ -7,10 +7,11 @@
 //
 
 #import "GRTMainTableViewCell.h"
+#import "Post+Methods.h"
 
 @interface GRTMainTableViewCell ()
 
-
+@property (weak, nonatomic) IBOutlet UILabel *messageLabel;
 
 @end
 
@@ -35,6 +36,22 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
++ (instancetype) cellConfiguredWithPost: (Post *)post
+{
+    GRTMainTableViewCell *cell = [GRTMainTableViewCell new];
+    [cell configureWithPost:post];
+    
+    return cell;
+}
+
+- (instancetype) configureWithPost: (Post *)post
+{
+    self.post = post;
+    self.messageLabel.text = self.post.content;
+    
+    return self;
 }
 
 @end
