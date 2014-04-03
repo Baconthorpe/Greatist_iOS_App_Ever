@@ -30,6 +30,18 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>ArcherPro-Bold.otf</string>
+		<string>ArcherPro-BoldItalic.otf</string>
+		<string>ArcherPro-BookItalic.otf</string>
+		<string>ArcherPro-Light.otf</string>
+		<string>ArcherPro-Medium.otf</string>
+		<string>ArcherPro-Semibold.otf</string>
+		<string>ArcherPro-SemiboldItalic.otf</string>
+		<string>DINOT-Bold.otf</string>
+		<string>DINOT-Medium.otf</string>
+	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

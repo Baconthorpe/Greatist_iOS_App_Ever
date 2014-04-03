@@ -32,6 +32,8 @@
     
     self.dataStore = [GRTDataStore sharedDataStore];
     
+    self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:65/255.0 green:64/255.0 blue:66/255.0 alpha:1.0];
+
     // Do any additional setup after loading the view.
 }
 
