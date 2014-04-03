@@ -74,6 +74,7 @@
 		87674FF318EDAF0500231453 /* Play_Colored.png in Resources */ = {isa = PBXBuildFile; fileRef = 87674FB518EDAF0500231453 /* Play_Colored.png */; };
 		87674FF618EDAF0500231453 /* Play_Gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 87674FB918EDAF0500231453 /* Play_Gray.png */; };
 		87674FFA18EDAF0500231453 /* Play_White.png in Resources */ = {isa = PBXBuildFile; fileRef = 87674FBE18EDAF0500231453 /* Play_White.png */; };
+		8767500F18EE124300231453 /* UIImage+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 8767500E18EE124300231453 /* UIImage+Helpers.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,6 +174,8 @@
 		87674FB518EDAF0500231453 /* Play_Colored.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Play_Colored.png; path = Colored/Play_Colored.png; sourceTree = "<group>"; };
 		87674FB918EDAF0500231453 /* Play_Gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Play_Gray.png; path = Gray/Play_Gray.png; sourceTree = "<group>"; };
 		87674FBE18EDAF0500231453 /* Play_White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Play_White.png; path = White/Play_White.png; sourceTree = "<group>"; };
+		8767500D18EE124300231453 /* UIImage+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Helpers.h"; path = "Model/UIImage+Helpers.h"; sourceTree = "<group>"; };
+		8767500E18EE124300231453 /* UIImage+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Helpers.m"; path = "Model/UIImage+Helpers.m"; sourceTree = "<group>"; };
 		FDF4DEBDD8B24F48886FE495 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -454,6 +457,8 @@
 		87674FFB18EDB19400231453 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8767500D18EE124300231453 /* UIImage+Helpers.h */,
+				8767500E18EE124300231453 /* UIImage+Helpers.m */,
 				55912DB018EC54360069FEEC /* GRTtableViewCell.h */,
 				55912DB118EC54360069FEEC /* GRTMainTableViewCell.m */,
 				03A2662318EDFD11002790AB /* GRTPostTableViewCell.h */,
@@ -645,6 +650,7 @@
 				55912DEE18EC86840069FEEC /* GRTDataStore.m in Sources */,
 				0FA8355D18EB70A4003C8687 /* GRTAppDelegate.m in Sources */,
 				55912DF018EC86840069FEEC /* Post.m in Sources */,
+				8767500F18EE124300231453 /* UIImage+Helpers.m in Sources */,
 				55912DBA18EC68B00069FEEC /* GRTPostDetailViewController.m in Sources */,
 				0FA8355918EB70A4003C8687 /* main.m in Sources */,
 				55912DEF18EC86840069FEEC /* Post+Methods.m in Sources */,
