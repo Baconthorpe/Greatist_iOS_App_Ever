@@ -7,11 +7,14 @@
 //
 
 #import "GRTComposePostViewController.h"
+#import "GRTDataStore.h"
 
 @interface GRTComposePostViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextView *postContentTextView;
 @property (weak, nonatomic) IBOutlet UIView *postView;
+
+@property (strong, nonatomic) GRTDataStore *dataStore;
 
 @end
 
@@ -29,6 +32,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.dataStore = [GRTDataStore sharedDataStore];
+    
     self.postContentTextView.delegate = self;
     [self.postContentTextView setTextColor:[UIColor lightGrayColor]];
     [[self.postContentTextView layer] setBorderColor:[[UIColor lightGrayColor] CGColor]];

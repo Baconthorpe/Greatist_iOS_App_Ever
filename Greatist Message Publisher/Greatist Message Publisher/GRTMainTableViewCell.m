@@ -8,6 +8,12 @@
 
 #import "GRTMainTableViewCell.h"
 
+@interface GRTMainTableViewCell ()
+
+
+
+@end
+
 @implementation GRTMainTableViewCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier

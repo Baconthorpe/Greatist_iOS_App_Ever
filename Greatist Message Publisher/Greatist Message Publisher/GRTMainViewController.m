@@ -7,11 +7,14 @@
 //
 
 #import "GRTMainViewController.h"
+#import "GRTDataStore.h"
 
 @interface GRTMainViewController ()
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *composePostButton;
 - (IBAction)composePostButtonTapped:(id)sender;
+
+@property (strong, nonatomic) GRTDataStore *dataStore;
 
 @end
 
@@ -29,6 +32,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.dataStore = [GRTDataStore sharedDataStore];
+    
     FAKFontAwesome *composePostIcon = [FAKFontAwesome pencilSquareOIconWithSize:25];
     [composePostIcon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
     UIImage *composePostImage = [composePostIcon imageWithSize:CGSizeMake(30, 30)];

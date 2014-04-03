@@ -7,8 +7,11 @@
 //
 
 #import "GRTPostDetailViewController.h"
+#import "GRTDataStore.h"
 
 @interface GRTPostDetailViewController ()
+
+@property (strong, nonatomic) GRTDataStore *dataStore;
 
 @end
 
@@ -26,6 +29,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.dataStore = [GRTDataStore sharedDataStore];
+    
     // Do any additional setup after loading the view.
 }
 
