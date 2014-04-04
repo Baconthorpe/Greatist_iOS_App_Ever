@@ -8,9 +8,9 @@
 
 #import "GRTMainViewController.h"
 #import "GRTDataStore.h"
-//#import "GRTtableViewCell.h"
 #import "Post+Methods.h"
 #import "GRTPostTableViewCell.h"
+#import "GRTPostDetailViewController.h"
 
 @interface GRTMainViewController ()
 
@@ -98,8 +98,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"Cell selected.");
-    
     [self performSegueWithIdentifier:@"mainToDetail" sender:self];
 }
 
@@ -187,6 +185,19 @@
 //    cell.postLabel.text= @"random string";
     
     return cell;
+}
+
+#pragma mark - Segue Methods
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"mainToDetail"])
+    {
+        GRTPostDetailViewController *nextVC = segue.destinationViewController;
+        GRTPostTableViewCell *cell = (GRTPostTableViewCell *)[self.postsTableView cellForRowAtIndexPath:[self.postsTableView indexPathForSelectedRow]];
+        
+        nextVC.post = cell.post;
+    }
 }
 
 @end
