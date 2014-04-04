@@ -9,6 +9,7 @@
 #import "GRTComposePostViewController.h"
 #import "GRTDataStore.h"
 #import "Post+Methods.h"
+#import "Section+Methods.h"
 
 @interface GRTComposePostViewController ()
 
@@ -17,6 +18,10 @@
 - (IBAction)backButtonTapped:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *leftQuoteLabel;
 @property (weak, nonatomic) IBOutlet UILabel *rightQuoteLabel;
+@property (strong, nonatomic) Section *verticalSelected;
+@property (strong, nonatomic) UIButton *eatButton;
+@property (strong, nonatomic) NSArray *verticalButtons;
+
 
 - (IBAction)postButton:(id)sender;
 
@@ -97,6 +102,8 @@
     UIButton *eatButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [eatButton setFrame:CGRectMake(65, 20, 30, 30)];
     [eatButton setBackgroundImage:[UIImage imageNamed:@"Eat_Colored60x60"] forState:UIControlStateNormal];
+    eatButton.alpha = 0.3;
+    [eatButton addTarget:self action:@selector(eatButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.postView addSubview:eatButton];
     
     UILabel *eatLabel = [[UILabel alloc] initWithFrame:CGRectMake(6, 25, 30, 30)];
@@ -108,6 +115,8 @@
     UIButton *growButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [growButton setFrame:CGRectMake(115, 20, 30, 30)];
     [growButton setBackgroundImage:[UIImage imageNamed:@"Grow_Colored60x60"] forState:UIControlStateNormal];
+    growButton.alpha = 0.3;
+    [growButton addTarget:self action:@selector(growButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.postView addSubview:growButton];
     
     UILabel *growLabel = [[UILabel alloc] initWithFrame:CGRectMake(2, 25, 30, 30)];
@@ -119,6 +128,8 @@
     UIButton *moveButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [moveButton setFrame:CGRectMake(165, 20, 30, 30)];
     [moveButton setBackgroundImage:[UIImage imageNamed:@"Move_Colored60x60"] forState:UIControlStateNormal];
+    moveButton.alpha = 0.3;
+    [moveButton addTarget:self action:@selector(moveButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.postView addSubview:moveButton];
     
     UILabel *moveLabel = [[UILabel alloc] initWithFrame:CGRectMake(2, 25, 30, 30)];
@@ -130,6 +141,8 @@
     UIButton *playButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [playButton setFrame:CGRectMake(215, 20, 30, 30)];
     [playButton setBackgroundImage:[UIImage imageNamed:@"Play_Colored60x60"] forState:UIControlStateNormal];
+    playButton.alpha = 0.3;
+    [playButton addTarget:self action:@selector(playButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.postView addSubview:playButton];
     
     UILabel *playLabel = [[UILabel alloc] initWithFrame:CGRectMake(2, 25, 30, 30)];
@@ -137,6 +150,10 @@
     [playLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:10]];
     [playLabel setTextColor:[UIColor greatistPlayColor]];
     [playButton addSubview:playLabel];
+    
+    
+    self.verticalButtons = @[playButton, eatButton, moveButton, growButton];
+    
 }
 
 - (void)setupPostContent
@@ -161,12 +178,111 @@
     [postButton setFrame:CGRectMake(145, 250, 30, 30)];
     [self.postView addSubview:postButton];
 }
+
+
+
+
 - (IBAction)postButton:(id)sender
 {
-    [Post postWithContent:self.postContentTextView.text author:nil section:nil responses:nil inContext:self.dataStore.managedObjectContext];
+    [Post postWithContent:self.postContentTextView.text author:nil section:self.verticalSelected responses:nil inContext:self.dataStore.managedObjectContext];
     [self.dataStore saveContext];
     [self dismissViewControllerAnimated:YES completion:^{
         
     }];
 }
+- (void) verticalButtonTapped:(UIButton *)sender
+{
+
+}
+
+-(void) playButtonTapped: (UIButton *)sender
+{
+    NSString *nameSought = @"Play";
+    NSPredicate *playSearch = [NSPredicate predicateWithFormat:@"name==%@", nameSought];
+    NSArray *playVerticals = [self.verticals filteredArrayUsingPredicate:playSearch];
+    self.verticalSelected= playVerticals[0];
+
+    UIButton *playButton = self.verticalButtons[0];
+    playButton.alpha = 1.0;
+    UIButton *moveButton = self.verticalButtons[2];
+    moveButton.alpha = 0.5;
+    UIButton *eatButton = self.verticalButtons[1];
+    eatButton.alpha = 0.5;
+    UIButton *growButton = self.verticalButtons[3];
+    growButton.alpha = 0.5;
+    
+    
+}
+
+-(void) moveButtonTapped: (UIButton *)sender
+{
+     NSString *nameSought = @"Move";
+    NSPredicate *moveSearch = [NSPredicate predicateWithFormat:@"name==%@", nameSought];
+    NSArray *moveVerticals = [self.verticals filteredArrayUsingPredicate:moveSearch];
+    self.verticalSelected= moveVerticals[0];
+    
+    UIButton *playButton = self.verticalButtons[0];
+    playButton.alpha = 0.5;
+    UIButton *moveButton = self.verticalButtons[2];
+    moveButton.alpha = 1.0;
+    UIButton *eatButton = self.verticalButtons[1];
+    eatButton.alpha = 0.5;
+    UIButton *growButton = self.verticalButtons[3];
+    growButton.alpha = 0.5;
+    
+}
+
+-(void) eatButtonTapped: (UIButton *)sender
+{
+    NSString *nameSought = @"Eat";
+    NSPredicate *eatSearch = [NSPredicate predicateWithFormat:@"name==%@",nameSought];
+    NSArray *eatVerticals = [self.verticals filteredArrayUsingPredicate:eatSearch];
+    self.verticalSelected= eatVerticals[0];
+    
+    UIButton *playButton = self.verticalButtons[0];
+    playButton.alpha = 0.5;
+    UIButton *moveButton = self.verticalButtons[2];
+    moveButton.alpha = 0.5;
+    UIButton *eatButton = self.verticalButtons[1];
+    eatButton.alpha = 1.0;
+    UIButton *growButton = self.verticalButtons[3];
+    growButton.alpha = 0.5;
+   
+
+    
+}
+
+-(void) growButtonTapped: (UIButton *)sender
+{
+     NSString *nameSought = @"Grow";
+    NSPredicate *growSearch = [NSPredicate predicateWithFormat:@"name==%@", nameSought];
+    NSArray *growVerticals = [self.verticals filteredArrayUsingPredicate:growSearch];
+    self.verticalSelected= growVerticals[0];
+    
+    UIButton *playButton = self.verticalButtons[0];
+    playButton.alpha = 0.5;
+    UIButton *moveButton = self.verticalButtons[2];
+    moveButton.alpha = 0.5;
+    UIButton *eatButton = self.verticalButtons[1];
+    eatButton.alpha = 0.5;
+    UIButton *growButton = self.verticalButtons[3];
+    growButton.alpha = 1.0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @end

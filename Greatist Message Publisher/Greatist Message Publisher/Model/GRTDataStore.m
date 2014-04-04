@@ -186,6 +186,7 @@
         
         Post *anneOne = [Post postWithContent:@"I hate running!" author:anne section:move responses:nil inContext:self.managedObjectContext];
         Post *zekeOne = [Post postWithContent:@"I like peanut M&Ms." author:zeke section:eat responses:nil inContext:self.managedObjectContext];
+        Post *anneTwo = [Post postWithContent:@"I think feet are weird- it'd be better if our toes were more useful." author:anne section:play responses:nil inContext:self.managedObjectContext];
         
         Response *anneResponseOne = [Response responseWithContent:@"Cool." post:anneOne author:liz inContext:self.managedObjectContext];
         Response *zekeResponseOne = [Response responseWithContent:@"Me, too." post:zekeOne author:len inContext:self.managedObjectContext];

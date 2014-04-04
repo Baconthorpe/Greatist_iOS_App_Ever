@@ -10,4 +10,7 @@
 
 @interface GRTComposePostViewController : UIViewController <UITextViewDelegate>
 
+@property NSArray *verticals;
+
+
 @end

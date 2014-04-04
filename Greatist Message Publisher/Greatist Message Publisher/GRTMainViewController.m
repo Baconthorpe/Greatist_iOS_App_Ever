@@ -11,6 +11,8 @@
 #import "Post+Methods.h"
 #import "GRTPostTableViewCell.h"
 #import "GRTPostDetailViewController.h"
+#import "GRTComposePostViewController.h"
+#import "Section+Methods.h"
 
 @interface GRTMainViewController ()
 
@@ -207,6 +209,19 @@
         GRTPostTableViewCell *cell = (GRTPostTableViewCell *)[self.postsTableView cellForRowAtIndexPath:[self.postsTableView indexPathForSelectedRow]];
         
         nextVC.post = cell.post;
+    }
+    
+    else if ([segue.identifier isEqualToString:@"mainToCompose"])
+    {
+        GRTComposePostViewController *nextVC = segue.destinationViewController;
+        
+        NSFetchRequest *getVerticals = [NSFetchRequest fetchRequestWithEntityName:@"Section"];
+        NSSortDescriptor *sortingVerticals = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+        getVerticals.sortDescriptors = @[sortingVerticals];
+        
+        nextVC.verticals = [self.dataStore.managedObjectContext executeFetchRequest:getVerticals error:nil];
+        
+        
     }
 }
 
