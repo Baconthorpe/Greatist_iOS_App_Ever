@@ -14,8 +14,11 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *postLabel;
 @property (strong, nonatomic) Post *post;
+@property (strong, nonatomic) GRTPostTableViewCell *cell;
+
 
 + (instancetype) cellConfiguredWithPost: (Post *)post;
 - (instancetype) configureWithPost: (Post *)post;
+- (void)setupResponseButtons;
 
 @end

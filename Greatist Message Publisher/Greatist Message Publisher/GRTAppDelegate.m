@@ -23,7 +23,7 @@
    self.dataStore = [GRTDataStore sharedDataStore];
    [self.dataStore starterData];
     
-   [[UIToolbar appearance] setBackgroundColor:[UIColor colorWithRed:65/255.0 green:64/255.0 blue:66/255.0 alpha:1.0]];
+   [[UIToolbar appearance] setBackgroundColor:[UIColor greatistLightGrayColor]];
 
     return YES;
 }
