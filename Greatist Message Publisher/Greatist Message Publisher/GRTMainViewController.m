@@ -10,13 +10,14 @@
 #import "GRTDataStore.h"
 #import "Post+Methods.h"
 #import "GRTPostTableViewCell.h"
+#import "Section.h"
 
 @interface GRTMainViewController ()
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *composePostButton;
 - (IBAction)composePostButtonTapped:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *postsTableView;
-
+@property (strong, nonatomic) Section *section;
 
 @property (strong, nonatomic) GRTDataStore *dataStore;
 
@@ -52,13 +53,12 @@
     UIImageView *greatistLogoView = [[UIImageView alloc] initWithImage:scaledGreatistLogoImage];
     [self.navigationController.navigationBar.topItem setTitleView:greatistLogoView];
     
-    FAKFontAwesome *composePostIcon = [FAKFontAwesome pencilSquareOIconWithSize:40];
-    [composePostIcon addAttribute:NSForegroundColorAttributeName value:[UIColor greatistBlueColor]];
-    UIImage *composePostImage = [composePostIcon imageWithSize:CGSizeMake(40, 40)];
-    composePostIcon.iconFontSize = 40;
+    UIButton *postButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    UIImage *resizedPostImage = [UIImage imageWithImage:[UIImage imageNamed:@"Greatist_Logo_Badge_Blue"] scaledToSize:CGSizeMake(40, 40)];
+    [postButton setBackgroundImage:resizedPostImage forState:UIControlStateNormal];
+    [postButton setFrame:CGRectMake(145, 250, 40, 40)];
     
-    [self.composePostButton setImage:composePostImage];
-    
+    [self.composePostButton setImage:resizedPostImage];
     
     // Do any additional setup after loading the view.
 }
@@ -178,11 +178,31 @@
     Post *post = [self.dataStore.postFRController objectAtIndexPath:indexPath];
     [cell configureWithPost:post];
 
-    cell.backgroundColor = [UIColor greatistPlayColor];
-        
-//    UIView *blueView = [UIView new];
-//    blueView.backgroundColor = [UIColor greatistBlueColor];
-//    cell.backgroundView = blueView;
+    
+    if ([post.section.name isEqualToString:(@"Grow")])
+    {
+        cell.backgroundColor = [UIColor greatistGrowColorLight];
+    }
+    else if ([post.section.name isEqualToString:(@"Play")])
+    {
+        cell.backgroundColor = [UIColor greatistPlayColorLight];
+    }
+    else if ([post.section.name isEqualToString:(@"Move")])
+    {
+        cell.backgroundColor = [UIColor greatistMoveColorLight];
+    }
+    else if ([post.section.name isEqualToString:(@"Eat")])
+    {
+        cell.backgroundColor = [UIColor greatistEatColorLight];
+    }
+    
+    NSLog(@"%@",post.section.name);
+    
+//    Section *move = [Section sectionWithName:@"Move" inContext:self.managedObjectContext];
+//    Section *eat = [Section sectionWithName:@"Eat" inContext:self.managedObjectContext];
+//    Section *play = [Section sectionWithName:@"Play" inContext:self.managedObjectContext];
+//    Section *grow = [Section sectionWithName:@"Grow" inContext:self.managedObjectContext];
+//    cell.backgroundColor = [UIColor greatistPlayColor];
     
     return cell;
 }
