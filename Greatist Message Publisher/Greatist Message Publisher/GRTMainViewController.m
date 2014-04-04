@@ -209,6 +209,9 @@
         GRTPostTableViewCell *cell = (GRTPostTableViewCell *)[self.postsTableView cellForRowAtIndexPath:[self.postsTableView indexPathForSelectedRow]];
         
         nextVC.post = cell.post;
+        
+        [self.postsTableView deselectRowAtIndexPath:[self.postsTableView indexPathForSelectedRow] animated:YES];
+
     }
     
     else if ([segue.identifier isEqualToString:@"mainToCompose"])

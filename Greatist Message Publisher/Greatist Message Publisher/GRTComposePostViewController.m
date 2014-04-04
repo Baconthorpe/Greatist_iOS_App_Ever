@@ -23,8 +23,6 @@
 @property (strong, nonatomic) NSArray *verticalButtons;
 
 
-- (IBAction)postButton:(id)sender;
-
 @property (strong, nonatomic) GRTDataStore *dataStore;
 
 @end
@@ -176,13 +174,11 @@
     UIImage *resizedPostImage = [UIImage imageWithImage:[UIImage imageNamed:@"Greatist_Logo_Badge_Blue"] scaledToSize:CGSizeMake(50, 50)];
     [postButton setBackgroundImage:resizedPostImage forState:UIControlStateNormal];
     [postButton setFrame:CGRectMake(145, 210, 30, 30)];
+    [postButton addTarget:self action:@selector(postButton:) forControlEvents:UIControlEventTouchUpInside];
     [self.postView addSubview:postButton];
 }
 
-
-
-
-- (IBAction)postButton:(id)sender
+- (void)postButton:(id)sender
 {
     [Post postWithContent:self.postContentTextView.text author:nil section:self.verticalSelected responses:nil inContext:self.dataStore.managedObjectContext];
     [self.dataStore saveContext];
@@ -205,11 +201,11 @@
     UIButton *playButton = self.verticalButtons[0];
     playButton.alpha = 1.0;
     UIButton *moveButton = self.verticalButtons[2];
-    moveButton.alpha = 0.5;
+    moveButton.alpha = 0.3;
     UIButton *eatButton = self.verticalButtons[1];
-    eatButton.alpha = 0.5;
+    eatButton.alpha = 0.3;
     UIButton *growButton = self.verticalButtons[3];
-    growButton.alpha = 0.5;
+    growButton.alpha = 0.3;
     
     
 }
@@ -222,13 +218,13 @@
     self.verticalSelected= moveVerticals[0];
     
     UIButton *playButton = self.verticalButtons[0];
-    playButton.alpha = 0.5;
+    playButton.alpha = 0.3;
     UIButton *moveButton = self.verticalButtons[2];
     moveButton.alpha = 1.0;
     UIButton *eatButton = self.verticalButtons[1];
-    eatButton.alpha = 0.5;
+    eatButton.alpha = 0.3;
     UIButton *growButton = self.verticalButtons[3];
-    growButton.alpha = 0.5;
+    growButton.alpha = 0.3;
     
 }
 
@@ -240,13 +236,13 @@
     self.verticalSelected= eatVerticals[0];
     
     UIButton *playButton = self.verticalButtons[0];
-    playButton.alpha = 0.5;
+    playButton.alpha = 0.3;
     UIButton *moveButton = self.verticalButtons[2];
-    moveButton.alpha = 0.5;
+    moveButton.alpha = 0.3;
     UIButton *eatButton = self.verticalButtons[1];
     eatButton.alpha = 1.0;
     UIButton *growButton = self.verticalButtons[3];
-    growButton.alpha = 0.5;
+    growButton.alpha = 0.3;
    
 
     
@@ -260,11 +256,11 @@
     self.verticalSelected= growVerticals[0];
     
     UIButton *playButton = self.verticalButtons[0];
-    playButton.alpha = 0.5;
+    playButton.alpha = 0.3;
     UIButton *moveButton = self.verticalButtons[2];
-    moveButton.alpha = 0.5;
+    moveButton.alpha = 0.3;
     UIButton *eatButton = self.verticalButtons[1];
-    eatButton.alpha = 0.5;
+    eatButton.alpha = 0.3;
     UIButton *growButton = self.verticalButtons[3];
     growButton.alpha = 1.0;
 }
