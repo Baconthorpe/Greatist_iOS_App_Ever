@@ -12,6 +12,8 @@
 @interface GRTPostDetailViewController ()
 
 @property (strong, nonatomic) GRTDataStore *dataStore;
+@property (strong, nonatomic) UIScrollView *mainScrollView;
+@property (strong, nonatomic) UIView *postDetailView;
 
 
 @end
@@ -32,9 +34,12 @@
     [super viewDidLoad];
     
     self.dataStore = [GRTDataStore sharedDataStore];
-
+    self.mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 66, 320, 320)];
+    self.mainScrollView.backgroundColor = [UIColor redColor];
+    
     [self createPostDetail];
     [self createResponses];
+    [self createResponsesVariantNoIcons];
     
 }
 
@@ -47,6 +52,7 @@
 - (void)createPostDetail
 {
     UIView *postDetailView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 320)];
+    [self.view setBackgroundColor:[UIColor greatistLightGrayColor]];
     [self.view addSubview:postDetailView];
     
     UILabel *postDetailLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 280, 280)];
@@ -74,12 +80,24 @@
 
 - (void)createResponses
 {
-    UIView *responseView = [[UIView alloc]initWithFrame:CGRectMake(0, 320, 320, 100)];
-    [responseView setBackgroundColor:[UIColor greatistLightGrayColor]];
+    UIView *responseView = [[UIView alloc]initWithFrame:CGRectMake(0, 320, 320, 90)];
+    [responseView setBackgroundColor:[UIColor whiteColor]];
     [self.view addSubview:responseView];
     
+    UILabel *glassResponseCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 20, 20, 20)];
+    [glassResponseCountLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:12]];
+    glassResponseCountLabel.textColor = [UIColor greatistPlayColor];
+    glassResponseCountLabel.text = @"5";
+    [glassResponseCountLabel setTextAlignment:NSTextAlignmentCenter];
+    [[glassResponseCountLabel layer] setBorderColor:[[UIColor greatistPlayColor] CGColor]];
+    [[glassResponseCountLabel layer] setBorderWidth:1];
+    [[glassResponseCountLabel layer] setCornerRadius:1];
+    [glassResponseCountLabel drawTextInRect:CGRectMake(5, 5, 10, 10)];
+    [responseView addSubview:glassResponseCountLabel];
+    
+    
     UIButton *glassButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [glassButton setFrame:CGRectMake(40, 20, 100, 20)];
+    [glassButton setFrame:CGRectMake(60, 20, 100, 20)];
     [glassButton setTitleColor:[UIColor greatistPlayColor] forState:UIControlStateNormal];
     [glassButton.titleLabel setFont:[UIFont fontWithName:@"DINOT-Medium" size:12]];
     glassButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
@@ -92,8 +110,21 @@
     [glassButton setBackgroundImage:glassImage forState:UIControlStateNormal];
     [responseView addSubview:glassButton];
     
+    
+    UILabel *rocketResponseCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 50, 20, 20)];
+    [rocketResponseCountLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:12]];
+    rocketResponseCountLabel.textColor = [UIColor greatistMoveColor];
+    rocketResponseCountLabel.text = @"0";
+    [rocketResponseCountLabel setTextAlignment:NSTextAlignmentCenter];
+    [[rocketResponseCountLabel layer] setBorderColor:[[UIColor greatistMoveColor] CGColor]];
+    [[rocketResponseCountLabel layer] setBorderWidth:1];
+    [[rocketResponseCountLabel layer] setCornerRadius:1];
+    [rocketResponseCountLabel drawTextInRect:CGRectMake(5, 5, 10, 10)];
+    [responseView addSubview:rocketResponseCountLabel];
+
+    
     UIButton *rocketButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [rocketButton setFrame:CGRectMake(40, 50, 100, 20)];
+    [rocketButton setFrame:CGRectMake(60, 50, 100, 20)];
     [rocketButton setTitleColor:[UIColor greatistMoveColor] forState:UIControlStateNormal];
     [rocketButton.titleLabel setFont:[UIFont fontWithName:@"DINOT-Medium" size:12]];
     rocketButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
@@ -106,8 +137,19 @@
     [rocketButton setBackgroundImage:rocketImage forState:UIControlStateNormal];
     [responseView addSubview:rocketButton];
     
+    UILabel *smileResponseCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(270, 20, 20, 20)];
+    [smileResponseCountLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:12]];
+    smileResponseCountLabel.textColor = [UIColor greatistGrowColor];
+    smileResponseCountLabel.text = @"2";
+    [smileResponseCountLabel setTextAlignment:NSTextAlignmentCenter];
+    [[smileResponseCountLabel layer] setBorderColor:[[UIColor greatistGrowColor] CGColor]];
+    [[smileResponseCountLabel layer] setBorderWidth:1];
+    [[smileResponseCountLabel layer] setCornerRadius:1];
+    [smileResponseCountLabel drawTextInRect:CGRectMake(5, 5, 10, 10)];
+    [responseView addSubview:smileResponseCountLabel];
+    
     UIButton *smileButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [smileButton setFrame:CGRectMake(150, 20, 100, 20)];
+    [smileButton setFrame:CGRectMake(180, 20, 100, 20)];
     [smileButton setTitleColor:[UIColor greatistGrowColor] forState:UIControlStateNormal];
     [smileButton.titleLabel setFont:[UIFont fontWithName:@"DINOT-Medium" size:12]];
     smileButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
@@ -120,8 +162,19 @@
     [smileButton setBackgroundImage:smileImage forState:UIControlStateNormal];
     [responseView addSubview:smileButton];
     
+    UILabel *frownResponseCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(270, 50, 20, 20)];
+    [frownResponseCountLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:12]];
+    frownResponseCountLabel.textColor = [UIColor greatistEatColor];
+    frownResponseCountLabel.text = @"0";
+    [frownResponseCountLabel setTextAlignment:NSTextAlignmentCenter];
+    [[frownResponseCountLabel layer] setBorderColor:[[UIColor greatistEatColor] CGColor]];
+    [[frownResponseCountLabel layer] setBorderWidth:1];
+    [[frownResponseCountLabel layer] setCornerRadius:1];
+    [frownResponseCountLabel drawTextInRect:CGRectMake(5, 5, 10, 10)];
+    [responseView addSubview:frownResponseCountLabel];
+    
     UIButton *frownButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [frownButton setFrame:CGRectMake(150, 50, 100, 20)];
+    [frownButton setFrame:CGRectMake(180, 50, 100, 20)];
     [frownButton setTitleColor:[UIColor greatistEatColor] forState:UIControlStateNormal];
     [frownButton.titleLabel setFont:[UIFont fontWithName:@"DINOT-Medium" size:12]];
     frownButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
@@ -135,6 +188,89 @@
     [responseView addSubview:frownButton];
 
 }
+- (void)createResponsesVariantNoIcons
+{
+    UIView *responseView = [[UIView alloc]initWithFrame:CGRectMake(0, 430, 320, 90)];
+    [responseView setBackgroundColor:[UIColor whiteColor]];
+    [self.view addSubview:responseView];
+    
+    UILabel *glassResponseCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 20, 20, 20)];
+    [glassResponseCountLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:12]];
+    glassResponseCountLabel.textColor = [UIColor greatistPlayColor];
+    glassResponseCountLabel.text = @"5";
+    [glassResponseCountLabel setTextAlignment:NSTextAlignmentCenter];
+    [[glassResponseCountLabel layer] setBorderColor:[[UIColor greatistPlayColor] CGColor]];
+    [[glassResponseCountLabel layer] setBorderWidth:1];
+    [[glassResponseCountLabel layer] setCornerRadius:1];
+    [glassResponseCountLabel drawTextInRect:CGRectMake(5, 5, 10, 10)];
+    [responseView addSubview:glassResponseCountLabel];
+    
+    UIButton *glassButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [glassButton setFrame:CGRectMake(60, 20, 80, 20)];
+    [glassButton setTitleColor:[UIColor greatistPlayColor] forState:UIControlStateNormal];
+    [glassButton.titleLabel setFont:[UIFont fontWithName:@"DINOT-Medium" size:12]];
+    glassButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    [glassButton setTitle:@"CHEERS" forState:UIControlStateNormal];
+    [responseView addSubview:glassButton];
+    
+    UILabel *rocketResponseCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 50, 20, 20)];
+    [rocketResponseCountLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:12]];
+    rocketResponseCountLabel.textColor = [UIColor greatistMoveColor];
+    rocketResponseCountLabel.text = @"0";
+    [rocketResponseCountLabel setTextAlignment:NSTextAlignmentCenter];
+    [[rocketResponseCountLabel layer] setBorderColor:[[UIColor greatistMoveColor] CGColor]];
+    [[rocketResponseCountLabel layer] setBorderWidth:1];
+    [[rocketResponseCountLabel layer] setCornerRadius:1];
+    [rocketResponseCountLabel drawTextInRect:CGRectMake(5, 5, 10, 10)];
+    [responseView addSubview:rocketResponseCountLabel];
+    
+    UIButton *rocketButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [rocketButton setFrame:CGRectMake(60, 50, 100, 20)];
+    [rocketButton setTitleColor:[UIColor greatistMoveColor] forState:UIControlStateNormal];
+    [rocketButton.titleLabel setFont:[UIFont fontWithName:@"DINOT-Medium" size:12]];
+    rocketButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    [rocketButton setTitle:@"YOU GO GIRL" forState:UIControlStateNormal];
+    [responseView addSubview:rocketButton];
+    
+    UILabel *smileResponseCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(180, 20, 20, 20)];
+    [smileResponseCountLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:12]];
+    smileResponseCountLabel.textColor = [UIColor greatistGrowColor];
+    smileResponseCountLabel.text = @"2";
+    [smileResponseCountLabel setTextAlignment:NSTextAlignmentCenter];
+    [[smileResponseCountLabel layer] setBorderColor:[[UIColor greatistGrowColor] CGColor]];
+    [[smileResponseCountLabel layer] setBorderWidth:1];
+    [[smileResponseCountLabel layer] setCornerRadius:1];
+    [smileResponseCountLabel drawTextInRect:CGRectMake(5, 5, 10, 10)];
+    [responseView addSubview:smileResponseCountLabel];
+    
+    UIButton *smileButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [smileButton setFrame:CGRectMake(210, 20, 100, 20)];
+    [smileButton setTitleColor:[UIColor greatistGrowColor] forState:UIControlStateNormal];
+    [smileButton.titleLabel setFont:[UIFont fontWithName:@"DINOT-Medium" size:12]];
+    smileButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    [smileButton setTitle:@"SMILES" forState:UIControlStateNormal];
+    [responseView addSubview:smileButton];
+    
+    UILabel *frownResponseCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(180, 50, 20, 20)];
+    [frownResponseCountLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:12]];
+    frownResponseCountLabel.textColor = [UIColor greatistEatColor];
+    frownResponseCountLabel.text = @"0";
+    [frownResponseCountLabel setTextAlignment:NSTextAlignmentCenter];
+    [[frownResponseCountLabel layer] setBorderColor:[[UIColor greatistEatColor] CGColor]];
+    [[frownResponseCountLabel layer] setBorderWidth:1];
+    [[frownResponseCountLabel layer] setCornerRadius:1];
+    [frownResponseCountLabel drawTextInRect:CGRectMake(5, 5, 10, 10)];
+    [responseView addSubview:frownResponseCountLabel];
+    
+    UIButton *frownButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [frownButton setFrame:CGRectMake(210, 50, 100, 20)];
+    [frownButton setTitleColor:[UIColor greatistEatColor] forState:UIControlStateNormal];
+    [frownButton.titleLabel setFont:[UIFont fontWithName:@"DINOT-Medium" size:12]];
+    frownButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    [frownButton setTitle:@"HUGS" forState:UIControlStateNormal];
+    [responseView addSubview:frownButton];
+}
+
 - (IBAction)backBarButtonItemTapped:(UIBarButtonItem *)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
