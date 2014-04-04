@@ -8,6 +8,7 @@
 
 #import "GRTComposePostViewController.h"
 #import "GRTDataStore.h"
+#import "Post+Methods.h"
 
 @interface GRTComposePostViewController ()
 
@@ -16,6 +17,8 @@
 - (IBAction)backButtonTapped:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *leftQuoteLabel;
 @property (weak, nonatomic) IBOutlet UILabel *rightQuoteLabel;
+
+- (IBAction)postButton:(id)sender;
 
 @property (strong, nonatomic) GRTDataStore *dataStore;
 
@@ -157,5 +160,13 @@
     [postButton setBackgroundImage:resizedPostImage forState:UIControlStateNormal];
     [postButton setFrame:CGRectMake(145, 250, 30, 30)];
     [self.postView addSubview:postButton];
+}
+- (IBAction)postButton:(id)sender
+{
+    [Post postWithContent:self.postContentTextView.text author:nil section:nil responses:nil inContext:self.dataStore.managedObjectContext];
+    [self.dataStore saveContext];
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
 }
 @end

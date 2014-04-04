@@ -10,7 +10,6 @@
 #import "GRTDataStore.h"
 #import "Post+Methods.h"
 #import "GRTPostTableViewCell.h"
-#import "GRTtableViewCell.h"
 
 @interface GRTMainViewController ()
 
