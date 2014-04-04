@@ -8,7 +8,6 @@
 
 #import "GRTMainViewController.h"
 #import "GRTDataStore.h"
-//#import "GRTtableViewCell.h"
 #import "Post+Methods.h"
 #import "GRTPostTableViewCell.h"
 #import "GRTtableViewCell.h"
