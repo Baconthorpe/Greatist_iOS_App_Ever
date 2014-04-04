@@ -28,6 +28,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Bbk-ZY-vJO" kind="modal" identifier="mainToDetail" id="dMZ-Hk-g8o"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -39,7 +42,7 @@
                                     <barButtonItem title="Item" id="Jce-oV-dpT">
                                         <connections>
                                             <action selector="composePostButtonTapped:" destination="8aK-fq-krb" id="Xhk-QR-s8s"/>
-                                            <segue destination="wto-gA-KYW" kind="modal" id="fY9-34-qyp"/>
+                                            <segue destination="wto-gA-KYW" kind="modal" identifier="mainToCompose" id="fY9-34-qyp"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="oaO-DQ-wEw"/>
@@ -66,7 +69,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zUo-sE-zde" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="599" y="104"/>
+            <point key="canvasLocation" x="590" y="104"/>
         </scene>
         <!--Post Detail View Controller-->
         <scene sceneID="cYX-sP-fX9">
@@ -180,6 +183,9 @@
                                 <state key="normal" title="Post">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="postButton:" destination="wto-gA-KYW" eventType="touchUpInside" id="rG2-0h-wLb"/>
+                                </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="03g-yB-qbF">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
