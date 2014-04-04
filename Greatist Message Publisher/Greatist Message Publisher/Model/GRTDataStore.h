@@ -14,6 +14,8 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
+@property (strong, nonatomic) NSFetchedResultsController *postFRController;
+
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 

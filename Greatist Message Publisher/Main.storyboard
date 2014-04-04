@@ -21,16 +21,13 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="jLw-GT-4Nr" customClass="GRTMainTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" id="X6i-48-z3p" customClass="GRTMainTableViewCell">
                                         <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jLw-GT-4Nr" id="oiv-k6-X8r">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="X6i-48-z3p" id="h8S-ZA-9rO">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="Bbk-ZY-vJO" kind="push" id="lVg-9I-fKZ"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -48,7 +45,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="oaO-DQ-wEw"/>
                                 </items>
                             </toolbar>
-                            <view opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="egE-d9-qup">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="egE-d9-qup">
                                 <rect key="frame" x="0.0" y="64" width="320" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -64,13 +61,14 @@
                     <navigationItem key="navigationItem" id="huM-hs-ViC"/>
                     <connections>
                         <outlet property="composePostButton" destination="Jce-oV-dpT" id="M2t-ce-WkM"/>
+                        <outlet property="postsTableView" destination="UCw-px-WOv" id="e8e-Cw-6r8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zUo-sE-zde" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="599" y="104"/>
         </scene>
-        <!--Post Detail View Controller - Post-->
+        <!--Post Detail View Controller-->
         <scene sceneID="cYX-sP-fX9">
             <objects>
                 <viewController id="Bbk-ZY-vJO" customClass="GRTPostDetailViewController" sceneMemberID="viewController">
@@ -122,7 +120,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Post" id="U9t-fd-E62"/>
+                    <navigationItem key="navigationItem" id="U9t-fd-E62">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="9yR-J6-okh"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="awesomeIcon" destination="0Al-00-ZRh" id="xpp-1j-PAd"/>
+                        <outlet property="meTooIcon" destination="hw7-Zm-NUD" id="jKj-b0-Xk6"/>
+                        <outlet property="wayTogoIcon" destination="CkR-7e-K05" id="feh-g6-uMV"/>
+                        <outlet property="youcanDoBetterIcon" destination="BbI-Ic-xnM" id="P1h-IW-rdX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dsL-b7-6dW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -144,16 +150,6 @@
                                 <rect key="frame" x="0.0" y="66" width="320" height="254"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bPC-GH-bd4">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <items>
-                                            <tabBarItem title="Fitness" id="evs-1I-zLr"/>
-                                            <tabBarItem title="Health" id="Uos-UF-qH2"/>
-                                            <tabBarItem title="Happiness" id="jh5-a9-wPU"/>
-                                        </items>
-                                    </tabBar>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="How do you feel today?" translatesAutoresizingMaskIntoConstraints="NO" id="gf9-pJ-3nY">
                                         <rect key="frame" x="55" y="105" width="211" height="127"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

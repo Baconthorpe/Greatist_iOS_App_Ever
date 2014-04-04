@@ -1,21 +1,15 @@
 //
-//  GRTMainTableViewCell.m
+//  GRTPostTableViewCell.m
 //  Greatist Message Publisher
 //
-//  Created by Elizabeth Choy on 4/2/14.
+//  Created by Anne Lindsley on 4/3/14.
 //  Copyright (c) 2014 Ezekiel Abuhoff. All rights reserved.
 //
 
-#import "GRTMainTableViewCell.h"
+#import "GRTPostTableViewCell.h"
 #import "Post+Methods.h"
 
-@interface GRTMainTableViewCell ()
-
-@property (weak, nonatomic) IBOutlet UILabel *messageLabel;
-
-@end
-
-@implementation GRTMainTableViewCell
+@implementation GRTPostTableViewCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -26,21 +20,15 @@
     return self;
 }
 
-- (void)awakeFromNib
-{
-    // Initialization code
-}
-
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
 }
-
 + (instancetype) cellConfiguredWithPost: (Post *)post
 {
-    GRTMainTableViewCell *cell = [GRTMainTableViewCell new];
+    GRTPostTableViewCell *cell = [GRTPostTableViewCell new];
     [cell configureWithPost:post];
     
     return cell;
@@ -49,9 +37,10 @@
 - (instancetype) configureWithPost: (Post *)post
 {
     self.post = post;
-    self.messageLabel.text = self.post.content;
+    self.postLabel.text = self.post.content;
     
     return self;
 }
+
 
 @end

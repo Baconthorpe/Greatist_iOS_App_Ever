@@ -7,8 +7,15 @@
 //
 
 #import "GRTPostDetailViewController.h"
+#import "GRTDataStore.h"
 
 @interface GRTPostDetailViewController ()
+
+@property (strong, nonatomic) GRTDataStore *dataStore;
+@property (weak, nonatomic) IBOutlet UITabBarItem *awesomeIcon;
+@property (weak, nonatomic) IBOutlet UITabBarItem *wayTogoIcon;
+@property (weak, nonatomic) IBOutlet UITabBarItem *meTooIcon;
+@property (weak, nonatomic) IBOutlet UITabBarItem *youcanDoBetterIcon;
 
 @end
 
@@ -26,6 +33,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.dataStore = [GRTDataStore sharedDataStore];
+    
     self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:65/255.0 green:64/255.0 blue:66/255.0 alpha:1.0];
 
     // Do any additional setup after loading the view.
