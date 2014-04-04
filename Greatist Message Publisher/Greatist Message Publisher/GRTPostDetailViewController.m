@@ -50,7 +50,8 @@
     [self.view addSubview:postDetailView];
     
     UILabel *postDetailLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 280, 280)];
-    [postDetailLabel setText:@"“ If you're not eating these foods, you should be, no matter who you are, what you do, and whether you have serious food sensitivites!! ”"];
+    NSString *postDetailText = [NSString stringWithFormat:@"“ %@ ”", self.post.content];
+    [postDetailLabel setText:postDetailText];
     [postDetailLabel setNumberOfLines:0];
     [postDetailLabel setFont:[UIFont fontWithName:@"ArcherPro-SemiboldItalic" size:24]];
     [postDetailLabel setTextColor:[UIColor greatistEatColor]];

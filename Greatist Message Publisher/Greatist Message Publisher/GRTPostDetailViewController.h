@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@class Post;
+#import "Post+Methods.h"
 
 @interface GRTPostDetailViewController : UIViewController
 
