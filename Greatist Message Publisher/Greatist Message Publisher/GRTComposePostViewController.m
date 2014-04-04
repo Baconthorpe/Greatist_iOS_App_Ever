@@ -56,8 +56,9 @@
     self.rightQuoteLabel.font = [UIFont fontWithName:@"ArcherPro-Semibold" size:40];
     // Do any additional setup after loading the view.
     self.dataStore = [GRTDataStore sharedDataStore];
-    self.view.backgroundColor = [UIColor colorWithRed:223/255.0 green:223/255.0 blue:223/255.0 alpha:1];
-
+    self.view.backgroundColor = [UIColor greatistLightGrayColor];
+    [self.postView setFrame:CGRectMake(0, 0, 320, 320)];
+    
     [self setupCategoryButtons];
     [self setupPostContent];
     [self setupPostButton];
@@ -83,7 +84,7 @@
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
     NSLog(@"%@", textView.text);
-    [textView setTextColor:[UIColor greatistLightGrayColor]];
+    [textView setTextColor:[UIColor greatistGrayColor]];
     [textView setText:@""];
 }
 
@@ -95,7 +96,7 @@
 - (void)setupCategoryButtons
 {
     UIButton *eatButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [eatButton setFrame:CGRectMake(65, 20, 30, 30)];
+    [eatButton setFrame:CGRectMake(65, 10, 30, 30)];
     [eatButton setBackgroundImage:[UIImage imageNamed:@"Eat_Colored60x60"] forState:UIControlStateNormal];
     [self.postView addSubview:eatButton];
     
@@ -106,7 +107,7 @@
     [eatButton addSubview:eatLabel];
     
     UIButton *growButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [growButton setFrame:CGRectMake(115, 20, 30, 30)];
+    [growButton setFrame:CGRectMake(115, 10, 30, 30)];
     [growButton setBackgroundImage:[UIImage imageNamed:@"Grow_Colored60x60"] forState:UIControlStateNormal];
     [self.postView addSubview:growButton];
     
@@ -117,7 +118,7 @@
     [growButton addSubview:growLabel];
     
     UIButton *moveButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [moveButton setFrame:CGRectMake(165, 20, 30, 30)];
+    [moveButton setFrame:CGRectMake(165, 10, 30, 30)];
     [moveButton setBackgroundImage:[UIImage imageNamed:@"Move_Colored60x60"] forState:UIControlStateNormal];
     [self.postView addSubview:moveButton];
     
@@ -128,7 +129,7 @@
     [moveButton addSubview:moveLabel];
     
     UIButton *playButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [playButton setFrame:CGRectMake(215, 20, 30, 30)];
+    [playButton setFrame:CGRectMake(215, 10, 30, 30)];
     [playButton setBackgroundImage:[UIImage imageNamed:@"Play_Colored60x60"] forState:UIControlStateNormal];
     [self.postView addSubview:playButton];
     
@@ -142,8 +143,7 @@
 - (void)setupPostContent
 {
     self.postContentTextView.delegate = self;
-    [self.postContentTextView setFrame:CGRectMake(0, 0, 320, 320)];
-    [self.postContentTextView setTextColor:[UIColor greatistPrimaryColor]];
+    [self.postContentTextView setTextColor:[UIColor greatistLightGrayColor]];
     [[self.postContentTextView layer] setBorderColor:[[UIColor greatistLightGrayColor] CGColor]];
     [[self.postContentTextView layer] setBorderWidth:1];
     [[self.postContentTextView layer] setCornerRadius:15];
@@ -158,7 +158,7 @@
     UIButton *postButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     UIImage *resizedPostImage = [UIImage imageWithImage:[UIImage imageNamed:@"Greatist_Logo_Badge_Blue"] scaledToSize:CGSizeMake(50, 50)];
     [postButton setBackgroundImage:resizedPostImage forState:UIControlStateNormal];
-    [postButton setFrame:CGRectMake(145, 250, 30, 30)];
+    [postButton setFrame:CGRectMake(145, 210, 30, 30)];
     [self.postView addSubview:postButton];
 }
 - (IBAction)postButton:(id)sender
