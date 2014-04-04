@@ -184,9 +184,28 @@
         User *liz = [User userWithName:@"Liz" uniqueID:@"liz" inContext:self.managedObjectContext];
         User *len = [User userWithName:@"Len" uniqueID:@"len" inContext:self.managedObjectContext];
         
-        Post *anneOne = [Post postWithContent:@"I hate running!" author:anne section:move responses:nil inContext:self.managedObjectContext];
-        Post *zekeOne = [Post postWithContent:@"I like peanut M&Ms." author:zeke section:eat responses:nil inContext:self.managedObjectContext];
-        Post *anneTwo = [Post postWithContent:@"I think feet are weird- it'd be better if our toes were more useful." author:anne section:play responses:nil inContext:self.managedObjectContext];
+        Post *anneOne = [Post postWithContent:@"My thighs rub together!"
+                                       author:anne
+                                      section:move
+                                    responses:nil inContext:self.managedObjectContext];
+        
+        Post *zekeOne = [Post postWithContent:@"I'm feeling really crampy and bloaty today."
+                                       author:zeke
+                                      section:eat
+                                    responses:nil
+                                    inContext:self.managedObjectContext];
+        
+        Post *zekeTwo = [Post postWithContent:@"How do you do a yoga Cobra pose?"
+                                       author:anne
+                                      section:play
+                                    responses:nil
+                                    inContext:self.managedObjectContext];
+        
+        Post *lizOne = [Post postWithContent:@"I hate gluten."
+                                      author:zeke
+                                     section:grow
+                                   responses:nil
+                                   inContext:self.managedObjectContext];
         
         Response *anneResponseOne = [Response responseWithContent:@"Cool." post:anneOne author:liz inContext:self.managedObjectContext];
         Response *zekeResponseOne = [Response responseWithContent:@"Me, too." post:zekeOne author:len inContext:self.managedObjectContext];

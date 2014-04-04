@@ -17,5 +17,9 @@
 + (UIColor *)greatistGrowColor;
 + (UIColor *)greatistMoveColor;
 + (UIColor *)greatistPlayColor;
++ (UIColor *)greatistEatColorLight;
++ (UIColor *)greatistGrowColorLight;
++ (UIColor *)greatistMoveColorLight;
++ (UIColor *)greatistPlayColorLight;
 
 @end
