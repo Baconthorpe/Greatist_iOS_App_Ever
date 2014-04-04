@@ -20,18 +20,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  self.dataStore = [GRTDataStore sharedDataStore];
- [self.dataStore starterData];
-//    
-//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//    // Override point for customization after application launch.
-//    self.window.backgroundColor = [UIColor whiteColor];
-//    [self.window makeKeyAndVisible];
+   self.dataStore = [GRTDataStore sharedDataStore];
+   [self.dataStore starterData];
     
-//    [[UINavigationBar appearance] setBackgroundColor:[UIColor redColor]];
-//    [[UIToolbar appearance]setBackgroundColor:[UIColor colorWithRed:65/255.0 green:64/255.0 blue:66/255.0 alpha:1.0]];
-//     
-
+   [[UIToolbar appearance] setBackgroundColor:[UIColor colorWithRed:65/255.0 green:64/255.0 blue:66/255.0 alpha:1.0]];
 
     return YES;
 }

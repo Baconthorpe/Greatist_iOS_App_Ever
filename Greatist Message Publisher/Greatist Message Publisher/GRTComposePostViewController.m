@@ -39,6 +39,22 @@
 {
     [super viewDidLoad];
     
+    //self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:65/255.0 green:64/255.0 blue:66/255.0 alpha:1.0];
+    
+    UIImage *navBar = [UIImage imageNamed:@"navBar.png"];
+    [self.navigationController.navigationBar setBackgroundImage:navBar forBarMetrics:UIBarMetricsDefault];
+    
+//    self.navigationController.toolbar.backgroundColor = [UIColor colorWithRed:65/255.0 green:64/255.0 blue:66/255.0 alpha:1.0];
+    
+    self.postContentTextView.delegate = self;
+    [self.postContentTextView setTextColor:[UIColor colorWithRed:65/255 green:64/255.0 blue:66/255.0 alpha:1.0]];
+    [[self.postContentTextView layer] setBorderColor:[[UIColor colorWithRed:65/255 green:64/255.0 blue:66/255.0 alpha:1.0] CGColor]];
+    [[self.postContentTextView layer] setBorderWidth:1];
+    [[self.postContentTextView layer] setCornerRadius:15];
+    self.postContentTextView.textContainerInset = UIEdgeInsetsMake(15.0, 10.0, 15.0, 10.0);
+    self.leftQuoteLabel.font = [UIFont fontWithName:@"ArcherPro-Semibold" size:40];
+    self.rightQuoteLabel.font = [UIFont fontWithName:@"ArcherPro-Semibold" size:40];
+    // Do any additional setup after loading the view.
     self.dataStore = [GRTDataStore sharedDataStore];
     self.view.backgroundColor = [UIColor colorWithRed:223/255.0 green:223/255.0 blue:223/255.0 alpha:1];
 

@@ -32,6 +32,9 @@
 		0FA8358018EB70FD003C8687 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FA8357F18EB70FD003C8687 /* Main.storyboard */; };
 		388D5989D77F4F8992BFE80F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2782B750FC4349E3AB0AFCDF /* libPods.a */; };
 		550D3D3C18EDC2A0009A9406 /* navbarLogo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 550D3D3B18EDC2A0009A9406 /* navbarLogo.xib */; };
+		550D3D4D18EF04D3009A9406 /* UIViewController+styleSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 550D3D4C18EF04D3009A9406 /* UIViewController+styleSheet.m */; };
+		550D3D5018EF0561009A9406 /* navBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 550D3D4E18EF0561009A9406 /* navBar.png */; };
+		550D3D5118EF0561009A9406 /* postIcon40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 550D3D4F18EF0561009A9406 /* postIcon40x40.png */; };
 		55912DB518EC5AED0069FEEC /* GRTMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DB418EC5AED0069FEEC /* GRTMainViewController.m */; };
 		55912DBA18EC68B00069FEEC /* GRTPostDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DB918EC68B00069FEEC /* GRTPostDetailViewController.m */; };
 		55912DBD18EC68E50069FEEC /* GRTComposePostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DBC18EC68E50069FEEC /* GRTComposePostViewController.m */; };
@@ -120,6 +123,10 @@
 		0FA8357F18EB70FD003C8687 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
 		2782B750FC4349E3AB0AFCDF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		550D3D3B18EDC2A0009A9406 /* navbarLogo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = navbarLogo.xib; sourceTree = "<group>"; };
+		550D3D4B18EF04D3009A9406 /* UIViewController+styleSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+styleSheet.h"; sourceTree = "<group>"; };
+		550D3D4C18EF04D3009A9406 /* UIViewController+styleSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+styleSheet.m"; sourceTree = "<group>"; };
+		550D3D4E18EF0561009A9406 /* navBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navBar.png; sourceTree = "<group>"; };
+		550D3D4F18EF0561009A9406 /* postIcon40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = postIcon40x40.png; sourceTree = "<group>"; };
 		55912DB318EC5AED0069FEEC /* GRTMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTMainViewController.h; sourceTree = "<group>"; };
 		55912DB418EC5AED0069FEEC /* GRTMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTMainViewController.m; sourceTree = "<group>"; };
 		55912DB818EC68B00069FEEC /* GRTPostDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTPostDetailViewController.h; sourceTree = "<group>"; };
@@ -376,6 +383,8 @@
 				87674F5F18ECB64A00231453 /* Greatist_Logo.png */,
 				55912DF718ECB9510069FEEC /* Greatist_Logo_small.png */,
 				55912DF918ECBA390069FEEC /* Greatist_Logo86x50.png */,
+				550D3D4E18EF0561009A9406 /* navBar.png */,
+				550D3D4F18EF0561009A9406 /* postIcon40x40.png */,
 				87674F6A18EDAF0500231453 /* Category Icons */,
 			);
 			path = Images;
@@ -467,6 +476,8 @@
 				8767500E18EE124300231453 /* UIImage+Helpers.m */,
 				03A2662318EDFD11002790AB /* GRTPostTableViewCell.h */,
 				03A2662418EDFD11002790AB /* GRTPostTableViewCell.m */,
+				550D3D4B18EF04D3009A9406 /* UIViewController+styleSheet.h */,
+				550D3D4C18EF04D3009A9406 /* UIViewController+styleSheet.m */,
 				0FA8357F18EB70FD003C8687 /* Main.storyboard */,
 				03A2662118EDFABF002790AB /* GRTTableViewCell.xib */,
 			);
@@ -552,7 +563,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				550D3D3C18EDC2A0009A9406 /* navbarLogo.xib in Resources */,
+				550D3D5118EF0561009A9406 /* postIcon40x40.png in Resources */,
 				87674FDF18EDAF0500231453 /* Grow_Colored.png in Resources */,
+				550D3D5018EF0561009A9406 /* navBar.png in Resources */,
 				87674FCE18EDAF0500231453 /* Discover_Gray.png in Resources */,
 				87674FE918EDAF0500231453 /* Move_Colored.png in Resources */,
 				0F30132A18EE0F2D008A4FCB /* Eat_Colored60x60.png in Resources */,
@@ -656,6 +669,7 @@
 				0FA8355D18EB70A4003C8687 /* GRTAppDelegate.m in Sources */,
 				55912DF018EC86840069FEEC /* Post.m in Sources */,
 				8767500F18EE124300231453 /* UIImage+Helpers.m in Sources */,
+				550D3D4D18EF04D3009A9406 /* UIViewController+styleSheet.m in Sources */,
 				55912DBA18EC68B00069FEEC /* GRTPostDetailViewController.m in Sources */,
 				0FA8355918EB70A4003C8687 /* main.m in Sources */,
 				55912DEF18EC86840069FEEC /* Post+Methods.m in Sources */,
