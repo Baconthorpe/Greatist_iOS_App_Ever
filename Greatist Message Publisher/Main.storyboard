@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="UCw-px-WOv">
-                                <rect key="frame" x="0.0" y="109" width="320" height="415"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -88,36 +88,10 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CyG-sz-DbO">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="287"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
-                                    <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ATe-b5-AsM">
-                                        <rect key="frame" x="0.0" y="287" width="320" height="49"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <items>
-                                            <tabBarItem systemItem="favorites" id="0Al-00-ZRh"/>
-                                            <tabBarItem title="Item" id="CkR-7e-K05"/>
-                                            <tabBarItem title="Item" id="hw7-Zm-NUD"/>
-                                            <tabBarItem systemItem="more" id="BbI-Ic-xnM"/>
-                                        </items>
-                                    </tabBar>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="wli-oM-tUl">
-                                        <rect key="frame" x="0.0" y="336" width="320" height="166"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <prototypes>
-                                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="OdJ-d6-PTH">
-                                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OdJ-d6-PTH" id="oLh-4P-Zui">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </tableViewCellContentView>
-                                            </tableViewCell>
-                                        </prototypes>
-                                    </tableView>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -126,16 +100,10 @@
                     <navigationItem key="navigationItem" id="U9t-fd-E62">
                         <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="9yR-J6-okh"/>
                     </navigationItem>
-                    <connections>
-                        <outlet property="awesomeIcon" destination="0Al-00-ZRh" id="xpp-1j-PAd"/>
-                        <outlet property="meTooIcon" destination="hw7-Zm-NUD" id="jKj-b0-Xk6"/>
-                        <outlet property="wayTogoIcon" destination="CkR-7e-K05" id="feh-g6-uMV"/>
-                        <outlet property="youcanDoBetterIcon" destination="BbI-Ic-xnM" id="P1h-IW-rdX"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dsL-b7-6dW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1064" y="463"/>
+            <point key="canvasLocation" x="1160" y="447"/>
         </scene>
         <!--Compose Post View Controller-->
         <scene sceneID="8lP-4M-jjE">
