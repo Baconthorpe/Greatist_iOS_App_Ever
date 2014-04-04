@@ -96,6 +96,13 @@
     //return 20;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"Cell selected.");
+    
+    [self performSegueWithIdentifier:@"mainToDetail" sender:self];
+}
+
 /*
 #pragma mark - Navigation
 
@@ -165,7 +172,8 @@
 
 #pragma mark - Button Methods
 
-- (IBAction)composePostButtonTapped:(id)sender {
+- (IBAction)composePostButtonTapped:(id)sender
+{
 
 }
 

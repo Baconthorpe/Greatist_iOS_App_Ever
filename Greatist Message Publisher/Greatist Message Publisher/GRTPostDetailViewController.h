@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class Post;
+
 @interface GRTPostDetailViewController : UIViewController
+
+@property (strong, nonatomic) Post *post;
 
 @end
