@@ -134,5 +134,9 @@
     [responseView addSubview:frownButton];
 
 }
+- (IBAction)backBarButtonItemTapped:(UIBarButtonItem *)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 @end
