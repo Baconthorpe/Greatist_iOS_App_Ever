@@ -58,7 +58,7 @@
     [postDetailView addSubview:postDetailLabel];
     
     UIButton *flagButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [flagButton setFrame:CGRectMake(20, 280, 140, 20)];
+    [flagButton setFrame:CGRectMake(170, 280, 140, 20)];
     [flagButton setTitleColor:[UIColor greatistBlueColor] forState:UIControlStateNormal];
     [flagButton.titleLabel setFont:[UIFont fontWithName:@"DINOT-Medium" size:10]];
     flagButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;

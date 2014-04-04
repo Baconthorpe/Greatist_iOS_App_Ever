@@ -48,11 +48,6 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="oaO-DQ-wEw"/>
                                 </items>
                             </toolbar>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="egE-d9-qup">
-                                <rect key="frame" x="0.0" y="64" width="320" height="19"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8fc-xP-PtR">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="14"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
