@@ -26,6 +26,9 @@
 		0FA8358018EB70FD003C8687 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FA8357F18EB70FD003C8687 /* Main.storyboard */; };
 		388D5989D77F4F8992BFE80F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2782B750FC4349E3AB0AFCDF /* libPods.a */; };
 		550D3D3C18EDC2A0009A9406 /* navbarLogo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 550D3D3B18EDC2A0009A9406 /* navbarLogo.xib */; };
+		550D3D3E18EDEB12009A9406 /* postIcon40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 550D3D3D18EDEB12009A9406 /* postIcon40x40.png */; };
+		550D3D4018EDF840009A9406 /* navBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 550D3D3F18EDF840009A9406 /* navBar.png */; };
+		550D3D4618EE02A1009A9406 /* UIViewController+styleSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 550D3D4518EE02A1009A9406 /* UIViewController+styleSheet.m */; };
 		55912DB218EC54360069FEEC /* GRTMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DB118EC54360069FEEC /* GRTMainTableViewCell.m */; };
 		55912DB518EC5AED0069FEEC /* GRTMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DB418EC5AED0069FEEC /* GRTMainViewController.m */; };
 		55912DBA18EC68B00069FEEC /* GRTPostDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DB918EC68B00069FEEC /* GRTPostDetailViewController.m */; };
@@ -105,6 +108,10 @@
 		0FA8357F18EB70FD003C8687 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
 		2782B750FC4349E3AB0AFCDF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		550D3D3B18EDC2A0009A9406 /* navbarLogo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = navbarLogo.xib; sourceTree = "<group>"; };
+		550D3D3D18EDEB12009A9406 /* postIcon40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = postIcon40x40.png; sourceTree = "<group>"; };
+		550D3D3F18EDF840009A9406 /* navBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navBar.png; sourceTree = "<group>"; };
+		550D3D4418EE02A1009A9406 /* UIViewController+styleSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+styleSheet.h"; sourceTree = "<group>"; };
+		550D3D4518EE02A1009A9406 /* UIViewController+styleSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+styleSheet.m"; sourceTree = "<group>"; };
 		55912DB018EC54360069FEEC /* GRTMainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTMainTableViewCell.h; sourceTree = "<group>"; };
 		55912DB118EC54360069FEEC /* GRTMainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTMainTableViewCell.m; sourceTree = "<group>"; };
 		55912DB318EC5AED0069FEEC /* GRTMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTMainViewController.h; sourceTree = "<group>"; };
@@ -277,6 +284,8 @@
 				55912DB918EC68B00069FEEC /* GRTPostDetailViewController.m */,
 				55912DBB18EC68E50069FEEC /* GRTComposePostViewController.h */,
 				55912DBC18EC68E50069FEEC /* GRTComposePostViewController.m */,
+				550D3D4418EE02A1009A9406 /* UIViewController+styleSheet.h */,
+				550D3D4518EE02A1009A9406 /* UIViewController+styleSheet.m */,
 				550D3D3B18EDC2A0009A9406 /* navbarLogo.xib */,
 			);
 			name = Controller;
@@ -354,9 +363,11 @@
 		87674F5E18ECB64A00231453 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				550D3D3F18EDF840009A9406 /* navBar.png */,
 				87674F5F18ECB64A00231453 /* Greatist_Logo.png */,
 				55912DF718ECB9510069FEEC /* Greatist_Logo_small.png */,
 				55912DF918ECBA390069FEEC /* Greatist_Logo86x50.png */,
+				550D3D3D18EDEB12009A9406 /* postIcon40x40.png */,
 				87674F6A18EDAF0500231453 /* Category Icons */,
 			);
 			path = Images;
@@ -538,6 +549,7 @@
 				0FA8355718EB70A4003C8687 /* InfoPlist.strings in Resources */,
 				87674F6618ECB64A00231453 /* ArcherPro-SemiboldItalic.otf in Resources */,
 				87674F6118ECB64A00231453 /* ArcherPro-BoldItalic.otf in Resources */,
+				550D3D3E18EDEB12009A9406 /* postIcon40x40.png in Resources */,
 				0FA8356218EB70A4003C8687 /* Images.xcassets in Resources */,
 				87674F6818ECB64A00231453 /* DINOT-Medium.otf in Resources */,
 				87674FC118EDAF0500231453 /* Connect_Colored.png in Resources */,
@@ -553,6 +565,7 @@
 				87674FE218EDAF0500231453 /* Grow_Gray.png in Resources */,
 				87674F6718ECB64A00231453 /* DINOT-Bold.otf in Resources */,
 				87674F6218ECB64A00231453 /* ArcherPro-BookItalic.otf in Resources */,
+				550D3D4018EDF840009A9406 /* navBar.png in Resources */,
 				87674F6018ECB64A00231453 /* ArcherPro-Bold.otf in Resources */,
 				55912DFA18ECBA390069FEEC /* Greatist_Logo86x50.png in Resources */,
 				87674FC418EDAF0500231453 /* Connect_Gray.png in Resources */,
@@ -614,6 +627,7 @@
 				55912DF518EC86840069FEEC /* User+Methods.m in Sources */,
 				0F1AFFF018ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodeld in Sources */,
 				55912DF118EC86840069FEEC /* Response+Methods.m in Sources */,
+				550D3D4618EE02A1009A9406 /* UIViewController+styleSheet.m in Sources */,
 				55912DF618EC86840069FEEC /* User.m in Sources */,
 				55912DF418EC86840069FEEC /* Section.m in Sources */,
 				0F1AFFED18ECAABE006BB25B /* GRTImporter.m in Sources */,

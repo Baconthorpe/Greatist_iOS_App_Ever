@@ -48,7 +48,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="oaO-DQ-wEw"/>
                                 </items>
                             </toolbar>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="egE-d9-qup">
+                            <view opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="egE-d9-qup">
                                 <rect key="frame" x="0.0" y="64" width="320" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -70,7 +70,7 @@
             </objects>
             <point key="canvasLocation" x="599" y="104"/>
         </scene>
-        <!--Post Detail View Controller-->
+        <!--Post Detail View Controller - Post-->
         <scene sceneID="cYX-sP-fX9">
             <objects>
                 <viewController id="Bbk-ZY-vJO" customClass="GRTPostDetailViewController" sceneMemberID="viewController">
@@ -122,9 +122,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="U9t-fd-E62">
-                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="9yR-J6-okh"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Post" id="U9t-fd-E62"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dsL-b7-6dW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

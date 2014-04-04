@@ -33,8 +33,12 @@
 {
     [super viewDidLoad];
     
-    self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:65/255.0 green:64/255.0 blue:66/255.0 alpha:1.0];
-    self.navigationController.toolbar.backgroundColor = [UIColor colorWithRed:65/255.0 green:64/255.0 blue:66/255.0 alpha:1.0];
+    //self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:65/255.0 green:64/255.0 blue:66/255.0 alpha:1.0];
+    
+    UIImage *navBar = [UIImage imageNamed:@"navBar.png"];
+    [self.navigationController.navigationBar setBackgroundImage:navBar forBarMetrics:UIBarMetricsDefault];
+    
+//    self.navigationController.toolbar.backgroundColor = [UIColor colorWithRed:65/255.0 green:64/255.0 blue:66/255.0 alpha:1.0];
     
     self.postContentTextView.delegate = self;
     [self.postContentTextView setTextColor:[UIColor colorWithRed:65/255 green:64/255.0 blue:66/255.0 alpha:1.0]];
