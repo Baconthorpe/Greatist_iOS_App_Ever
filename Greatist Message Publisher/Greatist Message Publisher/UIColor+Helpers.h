@@ -22,4 +22,5 @@
 + (UIColor *)greatistMoveColorLight;
 + (UIColor *)greatistPlayColorLight;
 
+
 @end
