@@ -209,6 +209,9 @@
         
         Response *anneResponseOne = [Response responseWithContent:@"Cool." post:anneOne author:liz inContext:self.managedObjectContext];
         Response *zekeResponseOne = [Response responseWithContent:@"Me, too." post:zekeOne author:len inContext:self.managedObjectContext];
+        Response *anneResponseTwo = [Response responseWithContent:@"you go, girl" post:lizOne author:anne inContext:self.managedObjectContext];
+        Response *lizResponseOne = [Response responseWithContent:@"cheers" post:zekeOne author:liz inContext:self.managedObjectContext];
+        Response *lenResponseOne = [Response responseWithContent:@"cheers" post:zekeOne author:len inContext:self.managedObjectContext];
         
         [self saveContext];
     }

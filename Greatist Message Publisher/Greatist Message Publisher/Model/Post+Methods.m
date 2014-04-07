@@ -64,7 +64,7 @@
         [dictionaryToReturn addEntriesFromDictionary:entryForThisContent];
     }
     
-    return nil;
+    return dictionaryToReturn;
 }
 
 

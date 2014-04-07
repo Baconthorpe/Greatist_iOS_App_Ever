@@ -38,6 +38,8 @@
     self.dataStore = [GRTDataStore sharedDataStore];
     self.mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 66, 320, 320)];
     self.mainScrollView.backgroundColor = [UIColor redColor];
+    [self setUpResponsesDictionary];
+    [self starterConfig];
     
     [self createPostDetail];
     [self createResponses];
@@ -89,13 +91,15 @@
     UILabel *glassResponseCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 20, 20, 20)];
     [glassResponseCountLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:12]];
     glassResponseCountLabel.textColor = [UIColor greatistPlayColor];
-    glassResponseCountLabel.text = @"5";
+    glassResponseCountLabel.text = [NSString stringWithFormat:@"%@",self.responsesDictionary[@"cheers"]];
     [glassResponseCountLabel setTextAlignment:NSTextAlignmentCenter];
     [[glassResponseCountLabel layer] setBorderColor:[[UIColor greatistPlayColor] CGColor]];
     [[glassResponseCountLabel layer] setBorderWidth:1];
     [[glassResponseCountLabel layer] setCornerRadius:1];
     [glassResponseCountLabel drawTextInRect:CGRectMake(5, 5, 10, 10)];
     [responseView addSubview:glassResponseCountLabel];
+    
+    NSLog(@"%@",self.responsesDictionary[@"cheers"]);
     
     
     UIButton *glassButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -116,7 +120,7 @@
     UILabel *rocketResponseCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 50, 20, 20)];
     [rocketResponseCountLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:12]];
     rocketResponseCountLabel.textColor = [UIColor greatistMoveColor];
-    rocketResponseCountLabel.text = @"0";
+    rocketResponseCountLabel.text = [NSString stringWithFormat:@"%@",self.responsesDictionary[@"you go, girl"]];
     [rocketResponseCountLabel setTextAlignment:NSTextAlignmentCenter];
     [[rocketResponseCountLabel layer] setBorderColor:[[UIColor greatistMoveColor] CGColor]];
     [[rocketResponseCountLabel layer] setBorderWidth:1];
@@ -142,7 +146,7 @@
     UILabel *smileResponseCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(270, 20, 20, 20)];
     [smileResponseCountLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:12]];
     smileResponseCountLabel.textColor = [UIColor greatistGrowColor];
-    smileResponseCountLabel.text = @"2";
+    smileResponseCountLabel.text = [NSString stringWithFormat:@"%@",self.responsesDictionary[@"smiles"]];
     [smileResponseCountLabel setTextAlignment:NSTextAlignmentCenter];
     [[smileResponseCountLabel layer] setBorderColor:[[UIColor greatistGrowColor] CGColor]];
     [[smileResponseCountLabel layer] setBorderWidth:1];
@@ -167,7 +171,7 @@
     UILabel *frownResponseCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(270, 50, 20, 20)];
     [frownResponseCountLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:12]];
     frownResponseCountLabel.textColor = [UIColor greatistEatColor];
-    frownResponseCountLabel.text = @"0";
+    frownResponseCountLabel.text = [NSString stringWithFormat:@"%@",self.responsesDictionary[@"hugs"]];
     [frownResponseCountLabel setTextAlignment:NSTextAlignmentCenter];
     [[frownResponseCountLabel layer] setBorderColor:[[UIColor greatistEatColor] CGColor]];
     [[frownResponseCountLabel layer] setBorderWidth:1];
@@ -199,7 +203,7 @@
     UILabel *glassResponseCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 20, 20, 20)];
     [glassResponseCountLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:12]];
     glassResponseCountLabel.textColor = [UIColor greatistPlayColor];
-    glassResponseCountLabel.text = @"5";
+    glassResponseCountLabel.text = [NSString stringWithFormat:@"%@",self.responsesDictionary[@"cheers"]];
     [glassResponseCountLabel setTextAlignment:NSTextAlignmentCenter];
     [[glassResponseCountLabel layer] setBorderColor:[[UIColor greatistPlayColor] CGColor]];
     [[glassResponseCountLabel layer] setBorderWidth:1];
@@ -218,7 +222,7 @@
     UILabel *rocketResponseCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 50, 20, 20)];
     [rocketResponseCountLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:12]];
     rocketResponseCountLabel.textColor = [UIColor greatistMoveColor];
-    rocketResponseCountLabel.text = @"0";
+    rocketResponseCountLabel.text = [NSString stringWithFormat:@"%@",self.responsesDictionary[@"you go, girl"]];
     [rocketResponseCountLabel setTextAlignment:NSTextAlignmentCenter];
     [[rocketResponseCountLabel layer] setBorderColor:[[UIColor greatistMoveColor] CGColor]];
     [[rocketResponseCountLabel layer] setBorderWidth:1];
@@ -237,7 +241,7 @@
     UILabel *smileResponseCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(180, 20, 20, 20)];
     [smileResponseCountLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:12]];
     smileResponseCountLabel.textColor = [UIColor greatistGrowColor];
-    smileResponseCountLabel.text = @"2";
+    smileResponseCountLabel.text = [NSString stringWithFormat:@"%@",self.responsesDictionary[@"smiles"]];
     [smileResponseCountLabel setTextAlignment:NSTextAlignmentCenter];
     [[smileResponseCountLabel layer] setBorderColor:[[UIColor greatistGrowColor] CGColor]];
     [[smileResponseCountLabel layer] setBorderWidth:1];
@@ -256,7 +260,7 @@
     UILabel *frownResponseCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(180, 50, 20, 20)];
     [frownResponseCountLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:12]];
     frownResponseCountLabel.textColor = [UIColor greatistEatColor];
-    frownResponseCountLabel.text = @"0";
+    frownResponseCountLabel.text = [NSString stringWithFormat:@"%@",self.responsesDictionary[@"hugs"]];
     [frownResponseCountLabel setTextAlignment:NSTextAlignmentCenter];
     [[frownResponseCountLabel layer] setBorderColor:[[UIColor greatistEatColor] CGColor]];
     [[frownResponseCountLabel layer] setBorderWidth:1];
@@ -300,7 +304,41 @@
 
 - (void) setUpResponsesDictionary
 {
+//    self.responsesDictionary = [NSDictionary new];
     self.responsesDictionary = [self.post dictionaryOfResponses];
+}
+
+- (void) starterConfig
+{
+    NSMutableDictionary *responsesWithZeros = [NSMutableDictionary new];
+    
+    if (!self.responsesDictionary[@"cheers"])
+    {
+        NSDictionary *cheersEntry = @{@"cheers":@0};
+        [responsesWithZeros addEntriesFromDictionary:cheersEntry];
+    }
+    
+    if (!self.responsesDictionary[@"you go, girl"])
+    {
+        NSDictionary *cheersEntry = @{@"you go, girl":@0};
+        [responsesWithZeros addEntriesFromDictionary:cheersEntry];
+    }
+    
+    if (!self.responsesDictionary[@"smiles"])
+    {
+        NSDictionary *cheersEntry = @{@"smiles":@0};
+        [responsesWithZeros addEntriesFromDictionary:cheersEntry];
+    }
+    
+    if (!self.responsesDictionary[@"hugs"])
+    {
+        NSDictionary *cheersEntry = @{@"hugs":@0};
+        [responsesWithZeros addEntriesFromDictionary:cheersEntry];
+    }
+    
+    [responsesWithZeros addEntriesFromDictionary:self.responsesDictionary];
+    
+    self.responsesDictionary = responsesWithZeros;
 }
 
 @end
