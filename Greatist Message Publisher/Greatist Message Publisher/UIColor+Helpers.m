@@ -52,22 +52,22 @@
 
 + (UIColor *)greatistEatColorLight
 {
-    return [UIColor colorWithRed:1/255.0 green:178/255.0 blue:148/255.0 alpha:.04];
+    return [UIColor colorWithRed:1/255.0 green:178/255.0 blue:148/255.0 alpha:.1];
 }
 
 + (UIColor *)greatistGrowColorLight
 {
-    return [UIColor colorWithRed:244/255.0 green:201/255.0 blue:21/255.0 alpha:.04];
+    return [UIColor colorWithRed:244/255.0 green:201/255.0 blue:21/255.0 alpha:.1];
 }
 
 + (UIColor *)greatistMoveColorLight
 {
-    return [UIColor colorWithRed:242/255.0 green:102/255.0 blue:48/255.0 alpha:.04];
+    return [UIColor colorWithRed:242/255.0 green:102/255.0 blue:48/255.0 alpha:.1];
 }
 
 + (UIColor *)greatistPlayColorLight
 {
-    return [UIColor colorWithRed:177/255.0 green:49/255.0 blue:131/255.0 alpha:.04];
+    return [UIColor colorWithRed:177/255.0 green:49/255.0 blue:131/255.0 alpha:.1];
 }
 
 @end

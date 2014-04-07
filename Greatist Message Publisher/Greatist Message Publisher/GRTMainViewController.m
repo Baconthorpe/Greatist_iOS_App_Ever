@@ -84,7 +84,10 @@
     GRTPostTableViewCell *cell = [self configureCellForMainTableViewWithIndexPath:indexPath];
     Post *post = [self.dataStore.postFRController objectAtIndexPath:indexPath];
     [cell configureWithPost:post];
-//    cell.postLabel.text= @"random string";
+
+    UIFont *archerProMedium = [UIFont fontWithName:@"ArcherPro-Medium" size:50];
+    cell.textLabel.font = archerProMedium;
+    
     return cell;
 }
 
@@ -187,6 +190,8 @@
     Post *post = [self.dataStore.postFRController objectAtIndexPath:indexPath];
     [cell configureWithPost:post];
 
+    UIFont *archerProMedium = [UIFont fontWithName:@"ArcherPro-Medium" size:50];
+    cell.textLabel.font = archerProMedium;
     
     if ([post.section.name isEqualToString:(@"Grow")])
     {
