@@ -40,7 +40,7 @@
     self.post = post;
     self.postLabel.text = self.post.content;
     self.postLabel.font = [UIFont fontWithName:@"ArcherPro-Medium" size:20];
-    
+   
     return self;
 }
 
