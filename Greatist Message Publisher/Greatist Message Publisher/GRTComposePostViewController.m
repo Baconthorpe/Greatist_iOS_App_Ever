@@ -169,6 +169,7 @@
     [self dismissViewControllerAnimated:YES completion:^{
         
     }];
+    
 }
 - (void)verticalButtonTapped:(UIButton *)sender
 {
