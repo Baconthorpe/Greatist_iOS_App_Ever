@@ -41,14 +41,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    //self.navigationController.navigationBar.backgroundColor = [UIColor colorWithRed:65/255.0 green:64/255.0 blue:66/255.0 alpha:1.0];
-    
-    UIImage *navBar = [UIImage imageNamed:@"navBar.png"];
-    [self.navigationController.navigationBar setBackgroundImage:navBar forBarMetrics:UIBarMetricsDefault];
-    
-//    self.navigationController.toolbar.backgroundColor = [UIColor colorWithRed:65/255.0 green:64/255.0 blue:66/255.0 alpha:1.0];
-    
+
     self.postContentTextView.delegate = self;
     [self.postContentTextView setTextColor:[UIColor colorWithRed:65/255 green:64/255.0 blue:66/255.0 alpha:1.0]];
     [[self.postContentTextView layer] setBorderColor:[[UIColor colorWithRed:65/255 green:64/255.0 blue:66/255.0 alpha:1.0] CGColor]];
@@ -99,7 +92,7 @@
 - (void)setupCategoryButtons
 {
     UIButton *eatButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [eatButton setFrame:CGRectMake(65, 10, 30, 30)];
+    [eatButton setFrame:CGRectMake(65, 15, 30, 30)];
     [eatButton setBackgroundImage:[UIImage imageNamed:@"Eat_Colored60x60"] forState:UIControlStateNormal];
     eatButton.alpha = 0.3;
     [eatButton addTarget:self action:@selector(eatButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
@@ -112,7 +105,7 @@
     [eatButton addSubview:eatLabel];
     
     UIButton *growButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [growButton setFrame:CGRectMake(115, 10, 30, 30)];
+    [growButton setFrame:CGRectMake(115, 15, 30, 30)];
     [growButton setBackgroundImage:[UIImage imageNamed:@"Grow_Colored60x60"] forState:UIControlStateNormal];
     growButton.alpha = 0.3;
     [growButton addTarget:self action:@selector(growButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
@@ -125,7 +118,7 @@
     [growButton addSubview:growLabel];
     
     UIButton *moveButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [moveButton setFrame:CGRectMake(165, 10, 30, 30)];
+    [moveButton setFrame:CGRectMake(165, 15, 30, 30)];
     [moveButton setBackgroundImage:[UIImage imageNamed:@"Move_Colored60x60"] forState:UIControlStateNormal];
     moveButton.alpha = 0.3;
     [moveButton addTarget:self action:@selector(moveButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
@@ -138,7 +131,7 @@
     [moveButton addSubview:moveLabel];
     
     UIButton *playButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [playButton setFrame:CGRectMake(215, 10, 30, 30)];
+    [playButton setFrame:CGRectMake(215, 15, 30, 30)];
     [playButton setBackgroundImage:[UIImage imageNamed:@"Play_Colored60x60"] forState:UIControlStateNormal];
     playButton.alpha = 0.3;
     [playButton addTarget:self action:@selector(playButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
@@ -173,7 +166,7 @@
     UIButton *postButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     UIImage *resizedPostImage = [UIImage imageWithImage:[UIImage imageNamed:@"Greatist_Logo_Badge_Blue"] scaledToSize:CGSizeMake(50, 50)];
     [postButton setBackgroundImage:resizedPostImage forState:UIControlStateNormal];
-    [postButton setFrame:CGRectMake(145, 210, 30, 30)];
+    [postButton setFrame:CGRectMake(145, 215, 30, 30)];
     [postButton addTarget:self action:@selector(postButton:) forControlEvents:UIControlEventTouchUpInside];
     [self.postView addSubview:postButton];
 }
