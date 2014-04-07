@@ -184,24 +184,24 @@
         User *liz = [User userWithName:@"Liz" uniqueID:@"liz" inContext:self.managedObjectContext];
         User *len = [User userWithName:@"Len" uniqueID:@"len" inContext:self.managedObjectContext];
         
-        Post *anneOne = [Post postWithContent:@"My thighs rub together!"
+        Post *anneOne = [Post postWithContent:@"I joined a gym today!"
                                        author:anne
                                       section:move
                                     responses:nil inContext:self.managedObjectContext];
         
-        Post *zekeOne = [Post postWithContent:@"I'm feeling really crampy and bloaty today."
+        Post *zekeOne = [Post postWithContent:@"I have a love/hate relationship with gluten."
                                        author:zeke
                                       section:eat
                                     responses:nil
                                     inContext:self.managedObjectContext];
         
-        Post *zekeTwo = [Post postWithContent:@"How do you do a yoga Cobra pose?"
+        Post *zekeTwo = [Post postWithContent:@"Spreading the good news about Paleo Diet"
                                        author:anne
                                       section:play
                                     responses:nil
                                     inContext:self.managedObjectContext];
         
-        Post *lizOne = [Post postWithContent:@"I hate gluten."
+        Post *lizOne = [Post postWithContent:@"I love the WOD article!"
                                       author:zeke
                                      section:grow
                                    responses:nil
