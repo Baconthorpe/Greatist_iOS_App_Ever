@@ -17,6 +17,7 @@
 		03F7D76218F32A920019D080 /* photo (2).PNG in Resources */ = {isa = PBXBuildFile; fileRef = 03F7D76018F32A920019D080 /* photo (2).PNG */; };
 		03F7D76618F32DD10019D080 /* GRTEatArticleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03F7D76518F32DD10019D080 /* GRTEatArticleCell.xib */; };
 		03F7D76918F32DE70019D080 /* GRTEatArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F7D76818F32DE70019D080 /* GRTEatArticleCell.m */; };
+		03F7D76B18F32F2D0019D080 /* photo (4).PNG in Resources */ = {isa = PBXBuildFile; fileRef = 03F7D76A18F32F2D0019D080 /* photo (4).PNG */; };
 		0F1AFFED18ECAABE006BB25B /* GRTImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1AFFEC18ECAABE006BB25B /* GRTImporter.m */; };
 		0F1AFFF018ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0F1AFFEE18ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodeld */; };
 		0F30132A18EE0F2D008A4FCB /* Eat_Colored60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F30132918EE0F2D008A4FCB /* Eat_Colored60x60.png */; };
@@ -115,6 +116,7 @@
 		03F7D76518F32DD10019D080 /* GRTEatArticleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GRTEatArticleCell.xib; sourceTree = "<group>"; };
 		03F7D76718F32DE70019D080 /* GRTEatArticleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTEatArticleCell.h; sourceTree = "<group>"; };
 		03F7D76818F32DE70019D080 /* GRTEatArticleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTEatArticleCell.m; sourceTree = "<group>"; };
+		03F7D76A18F32F2D0019D080 /* photo (4).PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo (4).PNG"; sourceTree = "<group>"; };
 		0F1AFFEB18ECAABE006BB25B /* GRTImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTImporter.h; sourceTree = "<group>"; };
 		0F1AFFEC18ECAABE006BB25B /* GRTImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTImporter.m; sourceTree = "<group>"; };
 		0F1AFFEF18ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Greatist_Message_Publisher.xcdatamodel; sourceTree = "<group>"; };
@@ -357,6 +359,7 @@
 		87674F5118ECB64A00231453 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				03F7D76A18F32F2D0019D080 /* photo (4).PNG */,
 				87674F5218ECB64A00231453 /* Fonts */,
 				87674F5E18ECB64A00231453 /* Images */,
 			);
@@ -623,6 +626,7 @@
 				87674FC118EDAF0500231453 /* Connect_Colored.png in Resources */,
 				87674FE618EDAF0500231453 /* Grow_White.png in Resources */,
 				87674F6518ECB64A00231453 /* ArcherPro-Semibold.otf in Resources */,
+				03F7D76B18F32F2D0019D080 /* photo (4).PNG in Resources */,
 				0F30133018EE0FB6008A4FCB /* Play_Colored60x60.png in Resources */,
 				55912DF818ECB9510069FEEC /* Greatist_Logo_small.png in Resources */,
 				87674F6418ECB64A00231453 /* ArcherPro-Medium.otf in Resources */,

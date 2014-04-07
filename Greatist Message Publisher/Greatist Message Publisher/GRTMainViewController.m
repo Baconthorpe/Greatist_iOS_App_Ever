@@ -16,6 +16,7 @@
 #import "Section.h"
 #import "GRTArticleViewCell.h"
 #import "GRTPlayArticleCell.h"
+#import "GRTEatArticleCell.h"
 
 @interface GRTMainViewController ()
 
@@ -46,6 +47,7 @@
     [self.postsTableView registerNib:[UINib nibWithNibName:@"GRTTableViewCell" bundle:nil] forCellReuseIdentifier:@"postCell"];
     [self.postsTableView registerNib:[UINib nibWithNibName:@"GRTPlayArticleCell" bundle:nil] forCellReuseIdentifier:@"playArticleCell"];
     [self.postsTableView registerNib:[UINib nibWithNibName:@"GRTArticleCell" bundle:nil] forCellReuseIdentifier:@"moveArticleCell"];
+    [self.postsTableView registerNib:[UINib nibWithNibName:@"GRTEatArticleCell" bundle:nil] forCellReuseIdentifier:@"eatArticleCell"];
     
     self.dataStore = [GRTDataStore sharedDataStore];
     
@@ -104,6 +106,16 @@
     
     if (indexPath.row == 4) {
         GRTPlayArticleCell *cell= [self configurePlayCellForMainTableViewWithIndexPath:indexPath];
+        //Post *post = [self.dataStore.postFRController objectAtIndexPath:indexPath];
+        [cell configureWithPost:nil];
+        
+        NSLog(@"logged");
+        
+        return cell;
+    }
+    
+    if (indexPath.row == 7) {
+        GRTEatArticleCell *cell= [self configureEatCellForMainTableViewWithIndexPath:indexPath];
         //Post *post = [self.dataStore.postFRController objectAtIndexPath:indexPath];
         [cell configureWithPost:nil];
         
@@ -269,6 +281,17 @@
     return cell;
     
 }
+
+- (GRTEatArticleCell *) configureEatCellForMainTableViewWithIndexPath: (NSIndexPath *)indexPath
+{
+    GRTEatArticleCell *cell = [self.postsTableView dequeueReusableCellWithIdentifier:@"eatArticleCell"];
+    //Post *post = [self.dataStore.postFRController objectAtIndexPath:indexPath];
+    [cell configureWithPost:nil];
+    
+    return cell;
+    
+}
+
 #pragma mark - Segue Methods
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
