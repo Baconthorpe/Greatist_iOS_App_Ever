@@ -278,24 +278,29 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+//- (void) setUpResponsesDictionary
+//{
+//    NSArray *arrayOfResponses = [self.post.responses allObjects];
+//    NSMutableDictionary *dictionaryToReturn = [NSMutableDictionary new];
+//    
+//    NSMutableSet *responseContents = [NSMutableSet new];
+//    
+//    for (Response *response in self.post.responses) {
+//        [responseContents addObject:response.content];
+//    }
+//    
+//    for (NSString *responseContent in responseContents) {
+//        NSPredicate *contentSearch = [NSPredicate predicateWithFormat:@"content==%@",responseContent];
+//        NSDictionary *entryForThisContent = @{responseContent: @([[arrayOfResponses filteredArrayUsingPredicate:contentSearch] count])};
+//        [dictionaryToReturn addEntriesFromDictionary:entryForThisContent];
+//    }
+//    
+//    self.responsesDictionary = dictionaryToReturn;
+//}
+
 - (void) setUpResponsesDictionary
 {
-    NSArray *arrayOfResponses = [self.post.responses allObjects];
-    NSMutableDictionary *dictionaryToReturn = [NSMutableDictionary new];
-    
-    NSMutableSet *responseContents = [NSMutableSet new];
-    
-    for (Response *response in self.post.responses) {
-        [responseContents addObject:response.content];
-    }
-    
-    for (NSString *responseContent in responseContents) {
-        NSPredicate *contentSearch = [NSPredicate predicateWithFormat:@"content==%@",responseContent];
-        NSDictionary *entryForThisContent = @{responseContent: @([[arrayOfResponses filteredArrayUsingPredicate:contentSearch] count])};
-        [dictionaryToReturn addEntriesFromDictionary:entryForThisContent];
-    }
-    
-    self.responsesDictionary = dictionaryToReturn;
+    self.responsesDictionary = [self.post dictionaryOfResponses];
 }
 
 @end

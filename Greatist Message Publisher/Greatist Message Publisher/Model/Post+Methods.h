@@ -21,4 +21,6 @@
 
 - (NSInteger) countOfResponsesWithContent: (NSString *)responseContent;
 
+- (NSDictionary *) dictionaryOfResponses;
+
 @end
