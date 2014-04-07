@@ -15,6 +15,8 @@
 		03F7D75E18F3246E0019D080 /* GRTPlayArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F7D75D18F3246E0019D080 /* GRTPlayArticleCell.m */; };
 		03F7D76118F32A920019D080 /* photo (3).PNG in Resources */ = {isa = PBXBuildFile; fileRef = 03F7D75F18F32A920019D080 /* photo (3).PNG */; };
 		03F7D76218F32A920019D080 /* photo (2).PNG in Resources */ = {isa = PBXBuildFile; fileRef = 03F7D76018F32A920019D080 /* photo (2).PNG */; };
+		03F7D76618F32DD10019D080 /* GRTEatArticleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03F7D76518F32DD10019D080 /* GRTEatArticleCell.xib */; };
+		03F7D76918F32DE70019D080 /* GRTEatArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F7D76818F32DE70019D080 /* GRTEatArticleCell.m */; };
 		0F1AFFED18ECAABE006BB25B /* GRTImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1AFFEC18ECAABE006BB25B /* GRTImporter.m */; };
 		0F1AFFF018ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0F1AFFEE18ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodeld */; };
 		0F30132A18EE0F2D008A4FCB /* Eat_Colored60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F30132918EE0F2D008A4FCB /* Eat_Colored60x60.png */; };
@@ -110,6 +112,9 @@
 		03F7D75D18F3246E0019D080 /* GRTPlayArticleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTPlayArticleCell.m; sourceTree = "<group>"; };
 		03F7D75F18F32A920019D080 /* photo (3).PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo (3).PNG"; sourceTree = "<group>"; };
 		03F7D76018F32A920019D080 /* photo (2).PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo (2).PNG"; sourceTree = "<group>"; };
+		03F7D76518F32DD10019D080 /* GRTEatArticleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GRTEatArticleCell.xib; sourceTree = "<group>"; };
+		03F7D76718F32DE70019D080 /* GRTEatArticleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTEatArticleCell.h; sourceTree = "<group>"; };
+		03F7D76818F32DE70019D080 /* GRTEatArticleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTEatArticleCell.m; sourceTree = "<group>"; };
 		0F1AFFEB18ECAABE006BB25B /* GRTImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTImporter.h; sourceTree = "<group>"; };
 		0F1AFFEC18ECAABE006BB25B /* GRTImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTImporter.m; sourceTree = "<group>"; };
 		0F1AFFEF18ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Greatist_Message_Publisher.xcdatamodel; sourceTree = "<group>"; };
@@ -502,6 +507,9 @@
 				03F7D75518F303C60019D080 /* GRTPlayArticleCell.xib */,
 				03F7D75C18F3246E0019D080 /* GRTPlayArticleCell.h */,
 				03F7D75D18F3246E0019D080 /* GRTPlayArticleCell.m */,
+				03F7D76518F32DD10019D080 /* GRTEatArticleCell.xib */,
+				03F7D76718F32DE70019D080 /* GRTEatArticleCell.h */,
+				03F7D76818F32DE70019D080 /* GRTEatArticleCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -585,6 +593,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				550D3D3C18EDC2A0009A9406 /* navbarLogo.xib in Resources */,
+				03F7D76618F32DD10019D080 /* GRTEatArticleCell.xib in Resources */,
 				550D3D5118EF0561009A9406 /* postIcon40x40.png in Resources */,
 				87674FDF18EDAF0500231453 /* Grow_Colored.png in Resources */,
 				03F7D75618F303C60019D080 /* GRTPlayArticleCell.xib in Resources */,
@@ -690,6 +699,7 @@
 				55912DF118EC86840069FEEC /* Response+Methods.m in Sources */,
 				55912DF618EC86840069FEEC /* User.m in Sources */,
 				55912DF418EC86840069FEEC /* Section.m in Sources */,
+				03F7D76918F32DE70019D080 /* GRTEatArticleCell.m in Sources */,
 				0F1AFFED18ECAABE006BB25B /* GRTImporter.m in Sources */,
 				03A2662518EDFD11002790AB /* GRTPostTableViewCell.m in Sources */,
 				55912DEE18EC86840069FEEC /* GRTDataStore.m in Sources */,
