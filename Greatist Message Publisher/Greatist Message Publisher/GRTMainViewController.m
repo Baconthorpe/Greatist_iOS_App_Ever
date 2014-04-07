@@ -49,12 +49,14 @@
     self.dataStore.postFRController.delegate = self;
 
     UIImage *navBar = [UIImage imageNamed:@"navBar.png"];
+//    UIImage *scaledNavBar = [UIImage imageWithImage:navBar scaledToSize:CGSizeMake(320, 54)];
     [self.navigationController.navigationBar setBackgroundImage:navBar forBarMetrics:UIBarMetricsDefault];
     
     UIImage *greatistLogoImage = [UIImage imageNamed:@"Greatist_Logo86x50"];
     UIImage *scaledGreatistLogoImage = [UIImage imageWithImage:greatistLogoImage scaledToSize:CGSizeMake(65, 38)];
     UIImageView *greatistLogoView = [[UIImageView alloc] initWithImage:scaledGreatistLogoImage];
     [self.navigationController.navigationBar.topItem setTitleView:greatistLogoView];
+    [self.navigationController.navigationBar setTitleVerticalPositionAdjustment:-4.0 forBarMetrics:UIBarMetricsDefault];
     
     UIButton *postButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     UIImage *resizedPostImage = [UIImage imageWithImage:[UIImage imageNamed:@"Greatist_Logo_Badge_Blue"] scaledToSize:CGSizeMake(40, 40)];
@@ -189,9 +191,6 @@
     GRTPostTableViewCell *cell = [self.postsTableView dequeueReusableCellWithIdentifier:@"postCell"];
     Post *post = [self.dataStore.postFRController objectAtIndexPath:indexPath];
     [cell configureWithPost:post];
-
-    UIFont *archerProMedium = [UIFont fontWithName:@"ArcherPro-Medium" size:50];
-    cell.textLabel.font = archerProMedium;
     
     if ([post.section.name isEqualToString:(@"Grow")])
     {
