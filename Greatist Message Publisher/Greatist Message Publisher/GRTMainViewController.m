@@ -14,12 +14,15 @@
 #import "GRTComposePostViewController.h"
 #import "Section+Methods.h"
 #import "Section.h"
+#import "GRTArticleViewCell.h"
+#import "GRTPlayArticleCell.h"
 
 @interface GRTMainViewController ()
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *composePostButton;
 - (IBAction)composePostButtonTapped:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *postsTableView;
+@property (weak, nonatomic) IBOutlet UITableView *articleTableView;
 @property (strong, nonatomic) Section *section;
 
 @property (strong, nonatomic) GRTDataStore *dataStore;
@@ -41,6 +44,8 @@
 {
     [super viewDidLoad];
     [self.postsTableView registerNib:[UINib nibWithNibName:@"GRTTableViewCell" bundle:nil] forCellReuseIdentifier:@"postCell"];
+    [self.postsTableView registerNib:[UINib nibWithNibName:@"GRTPlayArticleCell" bundle:nil] forCellReuseIdentifier:@"playArticleCell"];
+    [self.postsTableView registerNib:[UINib nibWithNibName:@"GRTArticleCell" bundle:nil] forCellReuseIdentifier:@"moveArticleCell"];
     
     self.dataStore = [GRTDataStore sharedDataStore];
     
@@ -80,12 +85,41 @@
     return 150;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+
 {
-    GRTPostTableViewCell *cell = [self configureCellForMainTableViewWithIndexPath:indexPath];
-    Post *post = [self.dataStore.postFRController objectAtIndexPath:indexPath];
-    [cell configureWithPost:post];
+    
+    
+    if (indexPath.row == 2) {
+        GRTArticleViewCell *cell= [self configureArticleCellForMainTableViewWithIndexPath:indexPath];
+        //Post *post = [self.dataStore.postFRController objectAtIndexPath:indexPath];
+        [cell configureWithPost:nil];
+        
+        NSLog(@"logged");
+    
+        return cell;
+    }
+    
+    
+    if (indexPath.row == 4) {
+        GRTPlayArticleCell *cell= [self configurePlayCellForMainTableViewWithIndexPath:indexPath];
+        //Post *post = [self.dataStore.postFRController objectAtIndexPath:indexPath];
+        [cell configureWithPost:nil];
+        
+        NSLog(@"logged");
+        
+        return cell;
+    }
+
+    else
+    {
+        GRTPostTableViewCell *cell = [self configureCellForMainTableViewWithIndexPath:indexPath];
+        Post *post = [self.dataStore.postFRController objectAtIndexPath:indexPath];
+        [cell configureWithPost:post];
+        return cell;
+    }
+    
 //    cell.postLabel.text= @"random string";
-    return cell;
+    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -216,6 +250,24 @@
     return cell;
 }
 
+- (GRTArticleViewCell *) configureArticleCellForMainTableViewWithIndexPath: (NSIndexPath *)indexPath
+{
+    GRTArticleViewCell *cell = [self.postsTableView dequeueReusableCellWithIdentifier:@"playArticleCell"];
+    //Post *post = [self.dataStore.postFRController objectAtIndexPath:indexPath];
+    [cell configureWithPost:nil];
+
+    return cell;
+    
+}
+- (GRTPlayArticleCell *) configurePlayCellForMainTableViewWithIndexPath: (NSIndexPath *)indexPath
+{
+    GRTPlayArticleCell *cell = [self.postsTableView dequeueReusableCellWithIdentifier:@"moveArticleCell"];
+    //Post *post = [self.dataStore.postFRController objectAtIndexPath:indexPath];
+    [cell configureWithPost:nil];
+    
+    return cell;
+    
+}
 #pragma mark - Segue Methods
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
