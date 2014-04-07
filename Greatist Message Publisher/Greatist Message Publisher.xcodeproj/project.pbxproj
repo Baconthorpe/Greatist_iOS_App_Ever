@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		03A2662218EDFABF002790AB /* GRTTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03A2662118EDFABF002790AB /* GRTTableViewCell.xib */; };
 		03A2662518EDFD11002790AB /* GRTPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A2662418EDFD11002790AB /* GRTPostTableViewCell.m */; };
+		03F7D75218F2FEF00019D080 /* GRTArticleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03F7D75118F2FEF00019D080 /* GRTArticleCell.xib */; };
+		03F7D75618F303C60019D080 /* GRTPlayArticleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03F7D75518F303C60019D080 /* GRTPlayArticleCell.xib */; };
+		03F7D75B18F319800019D080 /* GRTArticleViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F7D75A18F319800019D080 /* GRTArticleViewCell.m */; };
+		03F7D75E18F3246E0019D080 /* GRTPlayArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F7D75D18F3246E0019D080 /* GRTPlayArticleCell.m */; };
+		03F7D76118F32A920019D080 /* photo (3).PNG in Resources */ = {isa = PBXBuildFile; fileRef = 03F7D75F18F32A920019D080 /* photo (3).PNG */; };
+		03F7D76218F32A920019D080 /* photo (2).PNG in Resources */ = {isa = PBXBuildFile; fileRef = 03F7D76018F32A920019D080 /* photo (2).PNG */; };
 		0F1AFFED18ECAABE006BB25B /* GRTImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1AFFEC18ECAABE006BB25B /* GRTImporter.m */; };
 		0F1AFFF018ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0F1AFFEE18ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodeld */; };
 		0F30132A18EE0F2D008A4FCB /* Eat_Colored60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F30132918EE0F2D008A4FCB /* Eat_Colored60x60.png */; };
@@ -96,6 +102,14 @@
 		03A2662118EDFABF002790AB /* GRTTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GRTTableViewCell.xib; sourceTree = "<group>"; };
 		03A2662318EDFD11002790AB /* GRTPostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTPostTableViewCell.h; sourceTree = "<group>"; };
 		03A2662418EDFD11002790AB /* GRTPostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTPostTableViewCell.m; sourceTree = "<group>"; };
+		03F7D75118F2FEF00019D080 /* GRTArticleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GRTArticleCell.xib; sourceTree = "<group>"; };
+		03F7D75518F303C60019D080 /* GRTPlayArticleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GRTPlayArticleCell.xib; sourceTree = "<group>"; };
+		03F7D75918F319800019D080 /* GRTArticleViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTArticleViewCell.h; sourceTree = "<group>"; };
+		03F7D75A18F319800019D080 /* GRTArticleViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTArticleViewCell.m; sourceTree = "<group>"; };
+		03F7D75C18F3246E0019D080 /* GRTPlayArticleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTPlayArticleCell.h; sourceTree = "<group>"; };
+		03F7D75D18F3246E0019D080 /* GRTPlayArticleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTPlayArticleCell.m; sourceTree = "<group>"; };
+		03F7D75F18F32A920019D080 /* photo (3).PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo (3).PNG"; sourceTree = "<group>"; };
+		03F7D76018F32A920019D080 /* photo (2).PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo (2).PNG"; sourceTree = "<group>"; };
 		0F1AFFEB18ECAABE006BB25B /* GRTImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTImporter.h; sourceTree = "<group>"; };
 		0F1AFFEC18ECAABE006BB25B /* GRTImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTImporter.m; sourceTree = "<group>"; };
 		0F1AFFEF18ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Greatist_Message_Publisher.xcdatamodel; sourceTree = "<group>"; };
@@ -379,6 +393,8 @@
 		87674F5E18ECB64A00231453 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				03F7D75F18F32A920019D080 /* photo (3).PNG */,
+				03F7D76018F32A920019D080 /* photo (2).PNG */,
 				8767501018EE13C100231453 /* Greatist_Logo_Badge_Blue.png */,
 				87674F5F18ECB64A00231453 /* Greatist_Logo.png */,
 				55912DF718ECB9510069FEEC /* Greatist_Logo_small.png */,
@@ -474,12 +490,18 @@
 				8767501318EE1E8D00231453 /* UIColor+Helpers.m */,
 				8767500D18EE124300231453 /* UIImage+Helpers.h */,
 				8767500E18EE124300231453 /* UIImage+Helpers.m */,
+				550D3D4B18EF04D3009A9406 /* UIViewController+styleSheet.h */,
+				0FA8357F18EB70FD003C8687 /* Main.storyboard */,
+				550D3D4C18EF04D3009A9406 /* UIViewController+styleSheet.m */,
+				03A2662118EDFABF002790AB /* GRTTableViewCell.xib */,
 				03A2662318EDFD11002790AB /* GRTPostTableViewCell.h */,
 				03A2662418EDFD11002790AB /* GRTPostTableViewCell.m */,
-				550D3D4B18EF04D3009A9406 /* UIViewController+styleSheet.h */,
-				550D3D4C18EF04D3009A9406 /* UIViewController+styleSheet.m */,
-				0FA8357F18EB70FD003C8687 /* Main.storyboard */,
-				03A2662118EDFABF002790AB /* GRTTableViewCell.xib */,
+				03F7D75118F2FEF00019D080 /* GRTArticleCell.xib */,
+				03F7D75918F319800019D080 /* GRTArticleViewCell.h */,
+				03F7D75A18F319800019D080 /* GRTArticleViewCell.m */,
+				03F7D75518F303C60019D080 /* GRTPlayArticleCell.xib */,
+				03F7D75C18F3246E0019D080 /* GRTPlayArticleCell.h */,
+				03F7D75D18F3246E0019D080 /* GRTPlayArticleCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -565,6 +587,8 @@
 				550D3D3C18EDC2A0009A9406 /* navbarLogo.xib in Resources */,
 				550D3D5118EF0561009A9406 /* postIcon40x40.png in Resources */,
 				87674FDF18EDAF0500231453 /* Grow_Colored.png in Resources */,
+				03F7D75618F303C60019D080 /* GRTPlayArticleCell.xib in Resources */,
+				03F7D76118F32A920019D080 /* photo (3).PNG in Resources */,
 				550D3D5018EF0561009A9406 /* navBar.png in Resources */,
 				87674FCE18EDAF0500231453 /* Discover_Gray.png in Resources */,
 				87674FE918EDAF0500231453 /* Move_Colored.png in Resources */,
@@ -581,9 +605,11 @@
 				87674FF618EDAF0500231453 /* Play_Gray.png in Resources */,
 				87674FDC18EDAF0500231453 /* Eat_White.png in Resources */,
 				0FA8355718EB70A4003C8687 /* InfoPlist.strings in Resources */,
+				03F7D76218F32A920019D080 /* photo (2).PNG in Resources */,
 				87674F6618ECB64A00231453 /* ArcherPro-SemiboldItalic.otf in Resources */,
 				87674F6118ECB64A00231453 /* ArcherPro-BoldItalic.otf in Resources */,
 				0FA8356218EB70A4003C8687 /* Images.xcassets in Resources */,
+				03F7D75218F2FEF00019D080 /* GRTArticleCell.xib in Resources */,
 				87674F6818ECB64A00231453 /* DINOT-Medium.otf in Resources */,
 				87674FC118EDAF0500231453 /* Connect_Colored.png in Resources */,
 				87674FE618EDAF0500231453 /* Grow_White.png in Resources */,
@@ -658,6 +684,7 @@
 				55912DF318EC86840069FEEC /* Section+Methods.m in Sources */,
 				55912DBD18EC68E50069FEEC /* GRTComposePostViewController.m in Sources */,
 				55912DF218EC86840069FEEC /* Response.m in Sources */,
+				03F7D75B18F319800019D080 /* GRTArticleViewCell.m in Sources */,
 				55912DF518EC86840069FEEC /* User+Methods.m in Sources */,
 				0F1AFFF018ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodeld in Sources */,
 				55912DF118EC86840069FEEC /* Response+Methods.m in Sources */,
@@ -672,6 +699,7 @@
 				550D3D4D18EF04D3009A9406 /* UIViewController+styleSheet.m in Sources */,
 				55912DBA18EC68B00069FEEC /* GRTPostDetailViewController.m in Sources */,
 				0FA8355918EB70A4003C8687 /* main.m in Sources */,
+				03F7D75E18F3246E0019D080 /* GRTPlayArticleCell.m in Sources */,
 				55912DEF18EC86840069FEEC /* Post+Methods.m in Sources */,
 				55912DB518EC5AED0069FEEC /* GRTMainViewController.m in Sources */,
 				8767501418EE1E8D00231453 /* UIColor+Helpers.m in Sources */,
