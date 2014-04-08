@@ -13,11 +13,11 @@
 
 @interface User : NSManagedObject
 
+@property (nonatomic, retain) NSString * fbookID;
+@property (nonatomic, retain) NSNumber * latestLat;
+@property (nonatomic, retain) NSNumber * latestLon;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * uniqueID;
-@property (nonatomic, retain) NSString * fbookID;
-@property (nonatomic, retain) NSNumber * latestLon;
-@property (nonatomic, retain) NSNumber * latestLat;
 @property (nonatomic, retain) NSSet *posts;
 @property (nonatomic, retain) NSSet *responses;
 @end

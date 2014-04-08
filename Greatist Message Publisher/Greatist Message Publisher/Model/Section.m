@@ -7,13 +7,14 @@
 //
 
 #import "Section.h"
+#import "Article.h"
 #import "Post.h"
 
 
 @implementation Section
 
 @dynamic name;
-@dynamic posts;
 @dynamic articles;
+@dynamic posts;
 
 @end

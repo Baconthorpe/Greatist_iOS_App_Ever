@@ -14,10 +14,10 @@
 @interface Post : NSManagedObject
 
 @property (nonatomic, retain) NSString * content;
-@property (nonatomic, retain) NSDate * timeStamp;
-@property (nonatomic, retain) NSNumber * lonStamp;
 @property (nonatomic, retain) NSNumber * latStamp;
+@property (nonatomic, retain) NSNumber * lonStamp;
 @property (nonatomic, retain) NSString * originType;
+@property (nonatomic, retain) NSDate * timeStamp;
 @property (nonatomic, retain) NSSet *responses;
 @property (nonatomic, retain) Section *section;
 @property (nonatomic, retain) User *user;

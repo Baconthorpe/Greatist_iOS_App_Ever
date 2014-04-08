@@ -13,10 +13,10 @@
 
 @interface Article : NSManagedObject
 
-@property (nonatomic, retain) NSDate * timeStamp;
+@property (nonatomic, retain) NSString * articleURL;
 @property (nonatomic, retain) NSString * headline;
 @property (nonatomic, retain) NSString * imageURL;
-@property (nonatomic, retain) NSString * articleURL;
+@property (nonatomic, retain) NSDate * timeStamp;
 @property (nonatomic, retain) Section *section;
 
 @end

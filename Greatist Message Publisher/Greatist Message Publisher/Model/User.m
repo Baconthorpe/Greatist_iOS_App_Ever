@@ -13,11 +13,11 @@
 
 @implementation User
 
+@dynamic fbookID;
+@dynamic latestLat;
+@dynamic latestLon;
 @dynamic name;
 @dynamic uniqueID;
-@dynamic fbookID;
-@dynamic latestLon;
-@dynamic latestLat;
 @dynamic posts;
 @dynamic responses;
 

@@ -15,10 +15,10 @@
 @implementation Post
 
 @dynamic content;
-@dynamic timeStamp;
-@dynamic lonStamp;
 @dynamic latStamp;
+@dynamic lonStamp;
 @dynamic originType;
+@dynamic timeStamp;
 @dynamic responses;
 @dynamic section;
 @dynamic user;

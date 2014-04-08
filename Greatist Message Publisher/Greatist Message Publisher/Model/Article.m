@@ -12,10 +12,10 @@
 
 @implementation Article
 
-@dynamic timeStamp;
+@dynamic articleURL;
 @dynamic headline;
 @dynamic imageURL;
-@dynamic articleURL;
+@dynamic timeStamp;
 @dynamic section;
 
 @end
