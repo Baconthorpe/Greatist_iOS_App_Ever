@@ -45,11 +45,7 @@
 {
     [super viewDidLoad];
     [self.postsTableView registerNib:[UINib nibWithNibName:@"GRTTableViewCell" bundle:nil] forCellReuseIdentifier:@"postCell"];
-    [self.postsTableView registerNib:[UINib nibWithNibName:@"GRTPlayArticleCell" bundle:nil] forCellReuseIdentifier:@"playArticleCell"];
-    [self.postsTableView registerNib:[UINib nibWithNibName:@"GRTArticleCell" bundle:nil] forCellReuseIdentifier:@"moveArticleCell"];
-    [self.postsTableView registerNib:[UINib nibWithNibName:@"GRTEatArticleCell" bundle:nil] forCellReuseIdentifier:@"eatArticleCell"];
-    
-    self.dataStore = [GRTDataStore sharedDataStore];
+        self.dataStore = [GRTDataStore sharedDataStore];
     
     self.postsTableView.delegate = self;
     self.postsTableView.dataSource = self;
@@ -93,46 +89,13 @@
 {
     
     
-    if (indexPath.row == 2) {
-        GRTArticleViewCell *cell= [self configureArticleCellForMainTableViewWithIndexPath:indexPath];
-        //Post *post = [self.dataStore.postFRController objectAtIndexPath:indexPath];
-        [cell configureWithPost:nil];
-        
-        NSLog(@"logged");
-    
-        return cell;
-    }
-    
-    
-    if (indexPath.row == 4) {
-        GRTPlayArticleCell *cell= [self configurePlayCellForMainTableViewWithIndexPath:indexPath];
-        //Post *post = [self.dataStore.postFRController objectAtIndexPath:indexPath];
-        [cell configureWithPost:nil];
-        
-        NSLog(@"logged");
-        
-        return cell;
-    }
-    
-    if (indexPath.row == 7) {
-        GRTEatArticleCell *cell= [self configureEatCellForMainTableViewWithIndexPath:indexPath];
-        //Post *post = [self.dataStore.postFRController objectAtIndexPath:indexPath];
-        [cell configureWithPost:nil];
-        
-        NSLog(@"logged");
-        
-        return cell;
-    }
-
-    else
-    {
-        GRTPostTableViewCell *cell = [self configureCellForMainTableViewWithIndexPath:indexPath];
+          GRTPostTableViewCell *cell = [self configureCellForMainTableViewWithIndexPath:indexPath];
         Post *post = [self.dataStore.postFRController objectAtIndexPath:indexPath];
         [cell configureWithPost:post];
         UIFont *archerProMedium = [UIFont fontWithName:@"ArcherPro-Medium" size:50];
         cell.textLabel.font = archerProMedium;
         return cell;
-    }
+    
 
 }
 
@@ -254,43 +217,13 @@
     
     NSLog(@"%@",post.section.name);
     
-//    Section *move = [Section sectionWithName:@"Move" inContext:self.managedObjectContext];
-//    Section *eat = [Section sectionWithName:@"Eat" inContext:self.managedObjectContext];
-//    Section *play = [Section sectionWithName:@"Play" inContext:self.managedObjectContext];
-//    Section *grow = [Section sectionWithName:@"Grow" inContext:self.managedObjectContext];
-//    cell.backgroundColor = [UIColor greatistPlayColor];
     
     return cell;
 }
 
-- (GRTArticleViewCell *) configureArticleCellForMainTableViewWithIndexPath: (NSIndexPath *)indexPath
-{
-    GRTArticleViewCell *cell = [self.postsTableView dequeueReusableCellWithIdentifier:@"playArticleCell"];
-    //Post *post = [self.dataStore.postFRController objectAtIndexPath:indexPath];
-    [cell configureWithPost:nil];
 
-    return cell;
-    
-}
-- (GRTPlayArticleCell *) configurePlayCellForMainTableViewWithIndexPath: (NSIndexPath *)indexPath
-{
-    GRTPlayArticleCell *cell = [self.postsTableView dequeueReusableCellWithIdentifier:@"moveArticleCell"];
-    //Post *post = [self.dataStore.postFRController objectAtIndexPath:indexPath];
-    [cell configureWithPost:nil];
-    
-    return cell;
-    
-}
 
-- (GRTEatArticleCell *) configureEatCellForMainTableViewWithIndexPath: (NSIndexPath *)indexPath
-{
-    GRTEatArticleCell *cell = [self.postsTableView dequeueReusableCellWithIdentifier:@"eatArticleCell"];
-    //Post *post = [self.dataStore.postFRController objectAtIndexPath:indexPath];
-    [cell configureWithPost:nil];
-    
-    return cell;
-    
-}
+
 
 #pragma mark - Segue Methods
 
