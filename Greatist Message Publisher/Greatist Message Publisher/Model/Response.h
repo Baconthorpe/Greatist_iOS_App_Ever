@@ -2,7 +2,7 @@
 //  Response.h
 //  Greatist Message Publisher
 //
-//  Created by Ezekiel Abuhoff on 4/2/14.
+//  Created by Ezekiel Abuhoff on 4/8/14.
 //  Copyright (c) 2014 Ezekiel Abuhoff. All rights reserved.
 //
 
@@ -15,7 +15,7 @@
 
 @property (nonatomic, retain) NSString * content;
 @property (nonatomic, retain) NSDate * timeStamp;
-@property (nonatomic, retain) User *user;
 @property (nonatomic, retain) Post *post;
+@property (nonatomic, retain) User *user;
 
 @end

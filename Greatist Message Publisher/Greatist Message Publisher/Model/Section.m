@@ -2,7 +2,7 @@
 //  Section.m
 //  Greatist Message Publisher
 //
-//  Created by Ezekiel Abuhoff on 4/2/14.
+//  Created by Ezekiel Abuhoff on 4/8/14.
 //  Copyright (c) 2014 Ezekiel Abuhoff. All rights reserved.
 //
 
@@ -14,5 +14,6 @@
 
 @dynamic name;
 @dynamic posts;
+@dynamic articles;
 
 @end

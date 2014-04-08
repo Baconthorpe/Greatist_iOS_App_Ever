@@ -1,26 +1,21 @@
 //
-//  Post.m
+//  Article.m
 //  Greatist Message Publisher
 //
 //  Created by Ezekiel Abuhoff on 4/8/14.
 //  Copyright (c) 2014 Ezekiel Abuhoff. All rights reserved.
 //
 
-#import "Post.h"
-#import "Response.h"
+#import "Article.h"
 #import "Section.h"
-#import "User.h"
 
 
-@implementation Post
+@implementation Article
 
-@dynamic content;
 @dynamic timeStamp;
-@dynamic lonStamp;
-@dynamic latStamp;
-@dynamic originType;
-@dynamic responses;
+@dynamic headline;
+@dynamic imageURL;
+@dynamic articleURL;
 @dynamic section;
-@dynamic user;
 
 @end

@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13C64" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Article" representedClassName="Article" syncable="YES">
+        <attribute name="articleURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="headline" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timeStamp" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="section" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Section" inverseName="articles" inverseEntity="Section" syncable="YES"/>
+    </entity>
     <entity name="Post" representedClassName="Post" syncable="YES">
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latStamp" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="lonStamp" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="originType" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timeStamp" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="responses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Response" inverseName="post" inverseEntity="Response" syncable="YES"/>
         <relationship name="section" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Section" inverseName="posts" inverseEntity="Section" syncable="YES"/>
@@ -15,18 +25,23 @@
     </entity>
     <entity name="Section" representedClassName="Section" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="articles" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Article" inverseName="section" inverseEntity="Article" syncable="YES"/>
         <relationship name="posts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Post" inverseName="section" inverseEntity="Post" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES">
+        <attribute name="fbookID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latestLat" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="latestLon" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="uniqueID" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="posts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Post" inverseName="user" inverseEntity="Post" syncable="YES"/>
         <relationship name="responses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Response" inverseName="user" inverseEntity="Response" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Post" positionX="-164" positionY="135" width="128" height="118"/>
+        <element name="Post" positionX="-171" positionY="177" width="128" height="165"/>
         <element name="Response" positionX="-389" positionY="27" width="128" height="103"/>
-        <element name="Section" positionX="36" positionY="45" width="128" height="73"/>
-        <element name="User" positionX="-180" positionY="-45" width="128" height="103"/>
+        <element name="Section" positionX="18" positionY="18" width="128" height="88"/>
+        <element name="User" positionX="-180" positionY="-45" width="128" height="150"/>
+        <element name="Article" positionX="241" positionY="90" width="128" height="118"/>
     </elements>
 </model>
