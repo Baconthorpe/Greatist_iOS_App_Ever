@@ -41,6 +41,7 @@
 		550D3D4D18EF04D3009A9406 /* UIViewController+styleSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 550D3D4C18EF04D3009A9406 /* UIViewController+styleSheet.m */; };
 		550D3D5018EF0561009A9406 /* navBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 550D3D4E18EF0561009A9406 /* navBar.png */; };
 		550D3D5118EF0561009A9406 /* postIcon40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 550D3D4F18EF0561009A9406 /* postIcon40x40.png */; };
+		550D3D6218F4579E009A9406 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 550D3D6118F4579E009A9406 /* Social.framework */; };
 		55912DB518EC5AED0069FEEC /* GRTMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DB418EC5AED0069FEEC /* GRTMainViewController.m */; };
 		55912DBA18EC68B00069FEEC /* GRTPostDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DB918EC68B00069FEEC /* GRTPostDetailViewController.m */; };
 		55912DBD18EC68E50069FEEC /* GRTComposePostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DBC18EC68E50069FEEC /* GRTComposePostViewController.m */; };
@@ -141,6 +142,7 @@
 		550D3D4C18EF04D3009A9406 /* UIViewController+styleSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+styleSheet.m"; sourceTree = "<group>"; };
 		550D3D4E18EF0561009A9406 /* navBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navBar.png; sourceTree = "<group>"; };
 		550D3D4F18EF0561009A9406 /* postIcon40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = postIcon40x40.png; sourceTree = "<group>"; };
+		550D3D6118F4579E009A9406 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		55912DB318EC5AED0069FEEC /* GRTMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTMainViewController.h; sourceTree = "<group>"; };
 		55912DB418EC5AED0069FEEC /* GRTMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTMainViewController.m; sourceTree = "<group>"; };
 		55912DB818EC68B00069FEEC /* GRTPostDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTPostDetailViewController.h; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				550D3D6218F4579E009A9406 /* Social.framework in Frameworks */,
 				0FA8354D18EB70A4003C8687 /* CoreGraphics.framework in Frameworks */,
 				0FA8355118EB70A4003C8687 /* CoreData.framework in Frameworks */,
 				0FA8354F18EB70A4003C8687 /* UIKit.framework in Frameworks */,
@@ -253,6 +256,7 @@
 		0FA8354918EB70A3003C8687 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				550D3D6118F4579E009A9406 /* Social.framework */,
 				0FA8354A18EB70A3003C8687 /* Foundation.framework */,
 				0FA8354C18EB70A4003C8687 /* CoreGraphics.framework */,
 				0FA8354E18EB70A4003C8687 /* UIKit.framework */,
