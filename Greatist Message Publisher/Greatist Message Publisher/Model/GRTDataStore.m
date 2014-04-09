@@ -11,6 +11,7 @@
 #import "Post+Methods.h"
 #import "Response+Methods.h"
 #import "Section+Methods.h"
+#import "GRTFacebookAPIClient.h"
 
 @interface GRTDataStore ()
 
@@ -165,6 +166,17 @@
     
     return [self.managedObjectContext executeFetchRequest:userFetch error:nil][0];
 }
+
+- (NSArray *) fetchPostsForCurrentUser
+{
+    [GRTFacebookAPIClient facebookLoginWithCompletion:^(NSArray *facebookFriends) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSLog(@"%@", facebookFriends);
+        });
+    }];
+    return @[];
+}
+
 
 #pragma mark - Startup
 

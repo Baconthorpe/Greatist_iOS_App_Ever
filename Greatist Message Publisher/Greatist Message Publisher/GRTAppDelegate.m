@@ -25,6 +25,8 @@
    [self.dataStore starterData];
     
    [[UIToolbar appearance] setBackgroundColor:[UIColor greatistLightGrayColor]];
+    
+    [self.dataStore fetchPostsForCurrentUser];
 
     return YES;
 }

@@ -16,11 +16,14 @@
 
 @property (strong, nonatomic) NSFetchedResultsController *postFRController;
 
+@property (strong, nonatomic) NSArray *facebookFriends;
+
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
 + (instancetype) sharedDataStore;
 
 - (void) starterData;
+- (NSArray *) fetchPostsForCurrentUser;
 
 @end
