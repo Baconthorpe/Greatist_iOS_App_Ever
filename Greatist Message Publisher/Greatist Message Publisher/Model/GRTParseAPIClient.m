@@ -70,4 +70,33 @@
 
 #pragma mark - POST Methods
 
+- (void) postPostWithContent: (NSString *)content
+                     section: (NSString *)section
+                    latitude: (CGFloat)latitude
+                   longitude: (CGFloat)longitude
+                      userID: (NSString *)userID
+{
+    NSString *parseDatabaseURL = @"https://api.parse.com/1/classes/Post";
+    NSURL *url = [NSURL URLWithString:parseDatabaseURL];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request addValue:self.restAPIKey forHTTPHeaderField:@"X-Parse-REST-API-Key"];
+    [request addValue:self.appID forHTTPHeaderField:@"X-Parse-Application-Id"];
+    
+    AFHTTPRequestOperation *newOp = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    
+    NSString *json = [NSString stringWithFormat:@"{\"UserID\":\"%@\",\"Content\":\"%@\",\"section\":\"%@\",\"latStamp\":\"%f\",\"lonStamp\":\"%f\"}",userID,content,section,latitude,longitude];
+    request.HTTPBody = [json dataUsingEncoding:NSUTF8StringEncoding];
+    request.HTTPMethod = @"POST";
+    
+    [newOp setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%@",responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@",error);
+    }];
+    
+    [newOp start];
+}
+
 @end

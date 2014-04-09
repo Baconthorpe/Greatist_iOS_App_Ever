@@ -233,5 +233,10 @@
     }];
 }
 
+- (void) testParsePOST
+{
+    [self.parseAPI postPostWithContent:@"I did stuff and stuff." section:@"grow" latitude:10.0 longitude:10.0 userID:@"oiou534iou345o"];
+}
+
 
 @end

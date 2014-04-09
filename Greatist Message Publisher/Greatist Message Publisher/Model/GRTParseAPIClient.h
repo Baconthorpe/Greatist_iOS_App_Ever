@@ -12,4 +12,10 @@
 
 - (void) getRelevantPostsWithCompletion:(void (^)(NSArray *))completion;
 
+- (void) postPostWithContent: (NSString *)content
+                     section: (NSString *)section
+                    latitude: (CGFloat)latitude
+                   longitude: (CGFloat)longitude
+                      userID: (NSString *)userID;
+
 @end

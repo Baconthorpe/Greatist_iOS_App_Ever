@@ -26,7 +26,7 @@
     
    [[UIToolbar appearance] setBackgroundColor:[UIColor greatistLightGrayColor]];
     
-    [self.dataStore testParseGET];
+    [self.dataStore testParsePOST];
 
     return YES;
 }

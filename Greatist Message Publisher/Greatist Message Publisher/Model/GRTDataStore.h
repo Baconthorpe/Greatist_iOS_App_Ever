@@ -24,5 +24,6 @@
 - (void) starterData;
 
 - (void) testParseGET;
+- (void) testParsePOST;
 
 @end
