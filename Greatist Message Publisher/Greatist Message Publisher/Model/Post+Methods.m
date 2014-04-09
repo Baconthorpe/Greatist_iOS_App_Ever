@@ -7,6 +7,7 @@
 //
 
 #import "Post+Methods.h"
+#import "Response+Methods.h"
 
 @implementation Post (Methods)
 
@@ -44,6 +45,26 @@
     NSSet *setOfMatches = [self.responses filteredSetUsingPredicate:preciseContentSearch];
     
     return [setOfMatches count];
+}
+
+- (NSDictionary *) dictionaryOfResponses
+{
+    NSMutableDictionary *dictionaryToReturn = [NSMutableDictionary new];
+    
+    NSMutableSet *responseContents = [NSMutableSet new];
+    
+    for (Response *response in self.responses)
+    {
+        [responseContents addObject:response.content];
+    }
+    
+    for (NSString *responseContent in responseContents)
+    {
+        NSDictionary *entryForThisContent = @{responseContent: @([self countOfResponsesWithContent:responseContent])};
+        [dictionaryToReturn addEntriesFromDictionary:entryForThisContent];
+    }
+    
+    return dictionaryToReturn;
 }
 
 

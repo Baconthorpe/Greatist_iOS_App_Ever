@@ -2,7 +2,7 @@
 //  Post.h
 //  Greatist Message Publisher
 //
-//  Created by Ezekiel Abuhoff on 4/2/14.
+//  Created by Ezekiel Abuhoff on 4/8/14.
 //  Copyright (c) 2014 Ezekiel Abuhoff. All rights reserved.
 //
 
@@ -14,10 +14,13 @@
 @interface Post : NSManagedObject
 
 @property (nonatomic, retain) NSString * content;
+@property (nonatomic, retain) NSNumber * latStamp;
+@property (nonatomic, retain) NSNumber * lonStamp;
+@property (nonatomic, retain) NSString * originType;
 @property (nonatomic, retain) NSDate * timeStamp;
-@property (nonatomic, retain) User *user;
 @property (nonatomic, retain) NSSet *responses;
 @property (nonatomic, retain) Section *section;
+@property (nonatomic, retain) User *user;
 @end
 
 @interface Post (CoreDataGeneratedAccessors)

@@ -2,7 +2,7 @@
 //  User.h
 //  Greatist Message Publisher
 //
-//  Created by Ezekiel Abuhoff on 4/2/14.
+//  Created by Ezekiel Abuhoff on 4/8/14.
 //  Copyright (c) 2014 Ezekiel Abuhoff. All rights reserved.
 //
 
@@ -13,22 +13,25 @@
 
 @interface User : NSManagedObject
 
+@property (nonatomic, retain) NSString * fbookID;
+@property (nonatomic, retain) NSNumber * latestLat;
+@property (nonatomic, retain) NSNumber * latestLon;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * uniqueID;
-@property (nonatomic, retain) NSSet *responses;
 @property (nonatomic, retain) NSSet *posts;
+@property (nonatomic, retain) NSSet *responses;
 @end
 
 @interface User (CoreDataGeneratedAccessors)
-
-- (void)addResponsesObject:(Response *)value;
-- (void)removeResponsesObject:(Response *)value;
-- (void)addResponses:(NSSet *)values;
-- (void)removeResponses:(NSSet *)values;
 
 - (void)addPostsObject:(Post *)value;
 - (void)removePostsObject:(Post *)value;
 - (void)addPosts:(NSSet *)values;
 - (void)removePosts:(NSSet *)values;
+
+- (void)addResponsesObject:(Response *)value;
+- (void)removeResponsesObject:(Response *)value;
+- (void)addResponses:(NSSet *)values;
+- (void)removeResponses:(NSSet *)values;
 
 @end

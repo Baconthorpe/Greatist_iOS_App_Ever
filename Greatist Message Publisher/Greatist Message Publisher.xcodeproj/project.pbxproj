@@ -9,10 +9,6 @@
 /* Begin PBXBuildFile section */
 		03A2662218EDFABF002790AB /* GRTTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03A2662118EDFABF002790AB /* GRTTableViewCell.xib */; };
 		03A2662518EDFD11002790AB /* GRTPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A2662418EDFD11002790AB /* GRTPostTableViewCell.m */; };
-		03F7D75218F2FEF00019D080 /* GRTArticleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03F7D75118F2FEF00019D080 /* GRTArticleCell.xib */; };
-		03F7D75618F303C60019D080 /* GRTPlayArticleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03F7D75518F303C60019D080 /* GRTPlayArticleCell.xib */; };
-		03F7D75B18F319800019D080 /* GRTArticleViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F7D75A18F319800019D080 /* GRTArticleViewCell.m */; };
-		03F7D75E18F3246E0019D080 /* GRTPlayArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F7D75D18F3246E0019D080 /* GRTPlayArticleCell.m */; };
 		03F7D76118F32A920019D080 /* photo (3).PNG in Resources */ = {isa = PBXBuildFile; fileRef = 03F7D75F18F32A920019D080 /* photo (3).PNG */; };
 		03F7D76218F32A920019D080 /* photo (2).PNG in Resources */ = {isa = PBXBuildFile; fileRef = 03F7D76018F32A920019D080 /* photo (2).PNG */; };
 		0F1AFFED18ECAABE006BB25B /* GRTImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1AFFEC18ECAABE006BB25B /* GRTImporter.m */; };
@@ -21,6 +17,11 @@
 		0F30132C18EE0F77008A4FCB /* Grow_Colored60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F30132B18EE0F77008A4FCB /* Grow_Colored60x60.png */; };
 		0F30132E18EE0F80008A4FCB /* Move_Colored60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F30132D18EE0F80008A4FCB /* Move_Colored60x60.png */; };
 		0F30133018EE0FB6008A4FCB /* Play_Colored60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F30132F18EE0FB6008A4FCB /* Play_Colored60x60.png */; };
+		0F73662A18F4B77A003D71DE /* Response.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F73662918F4B77A003D71DE /* Response.m */; };
+		0F73662D18F4B77B003D71DE /* Article.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F73662C18F4B77A003D71DE /* Article.m */; };
+		0F73663018F4B77B003D71DE /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F73662F18F4B77B003D71DE /* Post.m */; };
+		0F73663318F4B77B003D71DE /* Section.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F73663218F4B77B003D71DE /* Section.m */; };
+		0F73663618F4B77B003D71DE /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F73663518F4B77B003D71DE /* User.m */; };
 		0FA8354B18EB70A4003C8687 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA8354A18EB70A3003C8687 /* Foundation.framework */; };
 		0FA8354D18EB70A4003C8687 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA8354C18EB70A4003C8687 /* CoreGraphics.framework */; };
 		0FA8354F18EB70A4003C8687 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA8354E18EB70A4003C8687 /* UIKit.framework */; };
@@ -47,13 +48,9 @@
 		55912DBD18EC68E50069FEEC /* GRTComposePostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DBC18EC68E50069FEEC /* GRTComposePostViewController.m */; };
 		55912DEE18EC86840069FEEC /* GRTDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DDD18EC86840069FEEC /* GRTDataStore.m */; };
 		55912DEF18EC86840069FEEC /* Post+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DDF18EC86840069FEEC /* Post+Methods.m */; };
-		55912DF018EC86840069FEEC /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DE118EC86840069FEEC /* Post.m */; };
 		55912DF118EC86840069FEEC /* Response+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DE318EC86840069FEEC /* Response+Methods.m */; };
-		55912DF218EC86840069FEEC /* Response.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DE518EC86840069FEEC /* Response.m */; };
 		55912DF318EC86840069FEEC /* Section+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DE718EC86840069FEEC /* Section+Methods.m */; };
-		55912DF418EC86840069FEEC /* Section.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DE918EC86840069FEEC /* Section.m */; };
 		55912DF518EC86840069FEEC /* User+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DEB18EC86840069FEEC /* User+Methods.m */; };
-		55912DF618EC86840069FEEC /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DED18EC86840069FEEC /* User.m */; };
 		55912DF818ECB9510069FEEC /* Greatist_Logo_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 55912DF718ECB9510069FEEC /* Greatist_Logo_small.png */; };
 		55912DFA18ECBA390069FEEC /* Greatist_Logo86x50.png in Resources */ = {isa = PBXBuildFile; fileRef = 55912DF918ECBA390069FEEC /* Greatist_Logo86x50.png */; };
 		87674F6018ECB64A00231453 /* ArcherPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 87674F5418ECB64A00231453 /* ArcherPro-Bold.otf */; };
@@ -103,12 +100,6 @@
 		03A2662118EDFABF002790AB /* GRTTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GRTTableViewCell.xib; sourceTree = "<group>"; };
 		03A2662318EDFD11002790AB /* GRTPostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTPostTableViewCell.h; sourceTree = "<group>"; };
 		03A2662418EDFD11002790AB /* GRTPostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTPostTableViewCell.m; sourceTree = "<group>"; };
-		03F7D75118F2FEF00019D080 /* GRTArticleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GRTArticleCell.xib; sourceTree = "<group>"; };
-		03F7D75518F303C60019D080 /* GRTPlayArticleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GRTPlayArticleCell.xib; sourceTree = "<group>"; };
-		03F7D75918F319800019D080 /* GRTArticleViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTArticleViewCell.h; sourceTree = "<group>"; };
-		03F7D75A18F319800019D080 /* GRTArticleViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTArticleViewCell.m; sourceTree = "<group>"; };
-		03F7D75C18F3246E0019D080 /* GRTPlayArticleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTPlayArticleCell.h; sourceTree = "<group>"; };
-		03F7D75D18F3246E0019D080 /* GRTPlayArticleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTPlayArticleCell.m; sourceTree = "<group>"; };
 		03F7D75F18F32A920019D080 /* photo (3).PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo (3).PNG"; sourceTree = "<group>"; };
 		03F7D76018F32A920019D080 /* photo (2).PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo (2).PNG"; sourceTree = "<group>"; };
 		0F1AFFEB18ECAABE006BB25B /* GRTImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTImporter.h; sourceTree = "<group>"; };
@@ -118,6 +109,16 @@
 		0F30132B18EE0F77008A4FCB /* Grow_Colored60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Grow_Colored60x60.png; path = Colored/Grow_Colored60x60.png; sourceTree = "<group>"; };
 		0F30132D18EE0F80008A4FCB /* Move_Colored60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Move_Colored60x60.png; path = Colored/Move_Colored60x60.png; sourceTree = "<group>"; };
 		0F30132F18EE0FB6008A4FCB /* Play_Colored60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Play_Colored60x60.png; path = Colored/Play_Colored60x60.png; sourceTree = "<group>"; };
+		0F73662818F4B77A003D71DE /* Response.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Response.h; sourceTree = "<group>"; };
+		0F73662918F4B77A003D71DE /* Response.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Response.m; sourceTree = "<group>"; };
+		0F73662B18F4B77A003D71DE /* Article.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Article.h; sourceTree = "<group>"; };
+		0F73662C18F4B77A003D71DE /* Article.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Article.m; sourceTree = "<group>"; };
+		0F73662E18F4B77B003D71DE /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
+		0F73662F18F4B77B003D71DE /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
+		0F73663118F4B77B003D71DE /* Section.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Section.h; sourceTree = "<group>"; };
+		0F73663218F4B77B003D71DE /* Section.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Section.m; sourceTree = "<group>"; };
+		0F73663418F4B77B003D71DE /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		0F73663518F4B77B003D71DE /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		0FA8354718EB70A3003C8687 /* Greatist Message Publisher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Greatist Message Publisher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FA8354A18EB70A3003C8687 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0FA8354C18EB70A4003C8687 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -153,20 +154,12 @@
 		55912DDD18EC86840069FEEC /* GRTDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTDataStore.m; sourceTree = "<group>"; };
 		55912DDE18EC86840069FEEC /* Post+Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Post+Methods.h"; sourceTree = "<group>"; };
 		55912DDF18EC86840069FEEC /* Post+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Post+Methods.m"; sourceTree = "<group>"; };
-		55912DE018EC86840069FEEC /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
-		55912DE118EC86840069FEEC /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		55912DE218EC86840069FEEC /* Response+Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Response+Methods.h"; sourceTree = "<group>"; };
 		55912DE318EC86840069FEEC /* Response+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Response+Methods.m"; sourceTree = "<group>"; };
-		55912DE418EC86840069FEEC /* Response.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Response.h; sourceTree = "<group>"; };
-		55912DE518EC86840069FEEC /* Response.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Response.m; sourceTree = "<group>"; };
 		55912DE618EC86840069FEEC /* Section+Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Section+Methods.h"; sourceTree = "<group>"; };
 		55912DE718EC86840069FEEC /* Section+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Section+Methods.m"; sourceTree = "<group>"; };
-		55912DE818EC86840069FEEC /* Section.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Section.h; sourceTree = "<group>"; };
-		55912DE918EC86840069FEEC /* Section.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Section.m; sourceTree = "<group>"; };
 		55912DEA18EC86840069FEEC /* User+Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+Methods.h"; sourceTree = "<group>"; };
 		55912DEB18EC86840069FEEC /* User+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+Methods.m"; sourceTree = "<group>"; };
-		55912DEC18EC86840069FEEC /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		55912DED18EC86840069FEEC /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		55912DF718ECB9510069FEEC /* Greatist_Logo_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Greatist_Logo_small.png; sourceTree = "<group>"; };
 		55912DF918ECBA390069FEEC /* Greatist_Logo86x50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Greatist_Logo86x50.png; sourceTree = "<group>"; };
 		87674F5418ECB64A00231453 /* ArcherPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ArcherPro-Bold.otf"; sourceTree = "<group>"; };
@@ -328,27 +321,29 @@
 		55912DDB18EC86840069FEEC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0F73662818F4B77A003D71DE /* Response.h */,
+				0F73663418F4B77B003D71DE /* User.h */,
+				0F73663518F4B77B003D71DE /* User.m */,
+				0F73663118F4B77B003D71DE /* Section.h */,
+				0F73663218F4B77B003D71DE /* Section.m */,
+				0F73662E18F4B77B003D71DE /* Post.h */,
+				0F73662F18F4B77B003D71DE /* Post.m */,
+				0F73662B18F4B77A003D71DE /* Article.h */,
+				0F73662C18F4B77A003D71DE /* Article.m */,
+				0F73662918F4B77A003D71DE /* Response.m */,
 				0F1AFFEE18ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodeld */,
+				55912DE218EC86840069FEEC /* Response+Methods.h */,
+				55912DE318EC86840069FEEC /* Response+Methods.m */,
+				55912DEA18EC86840069FEEC /* User+Methods.h */,
+				55912DEB18EC86840069FEEC /* User+Methods.m */,
+				55912DE618EC86840069FEEC /* Section+Methods.h */,
+				55912DE718EC86840069FEEC /* Section+Methods.m */,
+				55912DDE18EC86840069FEEC /* Post+Methods.h */,
+				55912DDF18EC86840069FEEC /* Post+Methods.m */,
 				55912DDC18EC86840069FEEC /* GRTDataStore.h */,
 				55912DDD18EC86840069FEEC /* GRTDataStore.m */,
 				0F1AFFEB18ECAABE006BB25B /* GRTImporter.h */,
 				0F1AFFEC18ECAABE006BB25B /* GRTImporter.m */,
-				55912DDE18EC86840069FEEC /* Post+Methods.h */,
-				55912DDF18EC86840069FEEC /* Post+Methods.m */,
-				55912DE018EC86840069FEEC /* Post.h */,
-				55912DE118EC86840069FEEC /* Post.m */,
-				55912DE218EC86840069FEEC /* Response+Methods.h */,
-				55912DE318EC86840069FEEC /* Response+Methods.m */,
-				55912DE418EC86840069FEEC /* Response.h */,
-				55912DE518EC86840069FEEC /* Response.m */,
-				55912DE618EC86840069FEEC /* Section+Methods.h */,
-				55912DE718EC86840069FEEC /* Section+Methods.m */,
-				55912DE818EC86840069FEEC /* Section.h */,
-				55912DE918EC86840069FEEC /* Section.m */,
-				55912DEA18EC86840069FEEC /* User+Methods.h */,
-				55912DEB18EC86840069FEEC /* User+Methods.m */,
-				55912DEC18EC86840069FEEC /* User.h */,
-				55912DED18EC86840069FEEC /* User.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -500,12 +495,6 @@
 				03A2662118EDFABF002790AB /* GRTTableViewCell.xib */,
 				03A2662318EDFD11002790AB /* GRTPostTableViewCell.h */,
 				03A2662418EDFD11002790AB /* GRTPostTableViewCell.m */,
-				03F7D75118F2FEF00019D080 /* GRTArticleCell.xib */,
-				03F7D75918F319800019D080 /* GRTArticleViewCell.h */,
-				03F7D75A18F319800019D080 /* GRTArticleViewCell.m */,
-				03F7D75518F303C60019D080 /* GRTPlayArticleCell.xib */,
-				03F7D75C18F3246E0019D080 /* GRTPlayArticleCell.h */,
-				03F7D75D18F3246E0019D080 /* GRTPlayArticleCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -591,7 +580,6 @@
 				550D3D3C18EDC2A0009A9406 /* navbarLogo.xib in Resources */,
 				550D3D5118EF0561009A9406 /* postIcon40x40.png in Resources */,
 				87674FDF18EDAF0500231453 /* Grow_Colored.png in Resources */,
-				03F7D75618F303C60019D080 /* GRTPlayArticleCell.xib in Resources */,
 				03F7D76118F32A920019D080 /* photo (3).PNG in Resources */,
 				550D3D5018EF0561009A9406 /* navBar.png in Resources */,
 				87674FCE18EDAF0500231453 /* Discover_Gray.png in Resources */,
@@ -613,7 +601,6 @@
 				87674F6618ECB64A00231453 /* ArcherPro-SemiboldItalic.otf in Resources */,
 				87674F6118ECB64A00231453 /* ArcherPro-BoldItalic.otf in Resources */,
 				0FA8356218EB70A4003C8687 /* Images.xcassets in Resources */,
-				03F7D75218F2FEF00019D080 /* GRTArticleCell.xib in Resources */,
 				87674F6818ECB64A00231453 /* DINOT-Medium.otf in Resources */,
 				87674FC118EDAF0500231453 /* Connect_Colored.png in Resources */,
 				87674FE618EDAF0500231453 /* Grow_White.png in Resources */,
@@ -686,24 +673,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				55912DF318EC86840069FEEC /* Section+Methods.m in Sources */,
+				0F73663318F4B77B003D71DE /* Section.m in Sources */,
 				55912DBD18EC68E50069FEEC /* GRTComposePostViewController.m in Sources */,
-				55912DF218EC86840069FEEC /* Response.m in Sources */,
-				03F7D75B18F319800019D080 /* GRTArticleViewCell.m in Sources */,
 				55912DF518EC86840069FEEC /* User+Methods.m in Sources */,
 				0F1AFFF018ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodeld in Sources */,
 				55912DF118EC86840069FEEC /* Response+Methods.m in Sources */,
-				55912DF618EC86840069FEEC /* User.m in Sources */,
-				55912DF418EC86840069FEEC /* Section.m in Sources */,
+				0F73662D18F4B77B003D71DE /* Article.m in Sources */,
+				0F73663018F4B77B003D71DE /* Post.m in Sources */,
+				0F73663618F4B77B003D71DE /* User.m in Sources */,
 				0F1AFFED18ECAABE006BB25B /* GRTImporter.m in Sources */,
+				0F73662A18F4B77A003D71DE /* Response.m in Sources */,
 				03A2662518EDFD11002790AB /* GRTPostTableViewCell.m in Sources */,
 				55912DEE18EC86840069FEEC /* GRTDataStore.m in Sources */,
 				0FA8355D18EB70A4003C8687 /* GRTAppDelegate.m in Sources */,
-				55912DF018EC86840069FEEC /* Post.m in Sources */,
 				8767500F18EE124300231453 /* UIImage+Helpers.m in Sources */,
 				550D3D4D18EF04D3009A9406 /* UIViewController+styleSheet.m in Sources */,
 				55912DBA18EC68B00069FEEC /* GRTPostDetailViewController.m in Sources */,
 				0FA8355918EB70A4003C8687 /* main.m in Sources */,
-				03F7D75E18F3246E0019D080 /* GRTPlayArticleCell.m in Sources */,
 				55912DEF18EC86840069FEEC /* Post+Methods.m in Sources */,
 				55912DB518EC5AED0069FEEC /* GRTMainViewController.m in Sources */,
 				8767501418EE1E8D00231453 /* UIColor+Helpers.m in Sources */,
