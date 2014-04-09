@@ -11,10 +11,11 @@
 #import "Post+Methods.h"
 #import "Response+Methods.h"
 #import "Section+Methods.h"
+#import "GRTParseAPIClient.h"
 
 @interface GRTDataStore ()
 
-
+@property (strong, nonatomic) GRTParseAPIClient *parseAPI;
 
 @end
 
@@ -54,6 +55,11 @@
     dispatch_once(&onceToken, ^{
         _shared = [[GRTDataStore alloc] init];
     });
+    
+    if (_shared)
+    {
+        _shared.parseAPI = [[GRTParseAPIClient alloc] init];
+    }
     
     return _shared;
 }
@@ -218,6 +224,13 @@
         [self saveContext];
     }
     
+}
+
+- (void) testParseGET
+{
+    [self.parseAPI getRelevantPostsWithCompletion:^(NSArray *responseArray) {
+        NSLog(@"%@",responseArray);
+    }];
 }
 
 

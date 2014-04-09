@@ -37,6 +37,7 @@
 		0FA8357418EB70A4003C8687 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0FA8357218EB70A4003C8687 /* InfoPlist.strings */; };
 		0FA8357618EB70A4003C8687 /* Greatist_Message_PublisherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA8357518EB70A4003C8687 /* Greatist_Message_PublisherTests.m */; };
 		0FA8358018EB70FD003C8687 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FA8357F18EB70FD003C8687 /* Main.storyboard */; };
+		0FDCDDDE18F5C2BC0050E18C /* GRTParseAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDCDDDD18F5C2BC0050E18C /* GRTParseAPIClient.m */; };
 		388D5989D77F4F8992BFE80F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2782B750FC4349E3AB0AFCDF /* libPods.a */; };
 		550D3D3C18EDC2A0009A9406 /* navbarLogo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 550D3D3B18EDC2A0009A9406 /* navbarLogo.xib */; };
 		550D3D4D18EF04D3009A9406 /* UIViewController+styleSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 550D3D4C18EF04D3009A9406 /* UIViewController+styleSheet.m */; };
@@ -136,6 +137,8 @@
 		0FA8357318EB70A4003C8687 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0FA8357518EB70A4003C8687 /* Greatist_Message_PublisherTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Greatist_Message_PublisherTests.m; sourceTree = "<group>"; };
 		0FA8357F18EB70FD003C8687 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
+		0FDCDDDC18F5C2BC0050E18C /* GRTParseAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTParseAPIClient.h; sourceTree = "<group>"; };
+		0FDCDDDD18F5C2BC0050E18C /* GRTParseAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTParseAPIClient.m; sourceTree = "<group>"; };
 		2782B750FC4349E3AB0AFCDF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		550D3D3B18EDC2A0009A9406 /* navbarLogo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = navbarLogo.xib; sourceTree = "<group>"; };
 		550D3D4B18EF04D3009A9406 /* UIViewController+styleSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+styleSheet.h"; sourceTree = "<group>"; };
@@ -340,6 +343,8 @@
 				55912DDD18EC86840069FEEC /* GRTDataStore.m */,
 				0F1AFFEB18ECAABE006BB25B /* GRTImporter.h */,
 				0F1AFFEC18ECAABE006BB25B /* GRTImporter.m */,
+				0FDCDDDC18F5C2BC0050E18C /* GRTParseAPIClient.h */,
+				0FDCDDDD18F5C2BC0050E18C /* GRTParseAPIClient.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -683,6 +688,7 @@
 				55912DEE18EC86840069FEEC /* GRTDataStore.m in Sources */,
 				0FA8355D18EB70A4003C8687 /* GRTAppDelegate.m in Sources */,
 				8767500F18EE124300231453 /* UIImage+Helpers.m in Sources */,
+				0FDCDDDE18F5C2BC0050E18C /* GRTParseAPIClient.m in Sources */,
 				550D3D4D18EF04D3009A9406 /* UIViewController+styleSheet.m in Sources */,
 				55912DBA18EC68B00069FEEC /* GRTPostDetailViewController.m in Sources */,
 				0FA8355918EB70A4003C8687 /* main.m in Sources */,

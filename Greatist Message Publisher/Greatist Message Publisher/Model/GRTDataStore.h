@@ -23,4 +23,6 @@
 
 - (void) starterData;
 
+- (void) testParseGET;
+
 @end
