@@ -10,6 +10,7 @@
 #import "GRTMainTableViewController.h"
 #import "GRTDataStore.h"
 #import "GRTFacebookAPIClient.h"
+#import "GRTGreatistAPIClient.h"
 
 @interface GRTAppDelegate ()
 
@@ -24,11 +25,15 @@
    self.dataStore = [GRTDataStore sharedDataStore];
    [self.dataStore starterData];
     
+    [[GRTGreatistAPIClient new] postForAccessTokenWithCompletion:^(NSDictionary *postDictionary) {
+    }];
+    
    [[UIToolbar appearance] setBackgroundColor:[UIColor greatistLightGrayColor]];
     
 //    [self.dataStore testParseGET];
 //    [self.dataStore testParsePOST];
-
+    
+    
    [self.dataStore fetchPostsForCurrentUser];
 
     return YES;

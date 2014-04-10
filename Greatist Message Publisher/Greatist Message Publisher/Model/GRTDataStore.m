@@ -13,11 +13,13 @@
 #import "Section+Methods.h"
 #import "GRTParseAPIClient.h"
 #import "GRTFacebookAPIClient.h"
+#import "GRTGreatistAPIClient.h"
 
 @interface GRTDataStore ()
 
 @property (strong, nonatomic) GRTParseAPIClient *parseAPIClient;
 @property (strong, nonatomic) GRTFacebookAPIClient *facebookAPIClient;
+@property (strong, nonatomic) GRTGreatistAPIClient *greatistAPIClient;
 
 @end
 
@@ -62,6 +64,7 @@
     {
         _shared.parseAPIClient = [[GRTParseAPIClient alloc] init];
         _shared.facebookAPIClient = [[GRTFacebookAPIClient alloc] init];
+        _shared.greatistAPIClient = [[GRTGreatistAPIClient alloc]init];
     }
     
     return _shared;
@@ -251,6 +254,12 @@
 {
     [self.parseAPIClient postPostWithContent:@"I did stuff and stuff." section:@"grow" latitude:10.0 longitude:10.0 userID:@"oiou534iou345o"];
 }
-
+//
+//- (void) testGreatistPOST
+//{
+//    [self.greatistAPIClient postForAccessTokenWithCompletion:^(NSDictionary *) {
+//        <#code#>
+//    }]
+//}
 
 @end

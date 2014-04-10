@@ -43,7 +43,6 @@
 		550D3D4D18EF04D3009A9406 /* UIViewController+styleSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 550D3D4C18EF04D3009A9406 /* UIViewController+styleSheet.m */; };
 		550D3D5018EF0561009A9406 /* navBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 550D3D4E18EF0561009A9406 /* navBar.png */; };
 		550D3D5118EF0561009A9406 /* postIcon40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 550D3D4F18EF0561009A9406 /* postIcon40x40.png */; };
-		550D3D6218F4579E009A9406 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 550D3D6118F4579E009A9406 /* Social.framework */; };
 		550D3D7C18F6D547009A9406 /* GRTGreatistAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 550D3D7B18F6D547009A9406 /* GRTGreatistAPIClient.m */; };
 		55912DB518EC5AED0069FEEC /* GRTMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DB418EC5AED0069FEEC /* GRTMainViewController.m */; };
 		55912DBA18EC68B00069FEEC /* GRTPostDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DB918EC68B00069FEEC /* GRTPostDetailViewController.m */; };
@@ -150,7 +149,6 @@
 		550D3D4C18EF04D3009A9406 /* UIViewController+styleSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+styleSheet.m"; sourceTree = "<group>"; };
 		550D3D4E18EF0561009A9406 /* navBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navBar.png; sourceTree = "<group>"; };
 		550D3D4F18EF0561009A9406 /* postIcon40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = postIcon40x40.png; sourceTree = "<group>"; };
-		550D3D6118F4579E009A9406 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		550D3D7A18F6D547009A9406 /* GRTGreatistAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTGreatistAPIClient.h; sourceTree = "<group>"; };
 		550D3D7B18F6D547009A9406 /* GRTGreatistAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTGreatistAPIClient.m; sourceTree = "<group>"; };
 		55912DB318EC5AED0069FEEC /* GRTMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTMainViewController.h; sourceTree = "<group>"; };
@@ -336,8 +334,6 @@
 		55912DDB18EC86840069FEEC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				550D3D7A18F6D547009A9406 /* GRTGreatistAPIClient.h */,
-				550D3D7B18F6D547009A9406 /* GRTGreatistAPIClient.m */,
 				0F73663418F4B77B003D71DE /* User.h */,
 				0F73663518F4B77B003D71DE /* User.m */,
 				0F73663118F4B77B003D71DE /* Section.h */,
@@ -361,6 +357,8 @@
 				55912DDD18EC86840069FEEC /* GRTDataStore.m */,
 				0F1AFFEB18ECAABE006BB25B /* GRTImporter.h */,
 				0F1AFFEC18ECAABE006BB25B /* GRTImporter.m */,
+				550D3D7A18F6D547009A9406 /* GRTGreatistAPIClient.h */,
+				550D3D7B18F6D547009A9406 /* GRTGreatistAPIClient.m */,
 				0FDCDDDC18F5C2BC0050E18C /* GRTParseAPIClient.h */,
 				0FDCDDDD18F5C2BC0050E18C /* GRTParseAPIClient.m */,
 				87AD33EC18F5C0D00060CCA3 /* GRTFacebookAPIClient.h */,
