@@ -24,7 +24,7 @@
     self.dataStore = [GRTDataStore sharedDataStore];
     [self.dataStore starterData];
     [[UIToolbar appearance] setBackgroundColor:[UIColor greatistLightGrayColor]];
-    [self.dataStore testParsePOST];
+    [self.dataStore testParseGET];
     [self.dataStore fetchPostsForCurrentUser];
     return YES;
 }

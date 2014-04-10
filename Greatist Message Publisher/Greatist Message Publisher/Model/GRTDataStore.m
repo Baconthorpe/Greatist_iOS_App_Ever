@@ -245,6 +245,11 @@
     [self.parseAPIClient getRelevantPostsWithCompletion:^(NSArray *responseArray) {
         NSLog(@"%@",responseArray);
     }];
+    [self.parseAPIClient getValidResponsesWithCompletion:^(NSArray *responseArray) {
+        NSLog(@"%@",responseArray);
+        self.validResponses = responseArray;
+    }];
+    
 }
 
 - (void) testParsePOST

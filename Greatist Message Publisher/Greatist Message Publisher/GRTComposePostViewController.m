@@ -11,6 +11,7 @@
 #import "Post+Methods.h"
 #import "Section+Methods.h"
 #import "UIColor+Helpers.h"
+#import "Response+Methods.h"
 
 @interface GRTComposePostViewController ()
 
@@ -22,7 +23,8 @@
 @property (strong, nonatomic) Section *verticalSelected;
 @property (strong, nonatomic) UIButton *eatButton;
 @property (strong, nonatomic) NSArray *verticalButtons;
-
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSMutableIndexSet *selectedCells;
 
 @property (strong, nonatomic) GRTDataStore *dataStore;
 
@@ -45,11 +47,13 @@
 
     self.dataStore = [GRTDataStore sharedDataStore];
     self.view.backgroundColor = [UIColor greatistLightGrayColor];
-    [self.postView setFrame:CGRectMake(0, 0, 320, 320)];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     
     [self setupCategoryButtons];
     [self setupPostContent];
     [self setupPostButton];
+    [self setupResponseTable];
     [self growButtonTapped:nil];
 }
 
@@ -175,6 +179,55 @@
     [postButton addTarget:self action:@selector(postButton:) forControlEvents:UIControlEventTouchUpInside];
     [self.postView addSubview:postButton];
 }
+
+- (void)setupResponseTable
+{
+    self.selectedCells = [[NSMutableIndexSet alloc] init];
+}
+
+
+#pragma mark - Table View Methods
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.dataStore.validResponses count];
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"responseCell"];
+    NSString *response = [self.dataStore.validResponses objectAtIndex:indexPath.row];
+    cell.textLabel.text = response;
+    cell.textLabel.font = [UIFont fontWithName:@"Avenir-Roman" size:14];
+    if ([self.selectedCells containsIndex:indexPath.row]) {
+        [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+    } else {
+        [cell setAccessoryType:UITableViewCellAccessoryNone];
+    }
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([self.selectedCells containsIndex:indexPath.row]) {
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        [self.selectedCells removeIndex:indexPath.row];
+    } else {
+        if ([self.selectedCells count] < 4) {
+            [tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
+            [self.selectedCells addIndex:indexPath.row];
+        }
+    }
+    [tableView reloadData];
+}
+
+#pragma mark - IBAction Methods
 
 - (void)postButton:(id)sender
 {

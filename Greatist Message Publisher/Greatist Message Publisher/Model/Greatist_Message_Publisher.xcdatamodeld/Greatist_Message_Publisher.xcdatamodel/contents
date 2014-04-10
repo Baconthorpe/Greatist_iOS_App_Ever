@@ -38,10 +38,10 @@
         <relationship name="responses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Response" inverseName="user" inverseEntity="Response" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Article" positionX="241" positionY="90" width="128" height="118"/>
         <element name="Post" positionX="-171" positionY="177" width="128" height="165"/>
-        <element name="Response" positionX="-389" positionY="27" width="128" height="103"/>
+        <element name="Response" positionX="-524" positionY="63" width="128" height="103"/>
         <element name="Section" positionX="18" positionY="18" width="128" height="88"/>
         <element name="User" positionX="-180" positionY="-45" width="128" height="150"/>
-        <element name="Article" positionX="241" positionY="90" width="128" height="118"/>
     </elements>
 </model>

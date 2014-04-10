@@ -11,6 +11,7 @@
 @interface GRTParseAPIClient : NSObject
 
 - (void) getRelevantPostsWithCompletion:(void (^)(NSArray *))completion;
+- (void) getValidResponsesWithCompletion:(void (^)(NSArray *))completion;
 
 - (void) postPostWithContent: (NSString *)content
                      section: (NSString *)section

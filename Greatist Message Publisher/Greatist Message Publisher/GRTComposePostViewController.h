@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GRTComposePostViewController : UIViewController <UITextViewDelegate>
+@interface GRTComposePostViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextViewDelegate>
 
 @property NSArray *verticals;
 
