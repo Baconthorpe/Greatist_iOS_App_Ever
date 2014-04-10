@@ -185,6 +185,13 @@
     return @[];
 }
 
+- (void) fetchValidResponses
+{
+    [self.parseAPIClient getValidResponsesWithCompletion:^(NSArray *responseArray) {
+        NSLog(@"%@",responseArray);
+        self.validResponses = responseArray;
+    }];
+}
 
 #pragma mark - Startup
 
@@ -244,10 +251,6 @@
 {
     [self.parseAPIClient getRelevantPostsWithCompletion:^(NSArray *responseArray) {
         NSLog(@"%@",responseArray);
-    }];
-    [self.parseAPIClient getValidResponsesWithCompletion:^(NSArray *responseArray) {
-        NSLog(@"%@",responseArray);
-        self.validResponses = responseArray;
     }];
     
 }

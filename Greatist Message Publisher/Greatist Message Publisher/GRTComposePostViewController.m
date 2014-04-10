@@ -49,7 +49,7 @@
     self.view.backgroundColor = [UIColor greatistLightGrayColor];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    
+
     [self setupCategoryButtons];
     [self setupPostContent];
     [self setupPostButton];
