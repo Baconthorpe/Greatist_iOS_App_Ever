@@ -320,7 +320,6 @@
 		55912DDB18EC86840069FEEC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0F73662818F4B77A003D71DE /* Response.h */,
 				0F73663418F4B77B003D71DE /* User.h */,
 				0F73663518F4B77B003D71DE /* User.m */,
 				0F73663118F4B77B003D71DE /* Section.h */,
@@ -329,6 +328,7 @@
 				0F73662F18F4B77B003D71DE /* Post.m */,
 				0F73662B18F4B77A003D71DE /* Article.h */,
 				0F73662C18F4B77A003D71DE /* Article.m */,
+				0F73662818F4B77A003D71DE /* Response.h */,
 				0F73662918F4B77A003D71DE /* Response.m */,
 				0F1AFFEE18ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodeld */,
 				55912DE218EC86840069FEEC /* Response+Methods.h */,

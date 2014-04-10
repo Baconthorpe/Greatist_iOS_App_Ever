@@ -18,4 +18,11 @@
                    longitude: (CGFloat)longitude
                       userID: (NSString *)userID;
 
+- (void) postResponseWithContent: (NSString *)content
+                       timeStamp: (NSDate *)timeStamp
+                          userID: (NSString *)userID
+                            post: (NSString *)post;
+
+- (void) postUserWithFbookID: (NSString *)fbookID;
+
 @end
