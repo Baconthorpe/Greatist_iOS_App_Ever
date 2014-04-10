@@ -17,6 +17,7 @@
 @property (strong, nonatomic) NSFetchedResultsController *postFRController;
 
 @property (strong, nonatomic) NSArray *facebookFriends;
+@property (strong, nonatomic) NSArray *validResponses;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;

@@ -30,7 +30,6 @@
 //    [self.dataStore testParsePOST];
 
    [self.dataStore fetchPostsForCurrentUser];
-
     return YES;
 }
 
