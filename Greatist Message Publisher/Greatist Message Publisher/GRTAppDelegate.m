@@ -9,7 +9,7 @@
 #import "GRTAppDelegate.h"
 #import "GRTMainTableViewController.h"
 #import "GRTDataStore.h"
-
+#import "GRTFacebookAPIClient.h"
 
 @interface GRTAppDelegate ()
 
@@ -23,7 +23,7 @@
 {
    self.dataStore = [GRTDataStore sharedDataStore];
    [self.dataStore starterData];
-    
+
    [[UIToolbar appearance] setBackgroundColor:[UIColor greatistLightGrayColor]];
     
     [self.dataStore fetchPostsForCurrentUser];

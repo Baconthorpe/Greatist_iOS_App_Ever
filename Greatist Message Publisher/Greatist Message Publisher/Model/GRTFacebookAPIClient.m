@@ -10,6 +10,7 @@
 
 @implementation GRTFacebookAPIClient
 
+// Should probably be refactored as an instance method with accountStore as a property
 + (void)facebookLoginWithCompletion:(void (^)(NSArray *facebookFriends))completion
 {
     ACAccountStore *accountStore = [[ACAccountStore alloc] init];
@@ -45,7 +46,7 @@
                NSMutableArray *fetchedFriends = [NSMutableArray new];
                for (NSDictionary *friend in data[@"data"]) {
                    [fetchedFriends addObject:friend[@"id"]];
-                   NSLog(@"name: %@", friend[@"id"]);
+                   NSLog(@"friend: %@: %@", friend[@"name"], friend[@"id"]);
                }
                completion(fetchedFriends);
            }];
@@ -58,4 +59,7 @@
        }
     }];
 }
+
+
+
 @end

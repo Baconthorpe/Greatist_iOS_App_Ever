@@ -15,8 +15,7 @@
 
 @interface GRTDataStore ()
 
-
-
+@property (strong, nonatomic) GRTFacebookAPIClient *facebookAPIClient;
 @end
 
 @implementation GRTDataStore
@@ -172,6 +171,7 @@
     [GRTFacebookAPIClient facebookLoginWithCompletion:^(NSArray *facebookFriends) {
         dispatch_async(dispatch_get_main_queue(), ^{
             NSLog(@"%@", facebookFriends);
+            self.facebookFriends = facebookFriends;
         });
     }];
     return @[];
