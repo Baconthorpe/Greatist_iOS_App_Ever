@@ -9,7 +9,7 @@
 #import "GRTAppDelegate.h"
 #import "GRTMainTableViewController.h"
 #import "GRTDataStore.h"
-
+#import "GRTFacebookAPIClient.h"
 
 @interface GRTAppDelegate ()
 
@@ -21,13 +21,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-   self.dataStore = [GRTDataStore sharedDataStore];
-   [self.dataStore starterData];
-    
-   [[UIToolbar appearance] setBackgroundColor:[UIColor greatistLightGrayColor]];
-    
+    self.dataStore = [GRTDataStore sharedDataStore];
+    [self.dataStore starterData];
+    [[UIToolbar appearance] setBackgroundColor:[UIColor greatistLightGrayColor]];
     [self.dataStore testParsePOST];
-
+    [self.dataStore fetchPostsForCurrentUser];
     return YES;
 }
 
