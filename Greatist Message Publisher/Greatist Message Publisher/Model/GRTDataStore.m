@@ -7,12 +7,6 @@
 //
 
 #import "GRTDataStore.h"
-#import "User+Methods.h"
-#import "Post+Methods.h"
-#import "Response+Methods.h"
-#import "Section+Methods.h"
-#import "GRTParseAPIClient.h"
-#import "GRTFacebookAPIClient.h"
 
 @interface GRTDataStore ()
 
@@ -182,13 +176,12 @@
             self.facebookFriends = facebookFriends;
         });
     }];
-    return @[];
+    return self.facebookFriends;
 }
 
 - (void) fetchValidResponses
 {
     [self.parseAPIClient getValidResponsesWithCompletion:^(NSArray *responseArray) {
-        NSLog(@"%@",responseArray);
         self.validResponses = responseArray;
     }];
 }

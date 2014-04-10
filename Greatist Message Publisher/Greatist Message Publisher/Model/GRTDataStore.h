@@ -7,6 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "User+Methods.h"
+#import "Post+Methods.h"
+#import "Response+Methods.h"
+#import "Section+Methods.h"
+#import "GRTParseAPIClient.h"
+#import "GRTFacebookAPIClient.h"
+#import "UIColor+Helpers.h"
 
 @interface GRTDataStore : NSObject
 

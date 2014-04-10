@@ -98,10 +98,7 @@
     [[glassResponseCountLabel layer] setCornerRadius:1];
     [glassResponseCountLabel drawTextInRect:CGRectMake(5, 5, 10, 10)];
     [responseView addSubview:glassResponseCountLabel];
-    
-    NSLog(@"%@",self.responsesDictionary[@"cheers"]);
-    
-    
+        
     UIButton *glassButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [glassButton setFrame:CGRectMake(60, 20, 100, 20)];
     [glassButton setTitleColor:[UIColor greatistPlayColor] forState:UIControlStateNormal];

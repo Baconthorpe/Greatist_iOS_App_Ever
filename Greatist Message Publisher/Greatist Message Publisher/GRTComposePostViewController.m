@@ -8,10 +8,6 @@
 
 #import "GRTComposePostViewController.h"
 #import "GRTDataStore.h"
-#import "Post+Methods.h"
-#import "Section+Methods.h"
-#import "UIColor+Helpers.h"
-#import "Response+Methods.h"
 
 @interface GRTComposePostViewController ()
 
@@ -204,7 +200,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"responseCell"];
     NSString *response = [self.dataStore.validResponses objectAtIndex:indexPath.row];
     cell.textLabel.text = response;
-    cell.textLabel.font = [UIFont fontWithName:@"Avenir-Roman" size:14];
+    cell.textLabel.font = [UIFont fontWithName:@"Avenir-Roman" size:12];
     if ([self.selectedCells containsIndex:indexPath.row]) {
         [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
     } else {
@@ -231,11 +227,21 @@
 
 - (void)postButton:(id)sender
 {
-    [Post postWithContent:self.postContentTextView.text author:nil section:self.verticalSelected responses:nil inContext:self.dataStore.managedObjectContext];
-    [self.dataStore saveContext];
-    [self dismissViewControllerAnimated:YES completion:^{
-        
+    // Fix this to use current user and not Anne
+    User *anne = [User userWithName:@"Anne" uniqueID:@"anne" inContext:self.dataStore.managedObjectContext];
+    
+    NSMutableSet *responses = [NSMutableSet new];
+    [self.selectedCells enumerateIndexesInRange:NSMakeRange(0, [self.dataStore.validResponses count]) options:NSEnumerationConcurrent usingBlock:^(NSUInteger idx, BOOL *stop) {
+        Response *newResponse = [Response responseWithContent:self.dataStore.validResponses[idx] inContext:self.dataStore.managedObjectContext];
+        [responses addObject:newResponse];
     }];
+    [self.dataStore saveContext];
+    
+    // Fix this to use current user and not Anne
+    Post *newPost = [Post postWithContent:self.postContentTextView.text author:anne section:self.verticalSelected responses:responses inContext:self.dataStore.managedObjectContext];
+    [self.dataStore saveContext];
+    NSLog(@"Post Created: %@", newPost);
+    [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 - (void)verticalButtonTapped:(UIButton *)sender
