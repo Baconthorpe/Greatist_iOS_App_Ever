@@ -47,6 +47,10 @@
 
 + (UIColor *)greatistPlayColor
 {
+    return [UIColor colorWithRed:119/255.0 green:86/255.0 blue:164/255.0 alpha:1];
+}
++ (UIColor *)greatistConnectColor
+{
     return [UIColor colorWithRed:177/255.0 green:49/255.0 blue:131/255.0 alpha:1];
 }
 
@@ -66,6 +70,10 @@
 }
 
 + (UIColor *)greatistPlayColorLight
+{
+    return [UIColor colorWithRed:119/255.0 green:86/255.0 blue:164/255.0 alpha:.1];
+}
++ (UIColor *)greatistConnectColorLight
 {
     return [UIColor colorWithRed:177/255.0 green:49/255.0 blue:131/255.0 alpha:.1];
 }

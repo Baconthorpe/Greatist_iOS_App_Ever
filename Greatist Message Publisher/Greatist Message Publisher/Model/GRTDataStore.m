@@ -12,10 +12,12 @@
 #import "Response+Methods.h"
 #import "Section+Methods.h"
 #import "GRTParseAPIClient.h"
+#import "GRTFacebookAPIClient.h"
 
 @interface GRTDataStore ()
 
-@property (strong, nonatomic) GRTParseAPIClient *parseAPI;
+@property (strong, nonatomic) GRTParseAPIClient *parseAPIClient;
+@property (strong, nonatomic) GRTFacebookAPIClient *facebookAPIClient;
 
 @end
 
@@ -58,7 +60,8 @@
     
     if (_shared)
     {
-        _shared.parseAPI = [[GRTParseAPIClient alloc] init];
+        _shared.parseAPIClient = [[GRTParseAPIClient alloc] init];
+        _shared.facebookAPIClient = [[GRTFacebookAPIClient alloc] init];
     }
     
     return _shared;
@@ -172,6 +175,17 @@
     return [self.managedObjectContext executeFetchRequest:userFetch error:nil][0];
 }
 
+- (NSArray *) fetchPostsForCurrentUser
+{
+    [self.facebookAPIClient facebookLoginWithCompletion:^(NSArray *facebookFriends) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.facebookFriends = facebookFriends;
+        });
+    }];
+    return @[];
+}
+
+
 #pragma mark - Startup
 
 - (void) starterData
@@ -228,14 +242,14 @@
 
 - (void) testParseGET
 {
-    [self.parseAPI getRelevantPostsWithCompletion:^(NSArray *responseArray) {
+    [self.parseAPIClient getRelevantPostsWithCompletion:^(NSArray *responseArray) {
         NSLog(@"%@",responseArray);
     }];
 }
 
 - (void) testParsePOST
 {
-    [self.parseAPI postPostWithContent:@"I did stuff and stuff." section:@"grow" latitude:10.0 longitude:10.0 userID:@"oiou534iou345o"];
+    [self.parseAPIClient postPostWithContent:@"I did stuff and stuff." section:@"grow" latitude:10.0 longitude:10.0 userID:@"oiou534iou345o"];
 }
 
 
