@@ -10,6 +10,7 @@
 #import "GRTDataStore.h"
 #import "Post+Methods.h"
 #import "Section+Methods.h"
+#import "UIColor+Helpers.h"
 
 @interface GRTComposePostViewController ()
 
@@ -84,58 +85,71 @@
 - (void)setupCategoryButtons
 {
     UIButton *eatButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [eatButton setFrame:CGRectMake(65, 15, 30, 30)];
+    [eatButton setFrame:CGRectMake(45, 15, 30, 30)];
     [eatButton setBackgroundImage:[UIImage imageNamed:@"Eat_Colored60x60"] forState:UIControlStateNormal];
     eatButton.alpha = 0.3;
     [eatButton addTarget:self action:@selector(eatButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.postView addSubview:eatButton];
     
-    UILabel *eatLabel = [[UILabel alloc] initWithFrame:CGRectMake(6, 25, 30, 30)];
+    UILabel *eatLabel = [[UILabel alloc] initWithFrame:CGRectMake(7, 25, 30, 30)];
     [eatLabel setText:@"EAT"];
     [eatLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:10]];
     [eatLabel setTextColor:[UIColor greatistEatColor]];
     [eatButton addSubview:eatLabel];
     
     UIButton *moveButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [moveButton setFrame:CGRectMake(115, 15, 30, 30)];
+    [moveButton setFrame:CGRectMake(90, 15, 30, 30)];
     [moveButton setBackgroundImage:[UIImage imageNamed:@"Move_Colored60x60"] forState:UIControlStateNormal];
     moveButton.alpha = 0.3;
     [moveButton addTarget:self action:@selector(moveButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.postView addSubview:moveButton];
     
-    UILabel *moveLabel = [[UILabel alloc] initWithFrame:CGRectMake(2, 25, 30, 30)];
+    UILabel *moveLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 25, 30, 30)];
     [moveLabel setText:@"MOVE"];
     [moveLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:10]];
     [moveLabel setTextColor:[UIColor greatistMoveColor]];
     [moveButton addSubview:moveLabel];
     
     UIButton *playButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [playButton setFrame:CGRectMake(165, 15, 30, 30)];
+    [playButton setFrame:CGRectMake(240, 15, 30, 30)];
     [playButton setBackgroundImage:[UIImage imageNamed:@"Play_Colored60x60"] forState:UIControlStateNormal];
     playButton.alpha = 0.3;
     [playButton addTarget:self action:@selector(playButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.postView addSubview:playButton];
     
-    UILabel *playLabel = [[UILabel alloc] initWithFrame:CGRectMake(2, 25, 30, 30)];
+    UILabel *playLabel = [[UILabel alloc] initWithFrame:CGRectMake(3, 25, 30, 30)];
     [playLabel setText:@"PLAY"];
     [playLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:10]];
     [playLabel setTextColor:[UIColor greatistPlayColor]];
     [playButton addSubview:playLabel];
     
     UIButton *growButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [growButton setFrame:CGRectMake(215, 15, 30, 30)];
+    [growButton setFrame:CGRectMake(195, 15, 30, 30)];
     [growButton setBackgroundImage:[UIImage imageNamed:@"Grow_Colored60x60"] forState:UIControlStateNormal];
     growButton.alpha = 0.3;
     [growButton addTarget:self action:@selector(growButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.postView addSubview:growButton];
     
-    UILabel *growLabel = [[UILabel alloc] initWithFrame:CGRectMake(2, 25, 30, 30)];
+    UILabel *growLabel = [[UILabel alloc] initWithFrame:CGRectMake(1, 25, 30, 30)];
     [growLabel setText:@"GROW"];
     [growLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:10]];
     [growLabel setTextColor:[UIColor greatistGrowColor]];
     [growButton addSubview:growLabel];
     
-    self.verticalButtons = @[eatButton, moveButton, playButton, growButton];
+    UIButton *connectButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [connectButton setFrame:CGRectMake(140, 15, 30, 30)];
+    [connectButton setBackgroundImage:[UIImage imageNamed:@"Connect_Colored"] forState:UIControlStateNormal];
+    connectButton.alpha = 0.3;
+    [connectButton addTarget:self action:@selector(connectButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.postView addSubview:connectButton];
+    
+    UILabel *connectLabel = [[UILabel alloc] initWithFrame:CGRectMake(-5, 25, 50, 30)];
+    [connectLabel setText:@"CONNECT"];
+    [connectLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:10]];
+    [connectLabel setTextColor:[UIColor greatistConnectColor]];
+    [connectButton addSubview:connectLabel];
+    
+    self.verticalButtons = @[eatButton, moveButton, playButton, growButton, connectButton];
     
 }
 
@@ -248,7 +262,21 @@
         button.alpha = 0.3;
     }
 }
-
+-(void) connectButtonTapped: (UIButton *)sender
+{
+    NSString *nameSought = @"Connect";
+    NSPredicate *connectSearch = [NSPredicate predicateWithFormat:@"name==%@", nameSought];
+    NSArray *connectVerticals = [self.verticals filteredArrayUsingPredicate:connectSearch];
+    self.verticalSelected= connectVerticals[0];
+    
+    [self dimVerticalButtons];
+    UIButton *connectButton = self.verticalButtons[4];
+    connectButton.alpha = 1.0;
+    
+    self.leftQuoteLabel.textColor = [UIColor greatistConnectColor];
+    self.rightQuoteLabel.textColor = [UIColor greatistConnectColor];
+    self.postContentTextView.text = @"Talk to the World";
+}
 
 
 

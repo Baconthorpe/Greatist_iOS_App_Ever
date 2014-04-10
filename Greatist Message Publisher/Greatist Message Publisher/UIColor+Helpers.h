@@ -17,10 +17,13 @@
 + (UIColor *)greatistGrowColor;
 + (UIColor *)greatistMoveColor;
 + (UIColor *)greatistPlayColor;
++ (UIColor *)greatistConnectColor;
 + (UIColor *)greatistEatColorLight;
 + (UIColor *)greatistGrowColorLight;
 + (UIColor *)greatistMoveColorLight;
 + (UIColor *)greatistPlayColorLight;
++ (UIColor *)greatistConnectColorLight;
+
 
 
 @end
