@@ -9,11 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "Post+Methods.h"
 
+@class Article;
+
 @interface GRTArticleViewCell : UITableViewCell
 
 
 @property (weak, nonatomic) IBOutlet UILabel *postLabel;
 @property (strong, nonatomic) Post *post;
+@property (strong, nonatomic) Article *article;
 @property (strong, nonatomic) GRTArticleViewCell *cell;
 
 

@@ -36,6 +36,8 @@
 		0FA8357418EB70A4003C8687 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0FA8357218EB70A4003C8687 /* InfoPlist.strings */; };
 		0FA8357618EB70A4003C8687 /* Greatist_Message_PublisherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA8357518EB70A4003C8687 /* Greatist_Message_PublisherTests.m */; };
 		0FA8358018EB70FD003C8687 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FA8357F18EB70FD003C8687 /* Main.storyboard */; };
+		0FAAD2FD18F89D8A00F1F7F9 /* GRTArticleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FAAD2FA18F89D8A00F1F7F9 /* GRTArticleCell.xib */; };
+		0FAAD2FE18F89D8A00F1F7F9 /* GRTArticleViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FAAD2FC18F89D8A00F1F7F9 /* GRTArticleViewCell.m */; };
 		0FDCDDDE18F5C2BC0050E18C /* GRTParseAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDCDDDD18F5C2BC0050E18C /* GRTParseAPIClient.m */; };
 		388D5989D77F4F8992BFE80F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2782B750FC4349E3AB0AFCDF /* libPods.a */; };
 		550D3D3C18EDC2A0009A9406 /* navbarLogo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 550D3D3B18EDC2A0009A9406 /* navbarLogo.xib */; };
@@ -140,6 +142,9 @@
 		0FA8357318EB70A4003C8687 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0FA8357518EB70A4003C8687 /* Greatist_Message_PublisherTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Greatist_Message_PublisherTests.m; sourceTree = "<group>"; };
 		0FA8357F18EB70FD003C8687 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
+		0FAAD2FA18F89D8A00F1F7F9 /* GRTArticleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GRTArticleCell.xib; sourceTree = "<group>"; };
+		0FAAD2FB18F89D8A00F1F7F9 /* GRTArticleViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTArticleViewCell.h; sourceTree = "<group>"; };
+		0FAAD2FC18F89D8A00F1F7F9 /* GRTArticleViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTArticleViewCell.m; sourceTree = "<group>"; };
 		0FDCDDDC18F5C2BC0050E18C /* GRTParseAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTParseAPIClient.h; sourceTree = "<group>"; };
 		0FDCDDDD18F5C2BC0050E18C /* GRTParseAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTParseAPIClient.m; sourceTree = "<group>"; };
 		2782B750FC4349E3AB0AFCDF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -509,6 +514,9 @@
 		87674FFB18EDB19400231453 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0FAAD2FA18F89D8A00F1F7F9 /* GRTArticleCell.xib */,
+				0FAAD2FB18F89D8A00F1F7F9 /* GRTArticleViewCell.h */,
+				0FAAD2FC18F89D8A00F1F7F9 /* GRTArticleViewCell.m */,
 				8767501218EE1E8D00231453 /* UIColor+Helpers.h */,
 				8767501318EE1E8D00231453 /* UIColor+Helpers.m */,
 				8767500D18EE124300231453 /* UIImage+Helpers.h */,
@@ -644,6 +652,7 @@
 				0F30132E18EE0F80008A4FCB /* Move_Colored60x60.png in Resources */,
 				55912DFA18ECBA390069FEEC /* Greatist_Logo86x50.png in Resources */,
 				87674FC418EDAF0500231453 /* Connect_Gray.png in Resources */,
+				0FAAD2FD18F89D8A00F1F7F9 /* GRTArticleCell.xib in Resources */,
 				87674FC818EDAF0500231453 /* Connect_White.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -717,6 +726,7 @@
 				550D3D4D18EF04D3009A9406 /* UIViewController+styleSheet.m in Sources */,
 				55912DBA18EC68B00069FEEC /* GRTPostDetailViewController.m in Sources */,
 				87AD340418F878E70060CCA3 /* ResponseOption.m in Sources */,
+				0FAAD2FE18F89D8A00F1F7F9 /* GRTArticleViewCell.m in Sources */,
 				0FA8355918EB70A4003C8687 /* main.m in Sources */,
 				55912DEF18EC86840069FEEC /* Post+Methods.m in Sources */,
 				55912DB518EC5AED0069FEEC /* GRTMainViewController.m in Sources */,
