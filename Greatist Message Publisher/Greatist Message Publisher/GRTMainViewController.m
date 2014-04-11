@@ -182,6 +182,11 @@
     [self.postsTableView endUpdates];
 }
 
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    [self.postsTableView beginUpdates];
+}
+
 #pragma mark - Button Methods
 
 - (IBAction)composePostButtonTapped:(id)sender
@@ -214,10 +219,7 @@
     {
         cell.backgroundColor = [UIColor greatistEatColorLight];
     }
-    
-    NSLog(@"%@",post.section.name);
-    
-    
+
     return cell;
 }
 

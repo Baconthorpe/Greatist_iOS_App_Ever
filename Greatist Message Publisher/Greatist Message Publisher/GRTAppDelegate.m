@@ -22,21 +22,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-   self.dataStore = [GRTDataStore sharedDataStore];
-   [self.dataStore starterData];
+    self.dataStore = [GRTDataStore sharedDataStore];
+    [self.dataStore starterData];
     
    [[GRTGreatistAPIClient new] retrieveArticlesWithCompletion:^(NSDictionary *articlesDictionary) {
        NSLog(@"%@",articlesDictionary);
    }];
-    
-   [[UIToolbar appearance] setBackgroundColor:[UIColor greatistLightGrayColor]];
+    [[UIToolbar appearance] setBackgroundColor:[UIColor greatistLightGrayColor]];
     
 //    [self.dataStore testParseGET];
 //    [self.dataStore testParsePOST];
-    
-    
-   [self.dataStore fetchPostsForCurrentUser];
 
+    [self.dataStore fetchPostsForCurrentUser];
+    [self.dataStore fetchValidResponses];
     return YES;
 }
 

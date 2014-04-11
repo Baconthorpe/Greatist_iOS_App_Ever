@@ -185,9 +185,15 @@
             self.facebookFriends = facebookFriends;
         });
     }];
-    return @[];
+    return self.facebookFriends;
 }
 
+- (void) fetchValidResponses
+{
+    [self.parseAPIClient getValidResponsesWithCompletion:^(NSArray *responseArray) {
+        self.validResponses = responseArray;
+    }];
+}
 
 #pragma mark - Startup
 
@@ -248,6 +254,7 @@
     [self.parseAPIClient getRelevantPostsWithCompletion:^(NSArray *responseArray) {
         NSLog(@"%@",responseArray);
     }];
+    
 }
 
 - (void) testParsePOST

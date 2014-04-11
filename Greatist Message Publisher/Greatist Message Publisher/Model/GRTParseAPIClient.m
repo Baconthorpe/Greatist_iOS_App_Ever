@@ -57,15 +57,31 @@
 {
     [self.manager GET:@"classes/Post" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject)
     {
-        NSLog(@"%@",responseObject);
+        NSLog(@"Posts: %@",responseObject);
         
         NSArray *relevantPosts = (NSArray *)responseObject;
         
         completion(relevantPosts);
     } failure:^(NSURLSessionDataTask *task, NSError *error)
     {
-        NSLog(@"%@",error);
+        NSLog(@"Posts Error: %@",error);
     }];
+}
+
+- (void) getValidResponsesWithCompletion:(void (^)(NSArray *))completion
+{
+    [self.manager GET:@"classes/GRTResponse" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject)
+     {
+         NSArray *responseDictionaries = responseObject[@"results"];
+         NSMutableArray *responses = [NSMutableArray new];
+         for (NSDictionary *response in responseDictionaries) {
+             [responses addObject:response[@"content"]];
+         }
+         completion(responses);
+     } failure:^(NSURLSessionDataTask *task, NSError *error)
+     {
+         NSLog(@"Responses Error: %@",error);
+     }];
 }
 
 #pragma mark - POST Methods
