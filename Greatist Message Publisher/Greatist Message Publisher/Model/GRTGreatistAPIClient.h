@@ -17,9 +17,11 @@ extern const NSString *secret;
 @interface GRTGreatistAPIClient : NSObject
 
 
-- (NSURLSessionDataTask *)getArticlesWithCompletion:(void (^)(NSArray *))completion;
-
 - (void) postForAccessTokenWithCompletion:(void (^)(NSDictionary *))completion;
+
+- (void) getArticlesWithCompletion:(void (^)(NSDictionary *))completion;
+
+- (void)retrieveArticlesWithCompletion:(void (^)(NSDictionary *))completion;
 
 
 //For the header, the key should be Authorization and the value should be "Basic token_encoded" where token_encoded is the Base64 encode of client_id:secret
