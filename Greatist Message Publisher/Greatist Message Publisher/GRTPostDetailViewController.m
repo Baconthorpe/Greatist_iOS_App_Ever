@@ -38,9 +38,7 @@
     self.dataStore = [GRTDataStore sharedDataStore];
     self.mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 66, 320, 320)];
     self.mainScrollView.backgroundColor = [UIColor redColor];
-    [self setUpResponsesDictionary];
-    [self starterConfig];
-    
+
     [self createPostDetail];
     [self createResponses];
 }
@@ -68,13 +66,13 @@
     
     UIButton *flagButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [flagButton setFrame:CGRectMake(170, 280, 140, 20)];
-    [flagButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [flagButton setTitleColor:[UIColor greatistColorForCategory:self.post.section.name] forState:UIControlStateNormal];
     [flagButton.titleLabel setFont:[UIFont fontWithName:@"DINOT-Medium" size:10]];
     flagButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     flagButton.contentEdgeInsets = UIEdgeInsetsMake(0, 30, 0, 0);
     [flagButton setTitle:@"FLAG INAPPROPRIATE" forState:UIControlStateNormal];
     FAKFontAwesome *flagIcon = [FAKFontAwesome flagIconWithSize:15];
-    [flagIcon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
+    [flagIcon addAttribute:NSForegroundColorAttributeName value:[UIColor greatistColorForCategory:self.post.section.name]];
     UIImage *flagImage = [[flagIcon imageWithSize:CGSizeMake(20, 20)] stretchableImageWithLeftCapWidth:20 topCapHeight:20];
     flagIcon.iconFontSize = 15;
     [flagButton setBackgroundImage:flagImage forState:UIControlStateNormal];
@@ -136,45 +134,6 @@
 - (IBAction)backBarButtonItemTapped:(UIBarButtonItem *)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (void) setUpResponsesDictionary
-{
-//    self.responsesDictionary = [NSDictionary new];
-    self.responsesDictionary = [self.post dictionaryOfResponses];
-}
-
-- (void) starterConfig
-{
-    NSMutableDictionary *responsesWithZeros = [NSMutableDictionary new];
-    
-    if (!self.responsesDictionary[@"cheers"])
-    {
-        NSDictionary *cheersEntry = @{@"cheers":@0};
-        [responsesWithZeros addEntriesFromDictionary:cheersEntry];
-    }
-    
-    if (!self.responsesDictionary[@"you go, girl"])
-    {
-        NSDictionary *cheersEntry = @{@"you go, girl":@0};
-        [responsesWithZeros addEntriesFromDictionary:cheersEntry];
-    }
-    
-    if (!self.responsesDictionary[@"smiles"])
-    {
-        NSDictionary *cheersEntry = @{@"smiles":@0};
-        [responsesWithZeros addEntriesFromDictionary:cheersEntry];
-    }
-    
-    if (!self.responsesDictionary[@"hugs"])
-    {
-        NSDictionary *cheersEntry = @{@"hugs":@0};
-        [responsesWithZeros addEntriesFromDictionary:cheersEntry];
-    }
-    
-    [responsesWithZeros addEntriesFromDictionary:self.responsesDictionary];
-    
-    self.responsesDictionary = responsesWithZeros;
 }
 
 @end

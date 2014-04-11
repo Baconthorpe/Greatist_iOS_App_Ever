@@ -11,7 +11,6 @@
 		03A2662518EDFD11002790AB /* GRTPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A2662418EDFD11002790AB /* GRTPostTableViewCell.m */; };
 		03F7D76118F32A920019D080 /* photo (3).PNG in Resources */ = {isa = PBXBuildFile; fileRef = 03F7D75F18F32A920019D080 /* photo (3).PNG */; };
 		03F7D76218F32A920019D080 /* photo (2).PNG in Resources */ = {isa = PBXBuildFile; fileRef = 03F7D76018F32A920019D080 /* photo (2).PNG */; };
-		0F1AFFED18ECAABE006BB25B /* GRTImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1AFFEC18ECAABE006BB25B /* GRTImporter.m */; };
 		0F1AFFF018ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0F1AFFEE18ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodeld */; };
 		0F30132A18EE0F2D008A4FCB /* Eat_Colored60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F30132918EE0F2D008A4FCB /* Eat_Colored60x60.png */; };
 		0F30132C18EE0F77008A4FCB /* Grow_Colored60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F30132B18EE0F77008A4FCB /* Grow_Colored60x60.png */; };
@@ -107,8 +106,6 @@
 		03A2662418EDFD11002790AB /* GRTPostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTPostTableViewCell.m; sourceTree = "<group>"; };
 		03F7D75F18F32A920019D080 /* photo (3).PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo (3).PNG"; sourceTree = "<group>"; };
 		03F7D76018F32A920019D080 /* photo (2).PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo (2).PNG"; sourceTree = "<group>"; };
-		0F1AFFEB18ECAABE006BB25B /* GRTImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTImporter.h; sourceTree = "<group>"; };
-		0F1AFFEC18ECAABE006BB25B /* GRTImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTImporter.m; sourceTree = "<group>"; };
 		0F1AFFEF18ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Greatist_Message_Publisher.xcdatamodel; sourceTree = "<group>"; };
 		0F30132918EE0F2D008A4FCB /* Eat_Colored60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Eat_Colored60x60.png; path = Colored/Eat_Colored60x60.png; sourceTree = "<group>"; };
 		0F30132B18EE0F77008A4FCB /* Grow_Colored60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Grow_Colored60x60.png; path = Colored/Grow_Colored60x60.png; sourceTree = "<group>"; };
@@ -362,8 +359,6 @@
 				55912DDF18EC86840069FEEC /* Post+Methods.m */,
 				55912DDC18EC86840069FEEC /* GRTDataStore.h */,
 				55912DDD18EC86840069FEEC /* GRTDataStore.m */,
-				0F1AFFEB18ECAABE006BB25B /* GRTImporter.h */,
-				0F1AFFEC18ECAABE006BB25B /* GRTImporter.m */,
 				0FDCDDDC18F5C2BC0050E18C /* GRTParseAPIClient.h */,
 				0FDCDDDD18F5C2BC0050E18C /* GRTParseAPIClient.m */,
 				87AD33EC18F5C0D00060CCA3 /* GRTFacebookAPIClient.h */,
@@ -706,7 +701,6 @@
 				0F73662D18F4B77B003D71DE /* Article.m in Sources */,
 				0F73663018F4B77B003D71DE /* Post.m in Sources */,
 				0F73663618F4B77B003D71DE /* User.m in Sources */,
-				0F1AFFED18ECAABE006BB25B /* GRTImporter.m in Sources */,
 				03A2662518EDFD11002790AB /* GRTPostTableViewCell.m in Sources */,
 				87AD340118F878E70060CCA3 /* Response.m in Sources */,
 				55912DEE18EC86840069FEEC /* GRTDataStore.m in Sources */,
