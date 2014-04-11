@@ -10,7 +10,7 @@
 
 @implementation Response (Methods)
 
-+ (instancetype) responseWithContent: (NSString *)content
++ (instancetype) responseWithResponseOption: (ResponseOption *)responseOption
                                 post: (Post *)post
                               author: (User *)user
                            inContext: (NSManagedObjectContext *)context
@@ -19,19 +19,18 @@
     
     if (newResponse)
     {
-        newResponse.content = content;
+        newResponse.responseOption = responseOption;
         newResponse.post = post;
         newResponse.user = user;
-        newResponse.timeStamp = [NSDate date];
     }
     
     return newResponse;
 }
 
-+ (instancetype) responseWithContent: (NSString *)content
-                           inContext: (NSManagedObjectContext *)context
++ (instancetype) responseWithResponseOption: (ResponseOption *)responseOption
+                                  inContext: (NSManagedObjectContext *)context
 {
-    Response *newResponse = [Response responseWithContent:content post:nil author:nil inContext:context];
+    Response *newResponse = [Response responseWithResponseOption:responseOption post:nil author:nil inContext:context];
     
     return newResponse;
 }

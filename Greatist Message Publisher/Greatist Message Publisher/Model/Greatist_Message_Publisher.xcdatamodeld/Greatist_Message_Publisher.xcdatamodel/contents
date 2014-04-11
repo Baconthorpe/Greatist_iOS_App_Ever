@@ -18,10 +18,13 @@
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="posts" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="Response" representedClassName="Response" syncable="YES">
-        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="timeStamp" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="post" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Post" inverseName="responses" inverseEntity="Post" syncable="YES"/>
+        <relationship name="responseOption" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ResponseOption" inverseName="responses" inverseEntity="ResponseOption" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="responses" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="ResponseOption" representedClassName="ResponseOption" syncable="YES">
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="responses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Response" inverseName="responseOption" inverseEntity="Response" syncable="YES"/>
     </entity>
     <entity name="Section" representedClassName="Section" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -40,8 +43,9 @@
     <elements>
         <element name="Article" positionX="241" positionY="90" width="128" height="118"/>
         <element name="Post" positionX="-171" positionY="177" width="128" height="165"/>
-        <element name="Response" positionX="-524" positionY="63" width="128" height="103"/>
+        <element name="Response" positionX="-576" positionY="117" width="128" height="88"/>
         <element name="Section" positionX="18" positionY="18" width="128" height="88"/>
         <element name="User" positionX="-180" positionY="-45" width="128" height="150"/>
+        <element name="ResponseOption" positionX="-882" positionY="27" width="128" height="73"/>
     </elements>
 </model>
