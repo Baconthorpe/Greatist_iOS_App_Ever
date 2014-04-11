@@ -20,7 +20,7 @@
 @property (strong, nonatomic) UIButton *eatButton;
 @property (strong, nonatomic) NSArray *verticalButtons;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSMutableIndexSet *selectedCells;
+@property (strong, nonatomic) NSMutableArray *selectedCells;
 
 @property (strong, nonatomic) GRTDataStore *dataStore;
 
@@ -178,7 +178,7 @@
 
 - (void)setupResponseTable
 {
-    self.selectedCells = [[NSMutableIndexSet alloc] init];
+    self.selectedCells = [[NSMutableArray alloc] init];
 }
 
 
@@ -201,7 +201,7 @@
     NSString *response = [self.dataStore.validResponses objectAtIndex:indexPath.row];
     cell.textLabel.text = response;
     cell.textLabel.font = [UIFont fontWithName:@"Avenir-Roman" size:12];
-    if ([self.selectedCells containsIndex:indexPath.row]) {
+    if ([self.selectedCells containsObject:@(indexPath.row)]) {
         [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
     } else {
         [cell setAccessoryType:UITableViewCellAccessoryNone];
@@ -211,13 +211,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([self.selectedCells containsIndex:indexPath.row]) {
+    if ([self.selectedCells containsObject:@(indexPath.row)]) {
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
-        [self.selectedCells removeIndex:indexPath.row];
+        [self.selectedCells removeObject:@(indexPath.row)];
     } else {
         if ([self.selectedCells count] < 4) {
             [tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
-            [self.selectedCells addIndex:indexPath.row];
+            [self.selectedCells addObject:@(indexPath.row)];
         }
     }
     [tableView reloadData];
@@ -231,10 +231,15 @@
     User *anne = [User userWithName:@"Anne" uniqueID:@"anne" inContext:self.dataStore.managedObjectContext];
     
     NSMutableSet *responses = [NSMutableSet new];
-    [self.selectedCells enumerateIndexesInRange:NSMakeRange(0, [self.dataStore.validResponses count]) options:NSEnumerationConcurrent usingBlock:^(NSUInteger idx, BOOL *stop) {
-        Response *newResponse = [Response responseWithContent:self.dataStore.validResponses[idx] inContext:self.dataStore.managedObjectContext];
+    for (NSNumber *index in self.selectedCells) {
+        NSInteger indexInteger = [index integerValue];
+        Response *newResponse = [Response responseWithContent:self.dataStore.validResponses[indexInteger] inContext:self.dataStore.managedObjectContext];
         [responses addObject:newResponse];
-    }];
+    }
+    
+//    [self.selectedCells enumerateIndexesInRange:NSMakeRange(0, [self.dataStore.validResponses count]) options:NSEnumerationConcurrent usingBlock:^(NSUInteger idx, BOOL *stop) {
+//        
+//    }];
     [self.dataStore saveContext];
     
     // Fix this to use current user and not Anne
