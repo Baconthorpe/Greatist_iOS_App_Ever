@@ -55,7 +55,7 @@
     
     for (Response *response in self.responses)
     {
-        [responseContents addObject:response.content];
+//        [responseContents addObject:response.content];
     }
     
     for (NSString *responseContent in responseContents)

@@ -42,7 +42,7 @@
     [self starterConfig];
     
     [self createPostDetail];
-    [self createResponses];
+//    [self createResponses];
     [self createResponsesVariantNoIcons];
     
 }
@@ -56,7 +56,8 @@
 - (void)createPostDetail
 {
     UIView *postDetailView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 320)];
-    [self.view setBackgroundColor:[UIColor greatistLightGrayColor]];
+    
+    [self.view setBackgroundColor:[UIColor greatistColorForCategory:self.post.section.name]];
     [self.view addSubview:postDetailView];
     
     UILabel *postDetailLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 280, 280)];
@@ -64,18 +65,18 @@
     [postDetailLabel setText:postDetailText];
     [postDetailLabel setNumberOfLines:0];
     [postDetailLabel setFont:[UIFont fontWithName:@"ArcherPro-SemiboldItalic" size:24]];
-    [postDetailLabel setTextColor:[UIColor greatistEatColor]];
+    [postDetailLabel setTextColor:[UIColor whiteColor]];
     [postDetailView addSubview:postDetailLabel];
     
     UIButton *flagButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [flagButton setFrame:CGRectMake(170, 280, 140, 20)];
-    [flagButton setTitleColor:[UIColor greatistBlueColor] forState:UIControlStateNormal];
+    [flagButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [flagButton.titleLabel setFont:[UIFont fontWithName:@"DINOT-Medium" size:10]];
     flagButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     flagButton.contentEdgeInsets = UIEdgeInsetsMake(0, 30, 0, 0);
     [flagButton setTitle:@"FLAG INAPPROPRIATE" forState:UIControlStateNormal];
     FAKFontAwesome *flagIcon = [FAKFontAwesome flagIconWithSize:15];
-    [flagIcon addAttribute:NSForegroundColorAttributeName value:[UIColor greatistBlueColor]];
+    [flagIcon addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor]];
     UIImage *flagImage = [[flagIcon imageWithSize:CGSizeMake(20, 20)] stretchableImageWithLeftCapWidth:20 topCapHeight:20];
     flagIcon.iconFontSize = 15;
     [flagButton setBackgroundImage:flagImage forState:UIControlStateNormal];
@@ -193,7 +194,7 @@
 }
 - (void)createResponsesVariantNoIcons
 {
-    UIView *responseView = [[UIView alloc]initWithFrame:CGRectMake(0, 430, 320, 90)];
+    UIView *responseView = [[UIView alloc]initWithFrame:CGRectMake(0, 320, 320, 90)];
     [responseView setBackgroundColor:[UIColor whiteColor]];
     [self.view addSubview:responseView];
     

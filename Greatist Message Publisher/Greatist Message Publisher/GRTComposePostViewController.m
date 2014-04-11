@@ -198,8 +198,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"responseCell"];
-    NSString *response = [self.dataStore.validResponses objectAtIndex:indexPath.row];
-    cell.textLabel.text = response;
+    ResponseOption *responseOption = [self.dataStore.validResponses objectAtIndex:indexPath.row];
+    NSLog(@"%@", responseOption);
+    cell.textLabel.text = responseOption.content;
     cell.textLabel.font = [UIFont fontWithName:@"Avenir-Roman" size:12];
     if ([self.selectedCells containsObject:@(indexPath.row)]) {
         [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
@@ -233,13 +234,11 @@
     NSMutableSet *responses = [NSMutableSet new];
     for (NSNumber *index in self.selectedCells) {
         NSInteger indexInteger = [index integerValue];
-        Response *newResponse = [Response responseWithContent:self.dataStore.validResponses[indexInteger] inContext:self.dataStore.managedObjectContext];
+        Response *newResponse = [Response responseWithResponseOption:self.dataStore.validResponses[indexInteger] inContext:self.dataStore.managedObjectContext];
         [responses addObject:newResponse];
     }
+    NSLog(@"%@", self.verticalSelected);
     
-//    [self.selectedCells enumerateIndexesInRange:NSMakeRange(0, [self.dataStore.validResponses count]) options:NSEnumerationConcurrent usingBlock:^(NSUInteger idx, BOOL *stop) {
-//        
-//    }];
     [self.dataStore saveContext];
     
     // Fix this to use current user and not Anne

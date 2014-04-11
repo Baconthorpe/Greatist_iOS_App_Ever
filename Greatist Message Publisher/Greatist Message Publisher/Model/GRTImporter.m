@@ -20,7 +20,7 @@
     
     for (Response *response in responses)
     {
-        [uniqueContentStrings addObject:response.content];
+//        [uniqueContentStrings addObject:response.responseOption.content];
     }
     
     for (NSString *contentString in uniqueContentStrings)

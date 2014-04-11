@@ -7,6 +7,8 @@
 //
 
 #import "GRTDataStore.h"
+#import "GRTParseAPIClient.h"
+#import "GRTFacebookAPIClient.h"
 
 @interface GRTDataStore ()
 
@@ -181,8 +183,14 @@
 
 - (void) fetchValidResponses
 {
-    [self.parseAPIClient getValidResponsesWithCompletion:^(NSArray *responseArray) {
-        self.validResponses = responseArray;
+    [self.parseAPIClient getValidResponsesWithCompletion:^(NSArray *responseOptionArray) {
+        NSMutableArray *responsesOptions = [NSMutableArray new];
+        for (NSDictionary *responseOption in responseOptionArray) {
+            ResponseOption *newResponseOption = [ResponseOption responseoptionWithContent:responseOption[@"content"] inContext:self.managedObjectContext];
+            [responsesOptions addObject:newResponseOption];
+        }
+        self.validResponses = responsesOptions;
+        NSLog(@"%@", responsesOptions);
     }];
 }
 
@@ -227,13 +235,13 @@
                                    responses:nil
                                    inContext:self.managedObjectContext];
         
-        Response *anneResponseOne = [Response responseWithContent:@"Cool." post:anneOne author:liz inContext:self.managedObjectContext];
-        Response *zekeResponseOne = [Response responseWithContent:@"Me, too." post:zekeOne author:len inContext:self.managedObjectContext];
-        Response *anneResponseTwo = [Response responseWithContent:@"you go, girl" post:lizOne author:anne inContext:self.managedObjectContext];
-        Response *lizResponseOne = [Response responseWithContent:@"cheers" post:zekeOne author:liz inContext:self.managedObjectContext];
-        Response *lenResponseOne = [Response responseWithContent:@"cheers" post:zekeOne author:len inContext:self.managedObjectContext];
-        Response *lizResponseTwo = [Response responseWithContent:@"smiles" post:zekeOne author:liz inContext:self.managedObjectContext];
-        Response *lenResponseTwo = [Response responseWithContent:@"hugs" post:lizOne author:len inContext:self.managedObjectContext];
+//        Response *anneResponseOne = [Response responseWithContent:@"Cool." post:anneOne author:liz inContext:self.managedObjectContext];
+//        Response *zekeResponseOne = [Response responseWithContent:@"Me, too." post:zekeOne author:len inContext:self.managedObjectContext];
+//        Response *anneResponseTwo = [Response responseWithContent:@"you go, girl" post:lizOne author:anne inContext:self.managedObjectContext];
+//        Response *lizResponseOne = [Response responseWithContent:@"cheers" post:zekeOne author:liz inContext:self.managedObjectContext];
+//        Response *lenResponseOne = [Response responseWithContent:@"cheers" post:zekeOne author:len inContext:self.managedObjectContext];
+//        Response *lizResponseTwo = [Response responseWithContent:@"smiles" post:zekeOne author:liz inContext:self.managedObjectContext];
+//        Response *lenResponseTwo = [Response responseWithContent:@"hugs" post:lizOne author:len inContext:self.managedObjectContext];
         
         [self saveContext];
     }
