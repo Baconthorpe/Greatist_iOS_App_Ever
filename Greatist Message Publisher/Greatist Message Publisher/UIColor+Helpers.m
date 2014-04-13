@@ -10,6 +10,23 @@
 
 @implementation UIColor (Helpers)
 
++ (UIColor *)greatistColorForCategory:(NSString *)categoryString
+{
+    if ([categoryString isEqualToString:@"Eat"]) {
+        return [UIColor greatistEatColor];
+    } else if ([categoryString isEqualToString:@"Move"]) {
+        return [UIColor greatistMoveColor];
+    } else if ([categoryString isEqualToString:@"Connect"]) {
+        return [UIColor greatistConnectColor];
+    } else if ([categoryString isEqualToString:@"Grow"]) {
+        return [UIColor greatistGrowColor];
+    } else if ([categoryString isEqualToString:@"Play"]) {
+        return [UIColor greatistPlayColor];
+    } else {
+        return [UIColor greatistPrimaryColor];
+    }
+}
+
 + (UIColor *)greatistPrimaryColor
 {
     return [UIColor colorWithRed:65/255.0 green:64/255.0 blue:66/255.0 alpha:1];

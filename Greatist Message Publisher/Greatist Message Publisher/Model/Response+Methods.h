@@ -10,12 +10,11 @@
 
 @interface Response (Methods)
 
-+ (instancetype) responseWithContent: (NSString *)content
-                                post: (Post *)post
-                              author: (User *)user
-                           inContext: (NSManagedObjectContext *)context;
++ (instancetype) responseWithResponseOption: (ResponseOption *)responseOption
+                                       post: (Post *)post
+                                     author: (User *)user
+                                  inContext: (NSManagedObjectContext *)context;
 
-+ (instancetype) responseWithContent: (NSString *)content
-                           inContext: (NSManagedObjectContext *)context;
-
++ (instancetype) responseWithResponseOption: (ResponseOption *)responseOption
+                                  inContext: (NSManagedObjectContext *)context;
 @end
