@@ -18,6 +18,7 @@ PODS:
   - AFNetworking/UIKit (2.2.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - Facebook-iOS-SDK (3.13.1)
   - FontAwesomeKit (2.1.5):
     - FontAwesomeKit/Core
     - FontAwesomeKit/FontAwesome
@@ -33,13 +34,21 @@ PODS:
     - FontAwesomeKit/Core
   - FontAwesomeKit/Zocial (2.1.5):
     - FontAwesomeKit/Core
+  - NSData+Base64 (1.0.0)
+  - Parse-iOS-SDK (1.2.18):
+    - Facebook-iOS-SDK (~> 3.7)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - FontAwesomeKit (~> 2.1.5)
+  - NSData+Base64 (~> 1.0.0)
+  - Parse-iOS-SDK (~> 1.2)
 
 SPEC CHECKSUMS:
   AFNetworking: 0121f4b69be3fa58d1ab317866e036e12ac9651d
+  Facebook-iOS-SDK: 0d121e16437981fabff9379e07bf646bd5ab245c
   FontAwesomeKit: 7d935e100337d503bdaefde2ea16be740b81ed13
+  NSData+Base64: bd5dacbc799c0339bd6a961a9ea80dd6eba11b33
+  Parse-iOS-SDK: 48bfd538a107b6e1f29eebe59fa80c0f0b844dd1
 
 COCOAPODS: 0.29.0

@@ -37,4 +37,7 @@
 - (void) testParseGET;
 - (void) testParsePOST;
 
+- (void) testGreatistGET;
+- (void) testGreatistPOST;
+
 @end
