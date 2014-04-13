@@ -38,7 +38,7 @@
     self.dataStore = [GRTDataStore sharedDataStore];
     self.mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 66, 320, 320)];
     self.mainScrollView.backgroundColor = [UIColor redColor];
-
+    
     [self createPostDetail];
     [self createResponses];
 }
@@ -100,18 +100,34 @@
             
             CGRect responseButtonFrame = CGRectMake(x+30, y, 100, 20);
             [responseButtonFramesArray addObject:[NSValue valueWithCGRect:responseButtonFrame]];
-
+            
         }
     }
     
-    NSArray *responseArray = [self.post.responses allObjects];
-    for (NSInteger i = 0; i < [responseArray count]; i++) {
+    
+    NSMutableSet *responseOptionSet = [NSMutableSet new];
+    for (Response *response in [self.post.responses allObjects]) {
+        [responseOptionSet addObject:response.responseOption];
+    }
+    NSArray *responseOptionsArray = [responseOptionSet allObjects];
+    
+    NSMutableArray *responseArray = [NSMutableArray new];
+    for (Response *response in [self.post.responses allObjects]) {
+        [responseArray addObject:response];
+    }
+    
+    for (NSInteger i = 0; i < [responseOptionsArray count]; i++) {
         
-        Response *response = responseArray[i];
+        ResponseOption *responseOption = responseOptionsArray[i];
+        
+        NSPredicate *searchForResponse = [NSPredicate predicateWithFormat:@"responseOption == %@", responseOption];
+        NSArray *filteredResponseArray = [responseArray filteredArrayUsingPredicate:searchForResponse];
+        NSNumber *responseCount = @([filteredResponseArray count] -1);
+        
         UILabel *newResponseCountLabel = [[UILabel alloc] initWithFrame:[[responseLabelFramesArray objectAtIndex:i] CGRectValue]];
         [newResponseCountLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:12]];
         newResponseCountLabel.textColor = [UIColor whiteColor];
-        newResponseCountLabel.text = [NSString stringWithFormat:@"0"];
+        newResponseCountLabel.text = [NSString stringWithFormat:@"%@", responseCount ];
         [newResponseCountLabel setTextAlignment:NSTextAlignmentCenter];
         [[newResponseCountLabel layer] setBorderColor:[[UIColor whiteColor] CGColor]];
         [[newResponseCountLabel layer] setBorderWidth:1];
@@ -124,9 +140,9 @@
         [newResponseButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [newResponseButton.titleLabel setFont:[UIFont fontWithName:@"DINOT-Medium" size:12]];
         newResponseButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-        [newResponseButton setTitle:[response.responseOption.content uppercaseString] forState:UIControlStateNormal];
+        [newResponseButton setTitle:[responseOption.content uppercaseString] forState:UIControlStateNormal];
         [responseView addSubview:newResponseButton];
-
+        
     }
     
 }
