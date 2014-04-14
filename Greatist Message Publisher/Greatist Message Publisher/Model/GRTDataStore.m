@@ -11,6 +11,7 @@
 #import "Post+Methods.h"
 #import "Response+Methods.h"
 #import "Section+Methods.h"
+#import "Article+Methods.h"
 #import "GRTParseAPIClient.h"
 #import "GRTFacebookAPIClient.h"
 #import "GRTGreatistAPIClient.h"
@@ -49,6 +50,25 @@
     }
     
     return _postFRController;
+}
+
+- (NSFetchedResultsController *) articleFRController
+{
+    if (!_articleFRController)
+    {
+        NSFetchRequest *articleFetch = [[NSFetchRequest alloc] initWithEntityName:@"Article"];
+        articleFetch.fetchBatchSize = 20;
+        
+        NSSortDescriptor *articleDate = [[NSSortDescriptor alloc] initWithKey:@"timeStamp" ascending:NO];
+        articleFetch.sortDescriptors = @[articleDate];
+        
+        [NSFetchedResultsController deleteCacheWithName:@"articleCache"];
+        _articleFRController = [[NSFetchedResultsController alloc] initWithFetchRequest:articleFetch managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"articleCache"];
+        
+        [_articleFRController performFetch:nil];
+    }
+    
+    return _articleFRController;
 }
 
 #pragma mark - Singleton Method
@@ -244,6 +264,9 @@
                                      section:grow
                                    responses:nil
                                    inContext:self.managedObjectContext];
+        
+        Article *articleOne = [Article articleWithHeadline:@"Murderous baby eludes justice" section:play inContext:self.managedObjectContext];
+        Article *articleTwo = [Article articleWithHeadline:@"Human flesh - the other red meat" section:eat inContext:self.managedObjectContext];
         
 //        Response *anneResponseOne = [Response responseWithContent:@"Cool." post:anneOne author:liz inContext:self.managedObjectContext];
 //        Response *zekeResponseOne = [Response responseWithContent:@"Me, too." post:zekeOne author:len inContext:self.managedObjectContext];
