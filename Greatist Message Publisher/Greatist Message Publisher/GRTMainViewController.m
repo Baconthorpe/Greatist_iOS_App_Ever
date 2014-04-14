@@ -14,7 +14,9 @@
 #import "GRTComposePostViewController.h"
 #import "Section+Methods.h"
 #import "Section.h"
+#import "Article+Methods.h"
 #import "GRTArticleViewCell.h"
+#import "GRTArticlesViewController.h"
 
 @interface GRTMainViewController ()
 
@@ -23,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *postsTableView;
 @property (weak, nonatomic) IBOutlet UITableView *articleTableView;
 @property (strong, nonatomic) Section *section;
+@property (strong,nonatomic) Article *article;
 
 @property (strong, nonatomic) GRTDataStore *dataStore;
 
@@ -121,6 +124,7 @@ const NSInteger POSTSPERARTICLE = 2;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self performSegueWithIdentifier:@"mainToDetail" sender:self];
+    [self performSegueWithIdentifier:@"mainToArticle" sender:self];
 }
 
 /*
@@ -259,9 +263,17 @@ const NSInteger POSTSPERARTICLE = 2;
         getVerticals.sortDescriptors = @[sortingVerticals];
         
         nextVC.verticals = [self.dataStore.managedObjectContext executeFetchRequest:getVerticals error:nil];
-        
-        
     }
+    else if ([segue.identifier isEqualToString:@"mainToArticle"])
+    {
+        GRTArticlesViewController *nextVC = segue.destinationViewController;
+        GRTArticleViewCell *cell = (GRTArticleViewCell *)[self.articleTableView cellForRowAtIndexPath:[self.articleTableView indexPathForSelectedRow]];
+        
+        nextVC.article = cell.article;
+        
+        [self.articleTableView deselectRowAtIndexPath:[self.postsTableView indexPathForSelectedRow] animated:YES];
+    }
+    
 }
 
 #pragma mark - Configure Cell Methods
@@ -308,4 +320,6 @@ const NSInteger POSTSPERARTICLE = 2;
 }
 
 
+
+    
 @end
