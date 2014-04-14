@@ -29,7 +29,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Bbk-ZY-vJO" kind="push" identifier="mainToArticle" id="dMZ-Hk-g8o"/>
+                                            <segue destination="Bbk-ZY-vJO" kind="push" identifier="mainToDetail" id="dMZ-Hk-g8o"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="noS-Oi-vCW" customClass="GRTArticleViewCell">
@@ -40,7 +40,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="xb5-cj-AsY" kind="modal" identifier="articleSegue" id="rW6-bO-Rby"/>
+                                            <segue destination="xb5-cj-AsY" kind="modal" identifier="mainToArticle" id="rW6-bO-Rby"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
