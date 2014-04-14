@@ -40,7 +40,7 @@
                                            author: (User *)user
                                         inContext: (NSManagedObjectContext *)context
 {
-    NSFetchRequest *responseSearch = [NSFetchRequest fetchRequestWithEntityName:@"User"];
+    NSFetchRequest *responseSearch = [NSFetchRequest fetchRequestWithEntityName:@"Response"];
     NSPredicate *idCheck = [NSPredicate predicateWithFormat:@"responseOption==%@ AND post==%@ AND user==%@",responseOption,post,user];
     responseSearch.predicate = idCheck;
     NSSortDescriptor *sortByName = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO];
