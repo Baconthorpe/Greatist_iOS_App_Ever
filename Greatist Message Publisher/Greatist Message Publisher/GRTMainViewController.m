@@ -136,6 +136,7 @@ const NSInteger POSTSPERARTICLE = 2;
     if (section == 0) {
         return [self.dataStore.postFRController.sections[0] numberOfObjects];
     }
+    
     else
     {
     return [self.dataStore.articleFRController.sections[0] numberOfObjects];
