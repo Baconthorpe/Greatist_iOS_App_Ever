@@ -1,3 +1,4 @@
+
 //
 //  GRTDataStore.m
 //  Greatist Message Publisher
@@ -220,7 +221,6 @@
             [responsesOptions addObject:newResponseOption];
         }
         self.validResponses = responsesOptions;
-        NSLog(@"%@", responsesOptions);
     }];
 }
 
@@ -276,7 +276,18 @@
                                      section:grow
                                    responses:nil
                                    inContext:self.managedObjectContext];
-        
+
+        Post *anotherPost = [Post postWithContent:@"beep beep beep!"
+                                           author:zeke
+                                          section:grow
+                                        responses:nil
+                                        inContext:self.managedObjectContext];
+        Post *arPost = [Post postWithContent:@"beep beep beep!"
+                                          author:zeke
+                                         section:grow
+                                       responses:nil
+                                       inContext:self.managedObjectContext];
+
 //        Response *anneResponseOne = [Response responseWithContent:@"Cool." post:anneOne author:liz inContext:self.managedObjectContext];
 //        Response *zekeResponseOne = [Response responseWithContent:@"Me, too." post:zekeOne author:len inContext:self.managedObjectContext];
 //        Response *anneResponseTwo = [Response responseWithContent:@"you go, girl" post:lizOne author:anne inContext:self.managedObjectContext];
