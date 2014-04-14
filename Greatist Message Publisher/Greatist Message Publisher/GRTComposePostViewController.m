@@ -59,17 +59,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
     NSLog(@"%@", textView.text);
@@ -199,7 +188,6 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"responseCell"];
     ResponseOption *responseOption = [self.dataStore.validResponses objectAtIndex:indexPath.row];
-    NSLog(@"%@", responseOption);
     cell.textLabel.text = responseOption.content;
     cell.textLabel.font = [UIFont fontWithName:@"Avenir-Roman" size:12];
     if ([self.selectedCells containsObject:@(indexPath.row)]) {
@@ -248,6 +236,7 @@
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
+
 - (void)verticalButtonTapped:(UIButton *)sender
 {
 
@@ -319,12 +308,6 @@
     self.postContentTextView.text = @"How do you feel today?";
 }
 
-- (void)dimVerticalButtons
-{
-    for (UIButton *button in self.verticalButtons) {
-        button.alpha = 0.3;
-    }
-}
 -(void) connectButtonTapped: (UIButton *)sender
 {
     NSString *nameSought = @"Connect";
@@ -341,6 +324,12 @@
     self.postContentTextView.text = @"Talk to the World";
 }
 
+- (void)dimVerticalButtons
+{
+    for (UIButton *button in self.verticalButtons) {
+        button.alpha = 0.3;
+    }
+}
 
 
 

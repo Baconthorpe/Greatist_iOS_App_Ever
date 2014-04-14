@@ -70,7 +70,7 @@
 
 - (void) getValidResponsesWithCompletion:(void (^)(NSArray *))completion
 {
-    [self.manager GET:@"classes/GRTResponse" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject)
+    [self.manager GET:@"classes/GRTResponseOption" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject)
      {
          NSArray *responseDictionaries = responseObject[@"results"];
          completion(responseDictionaries);

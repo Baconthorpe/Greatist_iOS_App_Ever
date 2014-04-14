@@ -22,4 +22,8 @@
     return newResponseOption;
 }
 
+-(NSString *)description
+{
+    return [NSString stringWithFormat:@"ResponseOption: %@", self.content];
+}
 @end
