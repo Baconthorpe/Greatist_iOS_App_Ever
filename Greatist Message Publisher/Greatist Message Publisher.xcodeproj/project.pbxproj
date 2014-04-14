@@ -38,6 +38,7 @@
 		0FAAD2FD18F89D8A00F1F7F9 /* GRTArticleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FAAD2FA18F89D8A00F1F7F9 /* GRTArticleCell.xib */; };
 		0FAAD2FE18F89D8A00F1F7F9 /* GRTArticleViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FAAD2FC18F89D8A00F1F7F9 /* GRTArticleViewCell.m */; };
 		0FBEF58318FC2E85002FD728 /* Article+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FBEF58218FC2E85002FD728 /* Article+Methods.m */; };
+		0FBEF58618FC3943002FD728 /* GRTImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FBEF58518FC3943002FD728 /* GRTImporter.m */; };
 		0FDCDDDE18F5C2BC0050E18C /* GRTParseAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDCDDDD18F5C2BC0050E18C /* GRTParseAPIClient.m */; };
 		388D5989D77F4F8992BFE80F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2782B750FC4349E3AB0AFCDF /* libPods.a */; };
 		550D3D3C18EDC2A0009A9406 /* navbarLogo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 550D3D3B18EDC2A0009A9406 /* navbarLogo.xib */; };
@@ -147,6 +148,8 @@
 		0FAAD2FC18F89D8A00F1F7F9 /* GRTArticleViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTArticleViewCell.m; sourceTree = "<group>"; };
 		0FBEF58118FC2E85002FD728 /* Article+Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Article+Methods.h"; sourceTree = "<group>"; };
 		0FBEF58218FC2E85002FD728 /* Article+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Article+Methods.m"; sourceTree = "<group>"; };
+		0FBEF58418FC3943002FD728 /* GRTImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTImporter.h; sourceTree = "<group>"; };
+		0FBEF58518FC3943002FD728 /* GRTImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTImporter.m; sourceTree = "<group>"; };
 		0FDCDDDC18F5C2BC0050E18C /* GRTParseAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTParseAPIClient.h; sourceTree = "<group>"; };
 		0FDCDDDD18F5C2BC0050E18C /* GRTParseAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTParseAPIClient.m; sourceTree = "<group>"; };
 		2782B750FC4349E3AB0AFCDF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -383,6 +386,8 @@
 				0FDCDDDD18F5C2BC0050E18C /* GRTParseAPIClient.m */,
 				87AD33EC18F5C0D00060CCA3 /* GRTFacebookAPIClient.h */,
 				87AD33ED18F5C0D00060CCA3 /* GRTFacebookAPIClient.m */,
+				0FBEF58418FC3943002FD728 /* GRTImporter.h */,
+				0FBEF58518FC3943002FD728 /* GRTImporter.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -729,6 +734,7 @@
 				0F73663618F4B77B003D71DE /* User.m in Sources */,
 				03A2662518EDFD11002790AB /* GRTPostTableViewCell.m in Sources */,
 				87AD340118F878E70060CCA3 /* Response.m in Sources */,
+				0FBEF58618FC3943002FD728 /* GRTImporter.m in Sources */,
 				55912DEE18EC86840069FEEC /* GRTDataStore.m in Sources */,
 				0FA8355D18EB70A4003C8687 /* GRTAppDelegate.m in Sources */,
 				8767500F18EE124300231453 /* UIImage+Helpers.m in Sources */,
