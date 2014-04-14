@@ -4,3 +4,4 @@ pod 'FontAwesomeKit', '~> 2.1.5'
 pod "AFNetworking", "~> 2.0"
 pod 'Parse-iOS-SDK', '~> 1.2', :inhibit_warnings => true
 pod 'NSData+Base64', '~> 1.0.0'
+pod 'MBProgressHUD', '~> 0.8'
