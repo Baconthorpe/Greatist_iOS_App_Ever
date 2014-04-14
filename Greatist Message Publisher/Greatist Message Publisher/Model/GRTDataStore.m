@@ -221,7 +221,6 @@
             [responsesOptions addObject:newResponseOption];
         }
         self.validResponses = responsesOptions;
-        NSLog(@"%@", responsesOptions);
     }];
 }
 

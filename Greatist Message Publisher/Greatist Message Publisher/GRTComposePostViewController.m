@@ -225,14 +225,11 @@
         Response *newResponse = [Response responseWithResponseOption:self.dataStore.validResponses[indexInteger] inContext:self.dataStore.managedObjectContext];
         [responses addObject:newResponse];
     }
-    NSLog(@"%@", self.verticalSelected);
-    
     [self.dataStore saveContext];
     
     // Fix this to use current user and not Anne
     Post *newPost = [Post postWithContent:self.postContentTextView.text author:anne section:self.verticalSelected responses:responses inContext:self.dataStore.managedObjectContext];
     [self.dataStore saveContext];
-    NSLog(@"Post Created: %@", newPost);
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
