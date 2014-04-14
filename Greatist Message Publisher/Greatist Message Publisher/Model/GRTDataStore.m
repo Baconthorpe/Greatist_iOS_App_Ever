@@ -44,6 +44,25 @@
     return _postFRController;
 }
 
+- (NSFetchedResultsController *) articleFRController
+{
+    if (!_articleFRController)
+    {
+        NSFetchRequest *articleFetch = [[NSFetchRequest alloc] initWithEntityName:@"Article"];
+        articleFetch.fetchBatchSize = 20;
+        
+        NSSortDescriptor *articleDate = [[NSSortDescriptor alloc] initWithKey:@"timeStamp" ascending:NO];
+        articleFetch.sortDescriptors = @[articleDate];
+        
+        [NSFetchedResultsController deleteCacheWithName:@"articleCache"];
+        _articleFRController = [[NSFetchedResultsController alloc] initWithFetchRequest:articleFetch managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"articleCache"];
+        
+        [_articleFRController performFetch:nil];
+    }
+    
+    return _articleFRController;
+}
+
 #pragma mark - Singleton Method
 
 + (instancetype) sharedDataStore

@@ -45,11 +45,14 @@ const NSInteger POSTSPERARTICLE = 5;
 {
     [super viewDidLoad];
     [self.postsTableView registerNib:[UINib nibWithNibName:@"GRTTableViewCell" bundle:nil] forCellReuseIdentifier:@"postCell"];
-        self.dataStore = [GRTDataStore sharedDataStore];
+    [self.postsTableView registerNib:[UINib nibWithNibName:@"GRTArticleCell" bundle:nil] forCellReuseIdentifier:@"articleCell"];
+    
+    self.dataStore = [GRTDataStore sharedDataStore];
     
     self.postsTableView.delegate = self;
     self.postsTableView.dataSource = self;
     self.dataStore.postFRController.delegate = self;
+    self.dataStore.articleFRController.delegate = self;
 
     UIImage *navBar = [UIImage imageNamed:@"navBar.png"];
 //    UIImage *scaledNavBar = [UIImage imageWithImage:navBar scaledToSize:CGSizeMake(320, 54)];
@@ -85,9 +88,14 @@ const NSInteger POSTSPERARTICLE = 5;
     return 150;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-
 {
-    
+    if (indexPath.row % POSTSPERARTICLE != 0)
+    {
+        [self configurePostCellAccomodatingArticleSlotsWithIndexPath:indexPath];
+    } else
+    {
+        [self configureArticleCellAccomodatingPostSlotsWithIndexPath:indexPath];
+    }
     
     GRTPostTableViewCell *cell = [self configureCellForMainTableViewWithIndexPath:indexPath];
     Post *post = [self.dataStore.postFRController objectAtIndexPath:indexPath];
@@ -294,7 +302,7 @@ const NSInteger POSTSPERARTICLE = 5;
     NSIndexPath *accomodatingIndexPath = [NSIndexPath indexPathForRow:(indexPath.row / POSTSPERARTICLE) inSection:indexPath.section];
     
     GRTArticleViewCell *cell = (GRTArticleViewCell *)[self.postsTableView dequeueReusableCellWithIdentifier:@"articleCell"];
-    cell.article = [self.dataStore.postFRController objectAtIndexPath:accomodatingIndexPath];
+    cell.article = [self.dataStore.articleFRController objectAtIndexPath:accomodatingIndexPath];
     
     return cell;
 }
