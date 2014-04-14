@@ -42,7 +42,7 @@
     self.mainScrollView.backgroundColor = [UIColor redColor];
     
     [self createPostDetail];
-    [self createResponses];
+    [self setupResponses];
 }
 
 - (void)didReceiveMemoryWarning
@@ -81,9 +81,11 @@
     [postDetailView addSubview:flagButton];
 }
 
-- (void)createResponses
+- (void)setupResponses
 {
     self.responseLabelsArray = [NSMutableArray new];
+    [self updateCountsForResponses];
+    
     UIView *responseView = [[UIView alloc]initWithFrame:CGRectMake(0, 320, 320, 90)];
     [responseView setBackgroundColor:[UIColor greatistColorForCategory:self.post.section.name]];
     [self.view addSubview:responseView];
@@ -106,9 +108,6 @@
             
         }
     }
-    
-    [self updateCountsForResponses];
-
     
     for (NSInteger i = 0; i < [self.responseOptionsArray count]; i++) {
         
