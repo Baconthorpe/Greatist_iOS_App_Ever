@@ -115,11 +115,12 @@ const NSInteger POSTSPERARTICLE = 2;
     else
     {
        cell = (GRTArticleViewCell *)[tableView dequeueReusableCellWithIdentifier:@"articleCell"];
-        if ([cell isKindOfClass:[GRTArticleViewCell class]])
+                if ([cell isKindOfClass:[GRTArticleViewCell class]])
         {
-        ((GRTArticleViewCell *) cell).postLabel.text = @"testing article";
+        ((GRTArticleViewCell *) cell).postLabel.text = self.article.headline;
+            //[self configureArticleCellForMainTableViewWithIndexPath:indexPath];
         }
-            
+
         
     }
     return cell;
@@ -266,6 +267,15 @@ const NSInteger POSTSPERARTICLE = 2;
 }
 
 
+//- (GRTArticleViewCell *) configureArticleCellForMainTableViewWithIndexPath: (NSIndexPath *)indexPath
+//{
+//    GRTArticleViewCell *cell = [self.postsTableView dequeueReusableCellWithIdentifier:@"articleCell"];
+//    Article *article = [self.dataStore.articleFRController objectAtIndexPath:indexPath];
+//    
+//    [cell configureWithArticle:article];
+//    
+//    return cell;
+//}
 
 
 
@@ -307,49 +317,49 @@ const NSInteger POSTSPERARTICLE = 2;
 }
 
 #pragma mark - Configure Cell Methods
-
-- (GRTPostTableViewCell *) configurePostCellAccomodatingArticleSlotsWithIndexPath: (NSIndexPath *)indexPath
-{
-    NSIndexPath *accomodatingIndexPath = [NSIndexPath indexPathForRow:(indexPath.row - (indexPath.row / POSTSPERARTICLE)) inSection:indexPath.section];
-    
-    GRTPostTableViewCell *cell = [self.postsTableView dequeueReusableCellWithIdentifier:@"postCell"];
-    Post *post = [self.dataStore.postFRController objectAtIndexPath:accomodatingIndexPath];
-    [cell configureWithPost:post];
-    
-    UIFont *archerProMedium = [UIFont fontWithName:@"ArcherPro-Medium" size:50];
-    cell.textLabel.font = archerProMedium;
-    
-    if ([post.section.name isEqualToString:(@"Grow")])
-    {
-        cell.backgroundColor = [UIColor greatistGrowColorLight];
-    }
-    else if ([post.section.name isEqualToString:(@"Play")])
-    {
-        cell.backgroundColor = [UIColor greatistPlayColorLight];
-    }
-    else if ([post.section.name isEqualToString:(@"Move")])
-    {
-        cell.backgroundColor = [UIColor greatistMoveColorLight];
-    }
-    else if ([post.section.name isEqualToString:(@"Eat")])
-    {
-        cell.backgroundColor = [UIColor greatistEatColorLight];
-    }
-    
-    return cell;
-}
-
-- (GRTArticleViewCell *) configureArticleCellAccomodatingPostSlotsWithIndexPath: (NSIndexPath *)indexPath
-{
-    NSLog(@"row = %ld section = %ld", (long)indexPath.row,(long)indexPath.section);
-    
-    NSIndexPath *accomodatingIndexPath = [NSIndexPath indexPathForRow:(indexPath.row / POSTSPERARTICLE) inSection:indexPath.section];
-    
-    GRTArticleViewCell *cell = (GRTArticleViewCell *)[self.postsTableView dequeueReusableCellWithIdentifier:@"articleCell"];
-    cell.article = [self.dataStore.articleFRController objectAtIndexPath:accomodatingIndexPath];
-    
-    return cell;
-}
+//
+//- (GRTPostTableViewCell *) configurePostCellAccomodatingArticleSlotsWithIndexPath: (NSIndexPath *)indexPath
+//{
+//    NSIndexPath *accomodatingIndexPath = [NSIndexPath indexPathForRow:(indexPath.row - (indexPath.row / POSTSPERARTICLE)) inSection:indexPath.section];
+//    
+//    GRTPostTableViewCell *cell = [self.postsTableView dequeueReusableCellWithIdentifier:@"postCell"];
+//    Post *post = [self.dataStore.postFRController objectAtIndexPath:accomodatingIndexPath];
+//    [cell configureWithPost:post];
+//    
+//    UIFont *archerProMedium = [UIFont fontWithName:@"ArcherPro-Medium" size:50];
+//    cell.textLabel.font = archerProMedium;
+//    
+//    if ([post.section.name isEqualToString:(@"Grow")])
+//    {
+//        cell.backgroundColor = [UIColor greatistGrowColorLight];
+//    }
+//    else if ([post.section.name isEqualToString:(@"Play")])
+//    {
+//        cell.backgroundColor = [UIColor greatistPlayColorLight];
+//    }
+//    else if ([post.section.name isEqualToString:(@"Move")])
+//    {
+//        cell.backgroundColor = [UIColor greatistMoveColorLight];
+//    }
+//    else if ([post.section.name isEqualToString:(@"Eat")])
+//    {
+//        cell.backgroundColor = [UIColor greatistEatColorLight];
+//    }
+//    
+//    return cell;
+//}
+//
+//- (GRTArticleViewCell *) configureArticleCellAccomodatingPostSlotsWithIndexPath: (NSIndexPath *)indexPath
+//{
+//    NSLog(@"row = %ld section = %ld", (long)indexPath.row,(long)indexPath.section);
+//    
+//    NSIndexPath *accomodatingIndexPath = [NSIndexPath indexPathForRow:(indexPath.row / POSTSPERARTICLE) inSection:indexPath.section];
+//    
+//    GRTArticleViewCell *cell = (GRTArticleViewCell *)[self.postsTableView dequeueReusableCellWithIdentifier:@"articleCell"];
+//    cell.article = [self.dataStore.articleFRController objectAtIndexPath:accomodatingIndexPath];
+//    
+//    return cell;
+//}
 
 
 

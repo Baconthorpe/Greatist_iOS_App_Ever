@@ -39,7 +39,8 @@
 + (instancetype) cellConfiguredWithArticle: (Article *)article
 {
     GRTArticleViewCell *cell = [GRTArticleViewCell new];
-    [cell configureWithPost:nil];
+    [cell configureWithArticle: article];
+    
     return cell;
 }
 
@@ -50,11 +51,10 @@
 {
     
     self.article= article;
-    self.postLabel.text=self.article.headline;
-    
+    self.postLabel.text = self.article.headline;
     self.postLabel.font = [UIFont fontWithName:@"ArcherPro-Medium" size:18];
     NSLog(@"checking configurewithpost");
-    NSString *grow = @"grow";
+   // NSString *grow = @"grow";
     
     self.postLabel.textColor = [UIColor blackColor];
     

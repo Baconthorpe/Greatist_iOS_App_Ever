@@ -21,8 +21,8 @@
 @property (strong, nonatomic) GRTArticleViewCell *cell;
 
 
-+ (instancetype) cellConfiguredWithPost: (Post *)post;
-- (instancetype) configureWithPost: (Post *)post;
++ (instancetype) cellConfiguredWithArticle: (Article *)article;
+- (instancetype) configureWithArticle: (Article *)article;
 - (void)setupResponseButtons;
 
 
