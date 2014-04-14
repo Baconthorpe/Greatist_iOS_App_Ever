@@ -116,11 +116,34 @@ const NSString *secret = @"awronatvw49nbveaspn08besy5p98ynavtbn3t78oa5u";
          }];
 }
 
+//+ (void)searchForStockWithName:(NSString *)name withCompletion:(void (^)(NSArray *stockDictionaries))completion{
+//    
+//    NSString *yahooURLString = [NSString stringWithFormat:@"http://d.yimg.com/autoc.finance.yahoo.com/autoc?query=%@&callback=YAHOO.Finance.SymbolSuggest.ssCallback", name];
+//    
+//    NSURLSession *session = [NSURLSession sharedSession];
+//    [[session dataTaskWithURL:[NSURL URLWithString:yahooURLString] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+//        
+//        NSLog(@"%@", data);
+//        
+//        NSString *newString = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+//        NSString *cleanJSON = [newString substringFromIndex:39];
+//        cleanJSON = [cleanJSON substringToIndex:[cleanJSON length]-1];
+//        
+//        NSData *parsedData = [cleanJSON dataUsingEncoding:NSUTF8StringEncoding];
+//        NSDictionary *stockDictionary = [NSJSONSerialization JSONObjectWithData:parsedData options:NSJSONReadingAllowFragments error:nil];
+//        NSArray *results = stockDictionary [@"ResultSet"][@"Result"];
+//        
+//        completion(results);
+//        
+//    }] resume];
+//}
+
 - (void)retrieveArticlesWithCompletion:(void (^)(NSDictionary *))completion
 {
     [self postForAccessTokenWithCompletion:^(NSDictionary *tokenDictionary) {
         [self getArticlesWithCompletion:^(NSDictionary *articlesDictionary) {
             completion(articlesDictionary);
+            NSArray *articleURLArray = articlesDictionary [@"articles"][0][@"body"];
         }];
     }];
 }
