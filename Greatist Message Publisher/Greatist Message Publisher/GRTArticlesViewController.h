@@ -13,4 +13,5 @@
 
 @property (strong,nonatomic) Article *article;
 
+
 @end

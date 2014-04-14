@@ -9,6 +9,7 @@
 #import "GRTGreatistAPIClient.h"
 #import <AFNetworking/AFNetworking.h>
 #import <NSData+Base64/NSData+Base64.h>
+#import "GRTDataStore.h"
 
 @interface GRTGreatistAPIClient ()
 @property (nonatomic) AFHTTPSessionManager *sessionManager;
@@ -138,12 +139,13 @@ const NSString *secret = @"awronatvw49nbveaspn08besy5p98ynavtbn3t78oa5u";
 //    }] resume];
 //}
 
-- (void)retrieveArticlesWithCompletion:(void (^)(NSDictionary *))completion
+- (void)retrieveArticlesWithCompletion:(void (^)(NSArray *))completion
 {
     [self postForAccessTokenWithCompletion:^(NSDictionary *tokenDictionary) {
         [self getArticlesWithCompletion:^(NSDictionary *articlesDictionary) {
-            completion(articlesDictionary);
-            NSArray *articleURLArray = articlesDictionary [@"articles"][0][@"body"];
+            NSArray *articleDictionaries = articlesDictionary [@"articles"];
+    
+            completion(articleDictionaries);
         }];
     }];
 }

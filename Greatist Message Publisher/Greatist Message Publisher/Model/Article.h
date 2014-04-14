@@ -2,7 +2,7 @@
 //  Article.h
 //  Greatist Message Publisher
 //
-//  Created by Ezekiel Abuhoff on 4/8/14.
+//  Created by Elizabeth Choy on 4/14/14.
 //  Copyright (c) 2014 Ezekiel Abuhoff. All rights reserved.
 //
 
@@ -13,10 +13,10 @@
 
 @interface Article : NSManagedObject
 
-@property (nonatomic, retain) NSString * articleURL;
-@property (nonatomic, retain) NSString * headline;
-@property (nonatomic, retain) NSString * imageURL;
-@property (nonatomic, retain) NSDate * timeStamp;
+@property (nonatomic, retain) NSDate * created;
+@property (nonatomic, retain) NSString * pictureLarge;
+@property (nonatomic, retain) NSString * nid;
+@property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) Section *section;
 
 @end

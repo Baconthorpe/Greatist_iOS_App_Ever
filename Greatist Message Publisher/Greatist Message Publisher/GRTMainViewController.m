@@ -74,6 +74,8 @@ const NSInteger POSTSPERARTICLE = 2;
     
     [self.composePostButton setImage:resizedPostImage];
     
+    [self.dataStore fetchArticles];
+    
     // Do any additional setup after loading the view.
 }
 

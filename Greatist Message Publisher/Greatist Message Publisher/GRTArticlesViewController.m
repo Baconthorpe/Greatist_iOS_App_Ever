@@ -9,10 +9,12 @@
 #import "GRTArticlesViewController.h"
 #import "GRTGreatistAPIClient.h"
 
+
 @interface GRTArticlesViewController ()
 
 @property (weak, nonatomic) IBOutlet UIWebView *articleWebView;
 @property (strong,nonatomic) GRTGreatistAPIClient *grtGreatistAPIClient;
+
 
 @end
 
@@ -31,23 +33,9 @@
 {
     [super viewDidLoad];
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://greatist.com/fitness/scientifically-backed-cardio-tips-hacks"]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://greatist.com/node/%@", self.article.nid]]];
     [self.articleWebView loadRequest:request];
 
-    
-    self.grtGreatistAPIClient = [GRTGreatistAPIClient new];
-    [self.grtGreatistAPIClient retrieveArticlesWithCompletion:^(NSDictionary *articleDictionary) {
-        NSLog(@"%@",articleDictionary);
-        NSString *articleString = articleDictionary [@"articles"][0][@"body"];
-
-# warning need to implement URL from greatist
-        
-        
-      //  [self.articleWebView loadHTMLString:articleString baseURL:nil];
-    
-    }];
-    
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning

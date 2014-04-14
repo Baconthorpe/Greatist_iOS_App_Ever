@@ -59,8 +59,8 @@
         NSFetchRequest *articleFetch = [[NSFetchRequest alloc] initWithEntityName:@"Article"];
         articleFetch.fetchBatchSize = 20;
         
-        NSSortDescriptor *articleDate = [[NSSortDescriptor alloc] initWithKey:@"timeStamp" ascending:NO];
-        articleFetch.sortDescriptors = @[articleDate];
+       NSSortDescriptor *created = [[NSSortDescriptor alloc] initWithKey:@"created" ascending:NO];
+        articleFetch.sortDescriptors = @[created];
         
         [NSFetchedResultsController deleteCacheWithName:@"articleCache"];
         _articleFRController = [[NSFetchedResultsController alloc] initWithFetchRequest:articleFetch managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"articleCache"];
@@ -224,6 +224,18 @@
     }];
 }
 
+- (void)fetchArticles
+{
+    [self.greatistAPIClient retrieveArticlesWithCompletion:^(NSArray *articles) {
+        NSMutableArray *coreDataArticles = [NSMutableArray new];
+        for (NSDictionary *articlesDictionary in articles) {
+            NSDate *created = [NSDate dateWithTimeIntervalSince1970:[articlesDictionary[@"created"] doubleValue]];
+            [coreDataArticles addObject:[Article articleWithTitle:articlesDictionary [@"title"] Created:created pictureLarge:articlesDictionary[@"picture_large"] Nid:articlesDictionary [@"nid"] inContext:self.managedObjectContext]];
+        }
+// return coreDataArticles;
+             }];
+}
+
 #pragma mark - Startup
 
 - (void) starterData
@@ -265,9 +277,6 @@
                                    responses:nil
                                    inContext:self.managedObjectContext];
         
-        Article *articleOne = [Article articleWithHeadline:@"Murderous baby eludes justice" section:play inContext:self.managedObjectContext];
-        Article *articleTwo = [Article articleWithHeadline:@"Human flesh - the other red meat" section:eat inContext:self.managedObjectContext];
-        
 //        Response *anneResponseOne = [Response responseWithContent:@"Cool." post:anneOne author:liz inContext:self.managedObjectContext];
 //        Response *zekeResponseOne = [Response responseWithContent:@"Me, too." post:zekeOne author:len inContext:self.managedObjectContext];
 //        Response *anneResponseTwo = [Response responseWithContent:@"you go, girl" post:lizOne author:anne inContext:self.managedObjectContext];
@@ -293,12 +302,7 @@
     [self.parseAPIClient postPostWithContent:@"I did stuff and stuff." section:@"grow" latitude:10.0 longitude:10.0 userID:@"oiou534iou345o"];
 }
 
-- (void) testGreatistGET
-{
-    [self.greatistAPIClient retrieveArticlesWithCompletion:^(NSDictionary *articlesDictionary) {
-        NSLog(@"%@",articlesDictionary);
-    }];
-}
+
 
 
 @end

@@ -10,8 +10,12 @@
 
 @interface Article (Methods)
 
-+ (instancetype) articleWithHeadline: (NSString *)headline
-                             section: (Section *)section
-                           inContext: (NSManagedObjectContext *)context;
++ (instancetype) articleWithTitle: (NSString *)title
+                          Created: (NSDate *)created
+                     pictureLarge: (NSString *)pictureLarge
+                              Nid: (NSString *)nid
+                        inContext: (NSManagedObjectContext *)context;
+
+
 
 @end

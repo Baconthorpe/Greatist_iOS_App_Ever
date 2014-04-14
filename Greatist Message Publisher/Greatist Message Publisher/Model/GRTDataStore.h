@@ -33,7 +33,7 @@
 
 - (void) starterData;
 - (NSArray *) fetchPostsForCurrentUser;
-- (NSArray *) fetchArticles;
+- (void) fetchArticles;
 - (void) fetchValidResponses;
 
 - (void) testParseGET;
