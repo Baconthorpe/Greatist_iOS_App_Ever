@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+extern const NSInteger POSTSPERARTICLE;
+
 @interface GRTMainViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate>
+
+
 
 @end

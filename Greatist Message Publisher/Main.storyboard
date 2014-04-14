@@ -29,7 +29,18 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Bbk-ZY-vJO" kind="push" identifier="mainToDetail" id="dMZ-Hk-g8o"/>
+                                            <segue destination="Bbk-ZY-vJO" kind="push" identifier="mainToArticle" id="dMZ-Hk-g8o"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="noS-Oi-vCW" customClass="GRTArticleViewCell">
+                                        <rect key="frame" x="0.0" y="215" width="320" height="129"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="noS-Oi-vCW" id="3X2-tc-n8h">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="xb5-cj-AsY" kind="modal" identifier="articleSegue" id="rW6-bO-Rby"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -96,7 +107,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dsL-b7-6dW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1064" y="463"/>
+            <point key="canvasLocation" x="1064" y="784"/>
         </scene>
         <!--Compose Post View Controller-->
         <scene sceneID="8lP-4M-jjE">
@@ -216,7 +227,35 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XsK-Nh-RO5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1056" y="-294"/>
+            <point key="canvasLocation" x="1064" y="-589"/>
+        </scene>
+        <!--Articles View Controller-->
+        <scene sceneID="2Oz-lf-CIK">
+            <objects>
+                <viewController id="xb5-cj-AsY" customClass="GRTArticlesViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="quU-NM-wUN"/>
+                        <viewControllerLayoutGuide type="bottom" id="x86-mW-1gN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0SH-7y-pRI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t6g-SI-R1D">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="articleWebView" destination="t6g-SI-R1D" id="bNF-91-AGd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BBC-LK-Zkt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1064" y="104"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wmt-mE-dA5">

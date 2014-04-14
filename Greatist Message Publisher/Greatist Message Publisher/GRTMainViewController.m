@@ -14,9 +14,9 @@
 #import "GRTComposePostViewController.h"
 #import "Section+Methods.h"
 #import "Section.h"
+#import "Article+Methods.h"
 #import "GRTArticleViewCell.h"
-#import "GRTPlayArticleCell.h"
-#import "GRTEatArticleCell.h"
+#import "GRTArticlesViewController.h"
 
 @interface GRTMainViewController ()
 
@@ -25,12 +25,15 @@
 @property (weak, nonatomic) IBOutlet UITableView *postsTableView;
 @property (weak, nonatomic) IBOutlet UITableView *articleTableView;
 @property (strong, nonatomic) Section *section;
+@property (strong,nonatomic) Article *article;
 
 @property (strong, nonatomic) GRTDataStore *dataStore;
 
 @end
 
 @implementation GRTMainViewController
+
+const NSInteger POSTSPERARTICLE = 2;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -45,11 +48,14 @@
 {
     [super viewDidLoad];
     [self.postsTableView registerNib:[UINib nibWithNibName:@"GRTTableViewCell" bundle:nil] forCellReuseIdentifier:@"postCell"];
-        self.dataStore = [GRTDataStore sharedDataStore];
+    [self.postsTableView registerNib:[UINib nibWithNibName:@"GRTArticleCell" bundle:nil] forCellReuseIdentifier:@"articleCell"];
+    
+    self.dataStore = [GRTDataStore sharedDataStore];
     
     self.postsTableView.delegate = self;
     self.postsTableView.dataSource = self;
     self.dataStore.postFRController.delegate = self;
+    self.dataStore.articleFRController.delegate = self;
 
     UIImage *navBar = [UIImage imageNamed:@"navBar.png"];
 //    UIImage *scaledNavBar = [UIImage imageWithImage:navBar scaledToSize:CGSizeMake(320, 54)];
@@ -85,16 +91,21 @@
     return 150;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-
 {
+    if (indexPath.row % POSTSPERARTICLE != 0)
+    {
+        [self configurePostCellAccomodatingArticleSlotsWithIndexPath:indexPath];
+    } else
+    {
+        [self configureArticleCellAccomodatingPostSlotsWithIndexPath:indexPath];
+    }
     
-    
-          GRTPostTableViewCell *cell = [self configureCellForMainTableViewWithIndexPath:indexPath];
-        Post *post = [self.dataStore.postFRController objectAtIndexPath:indexPath];
-        [cell configureWithPost:post];
-        UIFont *archerProMedium = [UIFont fontWithName:@"ArcherPro-Medium" size:50];
-        cell.textLabel.font = archerProMedium;
-        return cell;
+    GRTPostTableViewCell *cell = [self configureCellForMainTableViewWithIndexPath:indexPath];
+    Post *post = [self.dataStore.postFRController objectAtIndexPath:indexPath];
+    [cell configureWithPost:post];
+    UIFont *archerProMedium = [UIFont fontWithName:@"ArcherPro-Medium" size:50];
+    cell.textLabel.font = archerProMedium;
+    return cell;
     
 
 }
@@ -113,6 +124,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self performSegueWithIdentifier:@"mainToDetail" sender:self];
+    [self performSegueWithIdentifier:@"mainToArticle" sender:self];
 }
 
 /*
@@ -251,10 +263,63 @@
         getVerticals.sortDescriptors = @[sortingVerticals];
         
         nextVC.verticals = [self.dataStore.managedObjectContext executeFetchRequest:getVerticals error:nil];
-        
-        
     }
+    else if ([segue.identifier isEqualToString:@"mainToArticle"])
+    {
+        GRTArticlesViewController *nextVC = segue.destinationViewController;
+        GRTArticleViewCell *cell = (GRTArticleViewCell *)[self.articleTableView cellForRowAtIndexPath:[self.articleTableView indexPathForSelectedRow]];
+        
+        nextVC.article = cell.article;
+        
+        [self.articleTableView deselectRowAtIndexPath:[self.postsTableView indexPathForSelectedRow] animated:YES];
+    }
+    
+}
+
+#pragma mark - Configure Cell Methods
+
+- (GRTPostTableViewCell *) configurePostCellAccomodatingArticleSlotsWithIndexPath: (NSIndexPath *)indexPath
+{
+    NSIndexPath *accomodatingIndexPath = [NSIndexPath indexPathForRow:(indexPath.row - (indexPath.row / POSTSPERARTICLE)) inSection:indexPath.section];
+    
+    GRTPostTableViewCell *cell = [self.postsTableView dequeueReusableCellWithIdentifier:@"postCell"];
+    Post *post = [self.dataStore.postFRController objectAtIndexPath:accomodatingIndexPath];
+    [cell configureWithPost:post];
+    
+    UIFont *archerProMedium = [UIFont fontWithName:@"ArcherPro-Medium" size:50];
+    cell.textLabel.font = archerProMedium;
+    
+    if ([post.section.name isEqualToString:(@"Grow")])
+    {
+        cell.backgroundColor = [UIColor greatistGrowColorLight];
+    }
+    else if ([post.section.name isEqualToString:(@"Play")])
+    {
+        cell.backgroundColor = [UIColor greatistPlayColorLight];
+    }
+    else if ([post.section.name isEqualToString:(@"Move")])
+    {
+        cell.backgroundColor = [UIColor greatistMoveColorLight];
+    }
+    else if ([post.section.name isEqualToString:(@"Eat")])
+    {
+        cell.backgroundColor = [UIColor greatistEatColorLight];
+    }
+    
+    return cell;
+}
+
+- (GRTArticleViewCell *) configureArticleCellAccomodatingPostSlotsWithIndexPath: (NSIndexPath *)indexPath
+{
+    NSIndexPath *accomodatingIndexPath = [NSIndexPath indexPathForRow:(indexPath.row / POSTSPERARTICLE) inSection:indexPath.section];
+    
+    GRTArticleViewCell *cell = (GRTArticleViewCell *)[self.postsTableView dequeueReusableCellWithIdentifier:@"articleCell"];
+    cell.article = [self.dataStore.articleFRController objectAtIndexPath:accomodatingIndexPath];
+    
+    return cell;
 }
 
 
+
+    
 @end

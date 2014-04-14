@@ -21,6 +21,7 @@
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 @property (strong, nonatomic) NSFetchedResultsController *postFRController;
+@property (strong, nonatomic) NSFetchedResultsController *articleFRController;
 
 @property (strong, nonatomic) User *currentUser;
 @property (strong, nonatomic) NSArray *facebookFriends;
@@ -33,9 +34,13 @@
 
 - (void) starterData;
 - (NSArray *) fetchPostsForCurrentUser;
+- (NSArray *) fetchArticles;
 - (void) fetchValidResponses;
 
 - (void) testParseGET;
 - (void) testParsePOST;
+
+- (void) testGreatistGET;
+- (void) testGreatistPOST;
 
 @end

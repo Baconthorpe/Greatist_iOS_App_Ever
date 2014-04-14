@@ -109,10 +109,24 @@
         }
     }
     
-    for (NSInteger i = 0; i < [self.responseOptionsArray count]; i++) {
+    NSMutableSet *responseOptionSet = [NSMutableSet new];
+    for (Response *response in [self.post.responses allObjects]) {
+        [responseOptionSet addObject:response.responseOption];
+    }
+    NSArray *responseOptionsArray = [responseOptionSet allObjects];
+    
+    NSMutableArray *responseArray = [NSMutableArray new];
+    for (Response *response in [self.post.responses allObjects]) {
+        [responseArray addObject:response];
+    }
+    
+    for (NSInteger i = 0; i < [responseOptionsArray count]; i++) {
         
-        ResponseOption *responseOption = self.responseOptionsArray[i];
-        NSNumber *responseCount = [self getCountForResponseOption:responseOption];
+        ResponseOption *responseOption = responseOptionsArray[i];
+        
+        NSPredicate *searchForResponse = [NSPredicate predicateWithFormat:@"responseOption == %@", responseOption];
+        NSArray *filteredResponseArray = [responseArray filteredArrayUsingPredicate:searchForResponse];
+        NSNumber *responseCount = @([filteredResponseArray count] -1);
         
         UILabel *newResponseCountLabel = [[UILabel alloc] initWithFrame:[[responseLabelFramesArray objectAtIndex:i] CGRectValue]];
         [newResponseCountLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:12]];
