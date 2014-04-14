@@ -45,6 +45,8 @@
 		550D3D5018EF0561009A9406 /* navBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 550D3D4E18EF0561009A9406 /* navBar.png */; };
 		550D3D5118EF0561009A9406 /* postIcon40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 550D3D4F18EF0561009A9406 /* postIcon40x40.png */; };
 		550D3D7C18F6D547009A9406 /* GRTGreatistAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 550D3D7B18F6D547009A9406 /* GRTGreatistAPIClient.m */; };
+		556F70FF18FC1C5800430D84 /* GRTArticlesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 556F70FE18FC1C5800430D84 /* GRTArticlesViewController.m */; };
+		556F710218FC296800430D84 /* GRTArticleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 556F710118FC296800430D84 /* GRTArticleTableViewCell.m */; };
 		55912DB518EC5AED0069FEEC /* GRTMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DB418EC5AED0069FEEC /* GRTMainViewController.m */; };
 		55912DBA18EC68B00069FEEC /* GRTPostDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DB918EC68B00069FEEC /* GRTPostDetailViewController.m */; };
 		55912DBD18EC68E50069FEEC /* GRTComposePostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DBC18EC68E50069FEEC /* GRTComposePostViewController.m */; };
@@ -156,6 +158,10 @@
 		550D3D4F18EF0561009A9406 /* postIcon40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = postIcon40x40.png; sourceTree = "<group>"; };
 		550D3D7A18F6D547009A9406 /* GRTGreatistAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTGreatistAPIClient.h; sourceTree = "<group>"; };
 		550D3D7B18F6D547009A9406 /* GRTGreatistAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTGreatistAPIClient.m; sourceTree = "<group>"; };
+		556F70FD18FC1C5800430D84 /* GRTArticlesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTArticlesViewController.h; sourceTree = "<group>"; };
+		556F70FE18FC1C5800430D84 /* GRTArticlesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTArticlesViewController.m; sourceTree = "<group>"; };
+		556F710018FC296800430D84 /* GRTArticleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTArticleTableViewCell.h; sourceTree = "<group>"; };
+		556F710118FC296800430D84 /* GRTArticleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTArticleTableViewCell.m; sourceTree = "<group>"; };
 		55912DB318EC5AED0069FEEC /* GRTMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTMainViewController.h; sourceTree = "<group>"; };
 		55912DB418EC5AED0069FEEC /* GRTMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTMainViewController.m; sourceTree = "<group>"; };
 		55912DB818EC68B00069FEEC /* GRTPostDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTPostDetailViewController.h; sourceTree = "<group>"; };
@@ -337,6 +343,8 @@
 				55912DB918EC68B00069FEEC /* GRTPostDetailViewController.m */,
 				55912DBB18EC68E50069FEEC /* GRTComposePostViewController.h */,
 				55912DBC18EC68E50069FEEC /* GRTComposePostViewController.m */,
+				556F70FD18FC1C5800430D84 /* GRTArticlesViewController.h */,
+				556F70FE18FC1C5800430D84 /* GRTArticlesViewController.m */,
 				550D3D3B18EDC2A0009A9406 /* navbarLogo.xib */,
 			);
 			name = Controller;
@@ -526,12 +534,14 @@
 				8767501318EE1E8D00231453 /* UIColor+Helpers.m */,
 				8767500D18EE124300231453 /* UIImage+Helpers.h */,
 				8767500E18EE124300231453 /* UIImage+Helpers.m */,
-				0FA8357F18EB70FD003C8687 /* Main.storyboard */,
 				550D3D4B18EF04D3009A9406 /* UIViewController+styleSheet.h */,
 				550D3D4C18EF04D3009A9406 /* UIViewController+styleSheet.m */,
+				0FA8357F18EB70FD003C8687 /* Main.storyboard */,
 				03A2662118EDFABF002790AB /* GRTTableViewCell.xib */,
 				03A2662318EDFD11002790AB /* GRTPostTableViewCell.h */,
 				03A2662418EDFD11002790AB /* GRTPostTableViewCell.m */,
+				556F710018FC296800430D84 /* GRTArticleTableViewCell.h */,
+				556F710118FC296800430D84 /* GRTArticleTableViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -718,6 +728,7 @@
 				0F1AFFF018ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodeld in Sources */,
 				55912DF118EC86840069FEEC /* Response+Methods.m in Sources */,
 				87AD33EE18F5C0D00060CCA3 /* GRTFacebookAPIClient.m in Sources */,
+				556F710218FC296800430D84 /* GRTArticleTableViewCell.m in Sources */,
 				0F73662D18F4B77B003D71DE /* Article.m in Sources */,
 				0F73663018F4B77B003D71DE /* Post.m in Sources */,
 				550D3D7C18F6D547009A9406 /* GRTGreatistAPIClient.m in Sources */,
@@ -730,6 +741,7 @@
 				87AD340718F87EA00060CCA3 /* ResponseOption+Methods.m in Sources */,
 				0FDCDDDE18F5C2BC0050E18C /* GRTParseAPIClient.m in Sources */,
 				550D3D4D18EF04D3009A9406 /* UIViewController+styleSheet.m in Sources */,
+				556F70FF18FC1C5800430D84 /* GRTArticlesViewController.m in Sources */,
 				55912DBA18EC68B00069FEEC /* GRTPostDetailViewController.m in Sources */,
 				87AD340418F878E70060CCA3 /* ResponseOption.m in Sources */,
 				0FAAD2FE18F89D8A00F1F7F9 /* GRTArticleViewCell.m in Sources */,
