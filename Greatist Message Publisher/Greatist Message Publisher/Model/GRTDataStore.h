@@ -22,6 +22,7 @@
 
 @property (strong, nonatomic) NSFetchedResultsController *postFRController;
 
+@property (strong, nonatomic) User *currentUser;
 @property (strong, nonatomic) NSArray *facebookFriends;
 @property (strong, nonatomic) NSArray *validResponses;
 

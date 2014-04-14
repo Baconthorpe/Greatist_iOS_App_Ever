@@ -31,6 +31,8 @@
 
     [self.dataStore fetchPostsForCurrentUser];
     [self.dataStore fetchValidResponses];
+    self.dataStore.currentUser = [User userWithName:@"Len" uniqueID:@"len" inContext:self.dataStore.managedObjectContext];
+
     return YES;
 }
 
