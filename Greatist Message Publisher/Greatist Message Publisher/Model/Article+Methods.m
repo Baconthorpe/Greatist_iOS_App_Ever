@@ -10,4 +10,19 @@
 
 @implementation Article (Methods)
 
++ (instancetype) articleWithHeadline: (NSString *)headline
+                             section: (Section *)section
+                           inContext: (NSManagedObjectContext *)context
+{
+    Article *newArticle = [NSEntityDescription insertNewObjectForEntityForName:@"Article" inManagedObjectContext:context];
+    
+    if (newArticle)
+    {
+        newArticle.headline = headline;
+        newArticle.section = section;
+    }
+    
+    return newArticle;
+}
+
 @end

@@ -30,7 +30,7 @@
 
 @implementation GRTMainViewController
 
-const NSInteger POSTSPERARTICLE = 5;
+const NSInteger POSTSPERARTICLE = 2;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

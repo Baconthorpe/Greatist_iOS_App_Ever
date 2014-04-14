@@ -11,6 +11,7 @@
 #import "Post+Methods.h"
 #import "Response+Methods.h"
 #import "Section+Methods.h"
+#import "Article+Methods.h"
 #import "GRTParseAPIClient.h"
 #import "GRTFacebookAPIClient.h"
 #import "GRTGreatistAPIClient.h"
@@ -261,6 +262,9 @@
                                      section:grow
                                    responses:nil
                                    inContext:self.managedObjectContext];
+        
+        Article *articleOne = [Article articleWithHeadline:@"Murderous baby eludes justice" section:play inContext:self.managedObjectContext];
+        Article *articleTwo = [Article articleWithHeadline:@"Human flesh - the other red meat" section:eat inContext:self.managedObjectContext];
         
 //        Response *anneResponseOne = [Response responseWithContent:@"Cool." post:anneOne author:liz inContext:self.managedObjectContext];
 //        Response *zekeResponseOne = [Response responseWithContent:@"Me, too." post:zekeOne author:len inContext:self.managedObjectContext];

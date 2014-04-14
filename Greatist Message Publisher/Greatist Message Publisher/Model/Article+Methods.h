@@ -10,4 +10,8 @@
 
 @interface Article (Methods)
 
++ (instancetype) articleWithHeadline: (NSString *)headline
+                             section: (Section *)section
+                           inContext: (NSManagedObjectContext *)context;
+
 @end
