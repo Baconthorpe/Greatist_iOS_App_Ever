@@ -8,6 +8,8 @@
 
 #import "GRTArticleViewCell.h"
 
+#import "Article+Methods.h"
+
 
 @implementation GRTArticleViewCell
 
@@ -32,22 +34,48 @@
     // Configure the view for the selected state
 }
 
-- (instancetype) configureWithPost: (Post *)post
-{
-   
-    //self.postLabel.text = self.post.content;
-    self.postLabel.font = [UIFont fontWithName:@"ArcherPro-Medium" size:18];
-    NSLog(@"checking configurewithpost");
-    
-    return self;
-}
 
-+ (instancetype) cellConfiguredWithPost: (Post *)post
+
++ (instancetype) cellConfiguredWithArticle: (Article *)article
 {
     GRTArticleViewCell *cell = [GRTArticleViewCell new];
     [cell configureWithPost:nil];
     return cell;
 }
+
+
+
+
+- (instancetype) configureWithArticle: (Article *)article
+{
+    
+    self.article= article;
+    self.postLabel.text=self.article.headline;
+    
+    self.postLabel.font = [UIFont fontWithName:@"ArcherPro-Medium" size:18];
+    NSLog(@"checking configurewithpost");
+    NSString *grow = @"grow";
+    
+    self.postLabel.textColor = [UIColor blackColor];
+    
+    
+    
+    
+    // self.articleLabel.tintColor = [UIColor greatistColorForCategory:(@"%@", grow)];
+//    
+//    NSString *imageUrl = @"http://greatist.com/sites/default/files/wp-content/uploads/2012/02/Microwave_NFS_featured.jpg";
+//    // replace image url with real data once api is finished
+//    
+//    
+//    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:imageUrl]] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+//        self.featuredArticleImage.image = [UIImage imageWithData:data];}];
+    
+    
+    
+    return self;
+}
+
+
 
 
 @end

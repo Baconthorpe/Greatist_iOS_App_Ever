@@ -13,6 +13,7 @@
 
 @interface GRTArticleViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *featuredArticleImage;
 
 @property (weak, nonatomic) IBOutlet UILabel *postLabel;
 @property (strong, nonatomic) Post *post;

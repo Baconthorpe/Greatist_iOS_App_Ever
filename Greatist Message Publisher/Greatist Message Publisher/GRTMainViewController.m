@@ -92,39 +92,68 @@ const NSInteger POSTSPERARTICLE = 2;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row % POSTSPERARTICLE != 0)
-    {
-        [self configurePostCellAccomodatingArticleSlotsWithIndexPath:indexPath];
-    } else
-    {
-        [self configureArticleCellAccomodatingPostSlotsWithIndexPath:indexPath];
-    }
+//    if (indexPath.row % POSTSPERARTICLE != 0)
+//    {
+//        [self configurePostCellAccomodatingArticleSlotsWithIndexPath:indexPath];
+//    } else
+//    {
+//        [self configureArticleCellAccomodatingPostSlotsWithIndexPath:indexPath];
+//    }
+//    
+//    GRTPostTableViewCell *cell = [self configureCellForMainTableViewWithIndexPath:indexPath];
+//    Post *post = [self.dataStore.postFRController objectAtIndexPath:indexPath];
+//    [cell configureWithPost:post];
+//    UIFont *archerProMedium = [UIFont fontWithName:@"ArcherPro-Medium" size:50];
+//    cell.textLabel.font = archerProMedium;
+//    return cell;
+    UITableViewCell *cell;
     
-    GRTPostTableViewCell *cell = [self configureCellForMainTableViewWithIndexPath:indexPath];
-    Post *post = [self.dataStore.postFRController objectAtIndexPath:indexPath];
-    [cell configureWithPost:post];
-    UIFont *archerProMedium = [UIFont fontWithName:@"ArcherPro-Medium" size:50];
-    cell.textLabel.font = archerProMedium;
+    if (indexPath.section == 0) {
+        cell  = (GRTPostTableViewCell *)[self configureCellForMainTableViewWithIndexPath:indexPath];
+    
+    }
+    else
+    {
+       cell = (GRTArticleViewCell *)[tableView dequeueReusableCellWithIdentifier:@"articleCell"];
+        if ([cell isKindOfClass:[GRTArticleViewCell class]])
+        {
+        ((GRTArticleViewCell *) cell).postLabel.text = @"testing article";
+        }
+            
+        
+    }
     return cell;
     
-
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [self.dataStore.postFRController.sections count];
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.dataStore.postFRController.sections[section] numberOfObjects];
-    //return 20;
+    if (section == 0) {
+        return [self.dataStore.postFRController.sections[0] numberOfObjects];
+    }
+    else
+    {
+    return [self.dataStore.articleFRController.sections[0] numberOfObjects];
+    }
+ 
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self performSegueWithIdentifier:@"mainToDetail" sender:self];
-    [self performSegueWithIdentifier:@"mainToArticle" sender:self];
+    if (indexPath.section == 0) {
+        [self performSegueWithIdentifier:@"mainToDetail" sender:self];
+    
+    }
+    
+    else if (indexPath.section == 1)
+    {
+        [self performSegueWithIdentifier:@"mainToArticle" sender:self];
+    }
 }
 
 /*
@@ -311,6 +340,8 @@ const NSInteger POSTSPERARTICLE = 2;
 
 - (GRTArticleViewCell *) configureArticleCellAccomodatingPostSlotsWithIndexPath: (NSIndexPath *)indexPath
 {
+    NSLog(@"row = %ld section = %ld", (long)indexPath.row,(long)indexPath.section);
+    
     NSIndexPath *accomodatingIndexPath = [NSIndexPath indexPathForRow:(indexPath.row / POSTSPERARTICLE) inSection:indexPath.section];
     
     GRTArticleViewCell *cell = (GRTArticleViewCell *)[self.postsTableView dequeueReusableCellWithIdentifier:@"articleCell"];
