@@ -33,4 +33,12 @@
 //    return nil;
 //}
 
++ (Post *) savePostFromDictionary: (NSDictionary *)postDictionary
+                        toContext: (NSManagedObjectContext *)context
+{
+    Post *newPost = [Post postWithContent:postDictionary[@""] author:postDictionary[@"author"] section:postDictionary[@"section"] responses:nil inContext:context];
+    
+    return newPost;
+}
+
 @end
