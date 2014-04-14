@@ -189,6 +189,8 @@
     return self.facebookFriends;
 }
 
+
+
 - (void) fetchValidResponses
 {
     [self.parseAPIClient getValidResponsesWithCompletion:^(NSArray *responseOptionArray) {
@@ -261,19 +263,19 @@
     [self.parseAPIClient getRelevantPostsWithCompletion:^(NSArray *responseArray) {
         NSLog(@"%@",responseArray);
     }];
-    
 }
 
 - (void) testParsePOST
 {
     [self.parseAPIClient postPostWithContent:@"I did stuff and stuff." section:@"grow" latitude:10.0 longitude:10.0 userID:@"oiou534iou345o"];
 }
-//
-//- (void) testGreatistPOST
-//{
-//    [self.greatistAPIClient postForAccessTokenWithCompletion:^(NSDictionary *) {
-//        <#code#>
-//    }]
-//}
+
+- (void) testGreatistGET
+{
+    [self.greatistAPIClient retrieveArticlesWithCompletion:^(NSDictionary *articlesDictionary) {
+        NSLog(@"%@",articlesDictionary);
+    }];
+}
+
 
 @end
