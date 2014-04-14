@@ -29,10 +29,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Bbk-ZY-vJO" kind="push" identifier="mainToArticle" id="dMZ-Hk-g8o"/>
+                                            <segue destination="Bbk-ZY-vJO" kind="push" identifier="mainToDetail" id="dMZ-Hk-g8o"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="noS-Oi-vCW" customClass="GRTArticleViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="articleCell" id="noS-Oi-vCW" customClass="GRTArticleTableViewCell">
                                         <rect key="frame" x="0.0" y="215" width="320" height="129"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="noS-Oi-vCW" id="3X2-tc-n8h">
@@ -40,7 +40,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="xb5-cj-AsY" kind="modal" identifier="articleSegue" id="rW6-bO-Rby"/>
+                                            <segue destination="xb5-cj-AsY" kind="push" identifier="mainToArticle" id="rW6-bO-Rby"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -98,7 +98,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="U9t-fd-E62">
-                        <barButtonItem key="leftBarButtonItem" title="Back" style="done" id="9yR-J6-okh">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="9yR-J6-okh">
                             <connections>
                                 <action selector="backBarButtonItemTapped:" destination="Bbk-ZY-vJO" id="4Qd-DU-fTg"/>
                             </connections>
@@ -179,7 +179,7 @@
                                 </constraints>
                                 <items>
                                     <navigationItem title="Compose" id="0ag-pg-evg">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" systemItem="cancel" id="vwe-1E-HIT">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="vwe-1E-HIT">
                                             <connections>
                                                 <action selector="backButtonTapped:" destination="wto-gA-KYW" id="6n8-Bx-U8E"/>
                                             </connections>

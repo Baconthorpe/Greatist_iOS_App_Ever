@@ -266,8 +266,26 @@
                                    responses:nil
                                    inContext:self.managedObjectContext];
         
+        Post *anotherPost = [Post postWithContent:@"beep beep beep!"
+                                           author:zeke
+                                          section:grow
+                                        responses:nil
+                                        inContext:self.managedObjectContext];
+        Post *arPost = [Post postWithContent:@"beep beep beep!"
+                                          author:zeke
+                                         section:grow
+                                       responses:nil
+                                       inContext:self.managedObjectContext];
+
+        
         Article *articleOne = [Article articleWithHeadline:@"Murderous baby eludes justice" section:play inContext:self.managedObjectContext];
         Article *articleTwo = [Article articleWithHeadline:@"Human flesh - the other red meat" section:eat inContext:self.managedObjectContext];
+        
+        Article *articleThree = [Article articleWithHeadline:@"Human flesh - the other red meat" section:eat inContext:self.managedObjectContext];
+        Article *articlefour = [Article articleWithHeadline:@"Human flesh - the other red meat" section:eat inContext:self.managedObjectContext];
+        
+
+        
         
 //        Response *anneResponseOne = [Response responseWithContent:@"Cool." post:anneOne author:liz inContext:self.managedObjectContext];
 //        Response *zekeResponseOne = [Response responseWithContent:@"Me, too." post:zekeOne author:len inContext:self.managedObjectContext];
