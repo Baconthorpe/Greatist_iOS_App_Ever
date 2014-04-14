@@ -70,14 +70,10 @@
 
 - (void) getValidResponsesWithCompletion:(void (^)(NSArray *))completion
 {
-    [self.manager GET:@"classes/GRTResponse" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject)
+    [self.manager GET:@"classes/GRTResponseOption" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject)
      {
          NSArray *responseDictionaries = responseObject[@"results"];
-         NSMutableArray *responses = [NSMutableArray new];
-         for (NSDictionary *response in responseDictionaries) {
-             [responses addObject:response[@"content"]];
-         }
-         completion(responses);
+         completion(responseDictionaries);
      } failure:^(NSURLSessionDataTask *task, NSError *error)
      {
          NSLog(@"Responses Error: %@",error);

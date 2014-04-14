@@ -7,11 +7,20 @@
 //
 
 #import "GRTDataStore.h"
+#import "User+Methods.h"
+#import "Post+Methods.h"
+#import "Response+Methods.h"
+#import "Section+Methods.h"
+#import "GRTParseAPIClient.h"
+#import "GRTFacebookAPIClient.h"
+#import "GRTGreatistAPIClient.h"
+
 
 @interface GRTDataStore ()
 
 @property (strong, nonatomic) GRTParseAPIClient *parseAPIClient;
 @property (strong, nonatomic) GRTFacebookAPIClient *facebookAPIClient;
+@property (strong, nonatomic) GRTGreatistAPIClient *greatistAPIClient;
 
 @end
 
@@ -56,6 +65,7 @@
     {
         _shared.parseAPIClient = [[GRTParseAPIClient alloc] init];
         _shared.facebookAPIClient = [[GRTFacebookAPIClient alloc] init];
+        _shared.greatistAPIClient = [[GRTGreatistAPIClient alloc]init];
     }
     
     return _shared;
@@ -181,8 +191,14 @@
 
 - (void) fetchValidResponses
 {
-    [self.parseAPIClient getValidResponsesWithCompletion:^(NSArray *responseArray) {
-        self.validResponses = responseArray;
+    [self.parseAPIClient getValidResponsesWithCompletion:^(NSArray *responseOptionArray) {
+        NSMutableArray *responsesOptions = [NSMutableArray new];
+        for (NSDictionary *responseOption in responseOptionArray) {
+            ResponseOption *newResponseOption = [ResponseOption responseoptionWithContent:responseOption[@"content"] inContext:self.managedObjectContext];
+            [responsesOptions addObject:newResponseOption];
+        }
+        self.validResponses = responsesOptions;
+        NSLog(@"%@", responsesOptions);
     }];
 }
 
@@ -227,13 +243,13 @@
                                    responses:nil
                                    inContext:self.managedObjectContext];
         
-        Response *anneResponseOne = [Response responseWithContent:@"Cool." post:anneOne author:liz inContext:self.managedObjectContext];
-        Response *zekeResponseOne = [Response responseWithContent:@"Me, too." post:zekeOne author:len inContext:self.managedObjectContext];
-        Response *anneResponseTwo = [Response responseWithContent:@"you go, girl" post:lizOne author:anne inContext:self.managedObjectContext];
-        Response *lizResponseOne = [Response responseWithContent:@"cheers" post:zekeOne author:liz inContext:self.managedObjectContext];
-        Response *lenResponseOne = [Response responseWithContent:@"cheers" post:zekeOne author:len inContext:self.managedObjectContext];
-        Response *lizResponseTwo = [Response responseWithContent:@"smiles" post:zekeOne author:liz inContext:self.managedObjectContext];
-        Response *lenResponseTwo = [Response responseWithContent:@"hugs" post:lizOne author:len inContext:self.managedObjectContext];
+//        Response *anneResponseOne = [Response responseWithContent:@"Cool." post:anneOne author:liz inContext:self.managedObjectContext];
+//        Response *zekeResponseOne = [Response responseWithContent:@"Me, too." post:zekeOne author:len inContext:self.managedObjectContext];
+//        Response *anneResponseTwo = [Response responseWithContent:@"you go, girl" post:lizOne author:anne inContext:self.managedObjectContext];
+//        Response *lizResponseOne = [Response responseWithContent:@"cheers" post:zekeOne author:liz inContext:self.managedObjectContext];
+//        Response *lenResponseOne = [Response responseWithContent:@"cheers" post:zekeOne author:len inContext:self.managedObjectContext];
+//        Response *lizResponseTwo = [Response responseWithContent:@"smiles" post:zekeOne author:liz inContext:self.managedObjectContext];
+//        Response *lenResponseTwo = [Response responseWithContent:@"hugs" post:lizOne author:len inContext:self.managedObjectContext];
         
         [self saveContext];
     }
@@ -252,6 +268,12 @@
 {
     [self.parseAPIClient postPostWithContent:@"I did stuff and stuff." section:@"grow" latitude:10.0 longitude:10.0 userID:@"oiou534iou345o"];
 }
-
+//
+//- (void) testGreatistPOST
+//{
+//    [self.greatistAPIClient postForAccessTokenWithCompletion:^(NSDictionary *) {
+//        <#code#>
+//    }]
+//}
 
 @end

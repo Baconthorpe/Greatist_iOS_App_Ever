@@ -20,7 +20,7 @@
 @property (strong, nonatomic) UIButton *eatButton;
 @property (strong, nonatomic) NSArray *verticalButtons;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSMutableIndexSet *selectedCells;
+@property (strong, nonatomic) NSMutableArray *selectedCells;
 
 @property (strong, nonatomic) GRTDataStore *dataStore;
 
@@ -58,17 +58,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
@@ -178,7 +167,7 @@
 
 - (void)setupResponseTable
 {
-    self.selectedCells = [[NSMutableIndexSet alloc] init];
+    self.selectedCells = [[NSMutableArray alloc] init];
 }
 
 
@@ -198,10 +187,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"responseCell"];
-    NSString *response = [self.dataStore.validResponses objectAtIndex:indexPath.row];
-    cell.textLabel.text = response;
+    ResponseOption *responseOption = [self.dataStore.validResponses objectAtIndex:indexPath.row];
+    cell.textLabel.text = responseOption.content;
     cell.textLabel.font = [UIFont fontWithName:@"Avenir-Roman" size:12];
-    if ([self.selectedCells containsIndex:indexPath.row]) {
+    if ([self.selectedCells containsObject:@(indexPath.row)]) {
         [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
     } else {
         [cell setAccessoryType:UITableViewCellAccessoryNone];
@@ -211,13 +200,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([self.selectedCells containsIndex:indexPath.row]) {
+    if ([self.selectedCells containsObject:@(indexPath.row)]) {
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
-        [self.selectedCells removeIndex:indexPath.row];
+        [self.selectedCells removeObject:@(indexPath.row)];
     } else {
         if ([self.selectedCells count] < 4) {
             [tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
-            [self.selectedCells addIndex:indexPath.row];
+            [self.selectedCells addObject:@(indexPath.row)];
         }
     }
     [tableView reloadData];
@@ -231,10 +220,13 @@
     User *anne = [User userWithName:@"Anne" uniqueID:@"anne" inContext:self.dataStore.managedObjectContext];
     
     NSMutableSet *responses = [NSMutableSet new];
-    [self.selectedCells enumerateIndexesInRange:NSMakeRange(0, [self.dataStore.validResponses count]) options:NSEnumerationConcurrent usingBlock:^(NSUInteger idx, BOOL *stop) {
-        Response *newResponse = [Response responseWithContent:self.dataStore.validResponses[idx] inContext:self.dataStore.managedObjectContext];
+    for (NSNumber *index in self.selectedCells) {
+        NSInteger indexInteger = [index integerValue];
+        Response *newResponse = [Response responseWithResponseOption:self.dataStore.validResponses[indexInteger] inContext:self.dataStore.managedObjectContext];
         [responses addObject:newResponse];
-    }];
+    }
+    NSLog(@"%@", self.verticalSelected);
+    
     [self.dataStore saveContext];
     
     // Fix this to use current user and not Anne
@@ -244,6 +236,7 @@
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
+
 - (void)verticalButtonTapped:(UIButton *)sender
 {
 
@@ -315,12 +308,6 @@
     self.postContentTextView.text = @"How do you feel today?";
 }
 
-- (void)dimVerticalButtons
-{
-    for (UIButton *button in self.verticalButtons) {
-        button.alpha = 0.3;
-    }
-}
 -(void) connectButtonTapped: (UIButton *)sender
 {
     NSString *nameSought = @"Connect";
@@ -337,6 +324,12 @@
     self.postContentTextView.text = @"Talk to the World";
 }
 
+- (void)dimVerticalButtons
+{
+    for (UIButton *button in self.verticalButtons) {
+        button.alpha = 0.3;
+    }
+}
 
 
 
