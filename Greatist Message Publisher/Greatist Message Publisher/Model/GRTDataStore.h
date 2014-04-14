@@ -21,6 +21,7 @@
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 @property (strong, nonatomic) NSFetchedResultsController *postFRController;
+@property (strong, nonatomic) NSFetchedResultsController *articleFRController;
 
 @property (strong, nonatomic) NSArray *facebookFriends;
 @property (strong, nonatomic) NSArray *validResponses;
