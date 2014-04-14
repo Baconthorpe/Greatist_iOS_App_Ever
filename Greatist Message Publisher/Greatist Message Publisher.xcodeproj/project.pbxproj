@@ -364,15 +364,14 @@
 				0F73662F18F4B77B003D71DE /* Post.m */,
 				0F73662B18F4B77A003D71DE /* Article.h */,
 				0F73662C18F4B77A003D71DE /* Article.m */,
-				0FBEF58118FC2E85002FD728 /* Article+Methods.h */,
-				0FBEF58218FC2E85002FD728 /* Article+Methods.m */,
 				87AD33FF18F878E70060CCA3 /* Response.h */,
 				87AD340018F878E70060CCA3 /* Response.m */,
 				87AD340218F878E70060CCA3 /* ResponseOption.h */,
 				87AD340318F878E70060CCA3 /* ResponseOption.m */,
+				0FBEF58118FC2E85002FD728 /* Article+Methods.h */,
+				0FBEF58218FC2E85002FD728 /* Article+Methods.m */,
 				87AD340518F87EA00060CCA3 /* ResponseOption+Methods.h */,
 				87AD340618F87EA00060CCA3 /* ResponseOption+Methods.m */,
-				0F1AFFEE18ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodeld */,
 				55912DE218EC86840069FEEC /* Response+Methods.h */,
 				55912DE318EC86840069FEEC /* Response+Methods.m */,
 				55912DEA18EC86840069FEEC /* User+Methods.h */,
@@ -391,6 +390,7 @@
 				87AD33ED18F5C0D00060CCA3 /* GRTFacebookAPIClient.m */,
 				0FBEF58418FC3943002FD728 /* GRTImporter.h */,
 				0FBEF58518FC3943002FD728 /* GRTImporter.m */,
+				0F1AFFEE18ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";

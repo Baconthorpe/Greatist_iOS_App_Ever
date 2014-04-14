@@ -34,4 +34,26 @@
     
     return newResponse;
 }
+
++ (instancetype) uniqueResponseWithResponseOption: (ResponseOption *)responseOption
+                                             post: (Post *)post
+                                           author: (User *)user
+                                        inContext: (NSManagedObjectContext *)context
+{
+    NSFetchRequest *responseSearch = [NSFetchRequest fetchRequestWithEntityName:@"User"];
+    NSPredicate *idCheck = [NSPredicate predicateWithFormat:@"responseOption==%@ AND post==%@ AND user==%@",responseOption,post,user];
+    responseSearch.predicate = idCheck;
+    NSSortDescriptor *sortByName = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO];
+    responseSearch.sortDescriptors = @[sortByName];
+    
+    NSArray *arrayOfMatches = [context executeFetchRequest:responseSearch error:nil];
+    
+    if ([arrayOfMatches count] == 0)
+    {
+        return [Response responseWithResponseOption:responseOption post:post author:user inContext:context];
+    }
+    
+    return arrayOfMatches[0];
+
+}
 @end
