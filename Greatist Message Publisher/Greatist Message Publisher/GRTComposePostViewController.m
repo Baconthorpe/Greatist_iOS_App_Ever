@@ -40,12 +40,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     self.dataStore = [GRTDataStore sharedDataStore];
     self.view.backgroundColor = [UIColor greatistLightGrayColor];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-
+    
     [self setupCategoryButtons];
     [self setupPostContent];
     [self setupPostButton];
@@ -225,21 +225,18 @@
         Response *newResponse = [Response responseWithResponseOption:self.dataStore.validResponses[indexInteger] inContext:self.dataStore.managedObjectContext];
         [responses addObject:newResponse];
     }
-    NSLog(@"%@", self.verticalSelected);
-    
     [self.dataStore saveContext];
     
     // Fix this to use current user and not Anne
     Post *newPost = [Post postWithContent:self.postContentTextView.text author:anne section:self.verticalSelected responses:responses inContext:self.dataStore.managedObjectContext];
     [self.dataStore saveContext];
-    NSLog(@"Post Created: %@", newPost);
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 
 - (void)verticalButtonTapped:(UIButton *)sender
 {
-
+    
 }
 
 -(void)eatButtonTapped: (UIButton *)sender
@@ -302,7 +299,7 @@
     [self dimVerticalButtons];
     UIButton *growButton = self.verticalButtons[3];
     growButton.alpha = 1.0;
-
+    
     self.leftQuoteLabel.textColor = [UIColor greatistGrowColor];
     self.rightQuoteLabel.textColor = [UIColor greatistGrowColor];
     self.postContentTextView.text = @"How do you feel today?";

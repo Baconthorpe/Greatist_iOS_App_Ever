@@ -1,3 +1,4 @@
+
 //
 //  GRTDataStore.m
 //  Greatist Message Publisher
@@ -220,7 +221,6 @@
             [responsesOptions addObject:newResponseOption];
         }
         self.validResponses = responsesOptions;
-        NSLog(@"%@", responsesOptions);
     }];
 }
 

@@ -17,4 +17,5 @@
     #import <FontAwesomeKit/FontAwesomeKit.h>
     #import "UIImage+Helpers.h"
     #import "UIColor+Helpers.h"
+    #import "MBProgressHUD.h"
 #endif
