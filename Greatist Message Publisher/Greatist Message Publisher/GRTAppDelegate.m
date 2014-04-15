@@ -10,7 +10,7 @@
 #import "GRTMainTableViewController.h"
 #import "GRTDataStore.h"
 #import "GRTFacebookAPIClient.h"
-#import "GRTGreatistAPIClient.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface GRTAppDelegate ()
 
@@ -25,17 +25,16 @@
     self.dataStore = [GRTDataStore sharedDataStore];
     [self.dataStore starterData];
     
-   [[GRTGreatistAPIClient new] retrieveArticlesWithCompletion:^(NSDictionary *articlesDictionary) {
-       NSLog(@"%@",articlesDictionary);
-   }];
     [[UIToolbar appearance] setBackgroundColor:[UIColor greatistLightGrayColor]];
     
 //    [self.dataStore testParseGET];
 //    [self.dataStore testParsePOST];
 
+    // Prompt for Facebook Login if needed
+    [self setupRootViewController];
+    
     [self.dataStore fetchPostsForCurrentUser];
     [self.dataStore fetchValidResponses];
-    self.dataStore.currentUser = [User userWithName:@"Len" uniqueID:@"len" inContext:self.dataStore.managedObjectContext];
 
     return YES;
 }
@@ -71,6 +70,44 @@
     // Saves changes in the application's managed object context before the application terminates.
 }
 
+
+#pragma mark - Facebook Login Helper Methods
+
+- (void)setupRootViewController
+{
+    // Whenever a person opens the app, check for a cached session
+    if ([FBSession activeSession].state == FBSessionStateCreatedTokenLoaded) {
+        
+        // If there's one, just open the session silently, without showing the user the login UI
+        [FBSession openActiveSessionWithReadPermissions:@[@"basic_info"]
+                                           allowLoginUI:NO
+                                      completionHandler:^(FBSession *session, FBSessionState state, NSError *error) {
+                                          // Handler for session state changes
+                                          // This method will be called EACH time the session state changes,
+                                          // also for intermediate states and NOT just when the session open
+                                          //[self sessionStateChanged:session state:state error:error];
+                                      }];
+    }
+    else
+    {
+        //self.window.rootViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@""];
+        
+    }
+}
+
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    
+    // Call FBAppCall's handleOpenURL:sourceApplication to handle Facebook app responses
+    BOOL wasHandled = [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
+    
+    // You can add your app-specific url handling code here if needed
+    
+    return wasHandled;
+}
 
 
 @end

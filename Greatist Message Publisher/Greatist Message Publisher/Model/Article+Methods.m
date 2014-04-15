@@ -10,16 +10,20 @@
 
 @implementation Article (Methods)
 
-+ (instancetype) articleWithHeadline: (NSString *)headline
-                             section: (Section *)section
-                           inContext: (NSManagedObjectContext *)context
++ (instancetype)articleWithTitle:(NSString *)title
+                         Created:(NSDate *)created
+                    pictureLarge:(NSString *)pictureLarge
+                             Nid:(NSString *)nid
+                       inContext:(NSManagedObjectContext *)context
 {
     Article *newArticle = [NSEntityDescription insertNewObjectForEntityForName:@"Article" inManagedObjectContext:context];
     
     if (newArticle)
     {
-        newArticle.headline = headline;
-        newArticle.section = section;
+        newArticle.title = title;
+        newArticle.created = created;
+        newArticle.pictureLarge = pictureLarge;
+        newArticle.nid = nid;
     }
     
     return newArticle;
