@@ -13,6 +13,7 @@
 
 @interface GRTArticleViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *featuredArticleImage;
 
 @property (weak, nonatomic) IBOutlet UILabel *postLabel;
 @property (strong, nonatomic) Post *post;
@@ -20,8 +21,8 @@
 @property (strong, nonatomic) GRTArticleViewCell *cell;
 
 
-+ (instancetype) cellConfiguredWithPost: (Post *)post;
-- (instancetype) configureWithPost: (Post *)post;
++ (instancetype) cellConfiguredWithArticle: (Article *)article;
+- (instancetype) configureWithArticle: (Article *)article;
 - (void)setupResponseButtons;
 
 

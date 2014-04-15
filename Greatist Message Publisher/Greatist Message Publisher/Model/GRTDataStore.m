@@ -1,3 +1,4 @@
+
 //
 //  GRTDataStore.m
 //  Greatist Message Publisher
@@ -209,6 +210,8 @@
     return self.facebookFriends;
 }
 
+
+
 - (void) fetchValidResponses
 {
     [self.parseAPIClient getValidResponsesWithCompletion:^(NSArray *responseOptionArray) {
@@ -218,7 +221,6 @@
             [responsesOptions addObject:newResponseOption];
         }
         self.validResponses = responsesOptions;
-        NSLog(@"%@", responsesOptions);
     }];
 }
 
@@ -263,8 +265,26 @@
                                    responses:nil
                                    inContext:self.managedObjectContext];
         
+        Post *anotherPost = [Post postWithContent:@"beep beep beep!"
+                                           author:zeke
+                                          section:grow
+                                        responses:nil
+                                        inContext:self.managedObjectContext];
+        Post *arPost = [Post postWithContent:@"beep beep beep!"
+                                          author:zeke
+                                         section:grow
+                                       responses:nil
+                                       inContext:self.managedObjectContext];
+
+        
         Article *articleOne = [Article articleWithHeadline:@"Murderous baby eludes justice" section:play inContext:self.managedObjectContext];
         Article *articleTwo = [Article articleWithHeadline:@"Human flesh - the other red meat" section:eat inContext:self.managedObjectContext];
+        
+        Article *articleThree = [Article articleWithHeadline:@"Human flesh - the other red meat" section:eat inContext:self.managedObjectContext];
+        Article *articlefour = [Article articleWithHeadline:@"Human flesh - the other red meat" section:eat inContext:self.managedObjectContext];
+        
+
+        
         
 //        Response *anneResponseOne = [Response responseWithContent:@"Cool." post:anneOne author:liz inContext:self.managedObjectContext];
 //        Response *zekeResponseOne = [Response responseWithContent:@"Me, too." post:zekeOne author:len inContext:self.managedObjectContext];
@@ -284,19 +304,19 @@
     [self.parseAPIClient getRelevantPostsWithCompletion:^(NSArray *responseArray) {
         NSLog(@"%@",responseArray);
     }];
-    
 }
 
 - (void) testParsePOST
 {
     [self.parseAPIClient postPostWithContent:@"I did stuff and stuff." section:@"grow" latitude:10.0 longitude:10.0 userID:@"oiou534iou345o"];
 }
-//
-//- (void) testGreatistPOST
-//{
-//    [self.greatistAPIClient postForAccessTokenWithCompletion:^(NSDictionary *) {
-//        <#code#>
-//    }]
-//}
+
+- (void) testGreatistGET
+{
+    [self.greatistAPIClient retrieveArticlesWithCompletion:^(NSDictionary *articlesDictionary) {
+        NSLog(@"%@",articlesDictionary);
+    }];
+}
+
 
 @end

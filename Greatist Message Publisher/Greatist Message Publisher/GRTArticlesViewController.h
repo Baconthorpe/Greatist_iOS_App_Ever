@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Article+Methods.h"
 
 @interface GRTArticlesViewController : UIViewController
+
+@property (strong,nonatomic) Article *article;
 
 @end

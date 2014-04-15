@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="63t-b3-iu9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="63t-b3-iu9">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -32,16 +32,13 @@
                                             <segue destination="Bbk-ZY-vJO" kind="push" identifier="mainToDetail" id="dMZ-Hk-g8o"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="noS-Oi-vCW" customClass="GRTArticleTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="articleCell" id="noS-Oi-vCW" customClass="GRTArticleTableViewCell">
                                         <rect key="frame" x="0.0" y="215" width="320" height="129"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="noS-Oi-vCW" id="3X2-tc-n8h">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="xb5-cj-AsY" kind="modal" id="rW6-bO-Rby"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -53,7 +50,7 @@
                                     <barButtonItem title="Item" id="Jce-oV-dpT">
                                         <connections>
                                             <action selector="composePostButtonTapped:" destination="8aK-fq-krb" id="Xhk-QR-s8s"/>
-                                            <segue destination="wto-gA-KYW" kind="modal" identifier="mainToCompose" id="fY9-34-qyp"/>
+                                            <segue destination="VVo-2z-bev" kind="push" id="zQ0-RQ-zvc"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="oaO-DQ-wEw"/>
@@ -70,7 +67,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zUo-sE-zde" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="590" y="104"/>
+            <point key="canvasLocation" x="600" y="96"/>
         </scene>
         <!--Post Detail View Controller-->
         <scene sceneID="cYX-sP-fX9">
@@ -98,7 +95,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="U9t-fd-E62">
-                        <barButtonItem key="leftBarButtonItem" title="Back" style="done" id="9yR-J6-okh">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="9yR-J6-okh">
                             <connections>
                                 <action selector="backBarButtonItemTapped:" destination="Bbk-ZY-vJO" id="4Qd-DU-fTg"/>
                             </connections>
@@ -107,7 +104,62 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dsL-b7-6dW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1064" y="784"/>
+            <point key="canvasLocation" x="1124" y="96"/>
+        </scene>
+        <!--Step One Compose Post View Controller-->
+        <scene sceneID="oKM-Mc-sJ9">
+            <objects>
+                <viewController id="VVo-2z-bev" customClass="GRTStepOneComposePostViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GG3-oc-Gla"/>
+                        <viewControllerLayoutGuide type="bottom" id="ehG-1Y-2ow"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Gy1-iN-AWu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="1hm-0q-dCR"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6e1-83-5Oz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="976" y="-576"/>
+        </scene>
+        <!--Step Three Compose Post View Controller-->
+        <scene sceneID="rGK-9w-g0y">
+            <objects>
+                <viewController id="MrR-N8-f42" customClass="GRTStepThreeComposePostViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bjj-wv-ofd"/>
+                        <viewControllerLayoutGuide type="bottom" id="XN1-Qj-VJc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wLt-re-KFZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Gr-bk-m12" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1904" y="-586"/>
+        </scene>
+        <!--Step Two Compose Post View Controller-->
+        <scene sceneID="rBU-gb-q15">
+            <objects>
+                <viewController id="mqM-E3-cJk" customClass="GRTStepTwoComposePostViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sJA-V4-1Yn"/>
+                        <viewControllerLayoutGuide type="bottom" id="jpc-K6-iff"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hQ0-bA-8Wi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zhL-V3-n2D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1436" y="-586"/>
         </scene>
         <!--Compose Post View Controller-->
         <scene sceneID="8lP-4M-jjE">
@@ -179,7 +231,7 @@
                                 </constraints>
                                 <items>
                                     <navigationItem title="Compose" id="0ag-pg-evg">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" systemItem="cancel" id="vwe-1E-HIT">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="vwe-1E-HIT">
                                             <connections>
                                                 <action selector="backButtonTapped:" destination="wto-gA-KYW" id="6n8-Bx-U8E"/>
                                             </connections>
@@ -227,35 +279,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XsK-Nh-RO5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1064" y="-589"/>
-        </scene>
-        <!--Articles View Controller-->
-        <scene sceneID="2Oz-lf-CIK">
-            <objects>
-                <viewController id="xb5-cj-AsY" customClass="GRTArticlesViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="quU-NM-wUN"/>
-                        <viewControllerLayoutGuide type="bottom" id="x86-mW-1gN"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="0SH-7y-pRI">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t6g-SI-R1D">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </webView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <outlet property="articleWebView" destination="t6g-SI-R1D" id="bNF-91-AGd"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BBC-LK-Zkt" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1064" y="104"/>
+            <point key="canvasLocation" x="-58" y="-980"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wmt-mE-dA5">

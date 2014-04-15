@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Post.h"
 
 @interface GRTParseAPIClient : NSObject
 
@@ -26,4 +27,7 @@
 
 - (void) postUserWithFbookID: (NSString *)fbookID;
 
+- (void) putPost: (Post *)post;
+                   
+                   
 @end

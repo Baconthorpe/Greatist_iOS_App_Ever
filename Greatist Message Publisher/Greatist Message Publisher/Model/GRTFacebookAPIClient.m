@@ -61,7 +61,6 @@
                NSMutableArray *fetchedFriends = [NSMutableArray new];
                for (NSDictionary *friend in data[@"data"]) {
                    [fetchedFriends addObject:friend[@"id"]];
-                   NSLog(@"friend: %@: %@", friend[@"name"], friend[@"id"]);
                }
                completion(fetchedFriends);
            }];
