@@ -32,7 +32,6 @@
 + (instancetype) sharedDataStore;
 
 - (void) starterData;
-- (NSArray *) fetchPostsForCurrentUser;
 - (void) fetchValidResponses;
 
 - (void) testParseGET;
