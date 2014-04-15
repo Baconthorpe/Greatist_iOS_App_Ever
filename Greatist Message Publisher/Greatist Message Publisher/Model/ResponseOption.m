@@ -2,11 +2,12 @@
 //  ResponseOption.m
 //  Greatist Message Publisher
 //
-//  Created by Leonard Li on 4/11/14.
+//  Created by Ezekiel Abuhoff on 4/15/14.
 //  Copyright (c) 2014 Ezekiel Abuhoff. All rights reserved.
 //
 
 #import "ResponseOption.h"
+#import "Post.h"
 #import "Response.h"
 
 
@@ -14,5 +15,6 @@
 
 @dynamic content;
 @dynamic responses;
+@dynamic posts;
 
 @end
