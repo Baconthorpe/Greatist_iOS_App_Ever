@@ -67,54 +67,54 @@
 //    [self addSubview:flagButton];
 
     
-    FAKFontAwesome *heartIcon = [FAKFontAwesome heartIconWithSize:15];
-    [heartIcon addAttribute:NSForegroundColorAttributeName value:[UIColor greatistBlueColor]];
-    UIImage *heartImage = [[heartIcon imageWithSize:CGSizeMake(15,15)] stretchableImageWithLeftCapWidth:15 topCapHeight:15];
-    heartIcon.iconFontSize = 15;
-    
-    UIButton *heartButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [heartButton setFrame:CGRectMake(55, 110, 15, 15)];
-    
-    [heartButton setBackgroundImage:heartImage forState:UIControlStateNormal];
-    [self addSubview:heartButton];
-    
-    
-    
-    FAKFontAwesome *glassIcon = [FAKFontAwesome glassIconWithSize:15];
-    [glassIcon addAttribute:NSForegroundColorAttributeName value:[UIColor greatistBlueColor]];
-    UIImage *glassImage = [[glassIcon imageWithSize:CGSizeMake(15,15)] stretchableImageWithLeftCapWidth:15 topCapHeight:15];
-    glassIcon.iconFontSize = 15;
-    
-    UIButton *glassButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [glassButton setFrame:CGRectMake(120, 110, 15, 15)];
-    
-    [glassButton setBackgroundImage:glassImage forState:UIControlStateNormal];
-    [self addSubview:glassButton];
-    
-    
-    
-    FAKFontAwesome *smileIcon = [FAKFontAwesome smileOIconWithSize:15];
-    [smileIcon addAttribute:NSForegroundColorAttributeName value:[UIColor greatistBlueColor]];
-    UIImage *smileImage = [[smileIcon imageWithSize:CGSizeMake(15,15)] stretchableImageWithLeftCapWidth:15 topCapHeight:15];
-    
-    UIButton *smileButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [smileButton setFrame:CGRectMake(185, 110, 15, 15)];
-    
-    [smileButton setBackgroundImage:smileImage forState:UIControlStateNormal];
-    [self addSubview:smileButton];
-    
-    
-    
-    FAKFontAwesome *frownIcon = [FAKFontAwesome frownOIconWithSize:15];
-    [frownIcon addAttribute:NSForegroundColorAttributeName value:[UIColor greatistBlueColor]];
-    UIImage *frownImage = [[frownIcon imageWithSize:CGSizeMake(15,15)] stretchableImageWithLeftCapWidth:15 topCapHeight:15];
-    
-    UIButton *frownButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [frownButton setFrame:CGRectMake(250, 110, 15, 15)];
-    
-    [frownButton setBackgroundImage:frownImage forState:UIControlStateNormal];
-    [self addSubview:frownButton];
-
+//    FAKFontAwesome *heartIcon = [FAKFontAwesome heartIconWithSize:15];
+//    [heartIcon addAttribute:NSForegroundColorAttributeName value:[UIColor greatistBlueColor]];
+//    UIImage *heartImage = [[heartIcon imageWithSize:CGSizeMake(15,15)] stretchableImageWithLeftCapWidth:15 topCapHeight:15];
+//    heartIcon.iconFontSize = 15;
+//    
+//    UIButton *heartButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [heartButton setFrame:CGRectMake(55, 110, 15, 15)];
+//    
+//    [heartButton setBackgroundImage:heartImage forState:UIControlStateNormal];
+//    [self addSubview:heartButton];
+//    
+//    
+//    
+//    FAKFontAwesome *glassIcon = [FAKFontAwesome glassIconWithSize:15];
+//    [glassIcon addAttribute:NSForegroundColorAttributeName value:[UIColor greatistBlueColor]];
+//    UIImage *glassImage = [[glassIcon imageWithSize:CGSizeMake(15,15)] stretchableImageWithLeftCapWidth:15 topCapHeight:15];
+//    glassIcon.iconFontSize = 15;
+//    
+//    UIButton *glassButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [glassButton setFrame:CGRectMake(120, 110, 15, 15)];
+//    
+//    [glassButton setBackgroundImage:glassImage forState:UIControlStateNormal];
+//    [self addSubview:glassButton];
+//    
+//    
+//    
+//    FAKFontAwesome *smileIcon = [FAKFontAwesome smileOIconWithSize:15];
+//    [smileIcon addAttribute:NSForegroundColorAttributeName value:[UIColor greatistBlueColor]];
+//    UIImage *smileImage = [[smileIcon imageWithSize:CGSizeMake(15,15)] stretchableImageWithLeftCapWidth:15 topCapHeight:15];
+//    
+//    UIButton *smileButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [smileButton setFrame:CGRectMake(185, 110, 15, 15)];
+//    
+//    [smileButton setBackgroundImage:smileImage forState:UIControlStateNormal];
+//    [self addSubview:smileButton];
+//    
+//    
+//    
+//    FAKFontAwesome *frownIcon = [FAKFontAwesome frownOIconWithSize:15];
+//    [frownIcon addAttribute:NSForegroundColorAttributeName value:[UIColor greatistBlueColor]];
+//    UIImage *frownImage = [[frownIcon imageWithSize:CGSizeMake(15,15)] stretchableImageWithLeftCapWidth:15 topCapHeight:15];
+//    
+//    UIButton *frownButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [frownButton setFrame:CGRectMake(250, 110, 15, 15)];
+//    
+//    [frownButton setBackgroundImage:frownImage forState:UIControlStateNormal];
+//    [self addSubview:frownButton];
+//
 }
 
 
