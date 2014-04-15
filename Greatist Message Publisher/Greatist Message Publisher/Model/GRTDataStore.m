@@ -177,17 +177,6 @@
     return [self.managedObjectContext executeFetchRequest:userFetch error:nil][0];
 }
 
-- (NSArray *) fetchPostsForCurrentUser
-{
-    [self.facebookAPIClient facebookLoginWithCompletion:^(NSArray *facebookFriends) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.facebookFriends = facebookFriends;
-        });
-    }];
-    return self.facebookFriends;
-}
-
-
 
 - (void) fetchValidResponses
 {
