@@ -8,6 +8,7 @@
 
 #import "GRTFacebookAPIClient.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import "GRTFacebookLoginViewController.h"
 
 @interface GRTFacebookAPIClient ()
 
@@ -26,6 +27,42 @@
     return _sharedClient;
 }
 
+
+#pragma mark - Facebook Login Helper Methods
+
+- (BOOL)isUserFacebookCached
+{
+    if ([FBSession activeSession].state == FBSessionStateCreatedTokenLoaded) {
+        return YES;
+    }
+    return NO;
+}
+
+- (void)verifyUserFacebookCachedInViewController:(UIViewController *)parentVC
+{
+    // Whenever a person opens the app, check for a cached session
+    if ([FBSession activeSession].state == FBSessionStateCreatedTokenLoaded) {
+        
+        // If there's one, just open the session silently, without showing the user the login UI
+        [FBSession openActiveSessionWithReadPermissions:@[@"basic_info"]
+                                           allowLoginUI:NO
+                                      completionHandler:^(FBSession *session, FBSessionState state, NSError *error) {
+                                          // Handler for session state changes
+                                          // This method will be called EACH time the session state changes,
+                                          // also for intermediate states and NOT just when the session open
+                                          //[self sessionStateChanged:session state:state error:error];
+                                      }];
+    }
+    else
+    {
+        GRTFacebookLoginViewController *facebookLoginVC = [[GRTFacebookLoginViewController alloc] init];
+        [parentVC presentViewController:facebookLoginVC animated:NO completion:nil];
+    }
+}
+
+
+#pragma mark - Facebook Friend Methods
+
 - (void)getFriendIDsWithCompletion:(void(^)(NSArray *))completion
 {
     FBRequest* friendsRequest = [FBRequest requestWithGraphPath:@"me/friends" parameters:nil HTTPMethod:@"GET"];
@@ -33,7 +70,7 @@
                                                   NSDictionary* result,
                                                   NSError *error) {
         NSArray* friends = [result objectForKey:@"data"];
-        NSLog(@"Found: %i friends", friends.count);
+        NSLog(@"Found: %lu friends", (unsigned long)friends.count);
         
         NSMutableArray *friendIDs = [NSMutableArray new];
         
@@ -45,6 +82,9 @@
         completion(friendIDs);
     }];
 }
+
+
+#pragma mark - Old Code To Be Deleted
 
 - (ACAccountStore *)accountStore
 {

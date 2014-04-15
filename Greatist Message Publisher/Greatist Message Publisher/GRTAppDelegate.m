@@ -7,13 +7,13 @@
 //
 
 #import "GRTAppDelegate.h"
+#import "GRTFacebookLoginViewController.h"
 #import "GRTMainTableViewController.h"
 #import "GRTDataStore.h"
 #import "GRTFacebookAPIClient.h"
 #import <FacebookSDK/FacebookSDK.h>
 
 @interface GRTAppDelegate ()
-
 @property (strong, nonatomic) GRTDataStore *dataStore;
 
 @end
@@ -24,18 +24,22 @@
 {
     self.dataStore = [GRTDataStore sharedDataStore];
     [self.dataStore starterData];
-    
-    [[UIToolbar appearance] setBackgroundColor:[UIColor greatistLightGrayColor]];
-    
-//    [self.dataStore testParseGET];
-//    [self.dataStore testParsePOST];
-
-    // Prompt for Facebook Login if needed
-    [self setupRootViewController];
-    
-    [self.dataStore fetchPostsForCurrentUser];
+    //[self.dataStore fetchPostsForCurrentUser];
     [self.dataStore fetchValidResponses];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    GRTFacebookLoginViewController *facebookLoginVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"facebookLoginVC"];
+    self.window.rootViewController = facebookLoginVC;
+    [self.window makeKeyAndVisible];
+    
+    if ([[GRTFacebookAPIClient sharedClient] isUserFacebookCached]) {
+        GRTMainTableViewController *mainVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"mainNavBarController"];
+        [facebookLoginVC presentViewController:mainVC animated:NO completion:nil];
+    }
 
+    
     return YES;
 }
 
@@ -71,31 +75,7 @@
 }
 
 
-#pragma mark - Facebook Login Helper Methods
-
-- (void)setupRootViewController
-{
-    // Whenever a person opens the app, check for a cached session
-    if ([FBSession activeSession].state == FBSessionStateCreatedTokenLoaded) {
-        
-        // If there's one, just open the session silently, without showing the user the login UI
-        [FBSession openActiveSessionWithReadPermissions:@[@"basic_info"]
-                                           allowLoginUI:NO
-                                      completionHandler:^(FBSession *session, FBSessionState state, NSError *error) {
-                                          // Handler for session state changes
-                                          // This method will be called EACH time the session state changes,
-                                          // also for intermediate states and NOT just when the session open
-                                          //[self sessionStateChanged:session state:state error:error];
-                                      }];
-    }
-    else
-    {
-        //self.window.rootViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@""];
-        
-    }
-}
-
-
+// Needed for Facebook Login in AppDelegate.  Do not move.
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication
@@ -105,9 +85,7 @@
     BOOL wasHandled = [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
     
     // You can add your app-specific url handling code here if needed
-    
     return wasHandled;
 }
-
 
 @end

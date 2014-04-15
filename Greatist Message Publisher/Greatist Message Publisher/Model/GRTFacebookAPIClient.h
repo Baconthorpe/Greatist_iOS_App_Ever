@@ -13,6 +13,8 @@
 @interface GRTFacebookAPIClient : NSObject
 
 + (instancetype)sharedClient;
+- (BOOL)isUserFacebookCached;
+- (void)verifyUserFacebookCachedInViewController:(UIViewController *)parentVC;
 - (void)getFriendIDsWithCompletion:(void(^)(NSArray *facebookFriendIDs))completion;
 - (void)facebookLoginWithCompletion:(void (^)(NSArray *facebookFriends))completion;
 
