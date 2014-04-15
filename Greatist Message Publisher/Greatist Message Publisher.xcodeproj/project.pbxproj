@@ -355,8 +355,6 @@
 				55912DB918EC68B00069FEEC /* GRTPostDetailViewController.m */,
 				55912DBB18EC68E50069FEEC /* GRTComposePostViewController.h */,
 				55912DBC18EC68E50069FEEC /* GRTComposePostViewController.m */,
-				556F70FD18FC1C5800430D84 /* GRTArticlesViewController.h */,
-				556F70FE18FC1C5800430D84 /* GRTArticlesViewController.m */,
 				039FE86D18FCBD9D00EC98DC /* GRTStepOneComposePostViewController.h */,
 				039FE86E18FCBD9D00EC98DC /* GRTStepOneComposePostViewController.m */,
 				039FE87018FCBDB100EC98DC /* GRTStepTwoComposePostViewController.h */,
