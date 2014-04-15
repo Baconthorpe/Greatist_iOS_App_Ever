@@ -40,14 +40,13 @@
 + (Post *) interpretPostFromDictionary: (NSDictionary *)postDictionary
                         toContext: (NSManagedObjectContext *)context
 {
-    NSDictionary *userDictionary = postDictionary[@"user"];
-    User *authorUser = [User uniqueUserWithName:userDictionary[@"name"] uniqueID:userDictionary[@"uniqueID"] inContext:context];
+    User *user = [GRTImporter interpretUserFromDictionary:postDictionary[@"user"] toContext:context];
     
-    Section *section = [Section uniqueSectionWithName:postDictionary[@"section"] inContext:context];
-    
+    Section *section = [GRTImporter interpretSectionFromDictionary:postDictionary[@"section"] toContext:context];
     
     
-    Post *newPost = [Post uniquePostWithContent:postDictionary[@"content"] author:authorUser section:section responses:nil timeStamp:nil inContext:context];
+    
+    Post *newPost = [Post uniquePostWithContent:postDictionary[@"content"] author:user section:section responses:nil timeStamp:nil inContext:context];
 #warning Figure out how to turn a date from Parse into an NSDate, or else the time stamps for posts will never work
     
 //    for (NSDictionary *responseDictionary in postDictionary[@"responses"])
@@ -79,8 +78,9 @@
 + (Response *) interpretResponseFromDictionary: (NSDictionary *)responseDictionary
                                      toContext: (NSManagedObjectContext *)context
 {
-//    return [Response uniqueResponseWithResponseOption:<#(ResponseOption *)#> post:<#(Post *)#> author:<#(User *)#> inContext:<#(NSManagedObjectContext *)#>]
-    return nil;
+    ResponseOption *responseOption = [ResponseOption uniqueResponseOptionWithContent:responseDictionary[@"content"] inContext:context];
+    
+    return [Response uniqueResponseWithResponseOption:responseOption post:nil author:nil inContext:context];
 }
 
 @end
