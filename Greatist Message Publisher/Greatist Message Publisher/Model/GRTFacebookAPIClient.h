@@ -12,6 +12,8 @@
 
 @interface GRTFacebookAPIClient : NSObject
 
++ (instancetype)sharedClient;
+- (void)getFriendIDsWithCompletion:(void(^)(NSArray *facebookFriendIDs))completion;
 - (void)facebookLoginWithCompletion:(void (^)(NSArray *facebookFriends))completion;
 
 @end

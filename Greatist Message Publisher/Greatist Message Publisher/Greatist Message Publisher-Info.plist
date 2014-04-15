@@ -42,6 +42,10 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>FacebookAppID</key>
+	<string>382299055241534</string>
+	<key>FacebookDisplayName</key>
+	<string>Greatist Test</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
