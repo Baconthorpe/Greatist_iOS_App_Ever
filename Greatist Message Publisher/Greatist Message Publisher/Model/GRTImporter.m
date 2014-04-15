@@ -44,15 +44,7 @@
     
     Section *section = [GRTImporter interpretSectionFromDictionary:postDictionary[@"section"] toContext:context];
     
-    
-    
     Post *newPost = [Post uniquePostWithContent:postDictionary[@"content"] author:user section:section responses:nil timeStamp:nil inContext:context];
-#warning Figure out how to turn a date from Parse into an NSDate, or else the time stamps for posts will never work
-    
-//    for (NSDictionary *responseDictionary in postDictionary[@"responses"])
-//    {
-//        Response *newResponse = [Response uniqueResponseWithResponseOption:<#(ResponseOption *)#> post:<#(Post *)#> author:<#(User *)#> inContext:<#(NSManagedObjectContext *)#>]
-//    }
     
     return newPost;
 }
