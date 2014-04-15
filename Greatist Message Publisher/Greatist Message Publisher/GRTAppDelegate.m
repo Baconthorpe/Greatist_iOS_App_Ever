@@ -22,10 +22,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [FBProfilePictureView class];
     self.dataStore = [GRTDataStore sharedDataStore];
     [self.dataStore starterData];
     //[self.dataStore fetchPostsForCurrentUser];
     [self.dataStore fetchValidResponses];
+    
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];

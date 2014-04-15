@@ -16,7 +16,6 @@
 @property (strong, nonatomic) UILabel *appName;
 @property (strong, nonatomic) FBProfilePictureView *profilePictureView;
 @property (strong, nonatomic) UILabel *nameLabel;
-@property (strong, nonatomic) UILabel *facebookIDLabel;
 
 @end
 
@@ -104,14 +103,14 @@
     [[GRTFacebookAPIClient sharedClient] getFriendIDsWithCompletion:^(NSArray *friendIDs)
      {
          [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-         [self performSegueWithIdentifier:@"loginToMain" sender:nil];
+//         [self performSegueWithIdentifier:@"loginToMain" sender:nil];
      }];
     
 }
 
 - (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView
 {
-    //self.profilePictureView.profileID = nil;
+    self.profilePictureView.profileID = nil;
     self.nameLabel.text = @" ";
 }
 
@@ -119,6 +118,7 @@
 
 - (void) initialize
 {
+    [FBProfilePictureView class];
     FBLoginView *loginView = [[FBLoginView alloc] initWithReadPermissions:@[@"basic_info", @"email", @"user_likes"]];
     loginView.delegate = self;
     [self.view addSubview:loginView];
@@ -128,6 +128,10 @@
     self.appName.font = [UIFont fontWithName:@"ArcherPro-Medium" size:36];
     [self.view addSubview:self.appName];
     
+    self.profilePictureView = [[FBProfilePictureView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+    [[self.profilePictureView layer] setCornerRadius:15];
+    [self.view addSubview:self.profilePictureView];
+    
     self.nameLabel = [[UILabel alloc] init];
     self.nameLabel.text = @" ";
     self.appName.font = [UIFont fontWithName:@"Avenir-Roman" size:36];
@@ -135,16 +139,18 @@
     
     [self.view setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.nameLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.profilePictureView setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.appName setTranslatesAutoresizingMaskIntoConstraints:NO];
     [loginView setTranslatesAutoresizingMaskIntoConstraints:NO];
     
     NSDictionary *views = @{@"superview": self.view,
                             @"appName" : self.appName,
+                            @"profilePicture": self.profilePictureView,
                             @"nameLabel": self.nameLabel,
                             @"loginView": loginView};
     
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[superview]-(<=1)-[nameLabel]" options:NSLayoutFormatAlignAllCenterY metrics:nil views:views]];
     
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[superview]-(<=100)-[appName]-(100)-[nameLabel]-[loginView]" options:NSLayoutFormatAlignAllCenterX metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[superview]-(<=100)-[appName]-(50)-[profilePicture]-[nameLabel]-[loginView]" options:NSLayoutFormatAlignAllCenterX metrics:nil views:views]];
 }
 @end
