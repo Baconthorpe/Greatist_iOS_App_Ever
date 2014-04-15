@@ -19,12 +19,16 @@
 + (UIColor *)greatistMoveColor;
 + (UIColor *)greatistPlayColor;
 + (UIColor *)greatistConnectColor;
-+ (UIColor *)greatistEatColorLight;
-+ (UIColor *)greatistGrowColorLight;
-+ (UIColor *)greatistMoveColorLight;
-+ (UIColor *)greatistPlayColorLight;
-+ (UIColor *)greatistConnectColorLight;
-
-
-
++ (UIColor *)greatistHealthColor;
++ (UIColor *)greatistHealthColorSecondary;
++ (UIColor *)greatistHappinessColor;
++ (UIColor *)greatistHappinessColorSecondary;
++ (UIColor *)greatistFitnessColor;
++ (UIColor *)greatistFitnessColorSecondary;
++ (UIColor *)greatistEatColorSecondary;
++ (UIColor *)greatistGrowColorSecondary;
++ (UIColor *)greatistMoveColorSecondary;
++ (UIColor *)greatistPlayColorSecondary;
++ (UIColor *)greatistDiscoverColor;
++ (UIColor *)greatistDiscoverColorSecondary;
 @end

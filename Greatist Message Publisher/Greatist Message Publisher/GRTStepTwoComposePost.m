@@ -7,6 +7,22 @@
 //
 
 #import "GRTStepTwoComposePost.h"
+#import "Section+Methods.h"
+#import "GRTDataStore.h"
+
+@interface GRTStepTwoComposePost ()
+@property (weak, nonatomic) IBOutlet UITextView *postContentTextView;
+@property (weak, nonatomic) IBOutlet UIView *postView;
+- (IBAction)backButtonTapped:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *leftQuoteLabel;
+@property (weak, nonatomic) IBOutlet UILabel *rightQuoteLabel;
+@property (strong, nonatomic) Section *verticalSelected;
+@property (strong, nonatomic) UIButton *eatButton;
+@property (strong, nonatomic) NSArray *verticalButtons;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSMutableArray *selectedCells;
+@property (strong, nonatomic) GRTDataStore *dataStore;
+@end
 
 @implementation GRTStepTwoComposePost
 // in this view the user writes thier post, info concerning coloring gets passed from previous view controllers
@@ -50,25 +66,6 @@
     [self.postView addSubview:postButton];
 }
 
-- (void)postButton:(id)sender
-{
-    // Fix this to use current user and not Anne
-    User *anne = [User userWithName:@"Anne" uniqueID:@"anne" inContext:self.dataStore.managedObjectContext];
-    
-    NSMutableSet *responses = [NSMutableSet new];
-    for (NSNumber *index in self.selectedCells) {
-        NSInteger indexInteger = [index integerValue];
-        Response *newResponse = [Response responseWithResponseOption:self.dataStore.validResponses[indexInteger] inContext:self.dataStore.managedObjectContext];
-        [responses addObject:newResponse];
-    }
-    [self.dataStore saveContext];
-    
-    // Fix this to use current user and not Anne
-    Post *newPost = [Post postWithContent:self.postContentTextView.text author:anne section:self.verticalSelected responses:responses inContext:self.dataStore.managedObjectContext];
-    [self.dataStore saveContext];
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
-}
 
 
 

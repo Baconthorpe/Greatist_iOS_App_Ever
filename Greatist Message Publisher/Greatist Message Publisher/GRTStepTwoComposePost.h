@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GRTStepTwoComposePost : UIView
+@interface GRTStepTwoComposePost : UIView <UITableViewDelegate, UITableViewDataSource, UITextViewDelegate>
 
+@property NSArray *verticals;
 @end

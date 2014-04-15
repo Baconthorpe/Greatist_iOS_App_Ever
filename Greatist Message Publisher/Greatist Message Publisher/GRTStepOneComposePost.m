@@ -7,6 +7,21 @@
 //
 
 #import "GRTStepOneComposePost.h"
+#import "Section+Methods.h"
+#import "GRTDataStore.h"
+@interface GRTStepOneComposePost ()
+@property (weak, nonatomic) IBOutlet UITextView *postContentTextView;
+@property (weak, nonatomic) IBOutlet UIView *postView;
+- (IBAction)backButtonTapped:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *leftQuoteLabel;
+@property (weak, nonatomic) IBOutlet UILabel *rightQuoteLabel;
+@property (strong, nonatomic) Section *verticalSelected;
+@property (strong, nonatomic) UIButton *eatButton;
+@property (strong, nonatomic) NSArray *verticalButtons;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSMutableArray *selectedCells;
+@property (strong, nonatomic) GRTDataStore *dataStore;
+@end
 
 @implementation GRTStepOneComposePost
 

@@ -48,7 +48,6 @@ const NSInteger POSTSPERARTICLE = 2;
 {
     [super viewDidLoad];
     [self.postsTableView registerNib:[UINib nibWithNibName:@"GRTTableViewCell" bundle:nil] forCellReuseIdentifier:@"postCell"];
-    [self.postsTableView registerNib:[UINib nibWithNibName:@"GRTArticleCell" bundle:nil] forCellReuseIdentifier:@"articleCell"];
     
     self.dataStore = [GRTDataStore sharedDataStore];
     
@@ -248,19 +247,26 @@ const NSInteger POSTSPERARTICLE = 2;
     
     if ([post.section.name isEqualToString:(@"Grow")])
     {
-        cell.backgroundColor = [UIColor greatistGrowColorLight];
+        cell.backgroundColor = [UIColor greatistHappinessColorSecondary];
+        cell.squareLabelLeft.backgroundColor = [UIColor greatistHappinessColor];
+        cell.buttonBar.backgroundColor=[UIColor whiteColor];
     }
     else if ([post.section.name isEqualToString:(@"Play")])
     {
-        cell.backgroundColor = [UIColor greatistPlayColorLight];
+        cell.backgroundColor = [UIColor greatistFitnessColorSecondary];
+        cell.buttonBar.backgroundColor=[UIColor whiteColor];
     }
     else if ([post.section.name isEqualToString:(@"Move")])
     {
-        cell.backgroundColor = [UIColor greatistMoveColorLight];
+        cell.backgroundColor = [UIColor greatistFitnessColorSecondary];
+        cell.squareLabelLeft.backgroundColor = [UIColor greatistFitnessColor];
+        cell.buttonBar.backgroundColor=[UIColor whiteColor];
     }
     else if ([post.section.name isEqualToString:(@"Eat")])
     {
-        cell.backgroundColor = [UIColor greatistEatColorLight];
+        cell.backgroundColor = [UIColor greatistHealthColorSecondary];
+        cell.squareLabelRight.backgroundColor = [UIColor greatistHealthColor];
+        cell.buttonBar.backgroundColor=[UIColor whiteColor];
     }
 
     return cell;
