@@ -10,7 +10,6 @@
 #import "GRTMainTableViewController.h"
 #import "GRTDataStore.h"
 #import "GRTFacebookAPIClient.h"
-#import "GRTGreatistAPIClient.h"
 #import <FacebookSDK/FacebookSDK.h>
 
 @interface GRTAppDelegate ()
