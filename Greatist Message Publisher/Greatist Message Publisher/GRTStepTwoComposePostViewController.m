@@ -9,6 +9,7 @@
 #import "GRTStepTwoComposePostViewController.h"
 
 @interface GRTStepTwoComposePostViewController ()
+@property (strong, nonatomic) IBOutlet UIView *GRTStepTwoView;
 
 @end
 
@@ -21,6 +22,13 @@
         // Custom initialization
     }
     return self;
+}
+- (void)awakeFromNib {
+    NSString* nibName = @"GRTStepTwoComposePost";
+    if ([[NSBundle mainBundle] loadNibNamed:nibName owner:self options:nil]) {
+        [self.GRTStepTwoView setFrame:[self.view bounds]];
+        [self.view addSubview:self.GRTStepTwoView];
+    }
 }
 
 - (void)viewDidLoad

@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GRTStepOneComposePost.h"
 
-@interface GRTStepOneComposePost : UIView  <UITableViewDelegate, UITableViewDataSource, UITextViewDelegate>
+@interface GRTStepOneComposePost : UIView
 
-
+@property (strong, nonatomic) IBOutlet UIView* selectVerticalView;
 @property NSArray *verticals;
+@property (weak, nonatomic) IBOutlet UIButton *healthButton;
+@property (weak, nonatomic) IBOutlet UIButton *happinessButton;
+@property (weak, nonatomic) IBOutlet UIButton *fitnessButton;
+- (void)setupCategoryButtons;
 @end

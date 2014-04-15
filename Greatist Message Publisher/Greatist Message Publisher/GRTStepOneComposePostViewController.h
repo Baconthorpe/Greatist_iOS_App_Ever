@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GRTStepOneComposePost.h"
 
-@interface GRTStepOneComposePostViewController : UIViewController
+@interface GRTStepOneComposePostViewController : UIViewController 
 
 @end

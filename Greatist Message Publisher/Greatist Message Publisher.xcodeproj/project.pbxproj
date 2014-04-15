@@ -18,8 +18,6 @@
 		039FE87518FCBDC500EC98DC /* GRTStepThreeComposePostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 039FE87418FCBDC500EC98DC /* GRTStepThreeComposePostViewController.m */; };
 		03A2662218EDFABF002790AB /* GRTTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03A2662118EDFABF002790AB /* GRTTableViewCell.xib */; };
 		03A2662518EDFD11002790AB /* GRTPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A2662418EDFD11002790AB /* GRTPostTableViewCell.m */; };
-		03F7D76118F32A920019D080 /* photo (3).PNG in Resources */ = {isa = PBXBuildFile; fileRef = 03F7D75F18F32A920019D080 /* photo (3).PNG */; };
-		03F7D76218F32A920019D080 /* photo (2).PNG in Resources */ = {isa = PBXBuildFile; fileRef = 03F7D76018F32A920019D080 /* photo (2).PNG */; };
 		0F1AFFF018ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0F1AFFEE18ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodeld */; };
 		0F30132A18EE0F2D008A4FCB /* Eat_Colored60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F30132918EE0F2D008A4FCB /* Eat_Colored60x60.png */; };
 		0F30132C18EE0F77008A4FCB /* Grow_Colored60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F30132B18EE0F77008A4FCB /* Grow_Colored60x60.png */; };
@@ -128,8 +126,6 @@
 		03A2662118EDFABF002790AB /* GRTTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GRTTableViewCell.xib; sourceTree = "<group>"; };
 		03A2662318EDFD11002790AB /* GRTPostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTPostTableViewCell.h; sourceTree = "<group>"; };
 		03A2662418EDFD11002790AB /* GRTPostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTPostTableViewCell.m; sourceTree = "<group>"; };
-		03F7D75F18F32A920019D080 /* photo (3).PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo (3).PNG"; sourceTree = "<group>"; };
-		03F7D76018F32A920019D080 /* photo (2).PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo (2).PNG"; sourceTree = "<group>"; };
 		0F1AFFEF18ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Greatist_Message_Publisher.xcdatamodel; sourceTree = "<group>"; };
 		0F30132918EE0F2D008A4FCB /* Eat_Colored60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Eat_Colored60x60.png; path = Colored/Eat_Colored60x60.png; sourceTree = "<group>"; };
 		0F30132B18EE0F77008A4FCB /* Grow_Colored60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Grow_Colored60x60.png; path = Colored/Grow_Colored60x60.png; sourceTree = "<group>"; };
@@ -441,8 +437,6 @@
 		87674F5E18ECB64A00231453 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				03F7D75F18F32A920019D080 /* photo (3).PNG */,
-				03F7D76018F32A920019D080 /* photo (2).PNG */,
 				8767501018EE13C100231453 /* Greatist_Logo_Badge_Blue.png */,
 				87674F5F18ECB64A00231453 /* Greatist_Logo.png */,
 				55912DF718ECB9510069FEEC /* Greatist_Logo_small.png */,
@@ -638,7 +632,6 @@
 				550D3D3C18EDC2A0009A9406 /* navbarLogo.xib in Resources */,
 				550D3D5118EF0561009A9406 /* postIcon40x40.png in Resources */,
 				87674FDF18EDAF0500231453 /* Grow_Colored.png in Resources */,
-				03F7D76118F32A920019D080 /* photo (3).PNG in Resources */,
 				550D3D5018EF0561009A9406 /* navBar.png in Resources */,
 				87674FCE18EDAF0500231453 /* Discover_Gray.png in Resources */,
 				87674FE918EDAF0500231453 /* Move_Colored.png in Resources */,
@@ -655,7 +648,6 @@
 				87674FF618EDAF0500231453 /* Play_Gray.png in Resources */,
 				87674FDC18EDAF0500231453 /* Eat_White.png in Resources */,
 				0FA8355718EB70A4003C8687 /* InfoPlist.strings in Resources */,
-				03F7D76218F32A920019D080 /* photo (2).PNG in Resources */,
 				039FE86118FCBC0100EC98DC /* GRTStepTwoComposePost.xib in Resources */,
 				87674F6618ECB64A00231453 /* ArcherPro-SemiboldItalic.otf in Resources */,
 				87674F6118ECB64A00231453 /* ArcherPro-BoldItalic.otf in Resources */,

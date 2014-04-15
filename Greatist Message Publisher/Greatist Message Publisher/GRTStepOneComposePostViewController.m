@@ -7,16 +7,28 @@
 //
 
 #import "GRTStepOneComposePostViewController.h"
+#import "GRTStepOneComposePost.h"
 
 @interface GRTStepOneComposePostViewController ()
+@property (strong, nonatomic) IBOutlet UIView *GRTStepOneComposePostVC;
+@property (strong, nonatomic) IBOutlet UIView *GRTStepOneView;
+
 
 @end
 
-@implementation GRTStepOneComposePostViewController
+@implementation GRTStepOneComposePostViewController 
+
+- (void)awakeFromNib {
+    NSString* nibName = @"GRTStepOneComposePost";
+    if ([[NSBundle mainBundle] loadNibNamed:nibName owner:self options:nil]) {
+        [self.GRTStepOneView setFrame:[self.view bounds]];
+        [self.view addSubview:self.GRTStepOneView];
+    }
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithNibName:@"GRTStepOneComposePost" bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
     }
@@ -26,6 +38,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+   
+    
+    
+    
     // Do any additional setup after loading the view.
 }
 
@@ -45,5 +61,6 @@
     // Pass the selected object to the new view controller.
 }
 */
+
 
 @end

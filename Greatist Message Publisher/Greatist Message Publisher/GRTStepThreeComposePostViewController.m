@@ -9,6 +9,8 @@
 #import "GRTStepThreeComposePostViewController.h"
 
 @interface GRTStepThreeComposePostViewController ()
+@property (strong, nonatomic) IBOutlet UIView *GRTStepThreeView;
+
 
 @end
 
@@ -23,12 +25,19 @@
     return self;
 }
 
+- (void)awakeFromNib {
+    NSString* nibName = @"GRTStepThreeComposePost";
+    if ([[NSBundle mainBundle] loadNibNamed:nibName owner:self options:nil]) {
+        [self.GRTStepThreeView setFrame:[self.view bounds]];
+        [self.view addSubview:self.GRTStepThreeView];
+        
+    }
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
