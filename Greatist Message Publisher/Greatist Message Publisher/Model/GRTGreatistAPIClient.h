@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <AFNetworking.h>
 #import "Section+Methods.h"
-#import "Article.h"
+#import "Article+Methods.h"
 
 extern const NSString *clientID;
 extern const NSString *secret;
@@ -21,7 +21,13 @@ extern const NSString *secret;
 
 - (void) getArticlesWithCompletion:(void (^)(NSDictionary *))completion;
 
-- (void)retrieveArticlesWithCompletion:(void (^)(NSDictionary *))completion;
+- (void)retrieveArticlesWithCompletion:(void (^)(NSArray *))completion;
+
+
+- (void) postArticleWithArticleURL: (NSString *)articleURL
+                          headline: (NSString *)headline
+                          imageURL: (NSString *)imageURL
+                         timeStamp: (NSDate *)timeStamp;
 
 
 //For the header, the key should be Authorization and the value should be "Basic token_encoded" where token_encoded is the Base64 encode of client_id:secret

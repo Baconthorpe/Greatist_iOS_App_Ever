@@ -9,21 +9,16 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Article, Post;
+@class  Post;
 
 @interface Section : NSManagedObject
 
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSSet *articles;
 @property (nonatomic, retain) NSSet *posts;
 @end
 
 @interface Section (CoreDataGeneratedAccessors)
 
-- (void)addArticlesObject:(Article *)value;
-- (void)removeArticlesObject:(Article *)value;
-- (void)addArticles:(NSSet *)values;
-- (void)removeArticles:(NSSet *)values;
 
 - (void)addPostsObject:(Post *)value;
 - (void)removePostsObject:(Post *)value;
