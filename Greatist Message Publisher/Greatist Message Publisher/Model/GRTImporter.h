@@ -12,7 +12,7 @@
 
 @interface GRTImporter : NSObject
 
-+ (Post *) savePostFromDictionary: (NSDictionary *)postDictionary
++ (Post *) interpretPostFromDictionary: (NSDictionary *)postDictionary
                         toContext: (NSManagedObjectContext *)context;
 
 @end

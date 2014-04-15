@@ -12,6 +12,7 @@
 #import "User+Methods.h"
 #import "Section+Methods.h"
 #import "Response+Methods.h"
+#import "ResponseOption+Methods.h"
 
 @implementation GRTImporter
 
@@ -36,7 +37,7 @@
 //    return nil;
 //}
 
-+ (Post *) savePostFromDictionary: (NSDictionary *)postDictionary
++ (Post *) interpretPostFromDictionary: (NSDictionary *)postDictionary
                         toContext: (NSManagedObjectContext *)context
 {
     NSDictionary *userDictionary = postDictionary[@"user"];
@@ -55,6 +56,31 @@
 //    }
     
     return newPost;
+}
+
++ (User *) interpretUserFromDictionary: (NSDictionary *)userDictionary
+                        toContext: (NSManagedObjectContext *)context
+{
+    return [User uniqueUserWithName:userDictionary[@"name"] uniqueID:userDictionary[@"uniqueID"] inContext:context];
+}
+
++ (Section *) interpretSectionFromDictionary: (NSDictionary *)sectionDictionary
+                                   toContext: (NSManagedObjectContext *)context
+{
+    return [Section uniqueSectionWithName:sectionDictionary[@"name"] inContext:context];
+}
+
++ (ResponseOption *) interpretResponseOptionFromDictionary: (NSDictionary *)responseOptionDictionary
+                                                 toContext: (NSManagedObjectContext *)context
+{
+    return [ResponseOption uniqueResponseOptionWithContent:responseOptionDictionary[@"content"] inContext:context];
+}
+
++ (Response *) interpretResponseFromDictionary: (NSDictionary *)responseDictionary
+                                     toContext: (NSManagedObjectContext *)context
+{
+//    return [Response uniqueResponseWithResponseOption:<#(ResponseOption *)#> post:<#(Post *)#> author:<#(User *)#> inContext:<#(NSManagedObjectContext *)#>]
+    return nil;
 }
 
 @end
