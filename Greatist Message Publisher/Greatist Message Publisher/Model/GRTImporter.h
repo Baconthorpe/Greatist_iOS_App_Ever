@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+@class Post;
+
 @interface GRTImporter : NSObject
+
++ (Post *) interpretPostFromDictionary: (NSDictionary *)postDictionary
+                        toContext: (NSManagedObjectContext *)context;
 
 @end

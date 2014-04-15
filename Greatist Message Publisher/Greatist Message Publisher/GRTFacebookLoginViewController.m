@@ -103,7 +103,7 @@
     [[GRTFacebookAPIClient sharedClient] getFriendIDsWithCompletion:^(NSArray *friendIDs)
      {
          [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-//         [self performSegueWithIdentifier:@"loginToMain" sender:nil];
+         [self performSegueWithIdentifier:@"loginToMain" sender:nil];
      }];
     
 }

@@ -17,4 +17,9 @@
 
 + (instancetype) responseWithResponseOption: (ResponseOption *)responseOption
                                   inContext: (NSManagedObjectContext *)context;
+
++ (instancetype) uniqueResponseWithResponseOption: (ResponseOption *)responseOption
+                                             post: (Post *)post
+                                           author: (User *)user
+                                        inContext: (NSManagedObjectContext *)context;
 @end
