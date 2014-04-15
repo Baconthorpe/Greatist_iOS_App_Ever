@@ -7,8 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Social/Social.h>
-#import <Accounts/Accounts.h>
 
 @interface GRTFacebookAPIClient : NSObject
 
@@ -16,6 +14,5 @@
 - (BOOL)isUserFacebookCached;
 - (void)verifyUserFacebookCachedInViewController:(UIViewController *)parentVC;
 - (void)getFriendIDsWithCompletion:(void(^)(NSArray *facebookFriendIDs))completion;
-- (void)facebookLoginWithCompletion:(void (^)(NSArray *facebookFriends))completion;
 
 @end
