@@ -164,7 +164,7 @@
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
-#pragma mark - Basic Fetches
+#pragma mark - Basic Data Fetches
 
 - (User *) retrieveUserByUniqueID: (NSString *)uniqueID
 {
@@ -268,7 +268,28 @@
     [self.parseAPIClient postPostWithContent:@"I did stuff and stuff." section:@"grow" latitude:10.0 longitude:10.0 userID:@"oiou534iou345o"];
 }
 
+#pragma mark - Online Functionality
 
+- (void) createUserWithFacebookID: (NSString *)facebookID
+{
+    
+}
+
+- (void) createPostWithContent: (NSString *)content
+                     inSection: (Section *)section
+{
+    
+}
+
+- (void) getRecentPosts
+{
+    
+}
+
+- (void) getSocialPosts
+{
+    
+}
 
 
 @end

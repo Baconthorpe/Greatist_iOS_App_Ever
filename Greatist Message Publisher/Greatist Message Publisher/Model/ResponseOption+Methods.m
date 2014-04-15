@@ -26,4 +26,24 @@
 {
     return [NSString stringWithFormat:@"ResponseOption: %@", self.content];
 }
+
++ (instancetype) uniqueResponseOptionWithContent: (NSString *)content
+                                       inContext: (NSManagedObjectContext *)context
+{
+    NSFetchRequest *responseOptionSearch = [NSFetchRequest fetchRequestWithEntityName:@"ResponseOption"];
+    NSPredicate *idCheck = [NSPredicate predicateWithFormat:@"content==%@",content];
+    responseOptionSearch.predicate = idCheck;
+    NSSortDescriptor *sortByContent = [NSSortDescriptor sortDescriptorWithKey:@"content" ascending:NO];
+    responseOptionSearch.sortDescriptors = @[sortByContent];
+    
+    NSArray *arrayOfMatches = [context executeFetchRequest:responseOptionSearch error:nil];
+    
+    if ([arrayOfMatches count] == 0)
+    {
+        return [ResponseOption responseoptionWithContent:content inContext:context];
+    }
+    
+    return arrayOfMatches[0];
+}
+
 @end

@@ -14,4 +14,8 @@
                      uniqueID: (NSString *)uniqueID
                     inContext: (NSManagedObjectContext *)context;
 
++ (instancetype) uniqueUserWithName: (NSString *)name
+                           uniqueID: (NSString *)uniqueID
+                          inContext: (NSManagedObjectContext *)context;
+
 @end

@@ -13,4 +13,7 @@
 + (instancetype) responseoptionWithContent: (NSString *)content
                                  inContext: (NSManagedObjectContext *)context;
 
++ (instancetype) uniqueResponseOptionWithContent: (NSString *)content
+                                       inContext: (NSManagedObjectContext *)context;
+
 @end

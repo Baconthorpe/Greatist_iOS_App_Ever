@@ -24,6 +24,25 @@
     return newSection;
 }
 
++ (instancetype) uniqueSectionWithName: (NSString *)name
+                             inContext: (NSManagedObjectContext *)context
+{
+    NSFetchRequest *sectionSearch = [NSFetchRequest fetchRequestWithEntityName:@"Section"];
+    NSPredicate *idCheck = [NSPredicate predicateWithFormat:@"name==%@",name];
+    sectionSearch.predicate = idCheck;
+    NSSortDescriptor *sortByName = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO];
+    sectionSearch.sortDescriptors = @[sortByName];
+    
+    NSArray *arrayOfMatches = [context executeFetchRequest:sectionSearch error:nil];
+    
+    if ([arrayOfMatches count] == 0)
+    {
+        return [Section sectionWithName:name inContext:context];
+    }
+    
+    return arrayOfMatches[0];
+}
+
 //- (instancetype) insertionInit
 //{
 //    

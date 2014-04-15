@@ -14,5 +14,7 @@
 + (instancetype) sectionWithName: (NSString *)name
                        inContext: (NSManagedObjectContext *)context;
 
++ (instancetype) uniqueSectionWithName: (NSString *)name
+                             inContext: (NSManagedObjectContext *)context;
 
 @end
