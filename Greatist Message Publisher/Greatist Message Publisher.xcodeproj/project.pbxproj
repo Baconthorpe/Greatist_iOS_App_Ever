@@ -34,9 +34,6 @@
 		0FA8357418EB70A4003C8687 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0FA8357218EB70A4003C8687 /* InfoPlist.strings */; };
 		0FA8357618EB70A4003C8687 /* Greatist_Message_PublisherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA8357518EB70A4003C8687 /* Greatist_Message_PublisherTests.m */; };
 		0FA8358018EB70FD003C8687 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FA8357F18EB70FD003C8687 /* Main.storyboard */; };
-		0FAAD2FD18F89D8A00F1F7F9 /* GRTArticleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FAAD2FA18F89D8A00F1F7F9 /* GRTArticleCell.xib */; };
-		0FAAD2FE18F89D8A00F1F7F9 /* GRTArticleViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FAAD2FC18F89D8A00F1F7F9 /* GRTArticleViewCell.m */; };
-		0FBEF58318FC2E85002FD728 /* Article+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FBEF58218FC2E85002FD728 /* Article+Methods.m */; };
 		0FBEF58618FC3943002FD728 /* GRTImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FBEF58518FC3943002FD728 /* GRTImporter.m */; };
 		0FDCDDDE18F5C2BC0050E18C /* GRTParseAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDCDDDD18F5C2BC0050E18C /* GRTParseAPIClient.m */; };
 		388D5989D77F4F8992BFE80F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2782B750FC4349E3AB0AFCDF /* libPods.a */; };
@@ -44,9 +41,6 @@
 		550D3D4D18EF04D3009A9406 /* UIViewController+styleSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 550D3D4C18EF04D3009A9406 /* UIViewController+styleSheet.m */; };
 		550D3D5018EF0561009A9406 /* navBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 550D3D4E18EF0561009A9406 /* navBar.png */; };
 		550D3D5118EF0561009A9406 /* postIcon40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 550D3D4F18EF0561009A9406 /* postIcon40x40.png */; };
-		550D3D7C18F6D547009A9406 /* GRTGreatistAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 550D3D7B18F6D547009A9406 /* GRTGreatistAPIClient.m */; };
-		556F70FF18FC1C5800430D84 /* GRTArticlesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 556F70FE18FC1C5800430D84 /* GRTArticlesViewController.m */; };
-		556F710B18FC5D8700430D84 /* Article.m in Sources */ = {isa = PBXBuildFile; fileRef = 556F710A18FC5D8700430D84 /* Article.m */; };
 		55912DB518EC5AED0069FEEC /* GRTMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DB418EC5AED0069FEEC /* GRTMainViewController.m */; };
 		55912DBA18EC68B00069FEEC /* GRTPostDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DB918EC68B00069FEEC /* GRTPostDetailViewController.m */; };
 		55912DBD18EC68E50069FEEC /* GRTComposePostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DBC18EC68E50069FEEC /* GRTComposePostViewController.m */; };
@@ -141,11 +135,6 @@
 		0FA8357318EB70A4003C8687 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0FA8357518EB70A4003C8687 /* Greatist_Message_PublisherTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Greatist_Message_PublisherTests.m; sourceTree = "<group>"; };
 		0FA8357F18EB70FD003C8687 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
-		0FAAD2FA18F89D8A00F1F7F9 /* GRTArticleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GRTArticleCell.xib; sourceTree = "<group>"; };
-		0FAAD2FB18F89D8A00F1F7F9 /* GRTArticleViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTArticleViewCell.h; sourceTree = "<group>"; };
-		0FAAD2FC18F89D8A00F1F7F9 /* GRTArticleViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTArticleViewCell.m; sourceTree = "<group>"; };
-		0FBEF58118FC2E85002FD728 /* Article+Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Article+Methods.h"; sourceTree = "<group>"; };
-		0FBEF58218FC2E85002FD728 /* Article+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Article+Methods.m"; sourceTree = "<group>"; };
 		0FBEF58418FC3943002FD728 /* GRTImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTImporter.h; sourceTree = "<group>"; };
 		0FBEF58518FC3943002FD728 /* GRTImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTImporter.m; sourceTree = "<group>"; };
 		0FDCDDDC18F5C2BC0050E18C /* GRTParseAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTParseAPIClient.h; sourceTree = "<group>"; };
@@ -156,12 +145,6 @@
 		550D3D4C18EF04D3009A9406 /* UIViewController+styleSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+styleSheet.m"; sourceTree = "<group>"; };
 		550D3D4E18EF0561009A9406 /* navBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navBar.png; sourceTree = "<group>"; };
 		550D3D4F18EF0561009A9406 /* postIcon40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = postIcon40x40.png; sourceTree = "<group>"; };
-		550D3D7A18F6D547009A9406 /* GRTGreatistAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTGreatistAPIClient.h; sourceTree = "<group>"; };
-		550D3D7B18F6D547009A9406 /* GRTGreatistAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTGreatistAPIClient.m; sourceTree = "<group>"; };
-		556F70FD18FC1C5800430D84 /* GRTArticlesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTArticlesViewController.h; sourceTree = "<group>"; };
-		556F70FE18FC1C5800430D84 /* GRTArticlesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTArticlesViewController.m; sourceTree = "<group>"; };
-		556F710918FC5D8700430D84 /* Article.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Article.h; sourceTree = "<group>"; };
-		556F710A18FC5D8700430D84 /* Article.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Article.m; sourceTree = "<group>"; };
 		55912DB318EC5AED0069FEEC /* GRTMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTMainViewController.h; sourceTree = "<group>"; };
 		55912DB418EC5AED0069FEEC /* GRTMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTMainViewController.m; sourceTree = "<group>"; };
 		55912DB818EC68B00069FEEC /* GRTPostDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTPostDetailViewController.h; sourceTree = "<group>"; };
@@ -343,8 +326,6 @@
 				55912DB918EC68B00069FEEC /* GRTPostDetailViewController.m */,
 				55912DBB18EC68E50069FEEC /* GRTComposePostViewController.h */,
 				55912DBC18EC68E50069FEEC /* GRTComposePostViewController.m */,
-				556F70FD18FC1C5800430D84 /* GRTArticlesViewController.h */,
-				556F70FE18FC1C5800430D84 /* GRTArticlesViewController.m */,
 				550D3D3B18EDC2A0009A9406 /* navbarLogo.xib */,
 			);
 			name = Controller;
@@ -359,8 +340,6 @@
 				0F73663218F4B77B003D71DE /* Section.m */,
 				0F73662E18F4B77B003D71DE /* Post.h */,
 				0F73662F18F4B77B003D71DE /* Post.m */,
-				0FBEF58118FC2E85002FD728 /* Article+Methods.h */,
-				0FBEF58218FC2E85002FD728 /* Article+Methods.m */,
 				87AD33FF18F878E70060CCA3 /* Response.h */,
 				87AD340018F878E70060CCA3 /* Response.m */,
 				87AD340218F878E70060CCA3 /* ResponseOption.h */,
@@ -368,8 +347,6 @@
 				87AD340518F87EA00060CCA3 /* ResponseOption+Methods.h */,
 				87AD340618F87EA00060CCA3 /* ResponseOption+Methods.m */,
 				0F1AFFEE18ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodeld */,
-				556F710918FC5D8700430D84 /* Article.h */,
-				556F710A18FC5D8700430D84 /* Article.m */,
 				55912DE218EC86840069FEEC /* Response+Methods.h */,
 				55912DE318EC86840069FEEC /* Response+Methods.m */,
 				55912DEA18EC86840069FEEC /* User+Methods.h */,
@@ -380,8 +357,6 @@
 				55912DDF18EC86840069FEEC /* Post+Methods.m */,
 				55912DDC18EC86840069FEEC /* GRTDataStore.h */,
 				55912DDD18EC86840069FEEC /* GRTDataStore.m */,
-				550D3D7A18F6D547009A9406 /* GRTGreatistAPIClient.h */,
-				550D3D7B18F6D547009A9406 /* GRTGreatistAPIClient.m */,
 				0FDCDDDC18F5C2BC0050E18C /* GRTParseAPIClient.h */,
 				0FDCDDDD18F5C2BC0050E18C /* GRTParseAPIClient.m */,
 				87AD33EC18F5C0D00060CCA3 /* GRTFacebookAPIClient.h */,
@@ -529,9 +504,6 @@
 		87674FFB18EDB19400231453 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0FAAD2FA18F89D8A00F1F7F9 /* GRTArticleCell.xib */,
-				0FAAD2FB18F89D8A00F1F7F9 /* GRTArticleViewCell.h */,
-				0FAAD2FC18F89D8A00F1F7F9 /* GRTArticleViewCell.m */,
 				8767501218EE1E8D00231453 /* UIColor+Helpers.h */,
 				8767501318EE1E8D00231453 /* UIColor+Helpers.m */,
 				8767500D18EE124300231453 /* UIImage+Helpers.h */,
@@ -667,7 +639,6 @@
 				0F30132E18EE0F80008A4FCB /* Move_Colored60x60.png in Resources */,
 				55912DFA18ECBA390069FEEC /* Greatist_Logo86x50.png in Resources */,
 				87674FC418EDAF0500231453 /* Connect_Gray.png in Resources */,
-				0FAAD2FD18F89D8A00F1F7F9 /* GRTArticleCell.xib in Resources */,
 				87674FC818EDAF0500231453 /* Connect_White.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -722,15 +693,12 @@
 			files = (
 				55912DF318EC86840069FEEC /* Section+Methods.m in Sources */,
 				0F73663318F4B77B003D71DE /* Section.m in Sources */,
-				0FBEF58318FC2E85002FD728 /* Article+Methods.m in Sources */,
 				55912DBD18EC68E50069FEEC /* GRTComposePostViewController.m in Sources */,
 				55912DF518EC86840069FEEC /* User+Methods.m in Sources */,
 				0F1AFFF018ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodeld in Sources */,
 				55912DF118EC86840069FEEC /* Response+Methods.m in Sources */,
 				87AD33EE18F5C0D00060CCA3 /* GRTFacebookAPIClient.m in Sources */,
 				0F73663018F4B77B003D71DE /* Post.m in Sources */,
-				556F710B18FC5D8700430D84 /* Article.m in Sources */,
-				550D3D7C18F6D547009A9406 /* GRTGreatistAPIClient.m in Sources */,
 				0F73663618F4B77B003D71DE /* User.m in Sources */,
 				03A2662518EDFD11002790AB /* GRTPostTableViewCell.m in Sources */,
 				87AD340118F878E70060CCA3 /* Response.m in Sources */,
@@ -741,10 +709,8 @@
 				87AD340718F87EA00060CCA3 /* ResponseOption+Methods.m in Sources */,
 				0FDCDDDE18F5C2BC0050E18C /* GRTParseAPIClient.m in Sources */,
 				550D3D4D18EF04D3009A9406 /* UIViewController+styleSheet.m in Sources */,
-				556F70FF18FC1C5800430D84 /* GRTArticlesViewController.m in Sources */,
 				55912DBA18EC68B00069FEEC /* GRTPostDetailViewController.m in Sources */,
 				87AD340418F878E70060CCA3 /* ResponseOption.m in Sources */,
-				0FAAD2FE18F89D8A00F1F7F9 /* GRTArticleViewCell.m in Sources */,
 				0FA8355918EB70A4003C8687 /* main.m in Sources */,
 				55912DEF18EC86840069FEEC /* Post+Methods.m in Sources */,
 				55912DB518EC5AED0069FEEC /* GRTMainViewController.m in Sources */,

@@ -14,9 +14,7 @@
 #import "GRTComposePostViewController.h"
 #import "Section+Methods.h"
 #import "Section.h"
-#import "Article+Methods.h"
-#import "GRTArticleViewCell.h"
-#import "GRTArticlesViewController.h"
+
 
 @interface GRTMainViewController ()
 
@@ -25,7 +23,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *postsTableView;
 @property (weak, nonatomic) IBOutlet UITableView *articleTableView;
 @property (strong, nonatomic) Section *section;
-@property (strong,nonatomic) Article *article;
 
 @property (strong, nonatomic) GRTDataStore *dataStore;
 
@@ -55,7 +52,6 @@ const NSInteger POSTSPERARTICLE = 2;
     self.postsTableView.delegate = self;
     self.postsTableView.dataSource = self;
     self.dataStore.postFRController.delegate = self;
-    self.dataStore.articleFRController.delegate = self;
 
     UIImage *navBar = [UIImage imageNamed:@"navBar.png"];
 //    UIImage *scaledNavBar = [UIImage imageWithImage:navBar scaledToSize:CGSizeMake(320, 54)];
@@ -74,7 +70,6 @@ const NSInteger POSTSPERARTICLE = 2;
     
     [self.composePostButton setImage:resizedPostImage];
     
-    [self.dataStore fetchArticles];
     
     // Do any additional setup after loading the view.
 }
@@ -112,18 +107,6 @@ const NSInteger POSTSPERARTICLE = 2;
     
     if (indexPath.section == 0) {
         cell  = (GRTPostTableViewCell *)[self configureCellForMainTableViewWithIndexPath:indexPath];
-    
-    }
-    else
-    {
-       cell = (GRTArticleViewCell *)[tableView dequeueReusableCellWithIdentifier:@"articleCell"];
-                if ([cell isKindOfClass:[GRTArticleViewCell class]])
-        {
-        ((GRTArticleViewCell *) cell).postLabel.text = self.article.headline;
-            //[self configureArticleCellForMainTableViewWithIndexPath:indexPath];
-        }
-
-        
     }
     return cell;
     
@@ -136,28 +119,12 @@ const NSInteger POSTSPERARTICLE = 2;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 0) {
-        return [self.dataStore.postFRController.sections[0] numberOfObjects];
-    }
-    
-    else
-    {
-    return [self.dataStore.articleFRController.sections[0] numberOfObjects];
-    }
- 
+    return [self.dataStore.postFRController.sections[0] numberOfObjects];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0) {
-        [self performSegueWithIdentifier:@"mainToDetail" sender:self];
-    
-    }
-    
-    else if (indexPath.section == 1)
-    {
-        [self performSegueWithIdentifier:@"mainToArticle" sender:self];
-    }
+    [self performSegueWithIdentifier:@"mainToDetail" sender:self];
 }
 
 /*
@@ -196,6 +163,12 @@ const NSInteger POSTSPERARTICLE = 2;
       newIndexPath:(NSIndexPath *)newIndexPath
 {
     UITableView *tableView = self.postsTableView;
+
+    if ([controller isEqual:self.dataStore.postFRController])
+    {
+        newIndexPath = [NSIndexPath indexPathForRow:newIndexPath.row inSection:0];
+
+    }
     
     switch(type) {
             
@@ -306,16 +279,6 @@ const NSInteger POSTSPERARTICLE = 2;
         
         nextVC.verticals = [self.dataStore.managedObjectContext executeFetchRequest:getVerticals error:nil];
     }
-    else if ([segue.identifier isEqualToString:@"mainToArticle"])
-    {
-        GRTArticlesViewController *nextVC = segue.destinationViewController;
-        GRTArticleViewCell *cell = (GRTArticleViewCell *)[self.articleTableView cellForRowAtIndexPath:[self.articleTableView indexPathForSelectedRow]];
-        
-        nextVC.article = cell.article;
-        
-        [self.articleTableView deselectRowAtIndexPath:[self.postsTableView indexPathForSelectedRow] animated:YES];
-    }
-    
 }
 
 #pragma mark - Configure Cell Methods

@@ -12,17 +12,14 @@
 #import "Post+Methods.h"
 #import "Response+Methods.h"
 #import "Section+Methods.h"
-#import "Article+Methods.h"
 #import "GRTParseAPIClient.h"
 #import "GRTFacebookAPIClient.h"
-#import "GRTGreatistAPIClient.h"
 
 
 @interface GRTDataStore ()
 
 @property (strong, nonatomic) GRTParseAPIClient *parseAPIClient;
 @property (strong, nonatomic) GRTFacebookAPIClient *facebookAPIClient;
-@property (strong, nonatomic) GRTGreatistAPIClient *greatistAPIClient;
 
 @end
 
@@ -53,25 +50,6 @@
     return _postFRController;
 }
 
-- (NSFetchedResultsController *) articleFRController
-{
-    if (!_articleFRController)
-    {
-        NSFetchRequest *articleFetch = [[NSFetchRequest alloc] initWithEntityName:@"Article"];
-        articleFetch.fetchBatchSize = 20;
-        
-       NSSortDescriptor *created = [[NSSortDescriptor alloc] initWithKey:@"created" ascending:NO];
-        articleFetch.sortDescriptors = @[created];
-        
-        [NSFetchedResultsController deleteCacheWithName:@"articleCache"];
-        _articleFRController = [[NSFetchedResultsController alloc] initWithFetchRequest:articleFetch managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"articleCache"];
-        
-        [_articleFRController performFetch:nil];
-    }
-    
-    return _articleFRController;
-}
-
 #pragma mark - Singleton Method
 
 + (instancetype) sharedDataStore
@@ -86,7 +64,6 @@
     {
         _shared.parseAPIClient = [[GRTParseAPIClient alloc] init];
         _shared.facebookAPIClient = [[GRTFacebookAPIClient alloc] init];
-        _shared.greatistAPIClient = [[GRTGreatistAPIClient alloc]init];
     }
     
     return _shared;
@@ -224,17 +201,6 @@
     }];
 }
 
-- (void)fetchArticles
-{
-    [self.greatistAPIClient retrieveArticlesWithCompletion:^(NSArray *articles) {
-        NSMutableArray *coreDataArticles = [NSMutableArray new];
-        for (NSDictionary *articlesDictionary in articles) {
-            NSDate *created = [NSDate dateWithTimeIntervalSince1970:[articlesDictionary[@"created"] doubleValue]];
-            [coreDataArticles addObject:[Article articleWithTitle:articlesDictionary [@"title"] Created:created pictureLarge:articlesDictionary[@"picture_large"] Nid:articlesDictionary [@"nid"] inContext:self.managedObjectContext]];
-        }
-// return coreDataArticles;
-             }];
-}
 
 #pragma mark - Startup
 
