@@ -9,6 +9,9 @@
 #import "GRTImporter.h"
 #import "Response+Methods.h"
 #import "Post+Methods.h"
+#import "User+Methods.h"
+#import "Section+Methods.h"
+#import "Response+Methods.h"
 
 @implementation GRTImporter
 
@@ -36,7 +39,20 @@
 + (Post *) savePostFromDictionary: (NSDictionary *)postDictionary
                         toContext: (NSManagedObjectContext *)context
 {
-    Post *newPost = [Post postWithContent:postDictionary[@""] author:postDictionary[@"author"] section:postDictionary[@"section"] responses:nil inContext:context];
+    NSDictionary *userDictionary = postDictionary[@"user"];
+    User *authorUser = [User uniqueUserWithName:userDictionary[@"name"] uniqueID:userDictionary[@"uniqueID"] inContext:context];
+    
+    Section *section = [Section uniqueSectionWithName:postDictionary[@"section"] inContext:context];
+    
+    
+    
+    Post *newPost = [Post uniquePostWithContent:postDictionary[@"content"] author:authorUser section:section responses:nil timeStamp:nil inContext:context];
+#warning Figure out how to turn a date from Parse into an NSDate, or else the time stamps for posts will never work
+    
+//    for (NSDictionary *responseDictionary in postDictionary[@"responses"])
+//    {
+//        Response *newResponse = [Response uniqueResponseWithResponseOption:<#(ResponseOption *)#> post:<#(Post *)#> author:<#(User *)#> inContext:<#(NSManagedObjectContext *)#>]
+//    }
     
     return newPost;
 }
