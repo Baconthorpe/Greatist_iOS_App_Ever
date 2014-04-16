@@ -106,7 +106,21 @@
                               }];
 }
 
+- (void) getPostsBasedOnFacebookFriends
+{
+    [self.facebookAPIClient getFriendIDsWithCompletion:^(NSArray *facebookFriendIDs) {
+        [self fetchPostsForFacebookFriends:facebookFriendIDs WithCompletion:^(NSArray *posts) {
+            [self interpretArrayOfPostDictionaries:posts];
+            
+            [self.dataStore saveContext];
+        }];
+    }];
+}
 
+- (void) establishUser
+{
+    
+}
 
 #pragma mark - User Helper Methods
 - (void) fetchUsersWithCompletion:(void (^)(NSArray *users))completionBlock
@@ -120,7 +134,10 @@
                     FacebookID:(NSString *)facebookIDString
 {
     [self.parseAPIClient postUserWithName:nameString
-                               FacebookID:facebookIDString];
+                               FacebookID:facebookIDString
+                               Completion:^(NSDictionary *result) {
+                                   
+                               }];
 }
 
 #pragma mark - Post Helper Methods

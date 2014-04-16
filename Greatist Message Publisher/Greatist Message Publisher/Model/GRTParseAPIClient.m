@@ -235,6 +235,7 @@
 
 - (void) postUserWithName:(NSString *)name
                FacebookID:(NSString *)fbookID
+               Completion:(void (^)(NSDictionary *))completion
 {
     NSString *parseDatabaseURL = @"https://api.parse.com/1/classes/GRTUser";
     NSURL *url = [NSURL URLWithString:parseDatabaseURL];
@@ -252,6 +253,7 @@
     
     [newOp setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"User Post Response Object: %@",responseObject);
+        completion(responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"User Post Error: %@",error);
     }];

@@ -15,6 +15,7 @@
 #import "Post+Methods.h"
 #import "Section+Methods.h"
 #import "GRTFacebookAPIClient.h"
+#import "GRTDataManager.h"
 
 
 @interface GRTMainViewController ()
@@ -26,6 +27,7 @@
 @property (strong, nonatomic) Section *section;
 
 @property (strong, nonatomic) GRTDataStore *dataStore;
+@property (strong, nonatomic) GRTDataManager *dataManager;
 
 @end
 
@@ -47,6 +49,10 @@
     [self initialize];
     [self setupNavBar];
     [self setupFooterToolbar];
+    
+    self.dataManager = [GRTDataManager sharedManager];
+    
+    [self.dataManager getPostsBasedOnFacebookFriends];
  
     
 //    [[GRTFacebookAPIClient sharedClient] verifyUserFacebookCachedInViewController:self];

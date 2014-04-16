@@ -38,7 +38,8 @@
 // GRTUser
 - (void)getUsersWithCompletion:(void (^)(NSArray *users))completionBlock;
 - (void) postUserWithName:(NSString *)name
-               FacebookID:(NSString *)fbookID;
+               FacebookID:(NSString *)fbookID
+               Completion:(void (^)(NSDictionary *))completion;
 
                    
 @end

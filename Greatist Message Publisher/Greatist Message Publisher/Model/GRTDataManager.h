@@ -28,6 +28,7 @@
 - (void) interpretArrayOfPostDictionaries: (NSArray *)arrayOfPostDictionaries;
 - (void) postPostAndSaveIfSuccessfulForContent: (NSString *)content
                                      inSection: (Section *)section;
+- (void) getPostsBasedOnFacebookFriends;
 
 - (void) fetchUsersWithCompletion:(void (^)(NSArray *users))completionBlock;
 - (void) createNewUserWithName:(NSString *)nameString

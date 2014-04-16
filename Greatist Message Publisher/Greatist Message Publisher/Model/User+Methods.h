@@ -14,9 +14,15 @@
                      uniqueID: (NSString *)uniqueID
                     inContext: (NSManagedObjectContext *)context;
 
++ (instancetype) userWithFacebookID: (NSString *)facebookID
+                          inContext: (NSManagedObjectContext *)context;
+
 + (instancetype) uniqueUserWithName: (NSString *)name
                            uniqueID: (NSString *)uniqueID
                           inContext: (NSManagedObjectContext *)context;
+
++ (instancetype) uniqueUserWithFacebookID: (NSString *)facebookID
+                                inContext: (NSManagedObjectContext *)context;
 
 + (instancetype) uniqueUserWithID: (NSString *)uniqueID
                         inContext:(NSManagedObjectContext *)context;
