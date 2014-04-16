@@ -7,7 +7,6 @@
 //
 
 #import "GRTCornerTriangles.h"
-#import "UIViewController+styleSheet.h"
 #import "GRTPostTableViewCell.h"
 
 @implementation GRTCornerTriangles
@@ -71,6 +70,12 @@
     {
         [self drawRightHRect];
     }
+}
+
+- (void) drawNavRect
+{
+    CGRect navRect = CGRectMake(0, 0, 320, 30);
+    [self.fillColor setFill];
 }
 
 

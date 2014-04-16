@@ -45,7 +45,6 @@
 		0FDCDDDE18F5C2BC0050E18C /* GRTParseAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDCDDDD18F5C2BC0050E18C /* GRTParseAPIClient.m */; };
 		388D5989D77F4F8992BFE80F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2782B750FC4349E3AB0AFCDF /* libPods.a */; };
 		550D3D3C18EDC2A0009A9406 /* navbarLogo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 550D3D3B18EDC2A0009A9406 /* navbarLogo.xib */; };
-		550D3D4D18EF04D3009A9406 /* UIViewController+styleSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 550D3D4C18EF04D3009A9406 /* UIViewController+styleSheet.m */; };
 		550D3D5018EF0561009A9406 /* navBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 550D3D4E18EF0561009A9406 /* navBar.png */; };
 		550D3D5118EF0561009A9406 /* postIcon40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 550D3D4F18EF0561009A9406 /* postIcon40x40.png */; };
 		556F710E18FECAA800430D84 /* GRTCornerTriangles.m in Sources */ = {isa = PBXBuildFile; fileRef = 556F710D18FECAA800430D84 /* GRTCornerTriangles.m */; };
@@ -161,8 +160,6 @@
 		0FDCDDDD18F5C2BC0050E18C /* GRTParseAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTParseAPIClient.m; sourceTree = "<group>"; };
 		2782B750FC4349E3AB0AFCDF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		550D3D3B18EDC2A0009A9406 /* navbarLogo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = navbarLogo.xib; sourceTree = "<group>"; };
-		550D3D4B18EF04D3009A9406 /* UIViewController+styleSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+styleSheet.h"; sourceTree = "<group>"; };
-		550D3D4C18EF04D3009A9406 /* UIViewController+styleSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+styleSheet.m"; sourceTree = "<group>"; };
 		550D3D4E18EF0561009A9406 /* navBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navBar.png; sourceTree = "<group>"; };
 		550D3D4F18EF0561009A9406 /* postIcon40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = postIcon40x40.png; sourceTree = "<group>"; };
 		556F710C18FECAA800430D84 /* GRTCornerTriangles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTCornerTriangles.h; sourceTree = "<group>"; };
@@ -535,8 +532,6 @@
 				8767501318EE1E8D00231453 /* UIColor+Helpers.m */,
 				8767500D18EE124300231453 /* UIImage+Helpers.h */,
 				8767500E18EE124300231453 /* UIImage+Helpers.m */,
-				550D3D4B18EF04D3009A9406 /* UIViewController+styleSheet.h */,
-				550D3D4C18EF04D3009A9406 /* UIViewController+styleSheet.m */,
 				0FA8357F18EB70FD003C8687 /* Main.storyboard */,
 				550D3D3B18EDC2A0009A9406 /* navbarLogo.xib */,
 				03A2662118EDFABF002790AB /* GRTTableViewCell.xib */,
@@ -754,7 +749,6 @@
 				87AD340718F87EA00060CCA3 /* ResponseOption+Methods.m in Sources */,
 				039FE86618FCBC6E00EC98DC /* GRTStepOneComposePost.m in Sources */,
 				0FDCDDDE18F5C2BC0050E18C /* GRTParseAPIClient.m in Sources */,
-				550D3D4D18EF04D3009A9406 /* UIViewController+styleSheet.m in Sources */,
 				55912DBA18EC68B00069FEEC /* GRTPostDetailViewController.m in Sources */,
 				87AD340418F878E70060CCA3 /* ResponseOption.m in Sources */,
 				0FA8355918EB70A4003C8687 /* main.m in Sources */,

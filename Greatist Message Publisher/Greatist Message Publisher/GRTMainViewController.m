@@ -16,6 +16,7 @@
 #import "Section+Methods.h"
 #import "GRTFacebookAPIClient.h"
 #import "GRTCornerTriangles.h"
+#import "UIColor+Helpers.h"
 
 
 @interface GRTMainViewController ()
@@ -295,9 +296,14 @@
 
 - (void)setupNavBar
 {
-    UIImage *navBar = [UIImage imageNamed:@"navBar.png"];
+//    UIImage *navBar = [UIImage imageNamed:@"navBar.png"];
     //    UIImage *scaledNavBar = [UIImage imageWithImage:navBar scaledToSize:CGSizeMake(320, 54)];
-    [self.navigationController.navigationBar setBackgroundImage:navBar forBarMetrics:UIBarMetricsDefault];
+//    CGRect navBarTop = CGRectMake(0, 0, 320, 30);
+//    [[UIColor greatistBlueColor] setFill];
+//    UIImage *navBarTopImage = [UIImage imageWithCGImage:navBarTop];
+//    CGRect navRect = [CGRectMake(0, 0, 320, 30)];
+    
+    [self.navigationController.navigationBar setBarTintColor:[UIColor greatistLightGrayColor]];
     
     UIImage *greatistLogoImage = [UIImage imageNamed:@"Greatist_Logo86x50"];
     UIImage *scaledGreatistLogoImage = [UIImage imageWithImage:greatistLogoImage scaledToSize:CGSizeMake(65, 38)];

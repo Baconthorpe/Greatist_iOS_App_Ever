@@ -20,6 +20,8 @@
 -(void)drawLeftHRect;
 -(void)drawRightHRect;
 
+
+
 - (instancetype)initWithFrame:(CGRect)frame IsLeftTriangle: (BOOL)isLeftTriangle withFillColor:(UIColor *)fillColor;
 
 @end
