@@ -68,8 +68,6 @@
 {
     [self.manager GET:@"classes/Post" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject)
     {
-        NSLog(@"Posts: %@",responseObject);
-        
         NSArray *relevantPosts = (NSArray *)responseObject;
         
         completion(relevantPosts);
@@ -115,10 +113,10 @@
     request.HTTPMethod = @"POST";
     
     [newOp setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"%@",responseObject);
+        NSLog(@"Post Response: %@",responseObject);
         completion(responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%@",error);
+        NSLog(@"Post Response Error: %@",error);
     }];
     
     [newOp start];
@@ -144,9 +142,9 @@
     request.HTTPMethod = @"POST";
     
     [newOp setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"%@",responseObject);
+        NSLog(@"Post Response: %@",responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%@",error);
+        NSLog(@"Post Response Error: %@",error);
     }];
     
     [newOp start];
@@ -172,9 +170,9 @@
     request.HTTPMethod = @"PUT";
     
     [newOp setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"%@",responseObject);
+        NSLog(@"Update Post Response: %@",responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%@",error);
+        NSLog(@"Update Post Error:%@",error);
     }];
     
     [newOp start];
@@ -196,13 +194,14 @@
     [newOp setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *postDictionary = responseObject;
         NSArray *postResponses = postDictionary[@"responses"];
-        NSLog(@"%@", postResponses);
+        NSLog(@"Get Responses: %@", postResponses);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%@",error);
+        NSLog(@"Get Responses Error: %@",error);
     }];
     
     [newOp start];
 }
+
 
 
 #pragma mark - GRTUser Helper Methods
@@ -227,7 +226,34 @@
         }
         completionBlock(userDictionary[@"results"]);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%@",error);
+        NSLog(@"Get User Error: %@",error);
+    }];
+    
+    [newOp start];
+}
+
+- (void) postUserWithFacebookID:(NSString *)fbookID
+                     Completion:(void (^)(NSDictionary *))completion
+{
+    NSString *parseDatabaseURL = @"https://api.parse.com/1/classes/GRTUser";
+    NSURL *url = [NSURL URLWithString:parseDatabaseURL];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request addValue:self.restAPIKey forHTTPHeaderField:@"X-Parse-REST-API-Key"];
+    [request addValue:self.appID forHTTPHeaderField:@"X-Parse-Application-Id"];
+    
+    AFHTTPRequestOperation *newOp = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    
+    NSString *json = [NSString stringWithFormat:@"{\"facebookID\":\"%@\"}",fbookID];
+    request.HTTPBody = [json dataUsingEncoding:NSUTF8StringEncoding];
+    request.HTTPMethod = @"POST";
+    
+    [newOp setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"User Post Response Object: %@",responseObject);
+        completion(responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"User Post Error: %@",error);
     }];
     
     [newOp start];
@@ -260,6 +286,8 @@
     
     [newOp start];
 }
+
+#pragma mark - GRTPost Helper Methods
 
 - (void) getPostsWithFriendIDs:(NSArray *)friendsArray
                 WithCompletion:(void (^)(NSArray *))completionBlock

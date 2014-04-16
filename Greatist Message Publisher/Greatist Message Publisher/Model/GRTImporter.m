@@ -42,7 +42,7 @@
 + (Post *) interpretPostFromDictionary: (NSDictionary *)postDictionary
                         toContext: (NSManagedObjectContext *)context
 {
-    User *user = [User uniqueUserWithID:postDictionary[@"UserID"] inContext:context];
+    User *user = [User userUniqueWithFacebookID:postDictionary[@"user"][@"facebookID"] inContext:context];
     
     Section *section = [Section uniqueSectionWithName:postDictionary[@"section"] inContext:context];
     
@@ -54,7 +54,7 @@
 + (User *) interpretUserFromDictionary: (NSDictionary *)userDictionary
                         toContext: (NSManagedObjectContext *)context
 {
-    return [User uniqueUserWithName:userDictionary[@"name"] uniqueID:userDictionary[@"uniqueID"] inContext:context];
+    return [User userUniqueWithFacebookID:userDictionary[@"user"][@"facebookID"] inContext:context];
 }
 
 + (Section *) interpretSectionFromDictionary: (NSDictionary *)sectionDictionary

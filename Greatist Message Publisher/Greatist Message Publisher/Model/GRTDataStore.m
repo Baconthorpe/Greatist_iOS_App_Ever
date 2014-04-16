@@ -221,10 +221,10 @@
         Section *fitness = [Section sectionWithName:@"fitness" inContext:self.managedObjectContext];
         //Section *grow = [Section sectionWithName:@"Grow" inContext:self.managedObjectContext];
         
-        User *anne = [User userWithName:@"Anne" uniqueID:@"anne" inContext:self.managedObjectContext];
-        User *zeke = [User userWithName:@"Zeke" uniqueID:@"zeke" inContext:self.managedObjectContext];
-        User *liz = [User userWithName:@"Liz" uniqueID:@"liz" inContext:self.managedObjectContext];
-        User *len = [User userWithName:@"Len" uniqueID:@"len" inContext:self.managedObjectContext];
+        User *anne = [User userUniqueWithFacebookID:@"1084710028" inContext:self.managedObjectContext];
+        User *zeke = [User userUniqueWithFacebookID:@"1341420545" inContext:self.managedObjectContext];
+        User *liz = [User userUniqueWithFacebookID:@"798534605" inContext:self.managedObjectContext]; //update me
+        User *len = [User userUniqueWithFacebookID:@"798534605" inContext:self.managedObjectContext];
         
         Post *anneOne = [Post postWithContent:@"I joined a gym today!"
                                        author:anne
@@ -268,7 +268,7 @@
 - (void) testParseGET
 {
     [self.parseAPIClient getRelevantPostsWithCompletion:^(NSArray *responseArray) {
-        NSLog(@"%@",responseArray);
+//        NSLog(@"getRelevantPostsWithCompletion: %@",responseArray);
     }];
 }
 
