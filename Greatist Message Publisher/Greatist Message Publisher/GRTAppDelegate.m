@@ -28,6 +28,9 @@
     //[self.dataStore fetchPostsForCurrentUser];
     [self.dataStore fetchValidResponses];
     
+    [self.dataStore testParseGET];
+    [self.dataStore testParsePOST];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];

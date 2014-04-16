@@ -37,12 +37,14 @@
 //    return nil;
 //}
 
+#pragma mark - Interpret From Dictionary Methods
+
 + (Post *) interpretPostFromDictionary: (NSDictionary *)postDictionary
                         toContext: (NSManagedObjectContext *)context
 {
-    User *user = [GRTImporter interpretUserFromDictionary:postDictionary[@"user"] toContext:context];
+    User *user = [User uniqueUserWithID:postDictionary[@"UserID"] inContext:context];
     
-    Section *section = [GRTImporter interpretSectionFromDictionary:postDictionary[@"section"] toContext:context];
+    Section *section = [Section uniqueSectionWithName:postDictionary[@"section"] inContext:context];
     
     Post *newPost = [Post uniquePostWithContent:postDictionary[@"content"] author:user section:section responses:nil timeStamp:nil inContext:context];
     

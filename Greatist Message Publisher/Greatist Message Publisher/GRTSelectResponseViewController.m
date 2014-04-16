@@ -11,10 +11,12 @@
 #import "GRTComposePostViewController.h"
 #import "Post+Methods.h"
 #import "GRTMainTableViewController.h"
+#import "GRTDataManager.h"
 
 @interface GRTSelectResponseViewController ()
 @property (strong, nonatomic) NSMutableArray *selectedCells;
 @property (strong, nonatomic) GRTDataStore *dataStore;
+@property (strong, nonatomic) GRTDataManager *dataManager;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *navPostButton;
 
@@ -35,6 +37,7 @@
 {
     [super viewDidLoad];
     self.dataStore = [GRTDataStore sharedDataStore];
+    self.dataManager = [GRTDataManager sharedManager];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self setupResponseTable];
@@ -49,9 +52,7 @@
 
 - (IBAction)navPostButton:(id)sender
 {
-    // Fix this to use current user and not Anne
-    User *anne = [User userWithName:@"Anne" uniqueID:@"anne" inContext:self.dataStore.managedObjectContext];
-    
+    [self postPostThroughParse];
     NSMutableSet *responses = [NSMutableSet new];
     for (NSNumber *index in self.selectedCells) {
         NSInteger indexInteger = [index integerValue];
@@ -64,11 +65,34 @@
     
     
     // Fix this to use current user and not Anne
-Post *newPost = [Post postWithContent:self.content author:anne section:self.verticalPassed responses:responses inContext:self.dataStore.managedObjectContext];
+Post *newPost = [Post postWithContent:self.content author:nil section:self.verticalPassed responses:responses inContext:self.dataStore.managedObjectContext];
     [self.dataStore saveContext];
+
+//    // Fix this to use current user and not Anne
+//    User *anne = [User userWithName:@"Anne" uniqueID:@"anne" inContext:self.dataStore.managedObjectContext];
+//    
+//    NSMutableSet *responses = [NSMutableSet new];
+//    for (NSNumber *index in self.selectedCells) {
+//        NSInteger indexInteger = [index integerValue];
+//        Response *newResponse = [Response responseWithResponseOption:self.dataStore.validResponses[indexInteger] inContext:self.dataStore.managedObjectContext];
+//        [responses addObject:newResponse];
+//    }
+//    
+//    
+//    [self.dataStore saveContext];
+//    
+//    
+//    // Fix this to use current user and not Anne
+//    Post *newPost = [Post postWithContent:self.content author:anne section:self.verticalPassed responses:responses inContext:self.dataStore.managedObjectContext];
+//    [self.dataStore saveContext];
+
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void) postPostThroughParse
+{
+    [self.dataManager postPostAndSaveIfSuccessfulForContent:self.content inSection:self.verticalPassed];
+}
 
 //-(void)setupPostButton
 //{

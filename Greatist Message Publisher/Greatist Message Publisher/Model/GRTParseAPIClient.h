@@ -20,7 +20,9 @@
                      section: (NSString *)section
                     latitude: (CGFloat)latitude
                    longitude: (CGFloat)longitude
-                      userID: (NSString *)userID;
+                      userID: (NSString *)userID
+              withCompletion: (void (^)(NSDictionary *))completion;
+
 - (void) putPost: (Post *)post;
 
 - (void) postResponseWithContent: (NSString *)content
