@@ -94,6 +94,7 @@
 		87AD340118F878E70060CCA3 /* Response.m in Sources */ = {isa = PBXBuildFile; fileRef = 87AD340018F878E70060CCA3 /* Response.m */; };
 		87AD340418F878E70060CCA3 /* ResponseOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 87AD340318F878E70060CCA3 /* ResponseOption.m */; };
 		87AD340718F87EA00060CCA3 /* ResponseOption+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 87AD340618F87EA00060CCA3 /* ResponseOption+Methods.m */; };
+		87E6B3EB18FECDD8006EF36A /* GRTDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E6B3EA18FECDD8006EF36A /* GRTDataManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -227,6 +228,8 @@
 		87AD340318F878E70060CCA3 /* ResponseOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponseOption.m; sourceTree = "<group>"; };
 		87AD340518F87EA00060CCA3 /* ResponseOption+Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ResponseOption+Methods.h"; sourceTree = "<group>"; };
 		87AD340618F87EA00060CCA3 /* ResponseOption+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ResponseOption+Methods.m"; sourceTree = "<group>"; };
+		87E6B3E918FECDD8006EF36A /* GRTDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTDataManager.h; sourceTree = "<group>"; };
+		87E6B3EA18FECDD8006EF36A /* GRTDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTDataManager.m; sourceTree = "<group>"; };
 		FDF4DEBDD8B24F48886FE495 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -370,8 +373,6 @@
 				87AD340018F878E70060CCA3 /* Response.m */,
 				87AD340218F878E70060CCA3 /* ResponseOption.h */,
 				87AD340318F878E70060CCA3 /* ResponseOption.m */,
-				0FBEF58118FC2E85002FD728 /* Article+Methods.h */,
-				0FBEF58218FC2E85002FD728 /* Article+Methods.m */,
 				87AD340518F87EA00060CCA3 /* ResponseOption+Methods.h */,
 				87AD340618F87EA00060CCA3 /* ResponseOption+Methods.m */,
 				55912DE218EC86840069FEEC /* Response+Methods.h */,
@@ -390,6 +391,8 @@
 				87AD33ED18F5C0D00060CCA3 /* GRTFacebookAPIClient.m */,
 				0FBEF58418FC3943002FD728 /* GRTImporter.h */,
 				0FBEF58518FC3943002FD728 /* GRTImporter.m */,
+				87E6B3E918FECDD8006EF36A /* GRTDataManager.h */,
+				87E6B3EA18FECDD8006EF36A /* GRTDataManager.m */,
 				0F1AFFEE18ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodeld */,
 			);
 			path = Model;
@@ -741,6 +744,7 @@
 				87AD340118F878E70060CCA3 /* Response.m in Sources */,
 				0FBEF58618FC3943002FD728 /* GRTImporter.m in Sources */,
 				55912DEE18EC86840069FEEC /* GRTDataStore.m in Sources */,
+				87E6B3EB18FECDD8006EF36A /* GRTDataManager.m in Sources */,
 				8768DD3C18FDA13800A4D105 /* GRTFacebookLoginViewController.m in Sources */,
 				039FE87218FCBDB100EC98DC /* GRTStepTwoComposePostViewController.m in Sources */,
 				039FE86F18FCBD9D00EC98DC /* GRTStepOneComposePostViewController.m in Sources */,
