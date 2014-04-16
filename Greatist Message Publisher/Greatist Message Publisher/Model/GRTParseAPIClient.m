@@ -20,6 +20,17 @@
 
 @implementation GRTParseAPIClient
 
++ (instancetype)sharedClient {
+    static GRTParseAPIClient *_sharedClient = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _sharedClient = [[GRTParseAPIClient alloc] init];
+    });
+    
+    return _sharedClient;
+}
+
+
 #pragma mark - Lazy Instantiation
 
 - (NSString *) baseURLString
@@ -140,31 +151,6 @@
 
 }
 
-- (void) postUserWithFbookID: (NSString *)fbookID
-{
-    NSString *parseDatabaseURL = @"https://api.parse.com/1/classes/GRTUser";
-    NSURL *url = [NSURL URLWithString:parseDatabaseURL];
-    
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    [request addValue:self.restAPIKey forHTTPHeaderField:@"X-Parse-REST-API-Key"];
-    [request addValue:self.appID forHTTPHeaderField:@"X-Parse-Application-Id"];
-    
-    AFHTTPRequestOperation *newOp = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    
-    NSString *json = [NSString stringWithFormat:@"{\"facebookID\":\"%@\"}",fbookID];
-    request.HTTPBody = [json dataUsingEncoding:NSUTF8StringEncoding];
-    request.HTTPMethod = @"POST";
-    
-    [newOp setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"%@",responseObject);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%@",error);
-    }];
-    
-    [newOp start];
-}
-
 - (void) updatePostID:(NSString *)postObjectID WithResponses:(NSArray *)responseArray
 {
     
@@ -214,5 +200,36 @@
     
     [newOp start];
 }
+
+
+#pragma mark - GRTUser Helper Methods
+
+- (void) postUserWithName:(NSString *)name
+                  FbookID:(NSString *)fbookID
+{
+    NSString *parseDatabaseURL = @"https://api.parse.com/1/classes/GRTUser";
+    NSURL *url = [NSURL URLWithString:parseDatabaseURL];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request addValue:self.restAPIKey forHTTPHeaderField:@"X-Parse-REST-API-Key"];
+    [request addValue:self.appID forHTTPHeaderField:@"X-Parse-Application-Id"];
+    
+    AFHTTPRequestOperation *newOp = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    
+    NSString *json = [NSString stringWithFormat:@"{\"name\":\"%@\",\"facebookID\":\"%@\"}",name, fbookID];
+    request.HTTPBody = [json dataUsingEncoding:NSUTF8StringEncoding];
+    request.HTTPMethod = @"POST";
+    
+    [newOp setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"User Post Response Object: %@",responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"User Post Error: %@",error);
+    }];
+    
+    [newOp start];
+}
+
+
 
 @end
