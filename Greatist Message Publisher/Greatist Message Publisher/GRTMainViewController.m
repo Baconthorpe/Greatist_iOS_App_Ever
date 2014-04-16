@@ -189,24 +189,24 @@
     Post *post = [self.dataStore.postFRController objectAtIndexPath:indexPath];
     [cell configureWithPost:post];
     
-    if ([post.section.name isEqualToString:(@"Grow")])
+    if ([post.section.name isEqualToString:(@"Happiness")])
     {
         cell.backgroundColor = [UIColor greatistHappinessColorSecondary];
         cell.squareLabelLeft.backgroundColor = [UIColor greatistHappinessColor];
         cell.buttonBar.backgroundColor=[UIColor whiteColor];
     }
-    else if ([post.section.name isEqualToString:(@"Play")])
-    {
-        cell.backgroundColor = [UIColor greatistFitnessColorSecondary];
-        cell.buttonBar.backgroundColor=[UIColor whiteColor];
-    }
-    else if ([post.section.name isEqualToString:(@"Move")])
+//    else if ([post.section.name isEqualToString:(@"Play")])
+//    {
+//        cell.backgroundColor = [UIColor greatistFitnessColorSecondary];
+//        cell.buttonBar.backgroundColor=[UIColor whiteColor];
+   // }
+    else if ([post.section.name isEqualToString:(@"Fitness")])
     {
         cell.backgroundColor = [UIColor greatistFitnessColorSecondary];
         cell.squareLabelLeft.backgroundColor = [UIColor greatistFitnessColor];
         cell.buttonBar.backgroundColor=[UIColor whiteColor];
     }
-    else if ([post.section.name isEqualToString:(@"Eat")])
+    else if ([post.section.name isEqualToString:(@"Health")])
     {
         cell.backgroundColor = [UIColor greatistHealthColorSecondary];
         cell.squareLabelRight.backgroundColor = [UIColor greatistHealthColor];

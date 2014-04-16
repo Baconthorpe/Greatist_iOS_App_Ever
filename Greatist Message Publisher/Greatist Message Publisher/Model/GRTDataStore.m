@@ -199,10 +199,10 @@
     
     if ([[self.managedObjectContext executeFetchRequest:sectionFetch error:nil] count] == 0)
     {
-        Section *move = [Section sectionWithName:@"Move" inContext:self.managedObjectContext];
-        Section *eat = [Section sectionWithName:@"Eat" inContext:self.managedObjectContext];
-        Section *play = [Section sectionWithName:@"Play" inContext:self.managedObjectContext];
-        Section *grow = [Section sectionWithName:@"Grow" inContext:self.managedObjectContext];
+        Section *happiness = [Section sectionWithName:@"Happiness" inContext:self.managedObjectContext];
+        Section *health = [Section sectionWithName:@"Health" inContext:self.managedObjectContext];
+        Section *fitness = [Section sectionWithName:@"Fitness" inContext:self.managedObjectContext];
+        //Section *grow = [Section sectionWithName:@"Grow" inContext:self.managedObjectContext];
         
         User *anne = [User userWithName:@"Anne" uniqueID:@"anne" inContext:self.managedObjectContext];
         User *zeke = [User userWithName:@"Zeke" uniqueID:@"zeke" inContext:self.managedObjectContext];
@@ -211,35 +211,35 @@
         
         Post *anneOne = [Post postWithContent:@"I joined a gym today!"
                                        author:anne
-                                      section:move
+                                      section:fitness
                                     responses:nil inContext:self.managedObjectContext];
         
         Post *zekeOne = [Post postWithContent:@"I have a love/hate relationship with gluten."
                                        author:zeke
-                                      section:eat
+                                      section:health
                                     responses:nil
                                     inContext:self.managedObjectContext];
         
         Post *zekeTwo = [Post postWithContent:@"Spreading the good news about Paleo Diet"
                                        author:anne
-                                      section:play
+                                      section:health
                                     responses:nil
                                     inContext:self.managedObjectContext];
         
         Post *lizOne = [Post postWithContent:@"I love the WOD article!"
                                       author:zeke
-                                     section:grow
+                                     section:happiness
                                    responses:nil
                                    inContext:self.managedObjectContext];
 
         Post *anotherPost = [Post postWithContent:@"beep beep beep!"
                                            author:zeke
-                                          section:grow
+                                          section:fitness
                                         responses:nil
                                         inContext:self.managedObjectContext];
         Post *arPost = [Post postWithContent:@"beep beep beep!"
                                           author:zeke
-                                         section:grow
+                                         section:health
                                        responses:nil
                                        inContext:self.managedObjectContext];
 

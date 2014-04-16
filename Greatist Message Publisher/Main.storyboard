@@ -42,7 +42,7 @@
                                     <barButtonItem title="Item" id="Jce-oV-dpT">
                                         <connections>
                                             <action selector="composePostButtonTapped:" destination="8aK-fq-krb" id="Xhk-QR-s8s"/>
-                                            <segue destination="kfc-Vb-UTS" kind="modal" id="ycl-Om-gjX"/>
+                                            <segue destination="kfc-Vb-UTS" kind="modal" identifier="mainToCompose" id="ycl-Om-gjX"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="oaO-DQ-wEw"/>

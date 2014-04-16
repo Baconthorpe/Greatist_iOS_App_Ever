@@ -39,7 +39,7 @@
     
     self.dataStore = [GRTDataStore sharedDataStore];
     self.mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 66, 320, 320)];
-    self.mainScrollView.backgroundColor = [UIColor redColor];
+    self.mainScrollView.backgroundColor = [UIColor purpleColor];
     
     [self createPostDetail];
     [self setupResponses];

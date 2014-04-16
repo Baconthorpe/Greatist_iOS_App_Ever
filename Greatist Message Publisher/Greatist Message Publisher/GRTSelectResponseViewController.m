@@ -64,21 +64,21 @@
     
     
     // Fix this to use current user and not Anne
-    Post *newPost = [Post postWithContent:self.content author:anne section:self.verticalPassed responses:responses inContext:self.dataStore.managedObjectContext];
+Post *newPost = [Post postWithContent:self.content author:anne section:self.verticalPassed responses:responses inContext:self.dataStore.managedObjectContext];
     [self.dataStore saveContext];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
--(void)setupPostButton
-{
-    UIButton *postButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    UIImage *resizedPostImage = [UIImage imageWithImage:[UIImage imageNamed:@"Greatist_Logo_Badge_Blue"] scaledToSize:CGSizeMake(50, 50)];
-    [postButton setBackgroundImage:resizedPostImage forState:UIControlStateNormal];
-    [postButton setFrame:CGRectMake(145, 215, 30, 30)];
-    [postButton addTarget:self action:@selector(postButton:) forControlEvents:UIControlEventTouchUpInside];
-    [self.tableView addSubview:postButton];
-}
+//-(void)setupPostButton
+//{
+//    UIButton *postButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//    UIImage *resizedPostImage = [UIImage imageWithImage:[UIImage imageNamed:@"Greatist_Logo_Badge_Blue"] scaledToSize:CGSizeMake(50, 50)];
+//    [postButton setBackgroundImage:resizedPostImage forState:UIControlStateNormal];
+//    [postButton setFrame:CGRectMake(145, 215, 30, 30)];
+//    [postButton addTarget:self action:@selector(postButton:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.tableView addSubview:postButton];
+//}
 
 - (void)setupResponseTable
 {

@@ -51,8 +51,10 @@
     [self setupPostContent];
     //[self setupPostButton];
     [self setupResponseTable];
-    [self growButtonTapped:nil];
+    [self healthButtonTapped:nil];
    [self.postContentTextView becomeFirstResponder];
+//self.verticals = @[@"happiness", @"health", @"fitness", @"Happiness", @"Health", @"Fitness"];
+    
     
     
 }
@@ -72,8 +74,8 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     GRTSelectResponseViewController *nextViewController = segue.destinationViewController;
-    nextViewController.verticalPassed = self.verticalSelected;
-    nextViewController.content = self.postContentTextView.text;
+    self.verticalSelected = nextViewController.verticalPassed;
+ nextViewController.content =    self.postContentTextView.text;
     
 }
 - (IBAction)backButtonTapped:(id)sender {
@@ -84,46 +86,46 @@
 #pragma mark - Helper Methods
 - (void)setupCategoryButtons
 {
-    UIButton *eatButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [eatButton setFrame:CGRectMake(45, 15, 30, 30)];
-    [eatButton setBackgroundImage:[UIImage imageNamed:@"Eat_Colored60x60"] forState:UIControlStateNormal];
-    eatButton.alpha = 0.3;
-    [eatButton addTarget:self action:@selector(eatButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-    [self.postView addSubview:eatButton];
+    UIButton *healthButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [healthButton setFrame:CGRectMake(45, 15, 30, 30)];
+    [healthButton setBackgroundImage:[UIImage imageNamed:@"Eat_Colored60x60"] forState:UIControlStateNormal];
+    healthButton.alpha = 0.3;
+    [healthButton addTarget:self action:@selector(healthButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.postView addSubview:healthButton];
     
-    UILabel *eatLabel = [[UILabel alloc] initWithFrame:CGRectMake(7, 25, 30, 30)];
-    [eatLabel setText:@"HEALTH"];
-    [eatLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:10]];
-    [eatLabel setTextColor:[UIColor greatistEatColor]];
-    [eatButton addSubview:eatLabel];
+    UILabel *healthLabel = [[UILabel alloc] initWithFrame:CGRectMake(7, 25, 30, 30)];
+    [healthLabel setText:@"HEALTH"];
+    [healthLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:10]];
+    [healthLabel setTextColor:[UIColor greatistEatColor]];
+    [healthButton addSubview:healthLabel];
     
-    UIButton *moveButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [moveButton setFrame:CGRectMake(90, 15, 30, 30)];
-    [moveButton setBackgroundImage:[UIImage imageNamed:@"Move_Colored60x60"] forState:UIControlStateNormal];
-    moveButton.alpha = 0.3;
-    [moveButton addTarget:self action:@selector(moveButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-    [self.postView addSubview:moveButton];
+    UIButton *fitnessButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [fitnessButton setFrame:CGRectMake(90, 15, 30, 30)];
+    [fitnessButton setBackgroundImage:[UIImage imageNamed:@"Move_Colored60x60"] forState:UIControlStateNormal];
+    fitnessButton.alpha = 0.3;
+    [fitnessButton addTarget:self action:@selector(fitnessButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.postView addSubview:fitnessButton];
     
-    UILabel *moveLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 25, 30, 30)];
-    [moveLabel setText:@"FITNESS"];
-    [moveLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:10]];
-    [moveLabel setTextColor:[UIColor greatistMoveColor]];
-    [moveButton addSubview:moveLabel];
+    UILabel *fitnessLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 25, 30, 30)];
+    [fitnessLabel setText:@"FITNESS"];
+    [fitnessLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:10]];
+    [fitnessLabel setTextColor:[UIColor greatistMoveColor]];
+    [fitnessButton addSubview:fitnessLabel];
     
     
-    UIButton *growButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [growButton setFrame:CGRectMake(195, 15, 30, 30)];
-    [growButton setBackgroundImage:[UIImage imageNamed:@"Grow_Colored60x60"] forState:UIControlStateNormal];
-    growButton.alpha = 0.3;
-    [growButton addTarget:self action:@selector(growButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-    [self.postView addSubview:growButton];
+    UIButton *happinessButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [happinessButton setFrame:CGRectMake(195, 15, 30, 30)];
+    [happinessButton setBackgroundImage:[UIImage imageNamed:@"Grow_Colored60x60"] forState:UIControlStateNormal];
+    happinessButton.alpha = 0.3;
+    [happinessButton addTarget:self action:@selector(happinessButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.postView addSubview:happinessButton];
     
-    UILabel *growLabel = [[UILabel alloc] initWithFrame:CGRectMake(1, 25, 30, 30)];
-    [growLabel setText:@"HAPPINESS"];
-    [growLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:10]];
-    [growLabel setTextColor:[UIColor greatistGrowColor]];
-    [growButton addSubview:growLabel];
- self.verticalButtons = @[eatButton, moveButton, growButton];
+    UILabel *happinessLabel = [[UILabel alloc] initWithFrame:CGRectMake(1, 25, 30, 30)];
+    [happinessLabel setText:@"HAPPINESS"];
+    [happinessLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:10]];
+    [happinessLabel setTextColor:[UIColor greatistGrowColor]];
+    [happinessButton addSubview:happinessLabel];
+ self.verticalButtons = @[healthButton, fitnessButton, happinessButton];
     
 }
 
@@ -140,15 +142,15 @@
     self.rightQuoteLabel.font = [UIFont fontWithName:@"ArcherPro-Semibold" size:40];
 }
 
--(void)setupPostButton
-{
-    UIButton *postButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    UIImage *resizedPostImage = [UIImage imageWithImage:[UIImage imageNamed:@"Greatist_Logo_Badge_Blue"] scaledToSize:CGSizeMake(50, 50)];
-    [postButton setBackgroundImage:resizedPostImage forState:UIControlStateNormal];
-    [postButton setFrame:CGRectMake(145, 215, 30, 30)];
-    [postButton addTarget:self action:@selector(postButton:) forControlEvents:UIControlEventTouchUpInside];
-    [self.postView addSubview:postButton];
-}
+//-(void)setupPostButton
+//{
+//    UIButton *postButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//    UIImage *resizedPostImage = [UIImage imageWithImage:[UIImage imageNamed:@"Greatist_Logo_Badge_Blue"] scaledToSize:CGSizeMake(50, 50)];
+//    [postButton setBackgroundImage:resizedPostImage forState:UIControlStateNormal];
+//    [postButton setFrame:CGRectMake(145, 215, 30, 30)];
+//    [postButton addTarget:self action:@selector(postButton:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.postView addSubview:postButton];
+//}
 
 - (void)setupResponseTable
 {
@@ -213,8 +215,8 @@
     [self.dataStore saveContext];
     
     // Fix this to use current user and not Anne
-    Post *newPost = [Post postWithContent:self.postContentTextView.text author:anne section:self.verticalSelected responses:responses inContext:self.dataStore.managedObjectContext];
-    [self.dataStore saveContext];
+//    Post *newPost = [Post postWithContent:self.postContentTextView.text author:anne section:self.verticalSelected responses:responses inContext:self.dataStore.managedObjectContext];
+  //  [self.dataStore saveContext];
     
     
 }
@@ -224,50 +226,51 @@
     
 }
 
--(void)eatButtonTapped: (UIButton *)sender
+-(void)healthButtonTapped: (UIButton *)sender
 {
-    NSString *nameSought = @"Eat";
-    NSPredicate *eatSearch = [NSPredicate predicateWithFormat:@"name==%@",nameSought];
-    NSArray *eatVerticals = [self.verticals filteredArrayUsingPredicate:eatSearch];
-    self.verticalSelected= eatVerticals[0];
+    NSString *nameSought = @"Health";
+    NSPredicate *healthSearch = [NSPredicate predicateWithFormat:@"name==%@",nameSought];
+    NSArray *healthVerticals = [self.verticals filteredArrayUsingPredicate:healthSearch];
+    self.verticalSelected= healthVerticals[0];
     
     [self dimVerticalButtons];
-    UIButton *eatButton = self.verticalButtons[0];
-    eatButton.alpha = 1.0;
+    UIButton *healthButton = self.verticalButtons[0];
+    healthButton.alpha = 1.0;
     
     self.leftQuoteLabel.textColor = [UIColor greatistEatColor];
     self.rightQuoteLabel.textColor = [UIColor greatistEatColor];
     self.postContentTextView.text = @"Find a new healthy recipe recently?";
 }
 
--(void)moveButtonTapped: (UIButton *)sender
+-(void)fitnessButtonTapped: (UIButton *)sender
 {
-    NSString *nameSought = @"Move";
-    NSPredicate *moveSearch = [NSPredicate predicateWithFormat:@"name==%@", nameSought];
-    NSArray *moveVerticals = [self.verticals filteredArrayUsingPredicate:moveSearch];
-    self.verticalSelected= moveVerticals[0];
+    NSString *nameSought = @"Fitness";
+    NSPredicate *fitnessSearch = [NSPredicate predicateWithFormat:@"name==%@", nameSought];
+    NSArray *fitnessVerticals = [self.verticals filteredArrayUsingPredicate:fitnessSearch];
+    self.verticalSelected= fitnessVerticals[0];
     
     [self dimVerticalButtons];
-    UIButton *moveButton = self.verticalButtons[1];
-    moveButton.alpha = 1.0;
+    UIButton *fitnessButton = self.verticalButtons[1];
+    fitnessButton.alpha = 1.0;
     
     self.leftQuoteLabel.textColor = [UIColor greatistMoveColor];
     self.rightQuoteLabel.textColor = [UIColor greatistMoveColor];
     self.postContentTextView.text = @"Do something new at Yoga?";
+    
 }
 
 
--(void) growButtonTapped: (UIButton *)sender
+-(void) happinessButtonTapped: (UIButton *)sender
 {
-    NSString *nameSought = @"Grow";
-    NSPredicate *growSearch = [NSPredicate predicateWithFormat:@"name==%@", nameSought];
-    NSArray *growVerticals = [self.verticals filteredArrayUsingPredicate:growSearch];
-    self.verticalSelected= growVerticals[0];
+    NSString *nameSought = @"Happiness";
+    NSPredicate *happinessSearch = [NSPredicate predicateWithFormat:@"name==%@", nameSought];
+    NSArray *happinessVerticals = [self.verticals filteredArrayUsingPredicate:happinessSearch];
+    self.verticalSelected= happinessVerticals[0];
     
     [self dimVerticalButtons];
-    UIButton *growButton = self.verticalButtons[2];
-    growButton.alpha = 1.0;
-    
+    UIButton *happinessButton = self.verticalButtons[2];
+    happinessButton.alpha = 1.0;
+
     self.leftQuoteLabel.textColor = [UIColor greatistGrowColor];
     self.rightQuoteLabel.textColor = [UIColor greatistGrowColor];
     self.postContentTextView.text = @"How do you feel today?";
