@@ -9,8 +9,7 @@
 #import "GRTFacebookLoginViewController.h"
 #import "GRTMainTableViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
-#import "GRTFacebookAPIClient.h"
-#import "GRTParseAPIClient.h"
+#import "GRTDataManager.h"
 
 @interface GRTFacebookLoginViewController () <FBLoginViewDelegate>
 
@@ -98,7 +97,6 @@
     self.nameLabel.text = [NSString stringWithFormat:@"Hi, %@",user.name];
     self.facebookID = user.id;
     self.facebookName = user.name;
-    NSLog(@"FacebookID: %@", self.facebookID);
 }
 
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView
@@ -109,8 +107,9 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[GRTFacebookAPIClient sharedClient] getFriendIDsWithCompletion:^(NSArray *friendIDs)
      {
+         [self getPostsForFriends:friendIDs];
+         [self createUserIfNew];
          [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-         [[GRTParseAPIClient sharedClient] postUserWithName:self.facebookName FbookID:self.facebookID];
          [self performSegueWithIdentifier:@"loginToMain" sender:nil];
      }];
     
@@ -160,5 +159,29 @@
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[superview]-(<=1)-[nameLabel]" options:NSLayoutFormatAlignAllCenterY metrics:nil views:views]];
     
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[superview]-(<=100)-[appName]-(50)-[profilePicture]-[nameLabel]-[loginView]" options:NSLayoutFormatAlignAllCenterX metrics:nil views:views]];
+}
+
+- (void)getPostsForFriends:(NSArray *)friendIDs
+{
+    [[GRTDataManager sharedManager] fetchPostsForFacebookFriends:friendIDs
+                                                  WithCompletion:^(NSArray *posts) {
+        NSLog(@"Number of Posts: %lu", (unsigned long)[posts count]);
+    }];
+}
+
+- (void)createUserIfNew
+{
+    [[GRTDataManager sharedManager] fetchUsersWithCompletion:^(NSArray *users) {
+        NSMutableArray *userFacebookIDs = [NSMutableArray new];
+        for (NSDictionary *user in users) {
+            [userFacebookIDs addObject:user[@"facebookID"]];
+        }
+        if (![userFacebookIDs containsObject:self.facebookID]) {
+            NSLog(@"Creating User %@", self.facebookName);
+            [[GRTDataManager sharedManager] createNewUserWithName:self.facebookName FacebookID:self.facebookID];
+        } else {
+            NSLog(@"User %@ (%@) exists", self.facebookName, self.facebookID);
+        }
+    }];
 }
 @end

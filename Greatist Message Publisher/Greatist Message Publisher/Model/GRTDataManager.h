@@ -29,4 +29,10 @@
 - (void) postPostAndSaveIfSuccessfulForContent: (NSString *)content
                                      inSection: (Section *)section;
 
+- (void) fetchUsersWithCompletion:(void (^)(NSArray *users))completionBlock;
+- (void) createNewUserWithName:(NSString *)nameString
+                    FacebookID:(NSString *)facebookIDString;
+
+- (void) fetchPostsForFacebookFriends:(NSArray *)friendIDs
+                       WithCompletion:(void (^)(NSArray *posts))completionBlock;
 @end
