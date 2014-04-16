@@ -204,8 +204,34 @@
 
 #pragma mark - GRTUser Helper Methods
 
+- (void)getUsersWithCompletion:(void (^)(NSArray *))completionBlock
+{
+    NSString *parseUserURL = [NSString stringWithFormat:@"https://api.parse.com/1/classes/GRTUser"];
+    NSURL *url = [NSURL URLWithString:parseUserURL];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request addValue:self.restAPIKey forHTTPHeaderField:@"X-Parse-REST-API-Key"];
+    [request addValue:self.appID forHTTPHeaderField:@"X-Parse-Application-Id"];
+    
+    AFHTTPRequestOperation *newOp = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    request.HTTPMethod = @"GET";
+    
+    [newOp setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id userObject) {
+        NSError *error = nil;
+        NSDictionary *userDictionary = [NSJSONSerialization JSONObjectWithData:userObject options:NSJSONReadingAllowFragments error:&error];
+        if (error) {
+            NSLog(@"User JSON Serialization Error: %@", error);
+        }
+        completionBlock(userDictionary[@"results"]);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@",error);
+    }];
+    
+    [newOp start];
+}
+
 - (void) postUserWithName:(NSString *)name
-                  FbookID:(NSString *)fbookID
+               FacebookID:(NSString *)fbookID
 {
     NSString *parseDatabaseURL = @"https://api.parse.com/1/classes/GRTUser";
     NSURL *url = [NSURL URLWithString:parseDatabaseURL];
@@ -230,6 +256,37 @@
     [newOp start];
 }
 
-
+- (void) getPostsWithFriendIDs:(NSArray *)friendsArray
+                WithCompletion:(void (^)(NSArray *))completionBlock
+{
+    NSString *friendsArrayString = [friendsArray componentsJoinedByString:@"\",\""];
+    
+    NSString *parseFriendPostsURL = @"https://api.parse.com/1/functions/friendPosts";
+    NSURL *url = [NSURL URLWithString:parseFriendPostsURL];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request addValue:self.restAPIKey forHTTPHeaderField:@"X-Parse-REST-API-Key"];
+    [request addValue:self.appID forHTTPHeaderField:@"X-Parse-Application-Id"];
+    
+    AFHTTPRequestOperation *newOp = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    
+    NSString *json = [NSString stringWithFormat:@"{\"facebook_ids_array\":[\"%@\"]}",friendsArrayString];
+    request.HTTPBody = [json dataUsingEncoding:NSUTF8StringEncoding];
+    request.HTTPMethod = @"POST";
+    
+    [newOp setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSError *error = nil;
+        NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:&error];
+        if (error) {
+            NSLog(@"FriendPosts JSON Serialization Error: %@", error);
+        }
+        completionBlock(responseDictionary[@"result"]);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"FriendPosts (Post) Error: %@",error);
+    }];
+    
+    [newOp start];
+}
 
 @end

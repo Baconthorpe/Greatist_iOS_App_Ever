@@ -22,4 +22,10 @@
                      FacebookAPIClient:(GRTFacebookAPIClient *)facebookClient
                   ManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
 
+- (void) fetchUsersWithCompletion:(void (^)(NSArray *users))completionBlock;
+- (void) createNewUserWithName:(NSString *)nameString
+                    FacebookID:(NSString *)facebookIDString;
+
+- (void) fetchPostsForFacebookFriends:(NSArray *)friendIDs
+                       WithCompletion:(void (^)(NSArray *posts))completionBlock;
 @end
