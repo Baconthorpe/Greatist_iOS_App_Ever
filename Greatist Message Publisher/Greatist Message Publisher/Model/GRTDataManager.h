@@ -22,4 +22,6 @@
                      FacebookAPIClient:(GRTFacebookAPIClient *)facebookClient
                   ManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
 
+- (void) createNewUserWithName:(NSString *)nameString
+                    FacebookID:(NSString *)facebookIDString;
 @end

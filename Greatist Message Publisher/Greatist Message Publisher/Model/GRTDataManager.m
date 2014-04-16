@@ -45,7 +45,7 @@
     static GRTDataManager *_sharedManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _sharedManager = [[GRTDataManager alloc] init];
+        _sharedManager = [super init];
         if (_sharedManager) {
             _parseAPIClient = parseClient;
             _facebookAPIClient = facebookClient;
@@ -54,6 +54,15 @@
     });
 
     return _sharedManager;
+}
+
+#pragma mark - User Helper Methods
+
+- (void) createNewUserWithName:(NSString *)nameString
+                    FacebookID:(NSString *)facebookIDString
+{
+    [self.parseAPIClient postUserWithName:nameString
+                               FacebookID:facebookIDString];
 }
 
 

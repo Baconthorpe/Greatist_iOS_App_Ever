@@ -9,8 +9,7 @@
 #import "GRTFacebookLoginViewController.h"
 #import "GRTMainTableViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
-#import "GRTFacebookAPIClient.h"
-#import "GRTParseAPIClient.h"
+#import "GRTDataManager.h"
 
 @interface GRTFacebookLoginViewController () <FBLoginViewDelegate>
 
@@ -110,7 +109,10 @@
     [[GRTFacebookAPIClient sharedClient] getFriendIDsWithCompletion:^(NSArray *friendIDs)
      {
          [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-         [[GRTParseAPIClient sharedClient] postUserWithName:self.facebookName FbookID:self.facebookID];
+         [[GRTParseAPIClient sharedClient] getPostsWithFriendIDs:friendIDs WithCompletion:^(NSDictionary *posts) {
+             
+         }];
+         [[GRTDataManager sharedManager] createNewUserWithName:self.facebookName FacebookID:self.facebookID];
          [self performSegueWithIdentifier:@"loginToMain" sender:nil];
      }];
     

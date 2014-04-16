@@ -28,9 +28,15 @@
                           userID: (NSString *)userID
                             post: (NSString *)post;
 
+
+// GRTPosts
+- (void) getPostsWithFriendIDs:(NSArray *)friendsArray
+                WithCompletion:(void (^)(NSDictionary *posts))completionBlock;
+
 // GRTUser
+- (BOOL) doesUserExistWithFacebookID:(NSString *)facebookIDString;
 - (void) postUserWithName:(NSString *)name
-                  FbookID:(NSString *)fbookID;
+               FacebookID:(NSString *)fbookID;
 
                    
 @end
