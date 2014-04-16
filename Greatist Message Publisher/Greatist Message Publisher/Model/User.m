@@ -2,7 +2,7 @@
 //  User.m
 //  Greatist Message Publisher
 //
-//  Created by Ezekiel Abuhoff on 4/16/14.
+//  Created by Leonard Li on 4/16/14.
 //  Copyright (c) 2014 Ezekiel Abuhoff. All rights reserved.
 //
 
@@ -14,11 +14,9 @@
 @implementation User
 
 @dynamic facebookID;
-@dynamic latestLat;
-@dynamic latestLon;
-@dynamic name;
-@dynamic uniqueID;
 @dynamic isMe;
+@dynamic name;
+@dynamic objectId;
 @dynamic posts;
 @dynamic responses;
 
