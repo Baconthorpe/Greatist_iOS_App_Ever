@@ -2,7 +2,7 @@
 //  User.h
 //  Greatist Message Publisher
 //
-//  Created by Ezekiel Abuhoff on 4/16/14.
+//  Created by Leonard Li on 4/16/14.
 //  Copyright (c) 2014 Ezekiel Abuhoff. All rights reserved.
 //
 
@@ -14,11 +14,9 @@
 @interface User : NSManagedObject
 
 @property (nonatomic, retain) NSString * facebookID;
-@property (nonatomic, retain) NSNumber * latestLat;
-@property (nonatomic, retain) NSNumber * latestLon;
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSString * uniqueID;
 @property (nonatomic, retain) NSNumber * isMe;
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * objectId;
 @property (nonatomic, retain) NSSet *posts;
 @property (nonatomic, retain) NSSet *responses;
 @end

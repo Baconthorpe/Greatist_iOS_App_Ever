@@ -26,7 +26,6 @@
 		0F30133018EE0FB6008A4FCB /* Play_Colored60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F30132F18EE0FB6008A4FCB /* Play_Colored60x60.png */; };
 		0F73663018F4B77B003D71DE /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F73662F18F4B77B003D71DE /* Post.m */; };
 		0F73663318F4B77B003D71DE /* Section.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F73663218F4B77B003D71DE /* Section.m */; };
-		0FA7486318FF35F200D93E98 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA7486218FF35F200D93E98 /* User.m */; };
 		0FA8354B18EB70A4003C8687 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA8354A18EB70A3003C8687 /* Foundation.framework */; };
 		0FA8354D18EB70A4003C8687 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA8354C18EB70A4003C8687 /* CoreGraphics.framework */; };
 		0FA8354F18EB70A4003C8687 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA8354E18EB70A4003C8687 /* UIKit.framework */; };
@@ -96,6 +95,7 @@
 		87AD340418F878E70060CCA3 /* ResponseOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 87AD340318F878E70060CCA3 /* ResponseOption.m */; };
 		87AD340718F87EA00060CCA3 /* ResponseOption+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 87AD340618F87EA00060CCA3 /* ResponseOption+Methods.m */; };
 		87E6B3EB18FECDD8006EF36A /* GRTDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E6B3EA18FECDD8006EF36A /* GRTDataManager.m */; };
+		87E6B3EE18FF3821006EF36A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E6B3ED18FF3821006EF36A /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,8 +138,6 @@
 		0F73662F18F4B77B003D71DE /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		0F73663118F4B77B003D71DE /* Section.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Section.h; sourceTree = "<group>"; };
 		0F73663218F4B77B003D71DE /* Section.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Section.m; sourceTree = "<group>"; };
-		0FA7486118FF35F200D93E98 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		0FA7486218FF35F200D93E98 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		0FA8354718EB70A3003C8687 /* Greatist Message Publisher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Greatist Message Publisher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FA8354A18EB70A3003C8687 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0FA8354C18EB70A4003C8687 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -233,6 +231,8 @@
 		87AD340618F87EA00060CCA3 /* ResponseOption+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ResponseOption+Methods.m"; sourceTree = "<group>"; };
 		87E6B3E918FECDD8006EF36A /* GRTDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTDataManager.h; sourceTree = "<group>"; };
 		87E6B3EA18FECDD8006EF36A /* GRTDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTDataManager.m; sourceTree = "<group>"; };
+		87E6B3EC18FF3821006EF36A /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		87E6B3ED18FF3821006EF36A /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		FDF4DEBDD8B24F48886FE495 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -368,8 +368,8 @@
 		55912DDB18EC86840069FEEC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0FA7486118FF35F200D93E98 /* User.h */,
-				0FA7486218FF35F200D93E98 /* User.m */,
+				87E6B3EC18FF3821006EF36A /* User.h */,
+				87E6B3ED18FF3821006EF36A /* User.m */,
 				0F73663118F4B77B003D71DE /* Section.h */,
 				0F73663218F4B77B003D71DE /* Section.m */,
 				0F73662E18F4B77B003D71DE /* Post.h */,
@@ -754,7 +754,7 @@
 				556F710E18FECAA800430D84 /* GRTCornerTriangles.m in Sources */,
 				039FE87218FCBDB100EC98DC /* GRTStepTwoComposePostViewController.m in Sources */,
 				039FE86F18FCBD9D00EC98DC /* GRTStepOneComposePostViewController.m in Sources */,
-				0FA7486318FF35F200D93E98 /* User.m in Sources */,
+				87E6B3EE18FF3821006EF36A /* User.m in Sources */,
 				0FA8355D18EB70A4003C8687 /* GRTAppDelegate.m in Sources */,
 				039FE86C18FCBC9100EC98DC /* GRTStepThreeComposePost.m in Sources */,
 				8767500F18EE124300231453 /* UIImage+Helpers.m in Sources */,
