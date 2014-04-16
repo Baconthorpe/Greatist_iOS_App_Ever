@@ -16,6 +16,7 @@
 		039FE86F18FCBD9D00EC98DC /* GRTStepOneComposePostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 039FE86E18FCBD9D00EC98DC /* GRTStepOneComposePostViewController.m */; };
 		039FE87218FCBDB100EC98DC /* GRTStepTwoComposePostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 039FE87118FCBDB100EC98DC /* GRTStepTwoComposePostViewController.m */; };
 		039FE87518FCBDC500EC98DC /* GRTStepThreeComposePostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 039FE87418FCBDC500EC98DC /* GRTStepThreeComposePostViewController.m */; };
+		039FE8D218FEC4C900EC98DC /* GRTSelectResponseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 039FE8D118FEC4C900EC98DC /* GRTSelectResponseViewController.m */; };
 		03A2662218EDFABF002790AB /* GRTTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03A2662118EDFABF002790AB /* GRTTableViewCell.xib */; };
 		03A2662518EDFD11002790AB /* GRTPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A2662418EDFD11002790AB /* GRTPostTableViewCell.m */; };
 		0F1AFFF018ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0F1AFFEE18ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodeld */; };
@@ -122,6 +123,8 @@
 		039FE87118FCBDB100EC98DC /* GRTStepTwoComposePostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTStepTwoComposePostViewController.m; sourceTree = "<group>"; };
 		039FE87318FCBDC500EC98DC /* GRTStepThreeComposePostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTStepThreeComposePostViewController.h; sourceTree = "<group>"; };
 		039FE87418FCBDC500EC98DC /* GRTStepThreeComposePostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTStepThreeComposePostViewController.m; sourceTree = "<group>"; };
+		039FE8D018FEC4C900EC98DC /* GRTSelectResponseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTSelectResponseViewController.h; sourceTree = "<group>"; };
+		039FE8D118FEC4C900EC98DC /* GRTSelectResponseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTSelectResponseViewController.m; sourceTree = "<group>"; };
 		03A2662118EDFABF002790AB /* GRTTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GRTTableViewCell.xib; sourceTree = "<group>"; };
 		03A2662318EDFD11002790AB /* GRTPostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTPostTableViewCell.h; sourceTree = "<group>"; };
 		03A2662418EDFD11002790AB /* GRTPostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTPostTableViewCell.m; sourceTree = "<group>"; };
@@ -347,6 +350,8 @@
 				55912DB918EC68B00069FEEC /* GRTPostDetailViewController.m */,
 				55912DBB18EC68E50069FEEC /* GRTComposePostViewController.h */,
 				55912DBC18EC68E50069FEEC /* GRTComposePostViewController.m */,
+				039FE8D018FEC4C900EC98DC /* GRTSelectResponseViewController.h */,
+				039FE8D118FEC4C900EC98DC /* GRTSelectResponseViewController.m */,
 				039FE86D18FCBD9D00EC98DC /* GRTStepOneComposePostViewController.h */,
 				039FE86E18FCBD9D00EC98DC /* GRTStepOneComposePostViewController.m */,
 				039FE87018FCBDB100EC98DC /* GRTStepTwoComposePostViewController.h */,
@@ -370,8 +375,6 @@
 				87AD340018F878E70060CCA3 /* Response.m */,
 				87AD340218F878E70060CCA3 /* ResponseOption.h */,
 				87AD340318F878E70060CCA3 /* ResponseOption.m */,
-				0FBEF58118FC2E85002FD728 /* Article+Methods.h */,
-				0FBEF58218FC2E85002FD728 /* Article+Methods.m */,
 				87AD340518F87EA00060CCA3 /* ResponseOption+Methods.h */,
 				87AD340618F87EA00060CCA3 /* ResponseOption+Methods.m */,
 				55912DE218EC86840069FEEC /* Response+Methods.h */,
@@ -733,6 +736,7 @@
 				55912DBD18EC68E50069FEEC /* GRTComposePostViewController.m in Sources */,
 				55912DF518EC86840069FEEC /* User+Methods.m in Sources */,
 				0F1AFFF018ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodeld in Sources */,
+				039FE8D218FEC4C900EC98DC /* GRTSelectResponseViewController.m in Sources */,
 				55912DF118EC86840069FEEC /* Response+Methods.m in Sources */,
 				87AD33EE18F5C0D00060CCA3 /* GRTFacebookAPIClient.m in Sources */,
 				0F73663018F4B77B003D71DE /* Post.m in Sources */,
