@@ -25,6 +25,11 @@
     return [GRTDataStore sharedDataStore].managedObjectContext;
 }
 
++ (GRTDataStore *)defaultDataStore
+{
+    return [GRTDataStore sharedDataStore];
+}
+
 + (instancetype)sharedManager {
    
     return [[self alloc] init];
@@ -34,12 +39,14 @@
 {
     return [self initWithParseAPIClient:[[self class] defaultParseClient]
                       FacebookAPIClient:[[self class] defaultFacebookClient]
-                   ManagedObjectContext:[[self class] defaultManagedObjectContext]];
+                   ManagedObjectContext:[[self class] defaultManagedObjectContext]
+                              DataStore:[[self class] defaultDataStore]];
 }
 
 - (instancetype)initWithParseAPIClient:(GRTParseAPIClient *)parseClient
                      FacebookAPIClient:(GRTFacebookAPIClient *)facebookClient
                   ManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
+                             DataStore:(GRTDataStore *)dataStore
 {
     
     static GRTDataManager *_sharedManager = nil;
@@ -50,6 +57,7 @@
             _parseAPIClient = parseClient;
             _facebookAPIClient = facebookClient;
             _managedObjectContext = managedObjectContext;
+            _dataStore = dataStore;
         }
     });
 
@@ -76,6 +84,8 @@
     for (NSDictionary *postDictionary in arrayOfPostDictionaries) {
         [self interpretPostFromDictionary:postDictionary];
     }
+    
+    [self.dataStore saveContext];
 }
 
 - (void) postPostAndSaveIfSuccessfulForContent: (NSString *)content
@@ -93,6 +103,8 @@
                                                     responses:nil
                                                     timeStamp:[NSDate date]
                                                     inContext:self.managedObjectContext];
+                                  
+                                  [self.dataStore saveContext];
                               }];
 }
 
