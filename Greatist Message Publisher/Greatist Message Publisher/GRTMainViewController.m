@@ -17,6 +17,7 @@
 #import "GRTFacebookAPIClient.h"
 #import "GRTCornerTriangles.h"
 #import "UIColor+Helpers.h"
+#import "GRTDataManager.h"
 
 
 @interface GRTMainViewController ()
@@ -27,8 +28,8 @@
 @property (weak, nonatomic) IBOutlet UIToolbar *logoutBarButtonItem;
 @property (strong, nonatomic) Section *section;
 @property (strong, nonatomic) GRTCornerTriangles *cornerTriangle;
-
 @property (strong, nonatomic) GRTDataStore *dataStore;
+@property (strong, nonatomic) GRTDataManager *dataManager;
 
 @end
 
@@ -52,6 +53,9 @@
     [self setupFooterToolbar];
     
     GRTCornerTriangles *cornerTriangle = [GRTCornerTriangles new];
+    self.dataManager = [GRTDataManager sharedManager];    
+    [self.dataManager getPostsBasedOnFacebookFriends];
+ 
     
 //    [[GRTFacebookAPIClient sharedClient] verifyUserFacebookCachedInViewController:self];
     
@@ -229,15 +233,12 @@
         cell.buttonBar.backgroundColor=[UIColor whiteColor];
         [cell.contentView addSubview:rightCornerTriangle];
         [rightCornerTriangle setFillColor:[UIColor greatistHealthColorSecondary]];
-
-    }
     else if (([post.section.name isEqualToString:(@"Happiness")]) && (indexPath.row % 2 == 0))
     {
         cell.backgroundColor = [UIColor greatistHappinessColor];
         cell.buttonBar.backgroundColor=[UIColor whiteColor];
         [cell.contentView addSubview:leftCornerTriangle];
         [leftCornerTriangle setFillColor:[UIColor greatistHappinessColorSecondary]];
-
     }
     else if (([post.section.name isEqualToString:(@"Happiness")]) && (!indexPath.row % 2 == 0))
     {
@@ -245,8 +246,6 @@
         cell.buttonBar.backgroundColor=[UIColor whiteColor];
         [cell.contentView addSubview:rightCornerTriangle];
         [rightCornerTriangle setFillColor:[UIColor greatistHappinessColorSecondary]];
-
-        
     }
     [leftCornerTriangle setNeedsDisplay];
     [rightCornerTriangle setNeedsDisplay];

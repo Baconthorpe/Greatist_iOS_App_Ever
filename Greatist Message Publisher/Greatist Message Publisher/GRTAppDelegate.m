@@ -28,6 +28,8 @@
     //[self.dataStore fetchPostsForCurrentUser];
     [self.dataStore fetchValidResponses];
     
+    [self.dataStore testParseGET];
+    [self.dataStore testParsePOST];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
@@ -41,7 +43,6 @@
         [facebookLoginVC presentViewController:mainVC animated:NO completion:nil];
     }
 
-    
     return YES;
 }
 
@@ -89,5 +90,6 @@
     // You can add your app-specific url handling code here if needed
     return wasHandled;
 }
+
 
 @end

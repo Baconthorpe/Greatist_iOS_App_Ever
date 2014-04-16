@@ -12,16 +12,13 @@
 
 + (UIColor *)greatistColorForCategory:(NSString *)categoryString
 {
-    if ([categoryString isEqualToString:@"Eat"]) {
+    if ([categoryString isEqualToString:@"health"]) {
         return [UIColor greatistHealthColor];
-    } else if ([categoryString isEqualToString:@"Move"]) {
+    } else if ([categoryString isEqualToString:@"fitness"]) {
         return [UIColor greatistFitnessColor];
-    } else if ([categoryString isEqualToString:@"Connect"]) {
-        return [UIColor greatistConnectColor];}
-    else if ([categoryString isEqualToString:@"Grow"]) {
+    }
+    else if ([categoryString isEqualToString:@"happiness"]) {
         return [UIColor greatistHappinessColor];
-    } else if ([categoryString isEqualToString:@"Play"]) {
-        return [UIColor greatistPlayColor];
     } else {
         return [UIColor greatistPrimaryColor];
     }

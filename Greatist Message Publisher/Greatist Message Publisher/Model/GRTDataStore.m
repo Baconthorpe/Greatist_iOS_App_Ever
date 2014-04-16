@@ -190,6 +190,23 @@
     }];
 }
 
+- (NSDictionary *) dictionaryOfSections
+{
+    NSFetchRequest *sectionFetch = [NSFetchRequest fetchRequestWithEntityName:@"Section"];
+    NSSortDescriptor *nameSort = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO];
+    sectionFetch.sortDescriptors = @[nameSort];
+    
+    NSArray *fetchResults = [self.managedObjectContext executeFetchRequest:sectionFetch error:nil];
+    
+    NSMutableDictionary *dictionaryToReturn = [NSMutableDictionary new];
+    for (Section *section in fetchResults) {
+        NSDictionary *sectionEntry = @{section.name:section};
+        [dictionaryToReturn addEntriesFromDictionary:sectionEntry];
+    }
+    
+    return dictionaryToReturn;
+}
+
 
 #pragma mark - Startup
 
@@ -210,8 +227,9 @@
         
         Post *anneOne = [Post postWithContent:@"I joined a gym today!"
                                        author:anne
-                                      section:health
-                                    responses:nil inContext:self.managedObjectContext];
+                                      section:fitness
+                                    responses:nil 
+                                    inContext:self.managedObjectContext];
         
         Post *zekeOne = [Post postWithContent:@"I have a love/hate relationship with gluten."
                                        author:zeke
@@ -222,6 +240,7 @@
         Post *zekeTwo = [Post postWithContent:@"Spreading the good news about Paleo Diet"
                                        author:anne
                                       section:happiness
+                                      section:health
                                     responses:nil
                                     inContext:self.managedObjectContext];
         
@@ -231,13 +250,16 @@
                                    responses:nil
                                    inContext:self.managedObjectContext];
 
-//        Response *anneResponseOne = [Response responseWithContent:@"Cool." post:anneOne author:liz inContext:self.managedObjectContext];
-//        Response *zekeResponseOne = [Response responseWithContent:@"Me, too." post:zekeOne author:len inContext:self.managedObjectContext];
-//        Response *anneResponseTwo = [Response responseWithContent:@"you go, girl" post:lizOne author:anne inContext:self.managedObjectContext];
-//        Response *lizResponseOne = [Response responseWithContent:@"cheers" post:zekeOne author:liz inContext:self.managedObjectContext];
-//        Response *lenResponseOne = [Response responseWithContent:@"cheers" post:zekeOne author:len inContext:self.managedObjectContext];
-//        Response *lizResponseTwo = [Response responseWithContent:@"smiles" post:zekeOne author:liz inContext:self.managedObjectContext];
-//        Response *lenResponseTwo = [Response responseWithContent:@"hugs" post:lizOne author:len inContext:self.managedObjectContext];
+        Post *anotherPost = [Post postWithContent:@"beep beep beep!"
+                                           author:zeke
+                                          section:fitness
+                                        responses:nil
+                                        inContext:self.managedObjectContext];
+        Post *arPost = [Post postWithContent:@"beep beep beep!"
+                                          author:zeke
+                                         section:health
+                                       responses:nil
+                                       inContext:self.managedObjectContext];
         
         [self saveContext];
     }
@@ -253,7 +275,7 @@
 
 - (void) testParsePOST
 {
-    [self.parseAPIClient postPostWithContent:@"I did stuff and stuff." section:@"grow" latitude:10.0 longitude:10.0 userID:@"oiou534iou345o"];
+//    [self.parseAPIClient postPostWithContent:@"I did stuff and stuff." section:@"grow" latitude:10.0 longitude:10.0 userID:@"oiou534iou345o"];
 }
 
 #pragma mark - Online Functionality

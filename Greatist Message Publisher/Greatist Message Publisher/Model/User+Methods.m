@@ -25,6 +25,19 @@
     return newUser;
 }
 
++ (instancetype) userWithFacebookID: (NSString *)facebookID
+                          inContext: (NSManagedObjectContext *)context
+{
+    User *newUser = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:context];
+    
+    if (newUser)
+    {
+        newUser.facebookID = facebookID;
+    }
+    
+    return newUser;
+}
+
 + (instancetype) uniqueUserWithName: (NSString *)name
                            uniqueID: (NSString *)uniqueID
                           inContext: (NSManagedObjectContext *)context
@@ -40,6 +53,44 @@
     if ([arrayOfMatches count] == 0)
     {
         return [User userWithName:name uniqueID:uniqueID inContext:context];
+    }
+    
+    return arrayOfMatches[0];
+}
+
++ (instancetype) uniqueUserWithFacebookID: (NSString *)facebookID
+                                inContext: (NSManagedObjectContext *)context
+{
+    NSFetchRequest *userSearch = [NSFetchRequest fetchRequestWithEntityName:@"User"];
+    NSPredicate *idCheck = [NSPredicate predicateWithFormat:@"facebookID==%@",facebookID];
+    userSearch.predicate = idCheck;
+    NSSortDescriptor *sortByID = [NSSortDescriptor sortDescriptorWithKey:@"facebookID" ascending:YES];
+    userSearch.sortDescriptors = @[sortByID];
+    
+    NSArray *arrayOfMatches = [context executeFetchRequest:userSearch error:nil];
+    
+    if ([arrayOfMatches count] == 0)
+    {
+        return [User userWithFacebookID:facebookID inContext:context];
+    }
+    
+    return arrayOfMatches[0];
+}
+
++ (instancetype) uniqueUserWithID: (NSString *)uniqueID
+                        inContext:(NSManagedObjectContext *)context
+{
+    NSFetchRequest *userSearch = [NSFetchRequest fetchRequestWithEntityName:@"User"];
+    NSPredicate *idCheck = [NSPredicate predicateWithFormat:@"uniqueID==%@",uniqueID];
+    userSearch.predicate = idCheck;
+    NSSortDescriptor *sortByName = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO];
+    userSearch.sortDescriptors = @[sortByName];
+    
+    NSArray *arrayOfMatches = [context executeFetchRequest:userSearch error:nil];
+    
+    if ([arrayOfMatches count] == 0)
+    {
+        return [User userWithName:nil uniqueID:uniqueID inContext:context];
     }
     
     return arrayOfMatches[0];

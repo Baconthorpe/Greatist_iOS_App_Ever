@@ -10,7 +10,7 @@
 
 @interface GRTComposePostViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextViewDelegate>
 
-@property NSArray *verticals;
+@property NSDictionary *verticals;
 
 
 @end
