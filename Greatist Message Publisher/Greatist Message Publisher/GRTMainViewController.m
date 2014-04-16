@@ -47,6 +47,8 @@
     [self initialize];
     [self setupNavBar];
     [self setupFooterToolbar];
+ 
+    
 //    [[GRTFacebookAPIClient sharedClient] verifyUserFacebookCachedInViewController:self];
     
     // Do any additional setup after loading the view.

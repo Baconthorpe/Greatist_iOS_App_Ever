@@ -8,6 +8,7 @@
 
 #import "GRTComposePostViewController.h"
 #import "GRTDataStore.h"
+#import "GRTSelectResponseViewController.h"
 
 @interface GRTComposePostViewController ()
 
@@ -17,10 +18,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *leftQuoteLabel;
 @property (weak, nonatomic) IBOutlet UILabel *rightQuoteLabel;
 @property (strong, nonatomic) Section *verticalSelected;
-@property (strong, nonatomic) UIButton *eatButton;
 @property (strong, nonatomic) NSArray *verticalButtons;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *selectedCells;
+@property (weak, nonatomic) IBOutlet UIButton *selectResponses;
 
 @property (strong, nonatomic) GRTDataStore *dataStore;
 
@@ -32,7 +33,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        //Custom initialization
     }
     return self;
 }
@@ -48,9 +49,12 @@
     
     [self setupCategoryButtons];
     [self setupPostContent];
-    [self setupPostButton];
+    //[self setupPostButton];
     [self setupResponseTable];
     [self growButtonTapped:nil];
+   [self.postContentTextView becomeFirstResponder];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,10 +69,17 @@
     [textView setTextColor:[UIColor greatistGrayColor]];
     [textView setText:@""];
 }
-
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    GRTSelectResponseViewController *nextViewController = segue.destinationViewController;
+    nextViewController.verticalPassed = self.verticalSelected;
+    nextViewController.content = self.postContentTextView.text;
+    
+}
 - (IBAction)backButtonTapped:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 
 #pragma mark - Helper Methods
 - (void)setupCategoryButtons
@@ -81,7 +92,7 @@
     [self.postView addSubview:eatButton];
     
     UILabel *eatLabel = [[UILabel alloc] initWithFrame:CGRectMake(7, 25, 30, 30)];
-    [eatLabel setText:@"EAT"];
+    [eatLabel setText:@"HEALTH"];
     [eatLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:10]];
     [eatLabel setTextColor:[UIColor greatistEatColor]];
     [eatButton addSubview:eatLabel];
@@ -94,23 +105,11 @@
     [self.postView addSubview:moveButton];
     
     UILabel *moveLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 25, 30, 30)];
-    [moveLabel setText:@"MOVE"];
+    [moveLabel setText:@"FITNESS"];
     [moveLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:10]];
     [moveLabel setTextColor:[UIColor greatistMoveColor]];
     [moveButton addSubview:moveLabel];
     
-    UIButton *playButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [playButton setFrame:CGRectMake(240, 15, 30, 30)];
-    [playButton setBackgroundImage:[UIImage imageNamed:@"Play_Colored60x60"] forState:UIControlStateNormal];
-    playButton.alpha = 0.3;
-    [playButton addTarget:self action:@selector(playButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-    [self.postView addSubview:playButton];
-    
-    UILabel *playLabel = [[UILabel alloc] initWithFrame:CGRectMake(3, 25, 30, 30)];
-    [playLabel setText:@"PLAY"];
-    [playLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:10]];
-    [playLabel setTextColor:[UIColor greatistPlayColor]];
-    [playButton addSubview:playLabel];
     
     UIButton *growButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [growButton setFrame:CGRectMake(195, 15, 30, 30)];
@@ -120,25 +119,11 @@
     [self.postView addSubview:growButton];
     
     UILabel *growLabel = [[UILabel alloc] initWithFrame:CGRectMake(1, 25, 30, 30)];
-    [growLabel setText:@"GROW"];
+    [growLabel setText:@"HAPPINESS"];
     [growLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:10]];
     [growLabel setTextColor:[UIColor greatistGrowColor]];
     [growButton addSubview:growLabel];
-    
-    UIButton *connectButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [connectButton setFrame:CGRectMake(140, 15, 30, 30)];
-    [connectButton setBackgroundImage:[UIImage imageNamed:@"Connect_Colored"] forState:UIControlStateNormal];
-    connectButton.alpha = 0.3;
-    [connectButton addTarget:self action:@selector(connectButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-    [self.postView addSubview:connectButton];
-    
-    UILabel *connectLabel = [[UILabel alloc] initWithFrame:CGRectMake(-5, 25, 50, 30)];
-    [connectLabel setText:@"CONNECT"];
-    [connectLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:10]];
-    [connectLabel setTextColor:[UIColor greatistConnectColor]];
-    [connectButton addSubview:connectLabel];
-    
-    self.verticalButtons = @[eatButton, moveButton, playButton, growButton, connectButton];
+ self.verticalButtons = @[eatButton, moveButton, growButton];
     
 }
 
@@ -230,7 +215,7 @@
     // Fix this to use current user and not Anne
     Post *newPost = [Post postWithContent:self.postContentTextView.text author:anne section:self.verticalSelected responses:responses inContext:self.dataStore.managedObjectContext];
     [self.dataStore saveContext];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    
     
 }
 
@@ -272,23 +257,6 @@
 }
 
 
--(void)playButtonTapped: (UIButton *)sender
-{
-    NSString *nameSought = @"Play";
-    NSPredicate *playSearch = [NSPredicate predicateWithFormat:@"name==%@", nameSought];
-    NSArray *playVerticals = [self.verticals filteredArrayUsingPredicate:playSearch];
-    self.verticalSelected= playVerticals[0];
-    
-    [self dimVerticalButtons];
-    UIButton *playButton = self.verticalButtons[2];
-    playButton.alpha = 1.0;
-    
-    self.leftQuoteLabel.textColor = [UIColor greatistPlayColor];
-    self.rightQuoteLabel.textColor = [UIColor greatistPlayColor];
-    self.postContentTextView.text = @"Discover a new drink last night?";
-}
-
-
 -(void) growButtonTapped: (UIButton *)sender
 {
     NSString *nameSought = @"Grow";
@@ -297,7 +265,7 @@
     self.verticalSelected= growVerticals[0];
     
     [self dimVerticalButtons];
-    UIButton *growButton = self.verticalButtons[3];
+    UIButton *growButton = self.verticalButtons[2];
     growButton.alpha = 1.0;
     
     self.leftQuoteLabel.textColor = [UIColor greatistGrowColor];
@@ -305,21 +273,6 @@
     self.postContentTextView.text = @"How do you feel today?";
 }
 
--(void) connectButtonTapped: (UIButton *)sender
-{
-    NSString *nameSought = @"Connect";
-    NSPredicate *connectSearch = [NSPredicate predicateWithFormat:@"name==%@", nameSought];
-    NSArray *connectVerticals = [self.verticals filteredArrayUsingPredicate:connectSearch];
-    self.verticalSelected= connectVerticals[0];
-    
-    [self dimVerticalButtons];
-    UIButton *connectButton = self.verticalButtons[4];
-    connectButton.alpha = 1.0;
-    
-    self.leftQuoteLabel.textColor = [UIColor greatistConnectColor];
-    self.rightQuoteLabel.textColor = [UIColor greatistConnectColor];
-    self.postContentTextView.text = @"Talk to the World";
-}
 
 - (void)dimVerticalButtons
 {
@@ -329,11 +282,71 @@
 }
 
 
+//-(void) connectButtonTapped: (UIButton *)sender
+//{
+//    NSString *nameSought = @"Connect";
+//    NSPredicate *connectSearch = [NSPredicate predicateWithFormat:@"name==%@", nameSought];
+//    NSArray *connectVerticals = [self.verticals filteredArrayUsingPredicate:connectSearch];
+//    self.verticalSelected= connectVerticals[0];
+//
+//    [self dimVerticalButtons];
+//    UIButton *connectButton = self.verticalButtons[4];
+//    connectButton.alpha = 1.0;
+//
+//    self.leftQuoteLabel.textColor = [UIColor greatistConnectColor];
+//    self.rightQuoteLabel.textColor = [UIColor greatistConnectColor];
+//    self.postContentTextView.text = @"Talk to the World";
+//}
 
 
 
 
 
+//    UIButton *playButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//    [playButton setFrame:CGRectMake(240, 15, 30, 30)];
+//    [playButton setBackgroundImage:[UIImage imageNamed:@"Play_Colored60x60"] forState:UIControlStateNormal];
+//    playButton.alpha = 0.3;
+//    [playButton addTarget:self action:@selector(playButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.postView addSubview:playButton];
+//
+//    UILabel *playLabel = [[UILabel alloc] initWithFrame:CGRectMake(3, 25, 30, 30)];
+//    [playLabel setText:@"PLAY"];
+//    [playLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:10]];
+//    [playLabel setTextColor:[UIColor greatistPlayColor]];
+//    [playButton addSubview:playLabel];
+
+
+
+//-(void)playButtonTapped: (UIButton *)sender
+//{
+//    NSString *nameSought = @"Play";
+//    NSPredicate *playSearch = [NSPredicate predicateWithFormat:@"name==%@", nameSought];
+//    NSArray *playVerticals = [self.verticals filteredArrayUsingPredicate:playSearch];
+//    self.verticalSelected= playVerticals[0];
+//
+//    [self dimVerticalButtons];
+//    UIButton *playButton = self.verticalButtons[2];
+//    playButton.alpha = 1.0;
+//
+//    self.leftQuoteLabel.textColor = [UIColor greatistPlayColor];
+//    self.rightQuoteLabel.textColor = [UIColor greatistPlayColor];
+//    self.postContentTextView.text = @"Discover a new drink last night?";
+//}
+//
+
+
+//    UIButton *connectButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//    [connectButton setFrame:CGRectMake(140, 15, 30, 30)];
+//    [connectButton setBackgroundImage:[UIImage imageNamed:@"Connect_Colored"] forState:UIControlStateNormal];
+//    connectButton.alpha = 0.3;
+//    [connectButton addTarget:self action:@selector(connectButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.postView addSubview:connectButton];
+//
+//    UILabel *connectLabel = [[UILabel alloc] initWithFrame:CGRectMake(-5, 25, 50, 30)];
+//    [connectLabel setText:@"CONNECT"];
+//    [connectLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:10]];
+//    [connectLabel setTextColor:[UIColor greatistConnectColor]];
+//    [connectButton addSubview:connectLabel];
 
 
 
