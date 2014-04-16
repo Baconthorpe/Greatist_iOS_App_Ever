@@ -96,9 +96,9 @@
                              inContext: (NSManagedObjectContext *)context
 {
     NSFetchRequest *postSearch = [NSFetchRequest fetchRequestWithEntityName:@"Post"];
-    NSPredicate *idCheck = [NSPredicate predicateWithFormat:@"user==%@ AND timeStamp",user,timeStamp];
+    NSPredicate *idCheck = [NSPredicate predicateWithFormat:@"content==%@",content];
     postSearch.predicate = idCheck;
-    NSSortDescriptor *sortByName = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO];
+    NSSortDescriptor *sortByName = [NSSortDescriptor sortDescriptorWithKey:@"content" ascending:NO];
     postSearch.sortDescriptors = @[sortByName];
     
     NSArray *arrayOfMatches = [context executeFetchRequest:postSearch error:nil];
