@@ -15,7 +15,7 @@
 #import "Post+Methods.h"
 #import "Section+Methods.h"
 #import "GRTFacebookAPIClient.h"
-
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface GRTMainViewController ()
 
@@ -175,9 +175,15 @@
 
 - (IBAction)logoutButtonTapped:(UIBarButtonItem *)sender
 {
-//    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//    GRTFacebookLoginViewController *facebookLoginVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"facebookLoginVC"];
-//    [self presentViewController:facebookLoginVC animated:YES completion:nil];
+    [FBSession.activeSession closeAndClearTokenInformation];
+    
+    UIViewController *startVC = [self.navigationController presentingViewController];
+    [startVC dismissViewControllerAnimated:YES completion:^{
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        GRTFacebookLoginViewController *facebookLoginVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"facebookLoginVC"];
+        [startVC presentViewController:facebookLoginVC animated:NO completion:nil];
+    }];
+
 }
 
 #pragma mark - Cell Methods

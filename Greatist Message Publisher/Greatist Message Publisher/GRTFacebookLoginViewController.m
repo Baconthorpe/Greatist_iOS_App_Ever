@@ -28,7 +28,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-
     }
     return self;
 }
@@ -36,13 +35,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self initialize];
-
-    
-    // Do any additional setup after loading the view.
-    
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self initialize];
+
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -105,12 +105,16 @@
     //example of getting friend IDs from facebook
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
     [[GRTFacebookAPIClient sharedClient] getFriendIDsWithCompletion:^(NSArray *friendIDs)
      {
          [self getPostsForFriends:friendIDs];
          [self createUserIfNew];
          [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-         [self performSegueWithIdentifier:@"loginToMain" sender:nil];
+         
+         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+         UINavigationController *mainNavBar = [mainStoryboard instantiateViewControllerWithIdentifier:@"mainNavBarController"];
+         [self presentViewController:mainNavBar animated:YES completion:nil];
      }];
     
 }
@@ -125,7 +129,6 @@
 
 - (void) initialize
 {
-    [FBProfilePictureView class];
     FBLoginView *loginView = [[FBLoginView alloc] initWithReadPermissions:@[@"basic_info", @"email", @"user_likes"]];
     loginView.delegate = self;
     [self.view addSubview:loginView];
@@ -159,12 +162,14 @@
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[superview]-(<=1)-[nameLabel]" options:NSLayoutFormatAlignAllCenterY metrics:nil views:views]];
     
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[superview]-(<=100)-[appName]-(50)-[profilePicture]-[nameLabel]-[loginView]" options:NSLayoutFormatAlignAllCenterX metrics:nil views:views]];
+    
 }
 
 - (void)getPostsForFriends:(NSArray *)friendIDs
 {
     [[GRTDataManager sharedManager] fetchPostsForFacebookFriends:friendIDs
                                                   WithCompletion:^(NSArray *posts) {
+        
         NSLog(@"Number of Posts: %lu", (unsigned long)[posts count]);
     }];
 }

@@ -23,6 +23,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [FBProfilePictureView class];
+    [FBLoginView class];
+    
     self.dataStore = [GRTDataStore sharedDataStore];
     [self.dataStore starterData];
     //[self.dataStore fetchPostsForCurrentUser];
@@ -32,14 +34,24 @@
     self.window.backgroundColor = [UIColor whiteColor];
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     GRTFacebookLoginViewController *facebookLoginVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"facebookLoginVC"];
-    self.window.rootViewController = facebookLoginVC;
+    UINavigationController *mainNavBar = [mainStoryboard instantiateViewControllerWithIdentifier:@"mainNavBarController"];
+    
     [self.window makeKeyAndVisible];
+    self.window.rootViewController = facebookLoginVC;
     
     if ([[GRTFacebookAPIClient sharedClient] isUserFacebookCached]) {
-        GRTMainTableViewController *mainVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"mainNavBarController"];
-        [facebookLoginVC presentViewController:mainVC animated:NO completion:nil];
+        [FBSession openActiveSessionWithReadPermissions:@[@"basic_info", @"email", @"user_likes"]
+                                           allowLoginUI:NO
+                                      completionHandler:^(FBSession *session, FBSessionState state, NSError *error) {
+                                          // Handler for session state changes
+                                          // This method will be called EACH time the session state changes,
+                                          // also for intermediate states and NOT just when the session open
+                                          //[self sessionStateChanged:session state:state error:error];
+                                      }];
+        [facebookLoginVC presentViewController:mainNavBar animated:YES completion:nil];
+        NSLog(@"Have Token");
     }
-
+    
     return YES;
 }
 
@@ -85,6 +97,7 @@
     BOOL wasHandled = [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
     
     // You can add your app-specific url handling code here if needed
+    NSLog(@"%@", url);
     return wasHandled;
 }
 
