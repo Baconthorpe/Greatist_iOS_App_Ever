@@ -53,9 +53,11 @@
     [self setupResponseTable];
     [self healthButtonTapped:nil];
    [self.postContentTextView becomeFirstResponder];
+    
+    
 //self.verticals = @[@"happiness", @"health", @"fitness", @"Happiness", @"Health", @"Fitness"];
     
-    
+    self.verticals = [self.dataStore dictionaryOfSections];
     
 }
 
@@ -74,8 +76,8 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     GRTSelectResponseViewController *nextViewController = segue.destinationViewController;
-    self.verticalSelected = nextViewController.verticalPassed;
- nextViewController.content =    self.postContentTextView.text;
+    nextViewController.verticalPassed = self.verticalSelected;
+    nextViewController.content =    self.postContentTextView.text;
     
 }
 - (IBAction)backButtonTapped:(id)sender {
@@ -228,10 +230,7 @@
 
 -(void)healthButtonTapped: (UIButton *)sender
 {
-    NSString *nameSought = @"Health";
-    NSPredicate *healthSearch = [NSPredicate predicateWithFormat:@"name==%@",nameSought];
-    NSArray *healthVerticals = [self.verticals filteredArrayUsingPredicate:healthSearch];
-    self.verticalSelected= healthVerticals[0];
+    self.verticalSelected = self.verticals[@"health"];
     
     [self dimVerticalButtons];
     UIButton *healthButton = self.verticalButtons[0];
@@ -244,10 +243,7 @@
 
 -(void)fitnessButtonTapped: (UIButton *)sender
 {
-    NSString *nameSought = @"Fitness";
-    NSPredicate *fitnessSearch = [NSPredicate predicateWithFormat:@"name==%@", nameSought];
-    NSArray *fitnessVerticals = [self.verticals filteredArrayUsingPredicate:fitnessSearch];
-    self.verticalSelected= fitnessVerticals[0];
+    self.verticalSelected = self.verticals[@"fitness"];
     
     [self dimVerticalButtons];
     UIButton *fitnessButton = self.verticalButtons[1];
@@ -262,10 +258,7 @@
 
 -(void) happinessButtonTapped: (UIButton *)sender
 {
-    NSString *nameSought = @"Happiness";
-    NSPredicate *happinessSearch = [NSPredicate predicateWithFormat:@"name==%@", nameSought];
-    NSArray *happinessVerticals = [self.verticals filteredArrayUsingPredicate:happinessSearch];
-    self.verticalSelected= happinessVerticals[0];
+    self.verticalSelected = self.verticals[@"happiness"];
     
     [self dimVerticalButtons];
     UIButton *happinessButton = self.verticalButtons[2];

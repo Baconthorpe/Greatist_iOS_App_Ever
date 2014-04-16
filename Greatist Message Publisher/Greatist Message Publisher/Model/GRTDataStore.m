@@ -190,6 +190,23 @@
     }];
 }
 
+- (NSDictionary *) dictionaryOfSections
+{
+    NSFetchRequest *sectionFetch = [NSFetchRequest fetchRequestWithEntityName:@"Section"];
+    NSSortDescriptor *nameSort = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO];
+    sectionFetch.sortDescriptors = @[nameSort];
+    
+    NSArray *fetchResults = [self.managedObjectContext executeFetchRequest:sectionFetch error:nil];
+    
+    NSMutableDictionary *dictionaryToReturn = [NSMutableDictionary new];
+    for (Section *section in fetchResults) {
+        NSDictionary *sectionEntry = @{section.name:section};
+        [dictionaryToReturn addEntriesFromDictionary:sectionEntry];
+    }
+    
+    return dictionaryToReturn;
+}
+
 
 #pragma mark - Startup
 
@@ -199,9 +216,9 @@
     
     if ([[self.managedObjectContext executeFetchRequest:sectionFetch error:nil] count] == 0)
     {
-        Section *happiness = [Section sectionWithName:@"Happiness" inContext:self.managedObjectContext];
-        Section *health = [Section sectionWithName:@"Health" inContext:self.managedObjectContext];
-        Section *fitness = [Section sectionWithName:@"Fitness" inContext:self.managedObjectContext];
+        Section *happiness = [Section sectionWithName:@"happiness" inContext:self.managedObjectContext];
+        Section *health = [Section sectionWithName:@"health" inContext:self.managedObjectContext];
+        Section *fitness = [Section sectionWithName:@"fitness" inContext:self.managedObjectContext];
         //Section *grow = [Section sectionWithName:@"Grow" inContext:self.managedObjectContext];
         
         User *anne = [User userWithName:@"Anne" uniqueID:@"anne" inContext:self.managedObjectContext];

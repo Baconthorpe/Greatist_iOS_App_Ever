@@ -31,6 +31,8 @@
 
 + (instancetype) sharedDataStore;
 
+- (NSDictionary *) dictionaryOfSections;
+
 - (void) starterData;
 - (void) fetchValidResponses;
 
