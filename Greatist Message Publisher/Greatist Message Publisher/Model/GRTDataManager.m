@@ -57,12 +57,28 @@
 }
 
 #pragma mark - User Helper Methods
+- (void) fetchUsersWithCompletion:(void (^)(NSArray *users))completionBlock
+{
+    [self.parseAPIClient getUsersWithCompletion:^(NSArray *users) {
+        completionBlock(users);
+    }];
+}
 
 - (void) createNewUserWithName:(NSString *)nameString
                     FacebookID:(NSString *)facebookIDString
 {
     [self.parseAPIClient postUserWithName:nameString
                                FacebookID:facebookIDString];
+}
+
+#pragma mark - Post Helper Methods
+- (void) fetchPostsForFacebookFriends:(NSArray *)friendIDs
+                       WithCompletion:(void (^)(NSArray *posts))completionBlock
+{
+    [self.parseAPIClient getPostsWithFriendIDs:friendIDs
+                                WithCompletion:^(NSArray *posts) {
+                                    completionBlock(posts);
+                                }];
 }
 
 

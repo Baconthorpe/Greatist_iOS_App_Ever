@@ -204,9 +204,30 @@
 
 #pragma mark - GRTUser Helper Methods
 
-- (BOOL) doesUserExistWithFacebookID:(NSString *)facebookIDString
+- (void)getUsersWithCompletion:(void (^)(NSArray *))completionBlock
 {
-    return YES;
+    NSString *parseUserURL = [NSString stringWithFormat:@"https://api.parse.com/1/classes/GRTUser"];
+    NSURL *url = [NSURL URLWithString:parseUserURL];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request addValue:self.restAPIKey forHTTPHeaderField:@"X-Parse-REST-API-Key"];
+    [request addValue:self.appID forHTTPHeaderField:@"X-Parse-Application-Id"];
+    
+    AFHTTPRequestOperation *newOp = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    request.HTTPMethod = @"GET";
+    
+    [newOp setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id userObject) {
+        NSError *error = nil;
+        NSDictionary *userDictionary = [NSJSONSerialization JSONObjectWithData:userObject options:NSJSONReadingAllowFragments error:&error];
+        if (error) {
+            NSLog(@"User JSON Serialization Error: %@", error);
+        }
+        completionBlock(userDictionary[@"results"]);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@",error);
+    }];
+    
+    [newOp start];
 }
 
 - (void) postUserWithName:(NSString *)name
@@ -236,7 +257,7 @@
 }
 
 - (void) getPostsWithFriendIDs:(NSArray *)friendsArray
-                WithCompletion:(void (^)(NSDictionary *))completionBlock
+                WithCompletion:(void (^)(NSArray *))completionBlock
 {
     NSString *friendsArrayString = [friendsArray componentsJoinedByString:@"\",\""];
     
@@ -260,7 +281,7 @@
         if (error) {
             NSLog(@"FriendPosts JSON Serialization Error: %@", error);
         }
-        completionBlock(responseDictionary);
+        completionBlock(responseDictionary[@"result"]);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"FriendPosts (Post) Error: %@",error);
     }];

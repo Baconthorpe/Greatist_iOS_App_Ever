@@ -31,10 +31,10 @@
 
 // GRTPosts
 - (void) getPostsWithFriendIDs:(NSArray *)friendsArray
-                WithCompletion:(void (^)(NSDictionary *posts))completionBlock;
+                WithCompletion:(void (^)(NSArray *posts))completionBlock;
 
 // GRTUser
-- (BOOL) doesUserExistWithFacebookID:(NSString *)facebookIDString;
+- (void)getUsersWithCompletion:(void (^)(NSArray *users))completionBlock;
 - (void) postUserWithName:(NSString *)name
                FacebookID:(NSString *)fbookID;
 
