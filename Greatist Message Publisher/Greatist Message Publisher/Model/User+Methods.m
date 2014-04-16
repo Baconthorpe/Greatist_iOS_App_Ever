@@ -45,4 +45,23 @@
     return arrayOfMatches[0];
 }
 
++ (instancetype) uniqueUserWithID: (NSString *)uniqueID
+                        inContext:(NSManagedObjectContext *)context
+{
+    NSFetchRequest *userSearch = [NSFetchRequest fetchRequestWithEntityName:@"User"];
+    NSPredicate *idCheck = [NSPredicate predicateWithFormat:@"uniqueID==%@",uniqueID];
+    userSearch.predicate = idCheck;
+    NSSortDescriptor *sortByName = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO];
+    userSearch.sortDescriptors = @[sortByName];
+    
+    NSArray *arrayOfMatches = [context executeFetchRequest:userSearch error:nil];
+    
+    if ([arrayOfMatches count] == 0)
+    {
+        return [User userWithName:nil uniqueID:uniqueID inContext:context];
+    }
+    
+    return arrayOfMatches[0];
+}
+
 @end

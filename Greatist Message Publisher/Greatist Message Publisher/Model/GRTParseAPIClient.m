@@ -98,6 +98,7 @@
                     latitude: (CGFloat)latitude
                    longitude: (CGFloat)longitude
                       userID: (NSString *)userID
+              withCompletion: (void (^)(NSDictionary *))completion
 {
     NSString *parseDatabaseURL = @"https://api.parse.com/1/classes/Post";
     NSURL *url = [NSURL URLWithString:parseDatabaseURL];
@@ -115,6 +116,7 @@
     
     [newOp setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"%@",responseObject);
+        completion(responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%@",error);
     }];

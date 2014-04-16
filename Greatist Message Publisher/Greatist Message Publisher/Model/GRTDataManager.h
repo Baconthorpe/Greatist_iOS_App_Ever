@@ -22,4 +22,9 @@
                      FacebookAPIClient:(GRTFacebookAPIClient *)facebookClient
                   ManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
 
+- (Post *) interpretPostFromDictionary: (NSDictionary *)postDictionary;
+- (void) interpretArrayOfPostDictionaries: (NSArray *)arrayOfPostDictionaries;
+- (void) postPostAndSaveIfSuccessfulForContent: (NSString *)content
+                                     inSection: (Section *)section;
+
 @end

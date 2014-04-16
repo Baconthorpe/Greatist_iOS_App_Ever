@@ -56,5 +56,45 @@
     return _sharedManager;
 }
 
+#pragma mark - Import Methods
+
+- (Post *) interpretPostFromDictionary: (NSDictionary *)postDictionary
+{
+    User *user = [User uniqueUserWithID:postDictionary[@"UserID"] inContext:self.managedObjectContext];
+    
+    Section *section = [Section uniqueSectionWithName:postDictionary[@"section"] inContext:self.managedObjectContext];
+    
+    Post *newPost = [Post uniquePostWithContent:postDictionary[@"content"] author:user section:section responses:nil timeStamp:nil inContext:self.managedObjectContext];
+    
+    
+    
+    return newPost;
+}
+
+- (void) interpretArrayOfPostDictionaries: (NSArray *)arrayOfPostDictionaries
+{
+    for (NSDictionary *postDictionary in arrayOfPostDictionaries) {
+        [self interpretPostFromDictionary:postDictionary];
+    }
+}
+
+- (void) postPostAndSaveIfSuccessfulForContent: (NSString *)content
+                                     inSection: (Section *)section
+{
+    [self.parseAPIClient postPostWithContent:content
+                                     section:section.name
+                                    latitude:0.0
+                                   longitude:0.0
+                                      userID:nil
+                              withCompletion:^(NSDictionary *result) {
+                                  [Post uniquePostWithContent:content
+                                                       author:nil
+                                                      section:section
+                                                    responses:nil
+                                                    timeStamp:[NSDate date]
+                                                    inContext:self.managedObjectContext];
+                              }];
+}
+
 
 @end
