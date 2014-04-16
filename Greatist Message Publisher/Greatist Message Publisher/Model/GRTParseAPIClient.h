@@ -11,6 +11,8 @@
 
 @interface GRTParseAPIClient : NSObject
 
++ (instancetype)sharedClient;
+
 - (void) getRelevantPostsWithCompletion:(void (^)(NSArray *))completion;
 - (void) getValidResponsesWithCompletion:(void (^)(NSArray *))completion;
 
@@ -19,15 +21,16 @@
                     latitude: (CGFloat)latitude
                    longitude: (CGFloat)longitude
                       userID: (NSString *)userID;
+- (void) putPost: (Post *)post;
 
 - (void) postResponseWithContent: (NSString *)content
                        timeStamp: (NSDate *)timeStamp
                           userID: (NSString *)userID
                             post: (NSString *)post;
 
-- (void) postUserWithFbookID: (NSString *)fbookID;
+// GRTUser
+- (void) postUserWithName:(NSString *)name
+                  FbookID:(NSString *)fbookID;
 
-- (void) putPost: (Post *)post;
-                   
                    
 @end

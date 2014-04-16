@@ -10,12 +10,16 @@
 #import "GRTMainTableViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import "GRTFacebookAPIClient.h"
+#import "GRTParseAPIClient.h"
 
 @interface GRTFacebookLoginViewController () <FBLoginViewDelegate>
 
 @property (strong, nonatomic) UILabel *appName;
 @property (strong, nonatomic) FBProfilePictureView *profilePictureView;
 @property (strong, nonatomic) UILabel *nameLabel;
+
+@property (strong, nonatomic) NSString *facebookName;
+@property (strong, nonatomic) NSString *facebookID;
 
 @end
 
@@ -92,6 +96,9 @@
 {
     self.profilePictureView.profileID = user.id;
     self.nameLabel.text = [NSString stringWithFormat:@"Hi, %@",user.name];
+    self.facebookID = user.id;
+    self.facebookName = user.name;
+    NSLog(@"FacebookID: %@", self.facebookID);
 }
 
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView
@@ -103,6 +110,7 @@
     [[GRTFacebookAPIClient sharedClient] getFriendIDsWithCompletion:^(NSArray *friendIDs)
      {
          [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+         [[GRTParseAPIClient sharedClient] postUserWithName:self.facebookName FbookID:self.facebookID];
          [self performSegueWithIdentifier:@"loginToMain" sender:nil];
      }];
     
