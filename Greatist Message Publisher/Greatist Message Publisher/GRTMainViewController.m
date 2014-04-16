@@ -189,7 +189,7 @@
     Post *post = [self.dataStore.postFRController objectAtIndexPath:indexPath];
     [cell configureWithPost:post];
     
-    if ([post.section.name isEqualToString:(@"Happiness")])
+    if ([post.section.name isEqualToString:(@"happiness")])
     {
         cell.backgroundColor = [UIColor greatistHappinessColorSecondary];
         cell.squareLabelLeft.backgroundColor = [UIColor greatistHappinessColor];
@@ -200,13 +200,13 @@
 //        cell.backgroundColor = [UIColor greatistFitnessColorSecondary];
 //        cell.buttonBar.backgroundColor=[UIColor whiteColor];
    // }
-    else if ([post.section.name isEqualToString:(@"Fitness")])
+    else if ([post.section.name isEqualToString:(@"fitness")])
     {
         cell.backgroundColor = [UIColor greatistFitnessColorSecondary];
         cell.squareLabelLeft.backgroundColor = [UIColor greatistFitnessColor];
         cell.buttonBar.backgroundColor=[UIColor whiteColor];
     }
-    else if ([post.section.name isEqualToString:(@"Health")])
+    else if ([post.section.name isEqualToString:(@"health")])
     {
         cell.backgroundColor = [UIColor greatistHealthColorSecondary];
         cell.squareLabelRight.backgroundColor = [UIColor greatistHealthColor];
