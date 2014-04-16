@@ -74,8 +74,6 @@
     
     Post *newPost = [Post uniquePostWithContent:postDictionary[@"content"] author:user section:section responses:nil timeStamp:nil inContext:self.managedObjectContext];
     
-    
-    
     return newPost;
 }
 
@@ -107,6 +105,8 @@
                                   [self.dataStore saveContext];
                               }];
 }
+
+
 
 
 @end

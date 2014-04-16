@@ -153,7 +153,8 @@
 
 }
 
-- (void) updatePostID:(NSString *)postObjectID WithResponses:(NSArray *)responseArray
+- (void) updatePostID:(NSString *)postObjectID
+        WithResponses:(NSArray *)responseArray
 {
     
     NSString *parsePostURL = [NSString stringWithFormat:@"https://api.parse.com/1/classes/GRTPost/%@", postObjectID];
