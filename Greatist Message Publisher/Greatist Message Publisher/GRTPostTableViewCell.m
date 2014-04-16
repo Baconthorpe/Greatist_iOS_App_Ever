@@ -8,6 +8,7 @@
 
 #import "GRTPostTableViewCell.h"
 #import "Post+Methods.h"
+#import "GRTCornerTriangles.h"
 
 @implementation GRTPostTableViewCell
 
@@ -23,7 +24,6 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
-
     // Configure the view for the selected state
 }
 
@@ -49,7 +49,7 @@
     UIView *blueView = [UIView new];
     blueView.backgroundColor = [UIColor greatistBlueColor];
     self.cell.backgroundView = blueView;
-    
+    [self.buttonBar setBackgroundColor:[UIColor greatistLightGrayColor]];
 
 //    FAKFontAwesome *flagIcon = [FAKFontAwesome flagIconWithSize:15];
 //    [flagIcon addAttribute:NSForegroundColorAttributeName value:[UIColor redColor]];

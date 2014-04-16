@@ -15,6 +15,7 @@
 #import "Post+Methods.h"
 #import "Section+Methods.h"
 #import "GRTFacebookAPIClient.h"
+#import "GRTCornerTriangles.h"
 
 
 @interface GRTMainViewController ()
@@ -24,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *postsTableView;
 @property (weak, nonatomic) IBOutlet UIToolbar *logoutBarButtonItem;
 @property (strong, nonatomic) Section *section;
+@property (strong, nonatomic) GRTCornerTriangles *cornerTriangle;
 
 @property (strong, nonatomic) GRTDataStore *dataStore;
 
@@ -47,6 +49,9 @@
     [self initialize];
     [self setupNavBar];
     [self setupFooterToolbar];
+    
+    GRTCornerTriangles *cornerTriangle = [GRTCornerTriangles new];
+    
 //    [[GRTFacebookAPIClient sharedClient] verifyUserFacebookCachedInViewController:self];
     
     // Do any additional setup after loading the view.
@@ -160,7 +165,8 @@
 }
 
 
-- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
+{
     [self.postsTableView beginUpdates];
 }
 
@@ -187,30 +193,63 @@
     Post *post = [self.dataStore.postFRController objectAtIndexPath:indexPath];
     [cell configureWithPost:post];
     
-    if ([post.section.name isEqualToString:(@"Grow")])
-    {
-        cell.backgroundColor = [UIColor greatistHappinessColorSecondary];
-        cell.squareLabelLeft.backgroundColor = [UIColor greatistHappinessColor];
-        cell.buttonBar.backgroundColor=[UIColor whiteColor];
-    }
-    else if ([post.section.name isEqualToString:(@"Play")])
-    {
-        cell.backgroundColor = [UIColor greatistFitnessColorSecondary];
-        cell.buttonBar.backgroundColor=[UIColor whiteColor];
-    }
-    else if ([post.section.name isEqualToString:(@"Move")])
-    {
-        cell.backgroundColor = [UIColor greatistFitnessColorSecondary];
-        cell.squareLabelLeft.backgroundColor = [UIColor greatistFitnessColor];
-        cell.buttonBar.backgroundColor=[UIColor whiteColor];
-    }
-    else if ([post.section.name isEqualToString:(@"Eat")])
-    {
-        cell.backgroundColor = [UIColor greatistHealthColorSecondary];
-        cell.squareLabelRight.backgroundColor = [UIColor greatistHealthColor];
-        cell.buttonBar.backgroundColor=[UIColor whiteColor];
-    }
+    GRTCornerTriangles *leftCornerTriangle = [[GRTCornerTriangles alloc] initWithFrame:cell.frame IsLeftTriangle:YES withFillColor:[UIColor greatistFitnessColor]];
 
+    GRTCornerTriangles *rightCornerTriangle = [[GRTCornerTriangles alloc] initWithFrame:cell.frame IsLeftTriangle:NO withFillColor:[UIColor greatistFitnessColor]];
+    
+    if (indexPath.row == 2) {
+        NSLog(@"I'm broken");
+    }
+    
+    if (([post.section.name isEqualToString:(@"Fitness")]) && (indexPath.row % 2 == 0))
+    {
+        cell.backgroundColor = [UIColor greatistFitnessColor];
+        cell.buttonBar.backgroundColor=[UIColor whiteColor];
+        [cell.contentView addSubview:leftCornerTriangle];
+        [leftCornerTriangle setFillColor:[UIColor greatistFitnessColorSecondary]];
+    }
+    else if (([post.section.name isEqualToString:(@"Fitness")]) && (!indexPath.row % 2 == 0))
+    {
+        cell.backgroundColor = [UIColor greatistFitnessColor];
+        cell.buttonBar.backgroundColor=[UIColor whiteColor];
+        [cell.contentView addSubview:rightCornerTriangle];
+        [rightCornerTriangle setFillColor:[UIColor greatistFitnessColorSecondary]];
+    }
+    else if (([post.section.name isEqualToString:(@"Health")]) && (indexPath.row % 2 == 0))
+    {
+        cell.backgroundColor = [UIColor greatistHealthColor];
+        cell.buttonBar.backgroundColor=[UIColor whiteColor];
+        [cell.contentView addSubview:leftCornerTriangle];
+        [leftCornerTriangle setFillColor:[UIColor greatistHealthColorSecondary]];
+    }
+    else if (([post.section.name isEqualToString:(@"Health")]) && (!indexPath.row % 2 == 0))
+    {
+        cell.backgroundColor = [UIColor greatistHealthColor];
+        cell.buttonBar.backgroundColor=[UIColor whiteColor];
+        [cell.contentView addSubview:rightCornerTriangle];
+        [rightCornerTriangle setFillColor:[UIColor greatistHealthColorSecondary]];
+
+    }
+    else if (([post.section.name isEqualToString:(@"Happiness")]) && (indexPath.row % 2 == 0))
+    {
+        cell.backgroundColor = [UIColor greatistHappinessColor];
+        cell.buttonBar.backgroundColor=[UIColor whiteColor];
+        [cell.contentView addSubview:leftCornerTriangle];
+        [leftCornerTriangle setFillColor:[UIColor greatistHappinessColorSecondary]];
+
+    }
+    else if (([post.section.name isEqualToString:(@"Happiness")]) && (!indexPath.row % 2 == 0))
+    {
+        cell.backgroundColor = [UIColor greatistHappinessColor];
+        cell.buttonBar.backgroundColor=[UIColor whiteColor];
+        [cell.contentView addSubview:rightCornerTriangle];
+        [rightCornerTriangle setFillColor:[UIColor greatistHappinessColorSecondary]];
+
+        
+    }
+    [leftCornerTriangle setNeedsDisplay];
+    [rightCornerTriangle setNeedsDisplay];
+    
     return cell;
 }
 
@@ -246,7 +285,7 @@
 #pragma mark - Helper Methods
 - (void)initialize
 {
-    [self.postsTableView registerNib:[UINib nibWithNibName:@"GRTTableViewCell" bundle:nil] forCellReuseIdentifier:@"postCell"];
+   [self.postsTableView registerNib:[UINib nibWithNibName:@"GRTTableViewCell" bundle:nil] forCellReuseIdentifier:@"postCell"];
     self.dataStore = [GRTDataStore sharedDataStore];
     self.postsTableView.delegate = self;
     self.postsTableView.dataSource = self;
