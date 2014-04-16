@@ -17,10 +17,24 @@
                        inContext: (NSManagedObjectContext *)context;
 
 + (instancetype) postWithContent: (NSString *)content
+                          author: (User *)user
+                         section: (Section *)section
+                       responses: (NSSet *)responses
+                       timeStamp: (NSDate *)timeStamp
+                       inContext: (NSManagedObjectContext *)context;
+
++ (instancetype) postWithContent: (NSString *)content
                        inContext: (NSManagedObjectContext *)context;
 
 - (NSInteger) countOfResponsesWithContent: (NSString *)responseContent;
 
 - (NSDictionary *) dictionaryOfResponses;
+
++ (instancetype) uniquePostWithContent: (NSString *)content
+                                author: (User *)user
+                               section: (Section *)section
+                             responses: (NSSet *)responses
+                             timeStamp: (NSDate *)timeStamp
+                             inContext: (NSManagedObjectContext *)context;
 
 @end

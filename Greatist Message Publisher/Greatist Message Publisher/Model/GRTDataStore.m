@@ -164,7 +164,7 @@
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
-#pragma mark - Basic Fetches
+#pragma mark - Basic Data Fetches
 
 - (User *) retrieveUserByUniqueID: (NSString *)uniqueID
 {
@@ -176,17 +176,6 @@
     
     return [self.managedObjectContext executeFetchRequest:userFetch error:nil][0];
 }
-
-- (NSArray *) fetchPostsForCurrentUser
-{
-    [self.facebookAPIClient facebookLoginWithCompletion:^(NSArray *facebookFriends) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.facebookFriends = facebookFriends;
-        });
-    }];
-    return self.facebookFriends;
-}
-
 
 
 - (void) fetchValidResponses
@@ -279,7 +268,28 @@
     [self.parseAPIClient postPostWithContent:@"I did stuff and stuff." section:@"grow" latitude:10.0 longitude:10.0 userID:@"oiou534iou345o"];
 }
 
+#pragma mark - Online Functionality
 
+- (void) createUserWithFacebookID: (NSString *)facebookID
+{
+    
+}
+
+- (void) createPostWithContent: (NSString *)content
+                     inSection: (Section *)section
+{
+    
+}
+
+- (void) getRecentPosts
+{
+    
+}
+
+- (void) getSocialPosts
+{
+    
+}
 
 
 @end

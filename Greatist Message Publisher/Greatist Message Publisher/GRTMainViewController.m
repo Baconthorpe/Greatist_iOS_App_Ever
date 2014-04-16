@@ -7,13 +7,14 @@
 //
 
 #import "GRTMainViewController.h"
-#import "GRTDataStore.h"
-#import "Post+Methods.h"
-#import "GRTPostTableViewCell.h"
+#import "GRTFacebookLoginViewController.h"
 #import "GRTPostDetailViewController.h"
 #import "GRTComposePostViewController.h"
+#import "GRTPostTableViewCell.h"
+#import "GRTDataStore.h"
+#import "Post+Methods.h"
 #import "Section+Methods.h"
-#import "Section.h"
+#import "GRTFacebookAPIClient.h"
 
 
 @interface GRTMainViewController ()
@@ -21,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *composePostButton;
 - (IBAction)composePostButtonTapped:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *postsTableView;
+@property (weak, nonatomic) IBOutlet UIToolbar *logoutBarButtonItem;
 @property (strong, nonatomic) Section *section;
 
 @property (strong, nonatomic) GRTDataStore *dataStore;
@@ -42,31 +44,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.postsTableView registerNib:[UINib nibWithNibName:@"GRTTableViewCell" bundle:nil] forCellReuseIdentifier:@"postCell"];
-    
-    self.dataStore = [GRTDataStore sharedDataStore];
-    
-    self.postsTableView.delegate = self;
-    self.postsTableView.dataSource = self;
-    self.dataStore.postFRController.delegate = self;
-
-    UIImage *navBar = [UIImage imageNamed:@"navBar.png"];
-//    UIImage *scaledNavBar = [UIImage imageWithImage:navBar scaledToSize:CGSizeMake(320, 54)];
-    [self.navigationController.navigationBar setBackgroundImage:navBar forBarMetrics:UIBarMetricsDefault];
-    
-    UIImage *greatistLogoImage = [UIImage imageNamed:@"Greatist_Logo86x50"];
-    UIImage *scaledGreatistLogoImage = [UIImage imageWithImage:greatistLogoImage scaledToSize:CGSizeMake(65, 38)];
-    UIImageView *greatistLogoView = [[UIImageView alloc] initWithImage:scaledGreatistLogoImage];
-    [self.navigationController.navigationBar.topItem setTitleView:greatistLogoView];
-    [self.navigationController.navigationBar setTitleVerticalPositionAdjustment:-4.0 forBarMetrics:UIBarMetricsDefault];
-    
-    UIButton *postButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    UIImage *resizedPostImage = [UIImage imageWithImage:[UIImage imageNamed:@"Greatist_Logo_Badge_Blue"] scaledToSize:CGSizeMake(40, 40)];
-    [postButton setBackgroundImage:resizedPostImage forState:UIControlStateNormal];
-    [postButton setFrame:CGRectMake(145, 250, 40, 40)];
-    
-    [self.composePostButton setImage:resizedPostImage];
-    
+    [self initialize];
+    [self setupNavBar];
+    [self setupFooterToolbar];
+//    [[GRTFacebookAPIClient sharedClient] verifyUserFacebookCachedInViewController:self];
     
     // Do any additional setup after loading the view.
 }
@@ -190,6 +171,13 @@
 
 }
 
+- (IBAction)logoutButtonTapped:(UIBarButtonItem *)sender
+{
+//    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    GRTFacebookLoginViewController *facebookLoginVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"facebookLoginVC"];
+//    [self presentViewController:facebookLoginVC animated:YES completion:nil];
+}
+
 #pragma mark - Cell Methods
 
 
@@ -255,9 +243,39 @@
     }
 }
 
+#pragma mark - Helper Methods
+- (void)initialize
+{
+    [self.postsTableView registerNib:[UINib nibWithNibName:@"GRTTableViewCell" bundle:nil] forCellReuseIdentifier:@"postCell"];
+    self.dataStore = [GRTDataStore sharedDataStore];
+    self.postsTableView.delegate = self;
+    self.postsTableView.dataSource = self;
+    self.dataStore.postFRController.delegate = self;
+}
 
 
+- (void)setupNavBar
+{
+    UIImage *navBar = [UIImage imageNamed:@"navBar.png"];
+    //    UIImage *scaledNavBar = [UIImage imageWithImage:navBar scaledToSize:CGSizeMake(320, 54)];
+    [self.navigationController.navigationBar setBackgroundImage:navBar forBarMetrics:UIBarMetricsDefault];
+    
+    UIImage *greatistLogoImage = [UIImage imageNamed:@"Greatist_Logo86x50"];
+    UIImage *scaledGreatistLogoImage = [UIImage imageWithImage:greatistLogoImage scaledToSize:CGSizeMake(65, 38)];
+    UIImageView *greatistLogoView = [[UIImageView alloc] initWithImage:scaledGreatistLogoImage];
+    [self.navigationController.navigationBar.topItem setTitleView:greatistLogoView];
+    [self.navigationController.navigationBar setTitleVerticalPositionAdjustment:-4.0 forBarMetrics:UIBarMetricsDefault];
+}
 
+- (void)setupFooterToolbar
+{
+    [[UIToolbar appearance] setBackgroundColor:[UIColor greatistLightGrayColor]];
+    UIButton *postButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    UIImage *resizedPostImage = [UIImage imageWithImage:[UIImage imageNamed:@"Greatist_Logo_Badge_Blue"] scaledToSize:CGSizeMake(40, 40)];
+    [postButton setBackgroundImage:resizedPostImage forState:UIControlStateNormal];
+    [postButton setFrame:CGRectMake(145, 250, 40, 40)];
+    [self.composePostButton setImage:resizedPostImage];
+}
 
     
 @end
