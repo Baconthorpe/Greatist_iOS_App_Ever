@@ -55,16 +55,12 @@
     
     [self setupResponseTable];
     [self healthButtonTapped:nil];
-[self.postContentTextView becomeFirstResponder];
     
-//    self.postContentTextView.delegate = self;
-//    self.isDisplayingPlaceholder = YES;
-//   self.currentPlaceholder = @"This is my sample placeholder text";
+    [self.postContentTextView becomeFirstResponder];
     
-
-    
-    
-//self.verticals = @[@"happiness", @"health", @"fitness", @"Happiness", @"Health", @"Fitness"];
+    //   self.postContentTextView.delegate = self;
+    //   self.isDisplayingPlaceholder = YES;
+    //   self.currentPlaceholder = @"This is my sample placeholder text";
     
     self.verticals = [self.dataStore dictionaryOfSections];
     

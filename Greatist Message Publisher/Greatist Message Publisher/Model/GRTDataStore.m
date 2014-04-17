@@ -166,29 +166,6 @@
 
 #pragma mark - Basic Data Fetches
 
-- (User *) retrieveUserByUniqueID: (NSString *)uniqueID
-{
-    NSFetchRequest *userFetch = [NSFetchRequest fetchRequestWithEntityName:@"User"];
-    NSSortDescriptor *usersAlphabetical = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
-    userFetch.sortDescriptors = @[usersAlphabetical];
-    NSPredicate *uniqueIDPredicate = [NSPredicate predicateWithFormat:@"uniqueID==%@",uniqueID];
-    userFetch.predicate = uniqueIDPredicate;
-    
-    return [self.managedObjectContext executeFetchRequest:userFetch error:nil][0];
-}
-
-
-- (void) fetchValidResponses
-{
-    [self.parseAPIClient getValidResponsesWithCompletion:^(NSArray *responseOptionArray) {
-        NSMutableArray *responsesOptions = [NSMutableArray new];
-        for (NSDictionary *responseOption in responseOptionArray) {
-            ResponseOption *newResponseOption = [ResponseOption responseoptionWithContent:responseOption[@"content"] inContext:self.managedObjectContext];
-            [responsesOptions addObject:newResponseOption];
-        }
-        self.validResponses = responsesOptions;
-    }];
-}
 
 - (NSDictionary *) dictionaryOfSections
 {
@@ -210,90 +187,47 @@
 
 #pragma mark - Startup
 
-- (void) starterData
+- (void) createInitialData
 {
     NSFetchRequest *sectionFetch = [NSFetchRequest fetchRequestWithEntityName:@"Section"];
     
     if ([[self.managedObjectContext executeFetchRequest:sectionFetch error:nil] count] == 0)
     {
-        Section *fitness = [Section sectionWithName:@"Fitness" inContext:self.managedObjectContext];
-        Section *health = [Section sectionWithName:@"Health" inContext:self.managedObjectContext];
-        Section *happiness = [Section sectionWithName:@"Happiness" inContext:self.managedObjectContext];
-        
-        User *anne = [User userUniqueWithFacebookID:@"1084710028" inContext:self.managedObjectContext];
-        User *zeke = [User userUniqueWithFacebookID:@"1341420545" inContext:self.managedObjectContext];
-        User *liz = [User userUniqueWithFacebookID:@"798534605" inContext:self.managedObjectContext]; //update me
-        User *len = [User userUniqueWithFacebookID:@"798534605" inContext:self.managedObjectContext];
-        
-        Post *anneOne = [Post postWithContent:@"I joined a gym today!"
-                                       author:anne
-                                      section:fitness
-                                    responses:nil 
-                                    inContext:self.managedObjectContext];
-        
-        Post *zekeOne = [Post postWithContent:@"I have a love/hate relationship with gluten."
-                                       author:zeke
-                                      section:health
-                                    responses:nil
-                                    inContext:self.managedObjectContext];
-        
-        
-        Post *lizOne = [Post postWithContent:@"I love the WOD article!"
-                                      author:zeke
-                                     section:happiness
-                                   responses:nil
-                                   inContext:self.managedObjectContext];
+        Section *happiness = [Section sectionWithName:@"happiness" inContext:self.managedObjectContext];
+        Section *health = [Section sectionWithName:@"health" inContext:self.managedObjectContext];
+        Section *fitness = [Section sectionWithName:@"fitness" inContext:self.managedObjectContext];
 
-        Post *anotherPost = [Post postWithContent:@"beep beep beep!"
-                                           author:zeke
-                                          section:fitness
-                                        responses:nil
-                                        inContext:self.managedObjectContext];
-        Post *arPost = [Post postWithContent:@"beep beep beep!"
-                                          author:zeke
-                                         section:health
-                                       responses:nil
-                                       inContext:self.managedObjectContext];
+        User *defaultUser = [User userUniqueWithFacebookID:@"0" inContext:self.managedObjectContext];
+
+        [Post postWithContent:@"I joined a gym today!"
+                       author:defaultUser
+                      section:fitness
+                    responses:nil inContext:self.managedObjectContext];
+        
+        [Post postWithContent:@"I have a love + hate relationship with gluten."
+                       author:defaultUser
+                      section:health
+                    responses:nil
+                    inContext:self.managedObjectContext];
+        
+        [Post postWithContent:@"Spreading the good news about Paleo Diet"
+                       author:defaultUser
+                      section:health
+                    responses:nil
+                    inContext:self.managedObjectContext];
+        
+
+        [Post postWithContent:@"I love the WOD article!"
+                       author:defaultUser
+                      section:happiness
+                    responses:nil
+                    inContext:self.managedObjectContext];
         
         [self saveContext];
     }
     
 }
 
-- (void) testParseGET
-{
-    [self.parseAPIClient getRelevantPostsWithCompletion:^(NSArray *responseArray) {
-//        NSLog(@"getRelevantPostsWithCompletion: %@",responseArray);
-    }];
-}
-
-- (void) testParsePOST
-{
-//    [self.parseAPIClient postPostWithContent:@"I did stuff and stuff." section:@"grow" latitude:10.0 longitude:10.0 userID:@"oiou534iou345o"];
-}
-
-#pragma mark - Online Functionality
-
-- (void) createUserWithFacebookID: (NSString *)facebookID
-{
-    
-}
-
-- (void) createPostWithContent: (NSString *)content
-                     inSection: (Section *)section
-{
-    
-}
-
-- (void) getRecentPosts
-{
-    
-}
-
-- (void) getSocialPosts
-{
-    
-}
 
 
 @end

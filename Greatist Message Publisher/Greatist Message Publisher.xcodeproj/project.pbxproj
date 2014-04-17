@@ -32,7 +32,6 @@
 		0FA8357418EB70A4003C8687 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0FA8357218EB70A4003C8687 /* InfoPlist.strings */; };
 		0FA8357618EB70A4003C8687 /* Greatist_Message_PublisherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FA8357518EB70A4003C8687 /* Greatist_Message_PublisherTests.m */; };
 		0FA8358018EB70FD003C8687 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FA8357F18EB70FD003C8687 /* Main.storyboard */; };
-		0FBEF58618FC3943002FD728 /* GRTImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FBEF58518FC3943002FD728 /* GRTImporter.m */; };
 		0FDCDDDE18F5C2BC0050E18C /* GRTParseAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDCDDDD18F5C2BC0050E18C /* GRTParseAPIClient.m */; };
 		388D5989D77F4F8992BFE80F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2782B750FC4349E3AB0AFCDF /* libPods.a */; };
 		550D3D3C18EDC2A0009A9406 /* navbarLogo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 550D3D3B18EDC2A0009A9406 /* navbarLogo.xib */; };
@@ -156,8 +155,6 @@
 		0FA8357318EB70A4003C8687 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0FA8357518EB70A4003C8687 /* Greatist_Message_PublisherTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Greatist_Message_PublisherTests.m; sourceTree = "<group>"; };
 		0FA8357F18EB70FD003C8687 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
-		0FBEF58418FC3943002FD728 /* GRTImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTImporter.h; sourceTree = "<group>"; };
-		0FBEF58518FC3943002FD728 /* GRTImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTImporter.m; sourceTree = "<group>"; };
 		0FDCDDDC18F5C2BC0050E18C /* GRTParseAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTParseAPIClient.h; sourceTree = "<group>"; };
 		0FDCDDDD18F5C2BC0050E18C /* GRTParseAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTParseAPIClient.m; sourceTree = "<group>"; };
 		2782B750FC4349E3AB0AFCDF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -412,8 +409,6 @@
 				0FDCDDDD18F5C2BC0050E18C /* GRTParseAPIClient.m */,
 				87AD33EC18F5C0D00060CCA3 /* GRTFacebookAPIClient.h */,
 				87AD33ED18F5C0D00060CCA3 /* GRTFacebookAPIClient.m */,
-				0FBEF58418FC3943002FD728 /* GRTImporter.h */,
-				0FBEF58518FC3943002FD728 /* GRTImporter.m */,
 				87E6B3E918FECDD8006EF36A /* GRTDataManager.h */,
 				87E6B3EA18FECDD8006EF36A /* GRTDataManager.m */,
 				0F1AFFEE18ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodeld */,
@@ -906,7 +901,6 @@
 				0F73663018F4B77B003D71DE /* Post.m in Sources */,
 				03A2662518EDFD11002790AB /* GRTPostTableViewCell.m in Sources */,
 				87AD340118F878E70060CCA3 /* Response.m in Sources */,
-				0FBEF58618FC3943002FD728 /* GRTImporter.m in Sources */,
 				55912DEE18EC86840069FEEC /* GRTDataStore.m in Sources */,
 				87E6B3EB18FECDD8006EF36A /* GRTDataManager.m in Sources */,
 				8768DD3C18FDA13800A4D105 /* GRTFacebookLoginViewController.m in Sources */,

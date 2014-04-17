@@ -68,26 +68,6 @@
     return [setOfMatches count];
 }
 
-- (NSDictionary *) dictionaryOfResponses
-{
-    NSMutableDictionary *dictionaryToReturn = [NSMutableDictionary new];
-    
-    NSMutableSet *responseContents = [NSMutableSet new];
-    
-    for (Response *response in self.responses)
-    {
-//        [responseContents addObject:response.content];
-    }
-    
-    for (NSString *responseContent in responseContents)
-    {
-        NSDictionary *entryForThisContent = @{responseContent: @([self countOfResponsesWithContent:responseContent])};
-        [dictionaryToReturn addEntriesFromDictionary:entryForThisContent];
-    }
-    
-    return dictionaryToReturn;
-}
-
 + (instancetype) uniquePostWithContent: (NSString *)content
                                 author: (User *)user
                                section: (Section *)section

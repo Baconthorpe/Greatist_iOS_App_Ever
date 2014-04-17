@@ -23,5 +23,4 @@
 + (instancetype) cellConfiguredWithPost: (Post *)post;
 - (instancetype) configureWithPost: (Post *)post;
 
-
 @end
