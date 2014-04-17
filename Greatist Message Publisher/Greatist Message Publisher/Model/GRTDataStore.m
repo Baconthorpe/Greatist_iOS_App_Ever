@@ -237,16 +237,10 @@
                                     responses:nil
                                     inContext:self.managedObjectContext];
         
-        Post *zekeTwo = [Post postWithContent:@"Spreading the good news about Paleo Diet"
-                                       author:anne
-                                      section:happiness
-                                      section:health
-                                    responses:nil
-                                    inContext:self.managedObjectContext];
         
         Post *lizOne = [Post postWithContent:@"I love the WOD article!"
                                       author:zeke
-                                     section:fitness
+                                     section:happiness
                                    responses:nil
                                    inContext:self.managedObjectContext];
 

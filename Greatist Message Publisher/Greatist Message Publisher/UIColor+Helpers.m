@@ -24,6 +24,21 @@
     }
 }
 
+
++ (UIColor *)greatistSecondaryColorForCategory:(NSString *)categoryString
+{
+    if ([categoryString isEqualToString:@"health"]) {
+        return [UIColor greatistHealthColor];
+    } else if ([categoryString isEqualToString:@"fitness"]) {
+        return [UIColor greatistFitnessColor];
+    }
+    else if ([categoryString isEqualToString:@"happiness"]) {
+        return [UIColor greatistHappinessColor];
+    } else {
+        return [UIColor greatistPrimaryColor];
+    }
+}
+
 #pragma mark- greatist primary colors
 
 + (UIColor *)greatistPrimaryColor

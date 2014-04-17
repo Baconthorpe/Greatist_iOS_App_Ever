@@ -20,16 +20,9 @@
                         <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uua-DE-c9p">
-                        <rect key="frame" x="0.0" y="190" width="320" height="10"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
             </tableViewCellContentView>
             <connections>
-                <outlet property="buttonBar" destination="Uua-DE-c9p" id="aYS-ML-8uP"/>
                 <outlet property="postLabel" destination="uuX-xB-duC" id="Oac-K8-PLE"/>
             </connections>
         </tableViewCell>
