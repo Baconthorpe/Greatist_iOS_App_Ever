@@ -52,10 +52,7 @@
     //[self setupPostButton];
     [self setupResponseTable];
     [self healthButtonTapped:nil];
-   [self.postContentTextView becomeFirstResponder];
-    
-    
-//self.verticals = @[@"happiness", @"health", @"fitness", @"Happiness", @"Health", @"Fitness"];
+    [self.postContentTextView becomeFirstResponder];
     
     self.verticals = [self.dataStore dictionaryOfSections];
     

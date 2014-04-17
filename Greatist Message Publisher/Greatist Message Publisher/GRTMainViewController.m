@@ -243,17 +243,7 @@
         [self.postsTableView deselectRowAtIndexPath:[self.postsTableView indexPathForSelectedRow] animated:YES];
 
     }
-    
-    else if ([segue.identifier isEqualToString:@"mainToCompose"])
-    {
-        GRTComposePostViewController *nextVC = segue.destinationViewController;
-        
-        NSFetchRequest *getVerticals = [NSFetchRequest fetchRequestWithEntityName:@"Section"];
-        NSSortDescriptor *sortingVerticals = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
-        getVerticals.sortDescriptors = @[sortingVerticals];
-        
-        nextVC.verticals = [self.dataStore.managedObjectContext executeFetchRequest:getVerticals error:nil];
-    }
+
 }
 
 #pragma mark - Helper Methods
