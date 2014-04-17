@@ -13,25 +13,6 @@
 
 + (instancetype)sharedClient;
 
-- (void) getRelevantPostsWithCompletion:(void (^)(NSArray *))completion;
-- (void) getValidResponsesWithCompletion:(void (^)(NSArray *))completion;
-
-- (void) postPostWithContent: (NSString *)content
-                     section: (NSString *)section
-                    latitude: (CGFloat)latitude
-                   longitude: (CGFloat)longitude
-                      userID: (NSString *)userID
-              withCompletion: (void (^)(NSDictionary *))completion;
-
-- (void) postResponseWithContent: (NSString *)content
-                       timeStamp: (NSDate *)timeStamp
-                          userID: (NSString *)userID
-                            post: (NSString *)post;
-
-// GRTPosts
-- (void) getPostsWithFriendIDs:(NSArray *)friendsArray
-                WithCompletion:(void (^)(NSArray *posts))completionBlock;
-
 // GRTUser
 - (void)getUsersWithCompletion:(void (^)(NSArray *users))completionBlock;
 
@@ -41,5 +22,16 @@
                FacebookID:(NSString *)fbookID
                Completion:(void (^)(NSDictionary *))completion;
 
+// GRTPosts
+- (void) getPostsWithFriendIDs:(NSArray *)friendsArray
+                WithCompletion:(void (^)(NSArray *posts))completionBlock;
+- (void) postPostWithContent: (NSString *)content
+                     section: (NSString *)section
+                userObjectId: (NSString *)userObjectId
+              userFacebookID: (NSString *)userFacebookID
+              withCompletion: (void (^)(NSDictionary *))completion;
+
+// GRTResponse
+- (void) getValidResponsesWithCompletion:(void (^)(NSArray *))completion;
                    
 @end

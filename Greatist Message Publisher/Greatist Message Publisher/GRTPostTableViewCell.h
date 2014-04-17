@@ -22,6 +22,5 @@
 
 + (instancetype) cellConfiguredWithPost: (Post *)post;
 - (instancetype) configureWithPost: (Post *)post;
-- (void)setupResponseButtons;
 
 @end

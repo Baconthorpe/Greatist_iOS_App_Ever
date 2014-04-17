@@ -8,8 +8,8 @@
 
 #import "GRTFacebookLoginViewController.h"
 #import "GRTMainTableViewController.h"
-#import <FacebookSDK/FacebookSDK.h>
 #import "GRTDataManager.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface GRTFacebookLoginViewController () <FBLoginViewDelegate>
 
@@ -125,7 +125,6 @@
 
 - (void) initialize
 {
-    [FBProfilePictureView class];
     FBLoginView *loginView = [[FBLoginView alloc] initWithReadPermissions:@[@"basic_info", @"email", @"user_likes"]];
     loginView.delegate = self;
     [self.view addSubview:loginView];
@@ -163,30 +162,24 @@
 
 - (void)getPostsForFriends:(NSArray *)friendIDs
 {
-    [[GRTDataManager sharedManager] fetchPostsForFacebookFriends:friendIDs
-                                                  WithCompletion:^(NSArray *posts) {
-        NSLog(@"Number of Posts: %lu", (unsigned long)[posts count]);
-    }];
+    [[GRTDataManager sharedManager] getPostsBasedOnFacebookFriends];
 }
 
 - (void)createUserIfNew
 {
     [[GRTDataManager sharedManager] fetchUsersWithCompletion:^(NSArray *users) {
-        NSMutableArray *userFacebookIDs = [NSMutableArray new];
-        for (NSDictionary *user in users) {
-            [userFacebookIDs addObject:user[@"facebookID"]];
-            if ([user[@"facebookID"] isEqualToString:self.facebookID]) {
+        BOOL userFound = NO;
+        for (User *user in users) {
+            if ([user.facebookID isEqualToString:self.facebookID]) {
                 [[GRTDataManager sharedManager] setCurrentUser:user];
+                NSLog(@"User %@ (%@) exists", self.facebookName, self.facebookID);
+                userFound = YES;
             }
         }
-        if (![userFacebookIDs containsObject:self.facebookID]) {
+        if (!userFound) {
             NSLog(@"Creating User %@", self.facebookName);
             [[GRTDataManager sharedManager] createNewUserWithFacebookID:self.facebookID];
-        } else {
-            NSLog(@"User %@ (%@) exists", self.facebookName, self.facebookID);
         }
-        
-        
     }];
 }
 @end

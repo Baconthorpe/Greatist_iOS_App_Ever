@@ -10,6 +10,7 @@
 #import "GRTFacebookLoginViewController.h"
 #import "GRTMainTableViewController.h"
 #import "GRTDataStore.h"
+#import "GRTDataManager.h"
 #import "GRTFacebookAPIClient.h"
 #import <FacebookSDK/FacebookSDK.h>
 
@@ -25,23 +26,9 @@
     [FBProfilePictureView class];
     self.dataStore = [GRTDataStore sharedDataStore];
     [self.dataStore starterData];
-    //[self.dataStore fetchPostsForCurrentUser];
-    [self.dataStore fetchValidResponses];
+    [[GRTDataManager sharedManager] getValidResponses];
     
-    [self.dataStore testParseGET];
-    [self.dataStore testParsePOST];
-    
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.backgroundColor = [UIColor whiteColor];
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    GRTFacebookLoginViewController *facebookLoginVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"facebookLoginVC"];
-    self.window.rootViewController = facebookLoginVC;
-    [self.window makeKeyAndVisible];
-    
-    if ([[GRTFacebookAPIClient sharedClient] isUserFacebookCached]) {
-        GRTMainTableViewController *mainVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"mainNavBarController"];
-        [facebookLoginVC presentViewController:mainVC animated:NO completion:nil];
-    }
+    [self beginFacebookLogin];
 
     return YES;
 }
@@ -77,6 +64,22 @@
     // Saves changes in the application's managed object context before the application terminates.
 }
 
+#pragma mark - Facebook Login Helper Methods
+
+- (void)beginFacebookLogin
+{
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    GRTFacebookLoginViewController *facebookLoginVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"facebookLoginVC"];
+    self.window.rootViewController = facebookLoginVC;
+    [self.window makeKeyAndVisible];
+    
+    if ([[GRTFacebookAPIClient sharedClient] isUserFacebookCached]) {
+        GRTMainTableViewController *mainVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"mainNavBarController"];
+        [facebookLoginVC presentViewController:mainVC animated:NO completion:nil];
+    }
+}
 
 // Needed for Facebook Login in AppDelegate.  Do not move.
 - (BOOL)application:(UIApplication *)application

@@ -166,29 +166,6 @@
 
 #pragma mark - Basic Data Fetches
 
-- (User *) retrieveUserByUniqueID: (NSString *)uniqueID
-{
-    NSFetchRequest *userFetch = [NSFetchRequest fetchRequestWithEntityName:@"User"];
-    NSSortDescriptor *usersAlphabetical = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
-    userFetch.sortDescriptors = @[usersAlphabetical];
-    NSPredicate *uniqueIDPredicate = [NSPredicate predicateWithFormat:@"uniqueID==%@",uniqueID];
-    userFetch.predicate = uniqueIDPredicate;
-    
-    return [self.managedObjectContext executeFetchRequest:userFetch error:nil][0];
-}
-
-
-- (void) fetchValidResponses
-{
-    [self.parseAPIClient getValidResponsesWithCompletion:^(NSArray *responseOptionArray) {
-        NSMutableArray *responsesOptions = [NSMutableArray new];
-        for (NSDictionary *responseOption in responseOptionArray) {
-            ResponseOption *newResponseOption = [ResponseOption responseoptionWithContent:responseOption[@"content"] inContext:self.managedObjectContext];
-            [responsesOptions addObject:newResponseOption];
-        }
-        self.validResponses = responsesOptions;
-    }];
-}
 
 - (NSDictionary *) dictionaryOfSections
 {
@@ -265,40 +242,6 @@
     
 }
 
-- (void) testParseGET
-{
-    [self.parseAPIClient getRelevantPostsWithCompletion:^(NSArray *responseArray) {
-//        NSLog(@"getRelevantPostsWithCompletion: %@",responseArray);
-    }];
-}
-
-- (void) testParsePOST
-{
-//    [self.parseAPIClient postPostWithContent:@"I did stuff and stuff." section:@"grow" latitude:10.0 longitude:10.0 userID:@"oiou534iou345o"];
-}
-
-#pragma mark - Online Functionality
-
-- (void) createUserWithFacebookID: (NSString *)facebookID
-{
-    
-}
-
-- (void) createPostWithContent: (NSString *)content
-                     inSection: (Section *)section
-{
-    
-}
-
-- (void) getRecentPosts
-{
-    
-}
-
-- (void) getSocialPosts
-{
-    
-}
 
 
 @end

@@ -10,6 +10,8 @@
 
 @implementation GRTDataManager
 
+#pragma mark - Private Default Helper Methods
+
 + (GRTParseAPIClient *)defaultParseClient
 {
     return [GRTParseAPIClient sharedClient];
@@ -29,6 +31,9 @@
 {
     return [GRTDataStore sharedDataStore];
 }
+
+
+#pragma mark - Init Helper Methods
 
 + (instancetype)sharedManager {
    
@@ -64,68 +69,13 @@
     return _sharedManager;
 }
 
-#pragma mark - Import Methods
-
-- (Post *) interpretPostFromDictionary: (NSDictionary *)postDictionary
-{
-    User *user = [User userUniqueWithFacebookID:postDictionary[@"user"][@"facebookID"] inContext:self.managedObjectContext];
-    
-    Section *section = [Section uniqueSectionWithName:postDictionary[@"section"] inContext:self.managedObjectContext];
-    
-    Post *newPost = [Post uniquePostWithContent:postDictionary[@"content"] author:user section:section responses:nil timeStamp:nil inContext:self.managedObjectContext];
-    
-    return newPost;
-}
-
-- (void) interpretArrayOfPostDictionaries: (NSArray *)arrayOfPostDictionaries
-{
-    for (NSDictionary *postDictionary in arrayOfPostDictionaries) {
-        [self interpretPostFromDictionary:postDictionary];
-    }
-    
-    [self.dataStore saveContext];
-}
-
-- (void) postPostAndSaveIfSuccessfulForContent: (NSString *)content
-                                     inSection: (Section *)section
-{
-    [self.parseAPIClient postPostWithContent:content
-                                     section:section.name
-                                    latitude:0.0
-                                   longitude:0.0
-                                      userID:nil
-                              withCompletion:^(NSDictionary *result) {
-                                  [Post uniquePostWithContent:content
-                                                       author:nil
-                                                      section:section
-                                                    responses:nil
-                                                    timeStamp:[NSDate date]
-                                                    inContext:self.managedObjectContext];
-                                  
-                                  [self.dataStore saveContext];
-                              }];
-}
-
-- (void) getPostsBasedOnFacebookFriends
-{
-    [self.facebookAPIClient getFriendIDsWithCompletion:^(NSArray *facebookFriendIDs) {
-        [self fetchPostsForFacebookFriends:facebookFriendIDs WithCompletion:^(NSArray *posts) {
-            [self interpretArrayOfPostDictionaries:posts];
-            [self.dataStore saveContext];
-        }];
-    }];
-}
-
-- (void) establishUser
-{
-    
-}
 
 #pragma mark - User Helper Methods
 - (User *)getCurrentUser
 {
     return self.dataStore.currentUser;
 }
+
 - (void) setCurrentUser:(User *)user
 {
     self.dataStore.currentUser = user;
@@ -134,7 +84,13 @@
 - (void) fetchUsersWithCompletion:(void (^)(NSArray *users))completionBlock
 {
     [self.parseAPIClient getUsersWithCompletion:^(NSArray *users) {
-        completionBlock(users);
+        NSMutableArray *usersArray = [NSMutableArray new];
+        for (NSDictionary *user in users) {
+            User *newUser = [User userWithFacebookID:user[@"facebookID"] inContext:self.dataStore.managedObjectContext];
+            [usersArray addObject:newUser];
+        }
+        
+        completionBlock(usersArray);
     }];
 }
 
@@ -145,14 +101,86 @@
 }
 
 #pragma mark - Post Helper Methods
-- (void) fetchPostsForFacebookFriends:(NSArray *)friendIDs
-                       WithCompletion:(void (^)(NSArray *posts))completionBlock
+
+- (void) getPostsBasedOnFacebookFriends
 {
-    [self.parseAPIClient getPostsWithFriendIDs:friendIDs
-                                WithCompletion:^(NSArray *posts) {
-                                    completionBlock(posts);
-                                }];
+    [self.facebookAPIClient getFriendIDsWithCompletion:^(NSArray *facebookFriendIDs) {
+        [self.parseAPIClient getPostsWithFriendIDs:facebookFriendIDs
+                                    WithCompletion:^(NSArray *posts) {
+            [self interpretArrayOfPostDictionaries:posts];
+            [self.dataStore saveContext];
+        }];
+    }];
 }
 
+
+- (void) postPostAndSaveIfSuccessfulForContent: (NSString *)content
+                                     inSection: (Section *)section
+{
+    [self.parseAPIClient postPostWithContent:content
+                                     section:section.name
+                                userObjectId:nil
+                              userFacebookID:self.dataStore.currentUser.facebookID
+                              withCompletion:^(NSDictionary *postResponse) {
+      
+      [Post uniquePostWithContent:content
+                           author:self.dataStore.currentUser
+                          section:section
+                        responses:nil
+                        timeStamp:[NSDate date]
+                        inContext:self.managedObjectContext];
+      
+      [self.dataStore saveContext];
+    }];
+}
+
+#pragma mark - Response Helper Methods
+- (void) getValidResponses
+{
+    [self.parseAPIClient getValidResponsesWithCompletion:^(NSArray *responseOptionArray) {
+        NSMutableArray *responsesOptions = [NSMutableArray new];
+        for (NSDictionary *responseOption in responseOptionArray) {
+            ResponseOption *newResponseOption = [ResponseOption responseoptionWithContent:responseOption[@"content"] inContext:self.managedObjectContext];
+            [responsesOptions addObject:newResponseOption];
+        }
+        self.dataStore.validResponses = responsesOptions;
+    }];
+}
+
+#pragma mark - Helper Methods
+-(NSDate *)dateFromString:(NSString *)string
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+    [dateFormatter setLocale:locale];
+    [dateFormatter setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ss.SSS'Z'"];
+    NSTimeInterval interval = 5 * 60 * 60;
+    
+    NSDate *date1 = [dateFormatter dateFromString:string];
+    date1 = [date1 dateByAddingTimeInterval:interval];
+    if(!date1) date1= [NSDate date];
+    
+    return date1;
+}
+
+#pragma mark - Import Helper Methods
+- (void) interpretArrayOfPostDictionaries: (NSArray *)arrayOfPostDictionaries
+{
+    for (NSDictionary *postDictionary in arrayOfPostDictionaries) {
+        [self createLocalPostFromDictionary:postDictionary];
+        
+    }
+}
+
+- (Post *) createLocalPostFromDictionary: (NSDictionary *)postDictionary
+{
+    Section *section = [Section uniqueSectionWithName:postDictionary[@"section"] inContext:self.managedObjectContext];
+    
+    NSDate *createdAtDate = [self dateFromString:postDictionary[@"createdAt"]];
+    
+    Post *newPost = [Post uniquePostWithContent:postDictionary[@"content"] author:nil section:section responses:nil timeStamp:createdAtDate inContext:self.managedObjectContext];
+    
+    return newPost;
+}
 
 @end

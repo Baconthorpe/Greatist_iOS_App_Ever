@@ -34,10 +34,5 @@
 - (NSDictionary *) dictionaryOfSections;
 
 - (void) starterData;
-- (void) fetchValidResponses;
-
-- (void) testParseGET;
-- (void) testParsePOST;
-
 
 @end
