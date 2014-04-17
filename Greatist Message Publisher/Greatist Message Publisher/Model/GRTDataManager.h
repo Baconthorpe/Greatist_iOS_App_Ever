@@ -24,6 +24,7 @@
                      FacebookAPIClient:(GRTFacebookAPIClient *)facebookClient
                   ManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
                              DataStore:(GRTDataStore *)dataStore;
+- (void) getInitialData;
 
 // User Methods
 - (User *) getCurrentUser;

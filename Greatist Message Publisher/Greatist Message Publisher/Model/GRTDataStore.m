@@ -187,7 +187,7 @@
 
 #pragma mark - Startup
 
-- (void) starterData
+- (void) createInitialData
 {
     NSFetchRequest *sectionFetch = [NSFetchRequest fetchRequestWithEntityName:@"Section"];
     
@@ -196,46 +196,31 @@
         Section *happiness = [Section sectionWithName:@"happiness" inContext:self.managedObjectContext];
         Section *health = [Section sectionWithName:@"health" inContext:self.managedObjectContext];
         Section *fitness = [Section sectionWithName:@"fitness" inContext:self.managedObjectContext];
-        //Section *grow = [Section sectionWithName:@"Grow" inContext:self.managedObjectContext];
-        
-        User *anne = [User userUniqueWithFacebookID:@"1084710028" inContext:self.managedObjectContext];
-        User *zeke = [User userUniqueWithFacebookID:@"1341420545" inContext:self.managedObjectContext];
-        User *liz = [User userUniqueWithFacebookID:@"798534605" inContext:self.managedObjectContext]; //update me
-        User *len = [User userUniqueWithFacebookID:@"798534605" inContext:self.managedObjectContext];
-        
-        Post *anneOne = [Post postWithContent:@"I joined a gym today!"
-                                       author:anne
-                                      section:fitness
-                                    responses:nil inContext:self.managedObjectContext];
-        
-        Post *zekeOne = [Post postWithContent:@"I have a love/hate relationship with gluten."
-                                       author:zeke
-                                      section:health
-                                    responses:nil
-                                    inContext:self.managedObjectContext];
-        
-        Post *zekeTwo = [Post postWithContent:@"Spreading the good news about Paleo Diet"
-                                       author:anne
-                                      section:health
-                                    responses:nil
-                                    inContext:self.managedObjectContext];
-        
-        Post *lizOne = [Post postWithContent:@"I love the WOD article!"
-                                      author:zeke
-                                     section:happiness
-                                   responses:nil
-                                   inContext:self.managedObjectContext];
 
-        Post *anotherPost = [Post postWithContent:@"beep beep beep!"
-                                           author:zeke
-                                          section:fitness
-                                        responses:nil
-                                        inContext:self.managedObjectContext];
-        Post *arPost = [Post postWithContent:@"beep beep beep!"
-                                          author:zeke
-                                         section:health
-                                       responses:nil
-                                       inContext:self.managedObjectContext];
+        User *defaultUser = [User userUniqueWithFacebookID:@"0" inContext:self.managedObjectContext];
+
+        [Post postWithContent:@"I joined a gym today!"
+                       author:defaultUser
+                      section:fitness
+                    responses:nil inContext:self.managedObjectContext];
+        
+        [Post postWithContent:@"I have a love + hate relationship with gluten."
+                       author:defaultUser
+                      section:health
+                    responses:nil
+                    inContext:self.managedObjectContext];
+        
+        [Post postWithContent:@"Spreading the good news about Paleo Diet"
+                       author:defaultUser
+                      section:health
+                    responses:nil
+                    inContext:self.managedObjectContext];
+        
+        [Post postWithContent:@"I love the WOD article!"
+                       author:defaultUser
+                      section:happiness
+                    responses:nil
+                    inContext:self.managedObjectContext];
         
         [self saveContext];
     }

@@ -69,6 +69,10 @@
     return _sharedManager;
 }
 
+- (void) getInitialData
+{
+    [[GRTDataManager sharedManager] getValidResponses];
+}
 
 #pragma mark - User Helper Methods
 - (User *)getCurrentUser
@@ -168,7 +172,6 @@
 {
     for (NSDictionary *postDictionary in arrayOfPostDictionaries) {
         [self createLocalPostFromDictionary:postDictionary];
-        
     }
 }
 

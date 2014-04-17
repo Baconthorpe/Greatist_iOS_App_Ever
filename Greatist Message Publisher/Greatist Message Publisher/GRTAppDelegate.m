@@ -11,7 +11,6 @@
 #import "GRTMainTableViewController.h"
 #import "GRTDataStore.h"
 #import "GRTDataManager.h"
-#import "GRTFacebookAPIClient.h"
 #import <FacebookSDK/FacebookSDK.h>
 
 @interface GRTAppDelegate ()
@@ -23,11 +22,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [FBProfilePictureView class];
-    self.dataStore = [GRTDataStore sharedDataStore];
-    [self.dataStore starterData];
-    [[GRTDataManager sharedManager] getValidResponses];
-    
+    [self initialSetup];
     [self beginFacebookLogin];
 
     return YES;
@@ -62,6 +57,15 @@
     [self.dataStore saveContext];
     
     // Saves changes in the application's managed object context before the application terminates.
+}
+
+#pragma mark - initialSetup
+- (void)initialSetup
+{
+    [FBProfilePictureView class];
+    self.dataStore = [GRTDataStore sharedDataStore];
+    [[GRTDataManager sharedManager] getInitialData];
+    [self.dataStore createInitialData];
 }
 
 #pragma mark - Facebook Login Helper Methods

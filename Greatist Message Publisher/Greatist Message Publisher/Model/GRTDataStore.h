@@ -33,6 +33,6 @@
 
 - (NSDictionary *) dictionaryOfSections;
 
-- (void) starterData;
+- (void) createInitialData;
 
 @end
