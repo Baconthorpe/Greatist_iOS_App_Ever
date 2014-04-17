@@ -10,21 +10,21 @@
 
 @implementation User (Methods)
 
-+ (instancetype) userWithFacebookID: (NSString *)facebookID
-                          inContext: (NSManagedObjectContext *)context
++ (instancetype) getUserWithFacebookID: (NSString *)facebookID
+                             inContext: (NSManagedObjectContext *)context
 {
-    User *newUser = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:context];
+    NSFetchRequest *userSearch = [NSFetchRequest fetchRequestWithEntityName:@"User"];
+    NSPredicate *idCheck = [NSPredicate predicateWithFormat:@"facebookID == %@",facebookID];
+    userSearch.predicate = idCheck;
+    NSSortDescriptor *sortByID = [NSSortDescriptor sortDescriptorWithKey:@"facebookID" ascending:YES];
+    userSearch.sortDescriptors = @[sortByID];
     
-    if (newUser)
-    {
-        newUser.facebookID = facebookID;
-    }
+    NSArray *arrayOfMatches = [context executeFetchRequest:userSearch error:nil];
     
-    return newUser;
+    return arrayOfMatches[0];
 }
 
 + (instancetype) userWithFacebookID: (NSString *)facebookID
-                           ObjectId: (NSString *)objectId
                           inContext: (NSManagedObjectContext *)context
 {
     User *newUser = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:context];
@@ -32,14 +32,12 @@
     if (newUser)
     {
         newUser.facebookID = facebookID;
-        newUser.objectId = objectId;
     }
     
     return newUser;
 }
 
 + (instancetype) userUniqueWithFacebookID: (NSString *)facebookID
-                                 ObjectId: (NSString *)objectId
                                 inContext: (NSManagedObjectContext *)context
 {
     NSFetchRequest *userSearch = [NSFetchRequest fetchRequestWithEntityName:@"User"];
@@ -52,11 +50,10 @@
     
     if ([arrayOfMatches count] == 0)
     {
-        return [User userWithFacebookID:facebookID ObjectId:objectId inContext:context];
+        return [User userWithFacebookID:facebookID inContext:context];
     }
     
     return arrayOfMatches[0];
 }
-
 
 @end

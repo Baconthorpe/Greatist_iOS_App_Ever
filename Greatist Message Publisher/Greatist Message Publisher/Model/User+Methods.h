@@ -10,15 +10,13 @@
 
 @interface User (Methods)
 
-+ (instancetype) userWithFacebookID: (NSString *)facebookID
-                          inContext: (NSManagedObjectContext *)context;
++ (instancetype) getUserWithFacebookID: (NSString *)facebookID
+                             inContext: (NSManagedObjectContext *)context;
 
 + (instancetype) userWithFacebookID: (NSString *)facebookID
-                           ObjectId: (NSString *)objectId
                           inContext: (NSManagedObjectContext *)context;
 
 + (instancetype) userUniqueWithFacebookID: (NSString *)facebookID
-                                 ObjectId: (NSString *)objectId
                                 inContext: (NSManagedObjectContext *)context;
 
 @end
