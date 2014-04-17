@@ -812,7 +812,6 @@
 				55CA536019005B4E000E2A1E /* Grow_Colored.jpg in Resources */,
 				55CA536219005B4E000E2A1E /* Grow_White.eps in Resources */,
 				55CA535319005B4E000E2A1E /* Move_Colored.eps in Resources */,
-				039FE85F18FCBBF100EC98DC /* GRTStepOneComposePost.xib in Resources */,
 				55912DF818ECB9510069FEEC /* Greatist_Logo_small.png in Resources */,
 				87674F6418ECB64A00231453 /* ArcherPro-Medium.otf in Resources */,
 				87674FEF18EDAF0500231453 /* Move_White.png in Resources */,

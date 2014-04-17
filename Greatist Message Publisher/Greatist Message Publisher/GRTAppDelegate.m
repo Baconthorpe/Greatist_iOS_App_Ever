@@ -75,8 +75,9 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UINavigationController *facebookLoginNavBar = [mainStoryboard instantiateViewControllerWithIdentifier:@"facebookLoginNavBar"];
     GRTFacebookLoginViewController *facebookLoginVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"facebookLoginVC"];
-    self.window.rootViewController = facebookLoginVC;
+    self.window.rootViewController = facebookLoginNavBar;
     [self.window makeKeyAndVisible];
     
     if ([[GRTFacebookAPIClient sharedClient] isUserFacebookCached]) {

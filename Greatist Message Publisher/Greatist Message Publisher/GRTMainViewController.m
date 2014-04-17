@@ -189,11 +189,7 @@
     [FBSession.activeSession closeAndClearTokenInformation];
     
     UIViewController *startVC = [self.navigationController presentingViewController];
-    [startVC dismissViewControllerAnimated:YES completion:^{
-        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        GRTFacebookLoginViewController *facebookLoginVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"facebookLoginVC"];
-        [startVC presentViewController:facebookLoginVC animated:NO completion:nil];
-    }];
+    [startVC dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Cell Methods

@@ -131,6 +131,7 @@
     
     self.appName = [[UILabel alloc] init];
     self.appName.text = @"BodyTalk";
+    self.appName.textAlignment = NSTextAlignmentCenter;
     self.appName.font = [UIFont fontWithName:@"ArcherPro-Medium" size:36];
     [self.view addSubview:self.appName];
     
@@ -149,15 +150,17 @@
     [self.appName setTranslatesAutoresizingMaskIntoConstraints:NO];
     [loginView setTranslatesAutoresizingMaskIntoConstraints:NO];
     
+    [self.view removeConstraints:self.view.constraints];
     NSDictionary *views = @{@"superview": self.view,
                             @"appName" : self.appName,
                             @"profilePicture": self.profilePictureView,
                             @"nameLabel": self.nameLabel,
                             @"loginView": loginView};
     
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[superview]-(<=1)-[nameLabel]" options:NSLayoutFormatAlignAllCenterY metrics:nil views:views]];
-    
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[superview]-(<=100)-[appName]-(50)-[profilePicture]-[nameLabel]-[loginView]" options:NSLayoutFormatAlignAllCenterX metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(10)-[appName]-(10)-|" options:NSLayoutFormatAlignAllCenterY metrics:nil views:views]];
+
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(20)-[appName]-(10)-[profilePicture]-(10)-[nameLabel]-(10)-[loginView]-(10)-|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:views]];
+     
 }
 
 - (void)getPostsForFriends:(NSArray *)friendIDs
