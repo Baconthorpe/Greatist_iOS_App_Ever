@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <GCPlaceholderTextView.h>
 
 @interface GRTComposePostViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextViewDelegate>
 
