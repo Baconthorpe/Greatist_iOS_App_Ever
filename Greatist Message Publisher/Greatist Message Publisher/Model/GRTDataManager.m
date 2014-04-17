@@ -68,7 +68,7 @@
 
 - (Post *) interpretPostFromDictionary: (NSDictionary *)postDictionary
 {
-    User *user = [User uniqueUserWithID:postDictionary[@"UserID"] inContext:self.managedObjectContext];
+    User *user = [User userUniqueWithFacebookID:postDictionary[@"user"][@"facebookID"] inContext:self.managedObjectContext];
     
     Section *section = [Section uniqueSectionWithName:postDictionary[@"section"] inContext:self.managedObjectContext];
     
@@ -106,9 +106,31 @@
                               }];
 }
 
+- (void) getPostsBasedOnFacebookFriends
+{
+    [self.facebookAPIClient getFriendIDsWithCompletion:^(NSArray *facebookFriendIDs) {
+        [self fetchPostsForFacebookFriends:facebookFriendIDs WithCompletion:^(NSArray *posts) {
+            [self interpretArrayOfPostDictionaries:posts];
+            [self.dataStore saveContext];
+        }];
+    }];
+}
 
+- (void) establishUser
+{
+    
+}
 
 #pragma mark - User Helper Methods
+- (User *)getCurrentUser
+{
+    return self.dataStore.currentUser;
+}
+- (void) setCurrentUser:(User *)user
+{
+    self.dataStore.currentUser = user;
+}
+
 - (void) fetchUsersWithCompletion:(void (^)(NSArray *users))completionBlock
 {
     [self.parseAPIClient getUsersWithCompletion:^(NSArray *users) {
@@ -116,11 +138,10 @@
     }];
 }
 
-- (void) createNewUserWithName:(NSString *)nameString
-                    FacebookID:(NSString *)facebookIDString
+- (void) createNewUserWithFacebookID:(NSString *)facebookIDString
 {
-    [self.parseAPIClient postUserWithName:nameString
-                               FacebookID:facebookIDString];
+    [self.parseAPIClient postUserWithFacebookID:facebookIDString Completion:nil];
+    [User userUniqueWithFacebookID:facebookIDString inContext:self.dataStore.managedObjectContext];
 }
 
 #pragma mark - Post Helper Methods

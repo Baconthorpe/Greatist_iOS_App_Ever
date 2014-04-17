@@ -234,8 +234,6 @@
 - (void)postButton:(id)sender
 {
     // Fix this to use current user and not Anne
-    User *anne = [User userWithName:@"Anne" uniqueID:@"anne" inContext:self.dataStore.managedObjectContext];
-    
     NSMutableSet *responses = [NSMutableSet new];
     for (NSNumber *index in self.selectedCells) {
         NSInteger indexInteger = [index integerValue];

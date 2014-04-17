@@ -86,7 +86,7 @@
 - (void)postButton:(id)sender
 {
     // Fix this to use current user and not Anne
-    User *anne = [User userWithName:@"Anne" uniqueID:@"anne" inContext:self.dataStore.managedObjectContext];
+    User *anne = [User getUserWithFacebookID:@"1084710028" inContext:self.dataStore.managedObjectContext];
     
     NSMutableSet *responses = [NSMutableSet new];
     for (NSNumber *index in self.selectedCells) {

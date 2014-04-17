@@ -175,13 +175,18 @@
         NSMutableArray *userFacebookIDs = [NSMutableArray new];
         for (NSDictionary *user in users) {
             [userFacebookIDs addObject:user[@"facebookID"]];
+            if ([user[@"facebookID"] isEqualToString:self.facebookID]) {
+                [[GRTDataManager sharedManager] setCurrentUser:user];
+            }
         }
         if (![userFacebookIDs containsObject:self.facebookID]) {
             NSLog(@"Creating User %@", self.facebookName);
-            [[GRTDataManager sharedManager] createNewUserWithName:self.facebookName FacebookID:self.facebookID];
+            [[GRTDataManager sharedManager] createNewUserWithFacebookID:self.facebookID];
         } else {
             NSLog(@"User %@ (%@) exists", self.facebookName, self.facebookID);
         }
+        
+        
     }];
 }
 @end

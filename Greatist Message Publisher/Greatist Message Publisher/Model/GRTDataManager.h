@@ -17,6 +17,7 @@
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) GRTDataStore *dataStore;
 
+// Init Methods
 + (instancetype)sharedManager;
 - (instancetype)init;
 - (instancetype)initWithParseAPIClient:(GRTParseAPIClient *)parseClient
@@ -24,15 +25,23 @@
                   ManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
                              DataStore:(GRTDataStore *)dataStore;
 
+// User Methods
+- (User *) getCurrentUser;
+- (void) setCurrentUser:(User *)user;
+- (void) fetchUsersWithCompletion:(void (^)(NSArray *users))completionBlock;
+- (void) createNewUserWithFacebookID:(NSString *)facebookIDString;
+
+// Post Methods
+- (void) fetchPostsForFacebookFriends:(NSArray *)friendIDs
+                       WithCompletion:(void (^)(NSArray *posts))completionBlock;
+
+// Move me please???
 - (Post *) interpretPostFromDictionary: (NSDictionary *)postDictionary;
 - (void) interpretArrayOfPostDictionaries: (NSArray *)arrayOfPostDictionaries;
 - (void) postPostAndSaveIfSuccessfulForContent: (NSString *)content
                                      inSection: (Section *)section;
+- (void) getPostsBasedOnFacebookFriends;
 
-- (void) fetchUsersWithCompletion:(void (^)(NSArray *users))completionBlock;
-- (void) createNewUserWithName:(NSString *)nameString
-                    FacebookID:(NSString *)facebookIDString;
 
-- (void) fetchPostsForFacebookFriends:(NSArray *)friendIDs
-                       WithCompletion:(void (^)(NSArray *posts))completionBlock;
+
 @end

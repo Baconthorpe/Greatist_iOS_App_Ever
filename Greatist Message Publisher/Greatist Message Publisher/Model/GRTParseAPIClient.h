@@ -23,13 +23,10 @@
                       userID: (NSString *)userID
               withCompletion: (void (^)(NSDictionary *))completion;
 
-- (void) putPost: (Post *)post;
-
 - (void) postResponseWithContent: (NSString *)content
                        timeStamp: (NSDate *)timeStamp
                           userID: (NSString *)userID
                             post: (NSString *)post;
-
 
 // GRTPosts
 - (void) getPostsWithFriendIDs:(NSArray *)friendsArray
@@ -37,8 +34,12 @@
 
 // GRTUser
 - (void)getUsersWithCompletion:(void (^)(NSArray *users))completionBlock;
+
+- (void) postUserWithFacebookID:(NSString *)fbookID
+                     Completion:(void (^)(NSDictionary *))completion;
 - (void) postUserWithName:(NSString *)name
-               FacebookID:(NSString *)fbookID;
+               FacebookID:(NSString *)fbookID
+               Completion:(void (^)(NSDictionary *))completion;
 
                    
 @end
