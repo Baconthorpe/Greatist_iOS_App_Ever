@@ -15,6 +15,7 @@
 
 @interface GRTSelectResponseViewController ()
 @property (strong, nonatomic) NSMutableArray *selectedCells;
+@property (weak, nonatomic) IBOutlet UILabel *responseLabel;
 @property (strong, nonatomic) GRTDataStore *dataStore;
 @property (strong, nonatomic) GRTDataManager *dataManager;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -41,6 +42,10 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self setupResponseTable];
+    self.responseLabel.font = [UIFont fontWithName:@"DINOT-Bold" size:14];
+    self.responseLabel.textColor = [UIColor greatistLightGrayColor];
+    self.responseLabel.backgroundColor = [UIColor whiteColor];
+    
     // Do any additional setup after loading the view.
 }
 
@@ -125,6 +130,9 @@ Post *newPost = [Post postWithContent:self.content author:nil section:self.verti
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"responseCell"];
+
+    
+    
     ResponseOption *responseOption = [self.dataStore.validResponses objectAtIndex:indexPath.row];
     cell.textLabel.text = responseOption.content;
     cell.textLabel.font = [UIFont fontWithName:@"Avenir-Roman" size:12];
@@ -133,6 +141,8 @@ Post *newPost = [Post postWithContent:self.content author:nil section:self.verti
     } else {
         [cell setAccessoryType:UITableViewCellAccessoryNone];
     }
+    
+
     return cell;
 }
 
@@ -142,6 +152,7 @@ Post *newPost = [Post postWithContent:self.content author:nil section:self.verti
     if ([self.selectedCells containsObject:@(indexPath.row)]) {
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
         [self.selectedCells removeObject:@(indexPath.row)];
+        
     } else {
         if ([self.selectedCells count] < 4) {
             [tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
@@ -150,6 +161,7 @@ Post *newPost = [Post postWithContent:self.content author:nil section:self.verti
     }
     [tableView reloadData];
 }
+
 
 
 

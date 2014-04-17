@@ -12,7 +12,7 @@
 
 @interface GRTComposePostViewController ()
 
-@property (weak, nonatomic) IBOutlet UITextView *postContentTextView;
+@property (weak, nonatomic) IBOutlet GCPlaceholderTextView *postContentTextView;
 @property (weak, nonatomic) IBOutlet UIView *postView;
 - (IBAction)backButtonTapped:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *leftQuoteLabel;
@@ -22,6 +22,9 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *selectedCells;
 @property (weak, nonatomic) IBOutlet UIButton *selectResponses;
+@property (weak, nonatomic) IBOutlet UILabel *placeholderLabel;
+@property (nonatomic) BOOL isDisplayingPlaceholder;
+@property (nonatomic) NSString *currentPlaceholder;
 
 @property (strong, nonatomic) GRTDataStore *dataStore;
 
@@ -49,10 +52,16 @@
     
     [self setupCategoryButtons];
     [self setupPostContent];
-    //[self setupPostButton];
+    
     [self setupResponseTable];
     [self healthButtonTapped:nil];
-   [self.postContentTextView becomeFirstResponder];
+[self.postContentTextView becomeFirstResponder];
+    
+//    self.postContentTextView.delegate = self;
+//    self.isDisplayingPlaceholder = YES;
+//   self.currentPlaceholder = @"This is my sample placeholder text";
+    
+
     
     
 //self.verticals = @[@"happiness", @"health", @"fitness", @"Happiness", @"Health", @"Fitness"];
@@ -73,6 +82,26 @@
     [textView setTextColor:[UIColor greatistGrayColor]];
     [textView setText:@""];
 }
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
+{
+    textView.textColor = [UIColor blackColor];
+    textView.text = @"";
+    
+    return YES;
+}
+
+- (void)textViewDidChange:(UITextView *)textView
+{
+ 
+    if ([textView.text isEqualToString:@""])
+    {
+        textView.text = self.currentPlaceholder;
+        textView.textColor = [UIColor lightGrayColor];
+        [textView resignFirstResponder];
+    }
+}
+
+
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     GRTSelectResponseViewController *nextViewController = segue.destinationViewController;
@@ -89,26 +118,26 @@
 - (void)setupCategoryButtons
 {
     UIButton *healthButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [healthButton setFrame:CGRectMake(45, 15, 30, 30)];
+    [healthButton setFrame:CGRectMake(130, 20, 45, 45)];
     [healthButton setBackgroundImage:[UIImage imageNamed:@"Eat_Colored60x60"] forState:UIControlStateNormal];
     healthButton.alpha = 0.3;
     [healthButton addTarget:self action:@selector(healthButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.postView addSubview:healthButton];
     
-    UILabel *healthLabel = [[UILabel alloc] initWithFrame:CGRectMake(7, 25, 30, 30)];
+    UILabel *healthLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 45, 45, 25)];
     [healthLabel setText:@"HEALTH"];
     [healthLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:10]];
     [healthLabel setTextColor:[UIColor greatistEatColor]];
     [healthButton addSubview:healthLabel];
     
     UIButton *fitnessButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [fitnessButton setFrame:CGRectMake(90, 15, 30, 30)];
+    [fitnessButton setFrame:CGRectMake(60, 20, 45, 45)];
     [fitnessButton setBackgroundImage:[UIImage imageNamed:@"Move_Colored60x60"] forState:UIControlStateNormal];
     fitnessButton.alpha = 0.3;
     [fitnessButton addTarget:self action:@selector(fitnessButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.postView addSubview:fitnessButton];
     
-    UILabel *fitnessLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 25, 30, 30)];
+    UILabel *fitnessLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 45, 45, 25)];
     [fitnessLabel setText:@"FITNESS"];
     [fitnessLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:10]];
     [fitnessLabel setTextColor:[UIColor greatistMoveColor]];
@@ -116,13 +145,13 @@
     
     
     UIButton *happinessButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [happinessButton setFrame:CGRectMake(195, 15, 30, 30)];
+    [happinessButton setFrame:CGRectMake(195, 20, 45, 45)];
     [happinessButton setBackgroundImage:[UIImage imageNamed:@"Grow_Colored60x60"] forState:UIControlStateNormal];
     happinessButton.alpha = 0.3;
     [happinessButton addTarget:self action:@selector(happinessButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.postView addSubview:happinessButton];
     
-    UILabel *happinessLabel = [[UILabel alloc] initWithFrame:CGRectMake(1, 25, 30, 30)];
+    UILabel *happinessLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 45, 60, 25)];
     [happinessLabel setText:@"HAPPINESS"];
     [happinessLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:10]];
     [happinessLabel setTextColor:[UIColor greatistGrowColor]];
@@ -137,7 +166,7 @@
     [self.postContentTextView setTextColor:[UIColor greatistLightGrayColor]];
     [[self.postContentTextView layer] setBorderColor:[[UIColor greatistLightGrayColor] CGColor]];
     [[self.postContentTextView layer] setBorderWidth:1];
-    [[self.postContentTextView layer] setCornerRadius:15];
+    [[self.postContentTextView layer] setCornerRadius:2];
     self.postContentTextView.textContainerInset = UIEdgeInsetsMake(15.0, 10.0, 15.0, 10.0);
     
     self.leftQuoteLabel.font = [UIFont fontWithName:@"ArcherPro-Semibold" size:40];
@@ -228,20 +257,44 @@
 
 -(void)healthButtonTapped: (UIButton *)sender
 {
-    self.verticalSelected = self.verticals[@"health"];
+ self.verticalSelected = self.verticals[@"health"];
+   // [self.postContentTextView resignFirstResponder];
+
+   
+//    self.postContentTextView.placeholder = @"yummmmm";
+//    self.postContentTextView.placeholderColor = [UIColor greatistLightGrayColor];
     
-    [self dimVerticalButtons];
+        [self dimVerticalButtons];
     UIButton *healthButton = self.verticalButtons[0];
     healthButton.alpha = 1.0;
     
     self.leftQuoteLabel.textColor = [UIColor greatistEatColor];
     self.rightQuoteLabel.textColor = [UIColor greatistEatColor];
-    self.postContentTextView.text = @"Find a new healthy recipe recently?";
+//    {
+//        [self.postContentTextView resignFirstResponder];
+//        
+//        if (self.isDisplayingPlaceholder)
+//        {
+//            if ([self.postContentTextView.text isEqualToString:self.currentPlaceholder])
+//            {
+//                self.postContentTextView.text = @"connect button placeholder";
+//                self.postContentTextView.textColor = [UIColor lightGrayColor];
+//            }
+//            self.currentPlaceholder = @"eat button placeholder";
+//        }
+//    }
+    //self.postContentTextView.text = @"Find a new healthy recipe recently?";
 }
 
 -(void)fitnessButtonTapped: (UIButton *)sender
 {
+    
     self.verticalSelected = self.verticals[@"fitness"];
+    
+//    self.postContentTextView.placeholder = @"owwwwww";
+//    [self.postContentTextView resignFirstResponder];
+    
+    //self.postContentTextView.placeholderColor = [UIColor greatistLightGrayColor];
     
     [self dimVerticalButtons];
     UIButton *fitnessButton = self.verticalButtons[1];
@@ -249,7 +302,21 @@
     
     self.leftQuoteLabel.textColor = [UIColor greatistMoveColor];
     self.rightQuoteLabel.textColor = [UIColor greatistMoveColor];
-    self.postContentTextView.text = @"Do something new at Yoga?";
+    
+//    {
+//        [self.postContentTextView resignFirstResponder];
+//        
+//        if (self.isDisplayingPlaceholder)
+//        {
+//            if ([self.postContentTextView.text isEqualToString:self.currentPlaceholder])
+//            {
+//                self.postContentTextView.text = @"connect button placeholder";
+//                self.postContentTextView.textColor = [UIColor lightGrayColor];
+//            }
+//            self.currentPlaceholder = @"eat button placeholder";
+//        }
+//    }
+    //self.postContentTextView.text = @"Do something new at Yoga?";
     
 }
 
@@ -258,13 +325,34 @@
 {
     self.verticalSelected = self.verticals[@"happiness"];
     
+//    self.postContentTextView.placeholder = @"yyayyy";
+//    [self.postContentTextView resignFirstResponder];
+
+  //  self.postContentTextView.placeholderColor = [UIColor greatistLightGrayColor];
+    
+    
     [self dimVerticalButtons];
     UIButton *happinessButton = self.verticalButtons[2];
     happinessButton.alpha = 1.0;
+    
+//    {
+//        [self.postContentTextView resignFirstResponder];
+//        
+//        if (self.isDisplayingPlaceholder)
+//        {
+//            if ([self.postContentTextView.text isEqualToString:self.currentPlaceholder])
+//            {
+//                self.postContentTextView.text = @"connect button placeholder";
+//                self.postContentTextView.textColor = [UIColor lightGrayColor];
+//            }
+//            self.currentPlaceholder = @"eat button placeholder";
+//        }
+//    }
+
 
     self.leftQuoteLabel.textColor = [UIColor greatistGrowColor];
     self.rightQuoteLabel.textColor = [UIColor greatistGrowColor];
-    self.postContentTextView.text = @"How do you feel today?";
+    //self.postContentTextView.text = @"How do you feel today?";
 }
 
 

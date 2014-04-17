@@ -7,15 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		039FE85F18FCBBF100EC98DC /* GRTStepOneComposePost.xib in Resources */ = {isa = PBXBuildFile; fileRef = 039FE85E18FCBBF100EC98DC /* GRTStepOneComposePost.xib */; };
-		039FE86118FCBC0100EC98DC /* GRTStepTwoComposePost.xib in Resources */ = {isa = PBXBuildFile; fileRef = 039FE86018FCBC0100EC98DC /* GRTStepTwoComposePost.xib */; };
-		039FE86318FCBC0F00EC98DC /* GRTStepThreeComposePost.xib in Resources */ = {isa = PBXBuildFile; fileRef = 039FE86218FCBC0F00EC98DC /* GRTStepThreeComposePost.xib */; };
-		039FE86618FCBC6E00EC98DC /* GRTStepOneComposePost.m in Sources */ = {isa = PBXBuildFile; fileRef = 039FE86518FCBC6E00EC98DC /* GRTStepOneComposePost.m */; };
-		039FE86918FCBC8100EC98DC /* GRTStepTwoComposePost.m in Sources */ = {isa = PBXBuildFile; fileRef = 039FE86818FCBC8100EC98DC /* GRTStepTwoComposePost.m */; };
-		039FE86C18FCBC9100EC98DC /* GRTStepThreeComposePost.m in Sources */ = {isa = PBXBuildFile; fileRef = 039FE86B18FCBC9100EC98DC /* GRTStepThreeComposePost.m */; };
-		039FE86F18FCBD9D00EC98DC /* GRTStepOneComposePostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 039FE86E18FCBD9D00EC98DC /* GRTStepOneComposePostViewController.m */; };
-		039FE87218FCBDB100EC98DC /* GRTStepTwoComposePostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 039FE87118FCBDB100EC98DC /* GRTStepTwoComposePostViewController.m */; };
-		039FE87518FCBDC500EC98DC /* GRTStepThreeComposePostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 039FE87418FCBDC500EC98DC /* GRTStepThreeComposePostViewController.m */; };
 		039FE8D218FEC4C900EC98DC /* GRTSelectResponseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 039FE8D118FEC4C900EC98DC /* GRTSelectResponseViewController.m */; };
 		03A2662218EDFABF002790AB /* GRTTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03A2662118EDFABF002790AB /* GRTTableViewCell.xib */; };
 		03A2662518EDFD11002790AB /* GRTPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A2662418EDFD11002790AB /* GRTPostTableViewCell.m */; };
@@ -133,21 +124,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		039FE85E18FCBBF100EC98DC /* GRTStepOneComposePost.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GRTStepOneComposePost.xib; sourceTree = "<group>"; };
-		039FE86018FCBC0100EC98DC /* GRTStepTwoComposePost.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GRTStepTwoComposePost.xib; sourceTree = "<group>"; };
-		039FE86218FCBC0F00EC98DC /* GRTStepThreeComposePost.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GRTStepThreeComposePost.xib; sourceTree = "<group>"; };
-		039FE86418FCBC6E00EC98DC /* GRTStepOneComposePost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTStepOneComposePost.h; sourceTree = "<group>"; };
-		039FE86518FCBC6E00EC98DC /* GRTStepOneComposePost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTStepOneComposePost.m; sourceTree = "<group>"; };
-		039FE86718FCBC8100EC98DC /* GRTStepTwoComposePost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTStepTwoComposePost.h; sourceTree = "<group>"; };
-		039FE86818FCBC8100EC98DC /* GRTStepTwoComposePost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTStepTwoComposePost.m; sourceTree = "<group>"; };
-		039FE86A18FCBC9100EC98DC /* GRTStepThreeComposePost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTStepThreeComposePost.h; sourceTree = "<group>"; };
-		039FE86B18FCBC9100EC98DC /* GRTStepThreeComposePost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTStepThreeComposePost.m; sourceTree = "<group>"; };
-		039FE86D18FCBD9D00EC98DC /* GRTStepOneComposePostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTStepOneComposePostViewController.h; sourceTree = "<group>"; };
-		039FE86E18FCBD9D00EC98DC /* GRTStepOneComposePostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTStepOneComposePostViewController.m; sourceTree = "<group>"; };
-		039FE87018FCBDB100EC98DC /* GRTStepTwoComposePostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTStepTwoComposePostViewController.h; sourceTree = "<group>"; };
-		039FE87118FCBDB100EC98DC /* GRTStepTwoComposePostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTStepTwoComposePostViewController.m; sourceTree = "<group>"; };
-		039FE87318FCBDC500EC98DC /* GRTStepThreeComposePostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTStepThreeComposePostViewController.h; sourceTree = "<group>"; };
-		039FE87418FCBDC500EC98DC /* GRTStepThreeComposePostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTStepThreeComposePostViewController.m; sourceTree = "<group>"; };
 		039FE8D018FEC4C900EC98DC /* GRTSelectResponseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTSelectResponseViewController.h; sourceTree = "<group>"; };
 		039FE8D118FEC4C900EC98DC /* GRTSelectResponseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTSelectResponseViewController.m; sourceTree = "<group>"; };
 		03A2662118EDFABF002790AB /* GRTTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GRTTableViewCell.xib; sourceTree = "<group>"; };
@@ -403,12 +379,6 @@
 				55912DBC18EC68E50069FEEC /* GRTComposePostViewController.m */,
 				039FE8D018FEC4C900EC98DC /* GRTSelectResponseViewController.h */,
 				039FE8D118FEC4C900EC98DC /* GRTSelectResponseViewController.m */,
-				039FE86D18FCBD9D00EC98DC /* GRTStepOneComposePostViewController.h */,
-				039FE86E18FCBD9D00EC98DC /* GRTStepOneComposePostViewController.m */,
-				039FE87018FCBDB100EC98DC /* GRTStepTwoComposePostViewController.h */,
-				039FE87118FCBDB100EC98DC /* GRTStepTwoComposePostViewController.m */,
-				039FE87318FCBDC500EC98DC /* GRTStepThreeComposePostViewController.h */,
-				039FE87418FCBDC500EC98DC /* GRTStepThreeComposePostViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -723,15 +693,6 @@
 				03A2662118EDFABF002790AB /* GRTTableViewCell.xib */,
 				03A2662318EDFD11002790AB /* GRTPostTableViewCell.h */,
 				03A2662418EDFD11002790AB /* GRTPostTableViewCell.m */,
-				039FE85E18FCBBF100EC98DC /* GRTStepOneComposePost.xib */,
-				039FE86418FCBC6E00EC98DC /* GRTStepOneComposePost.h */,
-				039FE86518FCBC6E00EC98DC /* GRTStepOneComposePost.m */,
-				039FE86018FCBC0100EC98DC /* GRTStepTwoComposePost.xib */,
-				039FE86718FCBC8100EC98DC /* GRTStepTwoComposePost.h */,
-				039FE86818FCBC8100EC98DC /* GRTStepTwoComposePost.m */,
-				039FE86218FCBC0F00EC98DC /* GRTStepThreeComposePost.xib */,
-				039FE86A18FCBC9100EC98DC /* GRTStepThreeComposePost.h */,
-				039FE86B18FCBC9100EC98DC /* GRTStepThreeComposePost.m */,
 				556F710C18FECAA800430D84 /* GRTCornerTriangles.h */,
 				556F710D18FECAA800430D84 /* GRTCornerTriangles.m */,
 			);
@@ -841,7 +802,6 @@
 				87674FF618EDAF0500231453 /* Play_Gray.png in Resources */,
 				87674FDC18EDAF0500231453 /* Eat_White.png in Resources */,
 				0FA8355718EB70A4003C8687 /* InfoPlist.strings in Resources */,
-				039FE86118FCBC0100EC98DC /* GRTStepTwoComposePost.xib in Resources */,
 				87674F6618ECB64A00231453 /* ArcherPro-SemiboldItalic.otf in Resources */,
 				87674F6118ECB64A00231453 /* ArcherPro-BoldItalic.otf in Resources */,
 				55CA535719005B4E000E2A1E /* Move_White.jpg in Resources */,
@@ -877,7 +837,6 @@
 				55CA536919005B4E000E2A1E /* Health_White.jpg in Resources */,
 				55CA536819005B4E000E2A1E /* Health_White.eps in Resources */,
 				87674F6218ECB64A00231453 /* ArcherPro-BookItalic.otf in Resources */,
-				039FE86318FCBC0F00EC98DC /* GRTStepThreeComposePost.xib in Resources */,
 				87674F6018ECB64A00231453 /* ArcherPro-Bold.otf in Resources */,
 				55CA535619005B4E000E2A1E /* Move_White.eps in Resources */,
 				0F30132E18EE0F80008A4FCB /* Move_Colored60x60.png in Resources */,
@@ -952,23 +911,17 @@
 				87E6B3EB18FECDD8006EF36A /* GRTDataManager.m in Sources */,
 				8768DD3C18FDA13800A4D105 /* GRTFacebookLoginViewController.m in Sources */,
 				556F710E18FECAA800430D84 /* GRTCornerTriangles.m in Sources */,
-				039FE87218FCBDB100EC98DC /* GRTStepTwoComposePostViewController.m in Sources */,
-				039FE86F18FCBD9D00EC98DC /* GRTStepOneComposePostViewController.m in Sources */,
 				87E6B3EE18FF3821006EF36A /* User.m in Sources */,
 				0FA8355D18EB70A4003C8687 /* GRTAppDelegate.m in Sources */,
-				039FE86C18FCBC9100EC98DC /* GRTStepThreeComposePost.m in Sources */,
 				8767500F18EE124300231453 /* UIImage+Helpers.m in Sources */,
 				87AD340718F87EA00060CCA3 /* ResponseOption+Methods.m in Sources */,
-				039FE86618FCBC6E00EC98DC /* GRTStepOneComposePost.m in Sources */,
 				0FDCDDDE18F5C2BC0050E18C /* GRTParseAPIClient.m in Sources */,
 				55912DBA18EC68B00069FEEC /* GRTPostDetailViewController.m in Sources */,
 				87AD340418F878E70060CCA3 /* ResponseOption.m in Sources */,
 				0FA8355918EB70A4003C8687 /* main.m in Sources */,
 				55912DEF18EC86840069FEEC /* Post+Methods.m in Sources */,
 				55912DB518EC5AED0069FEEC /* GRTMainViewController.m in Sources */,
-				039FE86918FCBC8100EC98DC /* GRTStepTwoComposePost.m in Sources */,
 				8767501418EE1E8D00231453 /* UIColor+Helpers.m in Sources */,
-				039FE87518FCBDC500EC98DC /* GRTStepThreeComposePostViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
