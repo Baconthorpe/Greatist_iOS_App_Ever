@@ -61,7 +61,6 @@
                         <outlet property="composePostButton" destination="Jce-oV-dpT" id="M2t-ce-WkM"/>
                         <outlet property="logoutBarButtonItem" destination="ntT-Qb-ejK" id="UGH-pE-uGW"/>
                         <outlet property="postsTableView" destination="UCw-px-WOv" id="e8e-Cw-6r8"/>
-                        <segue destination="47W-bh-1UR" kind="modal" identifier="mainToCompose" id="Lal-CU-U9Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zUo-sE-zde" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -104,84 +103,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dsL-b7-6dW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1630" y="98"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="5R7-UO-YKx">
-            <objects>
-                <navigationController definesPresentationContext="YES" id="47W-bh-1UR" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="b0l-ml-4YV">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="VVo-2z-bev" kind="push" id="dPW-aT-bu8"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="si1-R6-yh2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2132" y="-609"/>
-        </scene>
-        <!--Step One Compose Post View Controller-->
-        <scene sceneID="oKM-Mc-sJ9">
-            <objects>
-                <viewController id="VVo-2z-bev" customClass="GRTStepOneComposePostViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="GG3-oc-Gla"/>
-                        <viewControllerLayoutGuide type="bottom" id="ehG-1Y-2ow"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Gy1-iN-AWu">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="1hm-0q-dCR"/>
-                    <connections>
-                        <segue destination="mqM-E3-cJk" kind="push" id="Aw6-ur-HnH"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6e1-83-5Oz" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2588" y="-609"/>
-        </scene>
-        <!--Step Three Compose Post View Controller-->
-        <scene sceneID="rGK-9w-g0y">
-            <objects>
-                <viewController id="MrR-N8-f42" customClass="GRTStepThreeComposePostViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="bjj-wv-ofd"/>
-                        <viewControllerLayoutGuide type="bottom" id="XN1-Qj-VJc"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="wLt-re-KFZ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="VcO-2b-q16"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Gr-bk-m12" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3506" y="-609"/>
-        </scene>
-        <!--Step Two Compose Post View Controller-->
-        <scene sceneID="rBU-gb-q15">
-            <objects>
-                <viewController id="mqM-E3-cJk" customClass="GRTStepTwoComposePostViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="sJA-V4-1Yn"/>
-                        <viewControllerLayoutGuide type="bottom" id="jpc-K6-iff"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="hQ0-bA-8Wi">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="I0c-sg-EK7"/>
-                    <connections>
-                        <segue destination="MrR-N8-f42" kind="push" id="sye-BW-JQu"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zhL-V3-n2D" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3062" y="-609"/>
         </scene>
         <!--Compose Post View Controller - Compose-->
         <scene sceneID="8lP-4M-jjE">
@@ -239,7 +160,7 @@
                                 <action selector="backButtonTapped:" destination="wto-gA-KYW" id="KbE-Ok-WHh"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="nFL-fQ-Bdp">
+                        <barButtonItem key="rightBarButtonItem" style="done" id="nFL-fQ-Bdp">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="whq-ku-4vG">
                                 <rect key="frame" x="233" y="5" width="71" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -321,7 +242,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UNm-m4-QO7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1944" y="-1123"/>
+            <point key="canvasLocation" x="2296" y="-1095"/>
         </scene>
         <!--Facebook Login View Controller-->
         <scene sceneID="ZWi-LS-xaD">

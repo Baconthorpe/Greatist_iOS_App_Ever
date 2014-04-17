@@ -52,7 +52,7 @@
     
     [self setupCategoryButtons];
     [self setupPostContent];
-    //[self setupPostButton];
+    
     [self setupResponseTable];
     [self healthButtonTapped:nil];
 [self.postContentTextView becomeFirstResponder];
@@ -92,7 +92,7 @@
 
 - (void)textViewDidChange:(UITextView *)textView
 {
-   // NSLog(@"text view did change");
+ 
     if ([textView.text isEqualToString:@""])
     {
         textView.text = self.currentPlaceholder;
