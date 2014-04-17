@@ -46,6 +46,23 @@
     self.responseLabel.textColor = [UIColor greatistLightGrayColor];
     self.responseLabel.backgroundColor = [UIColor whiteColor];
     
+     NSIndexPath *zero = [NSIndexPath indexPathForRow:0 inSection:0];
+     NSIndexPath *one = [NSIndexPath indexPathForRow:1 inSection:0];
+     NSIndexPath *two = [NSIndexPath indexPathForRow:2 inSection:0];
+     NSIndexPath *three = [NSIndexPath indexPathForRow:3 inSection:0];
+    
+    
+    if ([self.tableView.delegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]) {
+        [self.tableView.delegate tableView:self.tableView didSelectRowAtIndexPath:zero];
+        [self.tableView.delegate tableView:self.tableView didSelectRowAtIndexPath:one];
+        [self.tableView.delegate tableView:self.tableView didSelectRowAtIndexPath:two];
+        [self.tableView.delegate tableView:self.tableView didSelectRowAtIndexPath:three];
+
+
+    }
+    
+    
+    
     // Do any additional setup after loading the view.
 }
 
@@ -130,9 +147,6 @@ Post *newPost = [Post postWithContent:self.content author:nil section:self.verti
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"responseCell"];
-
-    
-    
     ResponseOption *responseOption = [self.dataStore.validResponses objectAtIndex:indexPath.row];
     cell.textLabel.text = responseOption.content;
     cell.textLabel.font = [UIFont fontWithName:@"Avenir-Roman" size:12];
