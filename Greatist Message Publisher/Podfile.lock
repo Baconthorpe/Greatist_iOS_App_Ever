@@ -34,6 +34,7 @@ PODS:
     - FontAwesomeKit/Core
   - FontAwesomeKit/Zocial (2.1.5):
     - FontAwesomeKit/Core
+  - GCPlaceholderTextView (1.0.1)
   - MBProgressHUD (0.8)
   - Parse-iOS-SDK (1.2.19):
     - Facebook-iOS-SDK (~> 3.7)
@@ -41,6 +42,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - FontAwesomeKit (~> 2.1.5)
+  - GCPlaceholderTextView (~> 1.0)
   - MBProgressHUD (~> 0.8)
   - Parse-iOS-SDK (~> 1.2)
 
@@ -48,6 +50,7 @@ SPEC CHECKSUMS:
   AFNetworking: dd8c1868e57451e3d17ebd3516f2a8c16f9646fe
   Facebook-iOS-SDK: 0d121e16437981fabff9379e07bf646bd5ab245c
   FontAwesomeKit: 7d935e100337d503bdaefde2ea16be740b81ed13
+  GCPlaceholderTextView: 8f0e4cb4b93827c9ec8d9bf9e850bbd328d1db0b
   MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
   Parse-iOS-SDK: 48e366fb9a8956c4e50d93cfd16243176938fae1
 
