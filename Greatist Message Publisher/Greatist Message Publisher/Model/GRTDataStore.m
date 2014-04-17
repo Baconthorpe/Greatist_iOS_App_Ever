@@ -216,10 +216,9 @@
     
     if ([[self.managedObjectContext executeFetchRequest:sectionFetch error:nil] count] == 0)
     {
-        Section *happiness = [Section sectionWithName:@"happiness" inContext:self.managedObjectContext];
-        Section *health = [Section sectionWithName:@"health" inContext:self.managedObjectContext];
-        Section *fitness = [Section sectionWithName:@"fitness" inContext:self.managedObjectContext];
-        //Section *grow = [Section sectionWithName:@"Grow" inContext:self.managedObjectContext];
+        Section *fitness = [Section sectionWithName:@"Fitness" inContext:self.managedObjectContext];
+        Section *health = [Section sectionWithName:@"Health" inContext:self.managedObjectContext];
+        Section *happiness = [Section sectionWithName:@"Happiness" inContext:self.managedObjectContext];
         
         User *anne = [User userUniqueWithFacebookID:@"1084710028" inContext:self.managedObjectContext];
         User *zeke = [User userUniqueWithFacebookID:@"1341420545" inContext:self.managedObjectContext];
@@ -229,7 +228,8 @@
         Post *anneOne = [Post postWithContent:@"I joined a gym today!"
                                        author:anne
                                       section:fitness
-                                    responses:nil inContext:self.managedObjectContext];
+                                    responses:nil 
+                                    inContext:self.managedObjectContext];
         
         Post *zekeOne = [Post postWithContent:@"I have a love/hate relationship with gluten."
                                        author:zeke
@@ -237,11 +237,6 @@
                                     responses:nil
                                     inContext:self.managedObjectContext];
         
-        Post *zekeTwo = [Post postWithContent:@"Spreading the good news about Paleo Diet"
-                                       author:anne
-                                      section:health
-                                    responses:nil
-                                    inContext:self.managedObjectContext];
         
         Post *lizOne = [Post postWithContent:@"I love the WOD article!"
                                       author:zeke

@@ -36,9 +36,9 @@
 		0FDCDDDE18F5C2BC0050E18C /* GRTParseAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FDCDDDD18F5C2BC0050E18C /* GRTParseAPIClient.m */; };
 		388D5989D77F4F8992BFE80F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2782B750FC4349E3AB0AFCDF /* libPods.a */; };
 		550D3D3C18EDC2A0009A9406 /* navbarLogo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 550D3D3B18EDC2A0009A9406 /* navbarLogo.xib */; };
-		550D3D4D18EF04D3009A9406 /* UIViewController+styleSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 550D3D4C18EF04D3009A9406 /* UIViewController+styleSheet.m */; };
 		550D3D5018EF0561009A9406 /* navBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 550D3D4E18EF0561009A9406 /* navBar.png */; };
 		550D3D5118EF0561009A9406 /* postIcon40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 550D3D4F18EF0561009A9406 /* postIcon40x40.png */; };
+		556F710E18FECAA800430D84 /* GRTCornerTriangles.m in Sources */ = {isa = PBXBuildFile; fileRef = 556F710D18FECAA800430D84 /* GRTCornerTriangles.m */; };
 		55912DB518EC5AED0069FEEC /* GRTMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DB418EC5AED0069FEEC /* GRTMainViewController.m */; };
 		55912DBA18EC68B00069FEEC /* GRTPostDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DB918EC68B00069FEEC /* GRTPostDetailViewController.m */; };
 		55912DBD18EC68E50069FEEC /* GRTComposePostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DBC18EC68E50069FEEC /* GRTComposePostViewController.m */; };
@@ -49,6 +49,30 @@
 		55912DF518EC86840069FEEC /* User+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 55912DEB18EC86840069FEEC /* User+Methods.m */; };
 		55912DF818ECB9510069FEEC /* Greatist_Logo_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 55912DF718ECB9510069FEEC /* Greatist_Logo_small.png */; };
 		55912DFA18ECBA390069FEEC /* Greatist_Logo86x50.png in Resources */ = {isa = PBXBuildFile; fileRef = 55912DF918ECBA390069FEEC /* Greatist_Logo86x50.png */; };
+		55CA535319005B4E000E2A1E /* Move_Colored.eps in Resources */ = {isa = PBXBuildFile; fileRef = 55CA533119005B4E000E2A1E /* Move_Colored.eps */; };
+		55CA535419005B4E000E2A1E /* Move_Colored.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 55CA533219005B4E000E2A1E /* Move_Colored.jpg */; };
+		55CA535519005B4E000E2A1E /* Move_Colored.png in Resources */ = {isa = PBXBuildFile; fileRef = 55CA533319005B4E000E2A1E /* Move_Colored.png */; };
+		55CA535619005B4E000E2A1E /* Move_White.eps in Resources */ = {isa = PBXBuildFile; fileRef = 55CA533519005B4E000E2A1E /* Move_White.eps */; };
+		55CA535719005B4E000E2A1E /* Move_White.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 55CA533619005B4E000E2A1E /* Move_White.jpg */; };
+		55CA535819005B4E000E2A1E /* Move_White.png in Resources */ = {isa = PBXBuildFile; fileRef = 55CA533719005B4E000E2A1E /* Move_White.png */; };
+		55CA535919005B4E000E2A1E /* Flag_Fill.eps in Resources */ = {isa = PBXBuildFile; fileRef = 55CA533A19005B4E000E2A1E /* Flag_Fill.eps */; };
+		55CA535A19005B4E000E2A1E /* Flag_Fill.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 55CA533B19005B4E000E2A1E /* Flag_Fill.jpg */; };
+		55CA535B19005B4E000E2A1E /* Flag_Fill.png in Resources */ = {isa = PBXBuildFile; fileRef = 55CA533C19005B4E000E2A1E /* Flag_Fill.png */; };
+		55CA535C19005B4E000E2A1E /* Flag_Reverse.eps in Resources */ = {isa = PBXBuildFile; fileRef = 55CA533E19005B4E000E2A1E /* Flag_Reverse.eps */; };
+		55CA535D19005B4E000E2A1E /* Flag_Reverse.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 55CA533F19005B4E000E2A1E /* Flag_Reverse.jpg */; };
+		55CA535E19005B4E000E2A1E /* Flag_Reverse.png in Resources */ = {isa = PBXBuildFile; fileRef = 55CA534019005B4E000E2A1E /* Flag_Reverse.png */; };
+		55CA535F19005B4E000E2A1E /* Grow_Colored.eps in Resources */ = {isa = PBXBuildFile; fileRef = 55CA534319005B4E000E2A1E /* Grow_Colored.eps */; };
+		55CA536019005B4E000E2A1E /* Grow_Colored.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 55CA534419005B4E000E2A1E /* Grow_Colored.jpg */; };
+		55CA536119005B4E000E2A1E /* Grow_Colored.png in Resources */ = {isa = PBXBuildFile; fileRef = 55CA534519005B4E000E2A1E /* Grow_Colored.png */; };
+		55CA536219005B4E000E2A1E /* Grow_White.eps in Resources */ = {isa = PBXBuildFile; fileRef = 55CA534719005B4E000E2A1E /* Grow_White.eps */; };
+		55CA536319005B4E000E2A1E /* Grow_White.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 55CA534819005B4E000E2A1E /* Grow_White.jpg */; };
+		55CA536419005B4E000E2A1E /* Grow_White.png in Resources */ = {isa = PBXBuildFile; fileRef = 55CA534919005B4E000E2A1E /* Grow_White.png */; };
+		55CA536519005B4E000E2A1E /* Health_Colored.eps in Resources */ = {isa = PBXBuildFile; fileRef = 55CA534C19005B4E000E2A1E /* Health_Colored.eps */; };
+		55CA536619005B4E000E2A1E /* Health_Colored.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 55CA534D19005B4E000E2A1E /* Health_Colored.jpg */; };
+		55CA536719005B4E000E2A1E /* Health_Colored.png in Resources */ = {isa = PBXBuildFile; fileRef = 55CA534E19005B4E000E2A1E /* Health_Colored.png */; };
+		55CA536819005B4E000E2A1E /* Health_White.eps in Resources */ = {isa = PBXBuildFile; fileRef = 55CA535019005B4E000E2A1E /* Health_White.eps */; };
+		55CA536919005B4E000E2A1E /* Health_White.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 55CA535119005B4E000E2A1E /* Health_White.jpg */; };
+		55CA536A19005B4E000E2A1E /* Health_White.png in Resources */ = {isa = PBXBuildFile; fileRef = 55CA535219005B4E000E2A1E /* Health_White.png */; };
 		87674F6018ECB64A00231453 /* ArcherPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 87674F5418ECB64A00231453 /* ArcherPro-Bold.otf */; };
 		87674F6118ECB64A00231453 /* ArcherPro-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 87674F5518ECB64A00231453 /* ArcherPro-BoldItalic.otf */; };
 		87674F6218ECB64A00231453 /* ArcherPro-BookItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 87674F5618ECB64A00231453 /* ArcherPro-BookItalic.otf */; };
@@ -138,10 +162,10 @@
 		0FDCDDDD18F5C2BC0050E18C /* GRTParseAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTParseAPIClient.m; sourceTree = "<group>"; };
 		2782B750FC4349E3AB0AFCDF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		550D3D3B18EDC2A0009A9406 /* navbarLogo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = navbarLogo.xib; sourceTree = "<group>"; };
-		550D3D4B18EF04D3009A9406 /* UIViewController+styleSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+styleSheet.h"; sourceTree = "<group>"; };
-		550D3D4C18EF04D3009A9406 /* UIViewController+styleSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+styleSheet.m"; sourceTree = "<group>"; };
 		550D3D4E18EF0561009A9406 /* navBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navBar.png; sourceTree = "<group>"; };
 		550D3D4F18EF0561009A9406 /* postIcon40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = postIcon40x40.png; sourceTree = "<group>"; };
+		556F710C18FECAA800430D84 /* GRTCornerTriangles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTCornerTriangles.h; sourceTree = "<group>"; };
+		556F710D18FECAA800430D84 /* GRTCornerTriangles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTCornerTriangles.m; sourceTree = "<group>"; };
 		55912DB318EC5AED0069FEEC /* GRTMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTMainViewController.h; sourceTree = "<group>"; };
 		55912DB418EC5AED0069FEEC /* GRTMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTMainViewController.m; sourceTree = "<group>"; };
 		55912DB818EC68B00069FEEC /* GRTPostDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTPostDetailViewController.h; sourceTree = "<group>"; };
@@ -160,6 +184,30 @@
 		55912DEB18EC86840069FEEC /* User+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+Methods.m"; sourceTree = "<group>"; };
 		55912DF718ECB9510069FEEC /* Greatist_Logo_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Greatist_Logo_small.png; sourceTree = "<group>"; };
 		55912DF918ECBA390069FEEC /* Greatist_Logo86x50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Greatist_Logo86x50.png; sourceTree = "<group>"; };
+		55CA533119005B4E000E2A1E /* Move_Colored.eps */ = {isa = PBXFileReference; lastKnownFileType = file; path = Move_Colored.eps; sourceTree = "<group>"; };
+		55CA533219005B4E000E2A1E /* Move_Colored.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Move_Colored.jpg; sourceTree = "<group>"; };
+		55CA533319005B4E000E2A1E /* Move_Colored.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Move_Colored.png; sourceTree = "<group>"; };
+		55CA533519005B4E000E2A1E /* Move_White.eps */ = {isa = PBXFileReference; lastKnownFileType = file; path = Move_White.eps; sourceTree = "<group>"; };
+		55CA533619005B4E000E2A1E /* Move_White.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Move_White.jpg; sourceTree = "<group>"; };
+		55CA533719005B4E000E2A1E /* Move_White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Move_White.png; sourceTree = "<group>"; };
+		55CA533A19005B4E000E2A1E /* Flag_Fill.eps */ = {isa = PBXFileReference; lastKnownFileType = file; path = Flag_Fill.eps; sourceTree = "<group>"; };
+		55CA533B19005B4E000E2A1E /* Flag_Fill.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Flag_Fill.jpg; sourceTree = "<group>"; };
+		55CA533C19005B4E000E2A1E /* Flag_Fill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Flag_Fill.png; sourceTree = "<group>"; };
+		55CA533E19005B4E000E2A1E /* Flag_Reverse.eps */ = {isa = PBXFileReference; lastKnownFileType = file; path = Flag_Reverse.eps; sourceTree = "<group>"; };
+		55CA533F19005B4E000E2A1E /* Flag_Reverse.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Flag_Reverse.jpg; sourceTree = "<group>"; };
+		55CA534019005B4E000E2A1E /* Flag_Reverse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Flag_Reverse.png; sourceTree = "<group>"; };
+		55CA534319005B4E000E2A1E /* Grow_Colored.eps */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grow_Colored.eps; sourceTree = "<group>"; };
+		55CA534419005B4E000E2A1E /* Grow_Colored.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Grow_Colored.jpg; sourceTree = "<group>"; };
+		55CA534519005B4E000E2A1E /* Grow_Colored.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Grow_Colored.png; sourceTree = "<group>"; };
+		55CA534719005B4E000E2A1E /* Grow_White.eps */ = {isa = PBXFileReference; lastKnownFileType = file; path = Grow_White.eps; sourceTree = "<group>"; };
+		55CA534819005B4E000E2A1E /* Grow_White.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Grow_White.jpg; sourceTree = "<group>"; };
+		55CA534919005B4E000E2A1E /* Grow_White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Grow_White.png; sourceTree = "<group>"; };
+		55CA534C19005B4E000E2A1E /* Health_Colored.eps */ = {isa = PBXFileReference; lastKnownFileType = file; path = Health_Colored.eps; sourceTree = "<group>"; };
+		55CA534D19005B4E000E2A1E /* Health_Colored.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Health_Colored.jpg; sourceTree = "<group>"; };
+		55CA534E19005B4E000E2A1E /* Health_Colored.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Health_Colored.png; sourceTree = "<group>"; };
+		55CA535019005B4E000E2A1E /* Health_White.eps */ = {isa = PBXFileReference; lastKnownFileType = file; path = Health_White.eps; sourceTree = "<group>"; };
+		55CA535119005B4E000E2A1E /* Health_White.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Health_White.jpg; sourceTree = "<group>"; };
+		55CA535219005B4E000E2A1E /* Health_White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Health_White.png; sourceTree = "<group>"; };
 		87674F5418ECB64A00231453 /* ArcherPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ArcherPro-Bold.otf"; sourceTree = "<group>"; };
 		87674F5518ECB64A00231453 /* ArcherPro-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ArcherPro-BoldItalic.otf"; sourceTree = "<group>"; };
 		87674F5618ECB64A00231453 /* ArcherPro-BookItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ArcherPro-BookItalic.otf"; sourceTree = "<group>"; };
@@ -373,6 +421,133 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		55CA532E19005B4E000E2A1E /* BodyTalk_Icons */ = {
+			isa = PBXGroup;
+			children = (
+				55CA532F19005B4E000E2A1E /* Fitness */,
+				55CA533819005B4E000E2A1E /* Flag Icon */,
+				55CA534119005B4E000E2A1E /* Happiness */,
+				55CA534A19005B4E000E2A1E /* Health */,
+			);
+			path = BodyTalk_Icons;
+			sourceTree = "<group>";
+		};
+		55CA532F19005B4E000E2A1E /* Fitness */ = {
+			isa = PBXGroup;
+			children = (
+				55CA533019005B4E000E2A1E /* Colored Icon */,
+				55CA533419005B4E000E2A1E /* White Icon */,
+			);
+			path = Fitness;
+			sourceTree = "<group>";
+		};
+		55CA533019005B4E000E2A1E /* Colored Icon */ = {
+			isa = PBXGroup;
+			children = (
+				55CA533119005B4E000E2A1E /* Move_Colored.eps */,
+				55CA533219005B4E000E2A1E /* Move_Colored.jpg */,
+				55CA533319005B4E000E2A1E /* Move_Colored.png */,
+			);
+			path = "Colored Icon";
+			sourceTree = "<group>";
+		};
+		55CA533419005B4E000E2A1E /* White Icon */ = {
+			isa = PBXGroup;
+			children = (
+				55CA533519005B4E000E2A1E /* Move_White.eps */,
+				55CA533619005B4E000E2A1E /* Move_White.jpg */,
+				55CA533719005B4E000E2A1E /* Move_White.png */,
+			);
+			path = "White Icon";
+			sourceTree = "<group>";
+		};
+		55CA533819005B4E000E2A1E /* Flag Icon */ = {
+			isa = PBXGroup;
+			children = (
+				55CA533919005B4E000E2A1E /* Fill */,
+				55CA533D19005B4E000E2A1E /* Reverse */,
+			);
+			path = "Flag Icon";
+			sourceTree = "<group>";
+		};
+		55CA533919005B4E000E2A1E /* Fill */ = {
+			isa = PBXGroup;
+			children = (
+				55CA533A19005B4E000E2A1E /* Flag_Fill.eps */,
+				55CA533B19005B4E000E2A1E /* Flag_Fill.jpg */,
+				55CA533C19005B4E000E2A1E /* Flag_Fill.png */,
+			);
+			path = Fill;
+			sourceTree = "<group>";
+		};
+		55CA533D19005B4E000E2A1E /* Reverse */ = {
+			isa = PBXGroup;
+			children = (
+				55CA533E19005B4E000E2A1E /* Flag_Reverse.eps */,
+				55CA533F19005B4E000E2A1E /* Flag_Reverse.jpg */,
+				55CA534019005B4E000E2A1E /* Flag_Reverse.png */,
+			);
+			path = Reverse;
+			sourceTree = "<group>";
+		};
+		55CA534119005B4E000E2A1E /* Happiness */ = {
+			isa = PBXGroup;
+			children = (
+				55CA534219005B4E000E2A1E /* Colored Icon */,
+				55CA534619005B4E000E2A1E /* White Icon */,
+			);
+			path = Happiness;
+			sourceTree = "<group>";
+		};
+		55CA534219005B4E000E2A1E /* Colored Icon */ = {
+			isa = PBXGroup;
+			children = (
+				55CA534319005B4E000E2A1E /* Grow_Colored.eps */,
+				55CA534419005B4E000E2A1E /* Grow_Colored.jpg */,
+				55CA534519005B4E000E2A1E /* Grow_Colored.png */,
+			);
+			path = "Colored Icon";
+			sourceTree = "<group>";
+		};
+		55CA534619005B4E000E2A1E /* White Icon */ = {
+			isa = PBXGroup;
+			children = (
+				55CA534719005B4E000E2A1E /* Grow_White.eps */,
+				55CA534819005B4E000E2A1E /* Grow_White.jpg */,
+				55CA534919005B4E000E2A1E /* Grow_White.png */,
+			);
+			path = "White Icon";
+			sourceTree = "<group>";
+		};
+		55CA534A19005B4E000E2A1E /* Health */ = {
+			isa = PBXGroup;
+			children = (
+				55CA534B19005B4E000E2A1E /* Colored Icon */,
+				55CA534F19005B4E000E2A1E /* White Icon */,
+			);
+			path = Health;
+			sourceTree = "<group>";
+		};
+		55CA534B19005B4E000E2A1E /* Colored Icon */ = {
+			isa = PBXGroup;
+			children = (
+				55CA534C19005B4E000E2A1E /* Health_Colored.eps */,
+				55CA534D19005B4E000E2A1E /* Health_Colored.jpg */,
+				55CA534E19005B4E000E2A1E /* Health_Colored.png */,
+			);
+			path = "Colored Icon";
+			sourceTree = "<group>";
+		};
+		55CA534F19005B4E000E2A1E /* White Icon */ = {
+			isa = PBXGroup;
+			children = (
+				55CA535019005B4E000E2A1E /* Health_White.eps */,
+				55CA535119005B4E000E2A1E /* Health_White.jpg */,
+				55CA535219005B4E000E2A1E /* Health_White.png */,
+			);
+			path = "White Icon";
+			sourceTree = "<group>";
+		};
 		87674F5118ECB64A00231453 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -431,6 +606,7 @@
 		87674F6A18EDAF0500231453 /* Category Icons */ = {
 			isa = PBXGroup;
 			children = (
+				55CA532E19005B4E000E2A1E /* BodyTalk_Icons */,
 				87674F6B18EDAF0500231453 /* Connect */,
 				87674F7918EDAF0500231453 /* Discover */,
 				87674F8718EDAF0500231453 /* Eat */,
@@ -512,13 +688,13 @@
 				8767501318EE1E8D00231453 /* UIColor+Helpers.m */,
 				8767500D18EE124300231453 /* UIImage+Helpers.h */,
 				8767500E18EE124300231453 /* UIImage+Helpers.m */,
-				550D3D4B18EF04D3009A9406 /* UIViewController+styleSheet.h */,
-				550D3D4C18EF04D3009A9406 /* UIViewController+styleSheet.m */,
 				0FA8357F18EB70FD003C8687 /* Main.storyboard */,
 				550D3D3B18EDC2A0009A9406 /* navbarLogo.xib */,
 				03A2662118EDFABF002790AB /* GRTTableViewCell.xib */,
 				03A2662318EDFD11002790AB /* GRTPostTableViewCell.h */,
 				03A2662418EDFD11002790AB /* GRTPostTableViewCell.m */,
+				556F710C18FECAA800430D84 /* GRTCornerTriangles.h */,
+				556F710D18FECAA800430D84 /* GRTCornerTriangles.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -605,11 +781,16 @@
 				550D3D5118EF0561009A9406 /* postIcon40x40.png in Resources */,
 				87674FDF18EDAF0500231453 /* Grow_Colored.png in Resources */,
 				550D3D5018EF0561009A9406 /* navBar.png in Resources */,
+				55CA535D19005B4E000E2A1E /* Flag_Reverse.jpg in Resources */,
+				55CA536519005B4E000E2A1E /* Health_Colored.eps in Resources */,
+				55CA535C19005B4E000E2A1E /* Flag_Reverse.eps in Resources */,
 				87674FCE18EDAF0500231453 /* Discover_Gray.png in Resources */,
 				87674FE918EDAF0500231453 /* Move_Colored.png in Resources */,
 				0F30132A18EE0F2D008A4FCB /* Eat_Colored60x60.png in Resources */,
 				03A2662218EDFABF002790AB /* GRTTableViewCell.xib in Resources */,
+				55CA536619005B4E000E2A1E /* Health_Colored.jpg in Resources */,
 				87674FCB18EDAF0500231453 /* Discover_Colored.png in Resources */,
+				55CA535419005B4E000E2A1E /* Move_Colored.jpg in Resources */,
 				0F30132C18EE0F77008A4FCB /* Grow_Colored60x60.png in Resources */,
 				0FA8358018EB70FD003C8687 /* Main.storyboard in Resources */,
 				87674FF318EDAF0500231453 /* Play_Colored.png in Resources */,
@@ -617,29 +798,49 @@
 				8767501118EE13C100231453 /* Greatist_Logo_Badge_Blue.png in Resources */,
 				87674FD518EDAF0500231453 /* Eat_Colored.png in Resources */,
 				87674FEC18EDAF0500231453 /* Move_Gray.png in Resources */,
+				55CA535519005B4E000E2A1E /* Move_Colored.png in Resources */,
 				87674FF618EDAF0500231453 /* Play_Gray.png in Resources */,
 				87674FDC18EDAF0500231453 /* Eat_White.png in Resources */,
 				0FA8355718EB70A4003C8687 /* InfoPlist.strings in Resources */,
 				87674F6618ECB64A00231453 /* ArcherPro-SemiboldItalic.otf in Resources */,
 				87674F6118ECB64A00231453 /* ArcherPro-BoldItalic.otf in Resources */,
+				55CA535719005B4E000E2A1E /* Move_White.jpg in Resources */,
+				55CA535E19005B4E000E2A1E /* Flag_Reverse.png in Resources */,
 				0FA8356218EB70A4003C8687 /* Images.xcassets in Resources */,
 				87674F6818ECB64A00231453 /* DINOT-Medium.otf in Resources */,
+				55CA535A19005B4E000E2A1E /* Flag_Fill.jpg in Resources */,
 				87674FC118EDAF0500231453 /* Connect_Colored.png in Resources */,
 				87674FE618EDAF0500231453 /* Grow_White.png in Resources */,
+				55CA535819005B4E000E2A1E /* Move_White.png in Resources */,
 				87674F6518ECB64A00231453 /* ArcherPro-Semibold.otf in Resources */,
 				0F30133018EE0FB6008A4FCB /* Play_Colored60x60.png in Resources */,
+				55CA536019005B4E000E2A1E /* Grow_Colored.jpg in Resources */,
+				55CA536219005B4E000E2A1E /* Grow_White.eps in Resources */,
+				55CA535319005B4E000E2A1E /* Move_Colored.eps in Resources */,
+				039FE85F18FCBBF100EC98DC /* GRTStepOneComposePost.xib in Resources */,
 				55912DF818ECB9510069FEEC /* Greatist_Logo_small.png in Resources */,
 				87674F6418ECB64A00231453 /* ArcherPro-Medium.otf in Resources */,
 				87674FEF18EDAF0500231453 /* Move_White.png in Resources */,
 				87674FD818EDAF0500231453 /* Eat_Gray.png in Resources */,
+				55CA536719005B4E000E2A1E /* Health_Colored.png in Resources */,
+				55CA536319005B4E000E2A1E /* Grow_White.jpg in Resources */,
+				55CA535F19005B4E000E2A1E /* Grow_Colored.eps in Resources */,
+				55CA536419005B4E000E2A1E /* Grow_White.png in Resources */,
 				87674FFA18EDAF0500231453 /* Play_White.png in Resources */,
+				55CA536A19005B4E000E2A1E /* Health_White.png in Resources */,
+				55CA536119005B4E000E2A1E /* Grow_Colored.png in Resources */,
+				55CA535919005B4E000E2A1E /* Flag_Fill.eps in Resources */,
 				87674F6918ECB64A00231453 /* Greatist_Logo.png in Resources */,
 				87674F6318ECB64A00231453 /* ArcherPro-Light.otf in Resources */,
 				87674FE218EDAF0500231453 /* Grow_Gray.png in Resources */,
 				87674F6718ECB64A00231453 /* DINOT-Bold.otf in Resources */,
+				55CA536919005B4E000E2A1E /* Health_White.jpg in Resources */,
+				55CA536819005B4E000E2A1E /* Health_White.eps in Resources */,
 				87674F6218ECB64A00231453 /* ArcherPro-BookItalic.otf in Resources */,
 				87674F6018ECB64A00231453 /* ArcherPro-Bold.otf in Resources */,
+				55CA535619005B4E000E2A1E /* Move_White.eps in Resources */,
 				0F30132E18EE0F80008A4FCB /* Move_Colored60x60.png in Resources */,
+				55CA535B19005B4E000E2A1E /* Flag_Fill.png in Resources */,
 				55912DFA18ECBA390069FEEC /* Greatist_Logo86x50.png in Resources */,
 				87674FC418EDAF0500231453 /* Connect_Gray.png in Resources */,
 				87674FC818EDAF0500231453 /* Connect_White.png in Resources */,
@@ -709,12 +910,12 @@
 				55912DEE18EC86840069FEEC /* GRTDataStore.m in Sources */,
 				87E6B3EB18FECDD8006EF36A /* GRTDataManager.m in Sources */,
 				8768DD3C18FDA13800A4D105 /* GRTFacebookLoginViewController.m in Sources */,
+				556F710E18FECAA800430D84 /* GRTCornerTriangles.m in Sources */,
 				87E6B3EE18FF3821006EF36A /* User.m in Sources */,
 				0FA8355D18EB70A4003C8687 /* GRTAppDelegate.m in Sources */,
 				8767500F18EE124300231453 /* UIImage+Helpers.m in Sources */,
 				87AD340718F87EA00060CCA3 /* ResponseOption+Methods.m in Sources */,
 				0FDCDDDE18F5C2BC0050E18C /* GRTParseAPIClient.m in Sources */,
-				550D3D4D18EF04D3009A9406 /* UIViewController+styleSheet.m in Sources */,
 				55912DBA18EC68B00069FEEC /* GRTPostDetailViewController.m in Sources */,
 				87AD340418F878E70060CCA3 /* ResponseOption.m in Sources */,
 				0FA8355918EB70A4003C8687 /* main.m in Sources */,

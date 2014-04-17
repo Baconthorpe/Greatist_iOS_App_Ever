@@ -15,6 +15,8 @@
 #import "Post+Methods.h"
 #import "Section+Methods.h"
 #import "GRTFacebookAPIClient.h"
+#import "GRTCornerTriangles.h"
+#import "UIColor+Helpers.h"
 #import "GRTDataManager.h"
 
 
@@ -25,7 +27,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *postsTableView;
 @property (weak, nonatomic) IBOutlet UIToolbar *logoutBarButtonItem;
 @property (strong, nonatomic) Section *section;
-
+@property (strong, nonatomic) GRTCornerTriangles *cornerTriangle;
 @property (strong, nonatomic) GRTDataStore *dataStore;
 @property (strong, nonatomic) GRTDataManager *dataManager;
 
@@ -50,11 +52,13 @@
     [self setupNavBar];
     [self setupFooterToolbar];
     
-    self.dataManager = [GRTDataManager sharedManager];
-    
+    GRTCornerTriangles *cornerTriangle = [GRTCornerTriangles new];
+    self.dataManager = [GRTDataManager sharedManager];    
     [self.dataManager getPostsBasedOnFacebookFriends];
- 
     
+//    self.postsTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+//    self.postsTableView.separatorColor = [UIColor greatistLightGrayColor];
+
 //    [[GRTFacebookAPIClient sharedClient] verifyUserFacebookCachedInViewController:self];
     
     // Do any additional setup after loading the view.
@@ -73,9 +77,9 @@
 {
     return 200;
 }
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (GRTPostTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = (GRTPostTableViewCell *)[self configureCellForMainTableViewWithIndexPath:indexPath];
+    GRTPostTableViewCell *cell = (GRTPostTableViewCell *)[self configureCellForMainTableViewWithIndexPath:indexPath];
     return cell;
 }
 
@@ -168,7 +172,8 @@
 }
 
 
-- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
+{
     [self.postsTableView beginUpdates];
 }
 
@@ -195,30 +200,106 @@
     Post *post = [self.dataStore.postFRController objectAtIndexPath:indexPath];
     [cell configureWithPost:post];
     
-    if ([post.section.name isEqualToString:(@"happiness")])
-    {
-        cell.backgroundColor = [UIColor greatistHappinessColorSecondary];
-        cell.squareLabelLeft.backgroundColor = [UIColor greatistHappinessColor];
-        cell.buttonBar.backgroundColor=[UIColor whiteColor];
-    }
-//    else if ([post.section.name isEqualToString:(@"Play")])
-//    {
-//        cell.backgroundColor = [UIColor greatistFitnessColorSecondary];
-//        cell.buttonBar.backgroundColor=[UIColor whiteColor];
-   // }
-    else if ([post.section.name isEqualToString:(@"fitness")])
-    {
-        cell.backgroundColor = [UIColor greatistFitnessColorSecondary];
-        cell.squareLabelLeft.backgroundColor = [UIColor greatistFitnessColor];
-        cell.buttonBar.backgroundColor=[UIColor whiteColor];
-    }
-    else if ([post.section.name isEqualToString:(@"health")])
-    {
-        cell.backgroundColor = [UIColor greatistHealthColorSecondary];
-        cell.squareLabelRight.backgroundColor = [UIColor greatistHealthColor];
-        cell.buttonBar.backgroundColor=[UIColor whiteColor];
-    }
+    GRTCornerTriangles *leftCornerTriangle = [[GRTCornerTriangles alloc] initWithFrame:cell.bounds IsLeftTriangle:YES withFillColor:[UIColor greatistFitnessColor]];
 
+    GRTCornerTriangles *rightCornerTriangle = [[GRTCornerTriangles alloc] initWithFrame:cell.bounds IsLeftTriangle:NO withFillColor:[UIColor greatistFitnessColor]];
+    
+    
+    cell.backgroundColor = [UIColor greatistColorForCategory:post.section.name];
+    cell.buttonBar.backgroundColor=[UIColor whiteColor];
+    
+    for (UIView *view in cell.contentView.subviews) {
+        if (![view isEqual:cell.postLabel] && ![view isEqual:cell.buttonBar]) {
+            [view removeFromSuperview];
+        }
+    }
+    
+    UIView *separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 5)];
+    separatorLineView.backgroundColor = [UIColor greatistLightGrayColor];
+    [cell.contentView addSubview:separatorLineView];
+    
+    if (([post.section.name isEqualToString:(@"Fitness")]) && (indexPath.row % 2 == 0))
+    {
+        cell.backgroundColor = [UIColor greatistFitnessColor];
+        cell.buttonBar.backgroundColor=[UIColor whiteColor];
+        [cell.contentView addSubview:leftCornerTriangle];
+        [leftCornerTriangle setFillColor:[UIColor greatistFitnessColorSecondary]];
+        
+        UIImage *fitnessIconImage = [UIImage imageNamed:@"Move_White"];
+        UIImage *scaledFitnessIconImage = [UIImage imageWithImage:fitnessIconImage scaledToSize:CGSizeMake(25, 20)];
+        UIImageView *fitnessIconView = [[UIImageView alloc] initWithImage:scaledFitnessIconImage];
+        [cell.contentView addSubview:fitnessIconView];
+        [fitnessIconView setFrame:CGRectMake(10, 15, 25, 20)];
+
+    }
+    else if (([post.section.name isEqualToString:(@"Fitness")]) && (!indexPath.row % 2 == 0))
+    {
+        cell.backgroundColor = [UIColor greatistFitnessColor];
+        cell.buttonBar.backgroundColor=[UIColor whiteColor];
+        [cell.contentView addSubview:rightCornerTriangle];
+        [rightCornerTriangle setFillColor:[UIColor greatistFitnessColorSecondary]];
+        
+        UIImage *fitnessIconImage = [UIImage imageNamed:@"Move_White"];
+        UIImage *scaledFitnessIconImage = [UIImage imageWithImage:fitnessIconImage scaledToSize:CGSizeMake(25, 20)];
+        UIImageView *fitnessIconView = [[UIImageView alloc] initWithImage:scaledFitnessIconImage];
+        [cell.contentView addSubview:fitnessIconView];
+        [fitnessIconView setFrame:CGRectMake(290, 15, 25, 20)];
+    }
+    else if (([post.section.name isEqualToString:(@"Health")]) && (indexPath.row % 2 == 0))
+    {
+        cell.backgroundColor = [UIColor greatistHappinessColor];
+        cell.buttonBar.backgroundColor=[UIColor whiteColor];
+        [cell.contentView addSubview:leftCornerTriangle];
+        [leftCornerTriangle setFillColor:[UIColor greatistHappinessColorSecondary]];
+        
+        UIImage *healthIconImage = [UIImage imageNamed:@"Health_White"];
+        UIImage *scaledHealthIconImage = [UIImage imageWithImage:healthIconImage scaledToSize:CGSizeMake(25, 25)];
+        UIImageView *healthIconView = [[UIImageView alloc] initWithImage:scaledHealthIconImage];
+        [cell.contentView addSubview:healthIconView];
+        [healthIconView setFrame:CGRectMake(8, 12, 25, 25)];
+    }
+    else if (([post.section.name isEqualToString:(@"Health")]) && (!indexPath.row % 2 == 0))
+    {
+        cell.backgroundColor = [UIColor greatistHealthColor];
+        cell.buttonBar.backgroundColor=[UIColor whiteColor];
+        [cell.contentView addSubview:rightCornerTriangle];
+        [rightCornerTriangle setFillColor:[UIColor greatistHealthColorSecondary]];
+        
+        UIImage *healthIconImage = [UIImage imageNamed:@"Health_White"];
+        UIImage *scaledHealthIconImage = [UIImage imageWithImage:healthIconImage scaledToSize:CGSizeMake(25, 25)];
+        UIImageView *healthIconView = [[UIImageView alloc] initWithImage:scaledHealthIconImage];
+        [cell.contentView addSubview:healthIconView];
+        [healthIconView setFrame:CGRectMake(287, 12, 25, 25)];
+    }
+    else if (([post.section.name isEqualToString:(@"Happiness")]) && (indexPath.row % 2 == 0))
+    {
+        cell.backgroundColor = [UIColor greatistHappinessColor];
+        cell.buttonBar.backgroundColor=[UIColor whiteColor];
+        [cell.contentView addSubview:leftCornerTriangle];
+        [leftCornerTriangle setFillColor:[UIColor greatistHappinessColorSecondary]];
+        
+        UIImage *happinessIconImage = [UIImage imageNamed:@"Grow_White"];
+        UIImage *scaledHappinessIconImage = [UIImage imageWithImage:happinessIconImage scaledToSize:CGSizeMake(18, 25)];
+        UIImageView *happinessIconView = [[UIImageView alloc] initWithImage:scaledHappinessIconImage];
+        [cell.contentView addSubview:happinessIconView];
+        [happinessIconView setFrame:CGRectMake(8, 15, 18, 25)];
+    }
+    else if (([post.section.name isEqualToString:(@"Happiness")]) && (!indexPath.row % 2 == 0))
+    {
+        cell.backgroundColor = [UIColor greatistHappinessColor];
+        cell.buttonBar.backgroundColor=[UIColor whiteColor];
+        [cell.contentView addSubview:rightCornerTriangle];
+        [rightCornerTriangle setFillColor:[UIColor greatistHappinessColorSecondary]];
+        
+        UIImage *happinessIconImage = [UIImage imageNamed:@"Grow_White"];
+        UIImage *scaledHappinessIconImage = [UIImage imageWithImage:happinessIconImage scaledToSize:CGSizeMake(18, 25)];
+        UIImageView *happinessIconView = [[UIImageView alloc] initWithImage:scaledHappinessIconImage];
+        [cell.contentView addSubview:happinessIconView];
+        [happinessIconView setFrame:CGRectMake(290, 10, 18, 25)];
+    }
+    [leftCornerTriangle setNeedsDisplay];
+    [rightCornerTriangle setNeedsDisplay];
+    
     return cell;
 }
 
@@ -254,7 +335,7 @@
 #pragma mark - Helper Methods
 - (void)initialize
 {
-    [self.postsTableView registerNib:[UINib nibWithNibName:@"GRTTableViewCell" bundle:nil] forCellReuseIdentifier:@"postCell"];
+   [self.postsTableView registerNib:[UINib nibWithNibName:@"GRTTableViewCell" bundle:nil] forCellReuseIdentifier:@"postCell"];
     self.dataStore = [GRTDataStore sharedDataStore];
     self.postsTableView.delegate = self;
     self.postsTableView.dataSource = self;
@@ -264,9 +345,14 @@
 
 - (void)setupNavBar
 {
-    UIImage *navBar = [UIImage imageNamed:@"navBar.png"];
+//    UIImage *navBar = [UIImage imageNamed:@"navBar.png"];
     //    UIImage *scaledNavBar = [UIImage imageWithImage:navBar scaledToSize:CGSizeMake(320, 54)];
-    [self.navigationController.navigationBar setBackgroundImage:navBar forBarMetrics:UIBarMetricsDefault];
+//    CGRect navBarTop = CGRectMake(0, 0, 320, 30);
+//    [[UIColor greatistBlueColor] setFill];
+//    UIImage *navBarTopImage = [UIImage imageWithCGImage:navBarTop];
+//    CGRect navRect = [CGRectMake(0, 0, 320, 30)];
+    
+    [self.navigationController.navigationBar setBarTintColor:[UIColor greatistLightGrayColor]];
     
     UIImage *greatistLogoImage = [UIImage imageNamed:@"Greatist_Logo86x50"];
     UIImage *scaledGreatistLogoImage = [UIImage imageWithImage:greatistLogoImage scaledToSize:CGSizeMake(65, 38)];
