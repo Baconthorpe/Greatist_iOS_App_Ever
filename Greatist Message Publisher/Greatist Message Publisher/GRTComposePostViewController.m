@@ -22,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *selectedCells;
 @property (weak, nonatomic) IBOutlet UIButton *selectResponses;
+@property (nonatomic) BOOL isDisplayingPlaceholder;
+@property (nonatomic) NSString *currentPlaceholder;
 
 @property (strong, nonatomic) GRTDataStore *dataStore;
 
@@ -54,6 +56,12 @@
     [self healthButtonTapped:nil];
    [self.postContentTextView becomeFirstResponder];
     
+    self.postContentTextView.delegate = self;
+    self.isDisplayingPlaceholder = YES;
+   self.currentPlaceholder = @"This is my sample placeholder text";
+    
+
+    
     
 //self.verticals = @[@"happiness", @"health", @"fitness", @"Happiness", @"Health", @"Fitness"];
     
@@ -73,6 +81,26 @@
     [textView setTextColor:[UIColor greatistGrayColor]];
     [textView setText:@""];
 }
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
+{
+    textView.textColor = [UIColor blackColor];
+    textView.text = @"";
+    
+    return YES;
+}
+
+- (void)textViewDidChange:(UITextView *)textView
+{
+    NSLog(@"text view did change");
+    if ([textView.text isEqualToString:@""])
+    {
+        textView.text = self.currentPlaceholder;
+        textView.textColor = [UIColor lightGrayColor];
+        [textView resignFirstResponder];
+    }
+}
+
+
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     GRTSelectResponseViewController *nextViewController = segue.destinationViewController;
@@ -238,7 +266,20 @@
     
     self.leftQuoteLabel.textColor = [UIColor greatistEatColor];
     self.rightQuoteLabel.textColor = [UIColor greatistEatColor];
-    self.postContentTextView.text = @"Find a new healthy recipe recently?";
+    {
+        [self.postContentTextView resignFirstResponder];
+        
+        if (self.isDisplayingPlaceholder)
+        {
+            if ([self.postContentTextView.text isEqualToString:self.currentPlaceholder])
+            {
+                self.postContentTextView.text = @"connect button placeholder";
+                self.postContentTextView.textColor = [UIColor lightGrayColor];
+            }
+            self.currentPlaceholder = @"eat button placeholder";
+        }
+    }
+    //self.postContentTextView.text = @"Find a new healthy recipe recently?";
 }
 
 -(void)fitnessButtonTapped: (UIButton *)sender
@@ -251,7 +292,21 @@
     
     self.leftQuoteLabel.textColor = [UIColor greatistMoveColor];
     self.rightQuoteLabel.textColor = [UIColor greatistMoveColor];
-    self.postContentTextView.text = @"Do something new at Yoga?";
+    
+    {
+        [self.postContentTextView resignFirstResponder];
+        
+        if (self.isDisplayingPlaceholder)
+        {
+            if ([self.postContentTextView.text isEqualToString:self.currentPlaceholder])
+            {
+                self.postContentTextView.text = @"connect button placeholder";
+                self.postContentTextView.textColor = [UIColor lightGrayColor];
+            }
+            self.currentPlaceholder = @"eat button placeholder";
+        }
+    }
+    //self.postContentTextView.text = @"Do something new at Yoga?";
     
 }
 
@@ -263,10 +318,25 @@
     [self dimVerticalButtons];
     UIButton *happinessButton = self.verticalButtons[2];
     happinessButton.alpha = 1.0;
+    
+    {
+        [self.postContentTextView resignFirstResponder];
+        
+        if (self.isDisplayingPlaceholder)
+        {
+            if ([self.postContentTextView.text isEqualToString:self.currentPlaceholder])
+            {
+                self.postContentTextView.text = @"connect button placeholder";
+                self.postContentTextView.textColor = [UIColor lightGrayColor];
+            }
+            self.currentPlaceholder = @"eat button placeholder";
+        }
+    }
+
 
     self.leftQuoteLabel.textColor = [UIColor greatistGrowColor];
     self.rightQuoteLabel.textColor = [UIColor greatistGrowColor];
-    self.postContentTextView.text = @"How do you feel today?";
+    //self.postContentTextView.text = @"How do you feel today?";
 }
 
 
