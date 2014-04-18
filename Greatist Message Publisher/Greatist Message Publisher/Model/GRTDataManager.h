@@ -33,6 +33,8 @@
 - (void) createNewUserWithFacebookID:(NSString *)facebookIDString;
 
 // Post Methods
+- (void) getPostsBasedOnFacebookID;
+
 - (void) getPostsBasedOnFacebookFriends;
 - (void) postPostAndSaveIfSuccessfulForContent: (NSString *)content
                                      inSection: (Section *)section;

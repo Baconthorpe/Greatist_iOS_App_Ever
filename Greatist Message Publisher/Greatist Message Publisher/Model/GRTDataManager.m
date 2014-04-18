@@ -105,6 +105,11 @@
 }
 
 #pragma mark - Post Helper Methods
+- (void)getPostsBasedOnFacebookID
+{
+    
+}
+
 
 - (void) getPostsBasedOnFacebookFriends
 {
