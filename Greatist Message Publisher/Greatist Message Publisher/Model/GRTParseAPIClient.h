@@ -26,7 +26,7 @@
 - (void) getPostsWithFriendIDs:(NSArray *)friendsArray
                 WithCompletion:(void (^)(NSArray *posts))completionBlock;
 - (void) postPostWithContent: (NSString *)content
-                     section: (Section *)section
+                     section: (NSString *)section
                 userObjectId: (NSString *)userObjectId
               userFacebookID: (NSString *)userFacebookID
               withCompletion: (void (^)(NSDictionary *))completion;
