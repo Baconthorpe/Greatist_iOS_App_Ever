@@ -203,6 +203,7 @@
     
     [newOp setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Post Response: %@",responseObject);
+        NSDictionary *headerFieldsDictionary = [operation.response allHeaderFields];
         completion(responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Post Response Error: %@",error);

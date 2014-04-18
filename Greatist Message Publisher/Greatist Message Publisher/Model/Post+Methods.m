@@ -35,6 +35,7 @@
 }
 
 + (instancetype) postWithContent: (NSString *)content
+                        objectId: (NSString *)objectId
                           author: (User *)user
                          section: (Section *)section
                        responses: (NSSet *)responses
@@ -46,6 +47,7 @@
     if (newPost)
     {
         newPost.content = content;
+        newPost.objectId = objectId;
         newPost.timeStamp = timeStamp;
         newPost.isFlagged = [NSNumber numberWithBool:NO];
         
@@ -74,6 +76,7 @@
 }
 
 + (instancetype) uniquePostWithContent: (NSString *)content
+                              objectId: (NSString *)objectId
                                 author: (User *)user
                                section: (Section *)section
                              responses: (NSSet *)responses
@@ -90,7 +93,7 @@
     
     if ([arrayOfMatches count] == 0)
     {
-        return [Post postWithContent:content author:user section:section responses:responses timeStamp:timeStamp inContext:context];
+        return [Post postWithContent:content objectId:objectId author:user section:section responses:responses timeStamp:timeStamp inContext:context];
     }
     
     return arrayOfMatches[0];

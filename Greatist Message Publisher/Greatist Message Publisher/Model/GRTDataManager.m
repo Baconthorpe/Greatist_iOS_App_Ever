@@ -122,20 +122,21 @@
                                      inSection: (Section *)section
 {
     [self.parseAPIClient postPostWithContent:content
-                                     section:section
+                                     section:section.name
                                 userObjectId:nil
                               userFacebookID:self.dataStore.currentUser.facebookID
                               withCompletion:^(NSDictionary *postResponse) {
-      
-      [Post uniquePostWithContent:content
-                           author:self.dataStore.currentUser
-                          section:section
-                        responses:nil
-                        timeStamp:[NSDate date]
-                        inContext:self.managedObjectContext];
-      
-      [self.dataStore saveContext];
-    }];
+                                  
+                                  [Post uniquePostWithContent:content
+                                                     objectId:nil
+                                                       author:self.dataStore.currentUser
+                                                      section:section
+                                                    responses:nil
+                                                    timeStamp:[NSDate date]
+                                                    inContext:self.managedObjectContext];
+                                  
+                                  [self.dataStore saveContext];
+                              }];
 }
 
 #pragma mark - Response Helper Methods
@@ -181,7 +182,7 @@
     
     NSDate *createdAtDate = [self dateFromString:postDictionary[@"createdAt"]];
     
-    Post *newPost = [Post uniquePostWithContent:postDictionary[@"content"] author:nil section:section responses:nil timeStamp:createdAtDate inContext:self.managedObjectContext];
+    Post *newPost = [Post uniquePostWithContent:postDictionary[@"content"] objectId:nil author:nil section:section responses:nil timeStamp:createdAtDate inContext:self.managedObjectContext];
     
     return newPost;
 }
