@@ -99,9 +99,15 @@
     return [self.dataStore.postFRController.sections[0] numberOfObjects];
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
-    [self performSegueWithIdentifier:@"mainToDetail" sender:self];
+    [self.postsTableView endUpdates];
+}
+
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
+{
+    [self.postsTableView beginUpdates];
 }
 
 - (GRTPostTableViewCell *) configureCellForMainTableViewWithIndexPath: (NSIndexPath *)indexPath
