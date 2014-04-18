@@ -32,7 +32,7 @@ Parse.Cloud.define("friendPosts", function(request, response){
              
  
             var query = new Parse.Query("GRTPost");
-            query.containedIn("facebookID", friendIDs); 
+            query.containedIn("userFacebookID", friendIDs); 
             query.find ({
                 success: function(results){
                     console.log(results);
