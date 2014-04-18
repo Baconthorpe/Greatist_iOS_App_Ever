@@ -72,11 +72,7 @@
     }
 }
 
-- (void) drawNavRect
-{
-    CGRect navRect = CGRectMake(0, 0, 320, 30);
-    [self.fillColor setFill];
-}
+
 
 
 @end
