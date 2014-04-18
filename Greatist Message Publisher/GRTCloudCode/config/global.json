@@ -1,0 +1,11 @@
+{
+    "applications": {
+        "ExperimentingWithParse": {
+            "applicationId": "K10PcfKibqynmF6Z2LMsmlZGCzrvEki1HNxj5g6f", 
+            "masterKey": "bu84t5zrRKf9h7Rbh5uPC23k4gE0CCqlX0ZH6YpD"
+        }, 
+        "_default": {
+            "link": "ExperimentingWithParse"
+        }
+    }
+}
