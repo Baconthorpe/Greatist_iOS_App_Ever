@@ -2,7 +2,7 @@
 //  Post.m
 //  Greatist Message Publisher
 //
-//  Created by Ezekiel Abuhoff on 4/15/14.
+//  Created by Leonard Li on 4/18/14.
 //  Copyright (c) 2014 Ezekiel Abuhoff. All rights reserved.
 //
 
@@ -16,13 +16,12 @@
 @implementation Post
 
 @dynamic content;
-@dynamic latStamp;
-@dynamic lonStamp;
 @dynamic originType;
 @dynamic timeStamp;
+@dynamic isFlagged;
+@dynamic responseOptions;
 @dynamic responses;
 @dynamic section;
 @dynamic user;
-@dynamic responseOptions;
 
 @end

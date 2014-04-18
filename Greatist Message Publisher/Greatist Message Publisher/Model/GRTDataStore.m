@@ -202,7 +202,8 @@
         [Post postWithContent:@"I joined a gym today!"
                        author:defaultUser
                       section:fitness
-                    responses:nil inContext:self.managedObjectContext];
+                    responses:nil
+                    inContext:self.managedObjectContext];
         
         [Post postWithContent:@"I have a love + hate relationship with gluten."
                        author:defaultUser
