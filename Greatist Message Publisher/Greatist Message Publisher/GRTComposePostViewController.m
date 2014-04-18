@@ -92,7 +92,7 @@
 {
     UIButton *healthButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [healthButton setFrame:CGRectMake(130, 10, 45, 45)];
-    [healthButton setBackgroundImage:[UIImage imageNamed:@"Eat_Colored60x60"] forState:UIControlStateNormal];
+    [healthButton setBackgroundImage:[UIImage imageNamed:@"Health_Colored"] forState:UIControlStateNormal];
     healthButton.alpha = 0.3;
     [healthButton addTarget:self action:@selector(healthButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.postView addSubview:healthButton];
