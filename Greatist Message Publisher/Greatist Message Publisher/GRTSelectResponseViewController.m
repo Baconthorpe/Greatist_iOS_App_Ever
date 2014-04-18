@@ -173,7 +173,7 @@ Post *newPost = [Post postWithContent:self.content
         
     } else {
         if ([self.selectedCells count] < 4) {
-            [tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
+            [tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
             [self.selectedCells addObject:@(indexPath.row)];
         }
     }
