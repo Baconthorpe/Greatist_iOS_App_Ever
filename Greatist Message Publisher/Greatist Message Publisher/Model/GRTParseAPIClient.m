@@ -239,8 +239,6 @@
     
 }
 
-
-
 #pragma mark - GRTResponse Helper Methods
 
 - (void) getValidResponsesWithCompletion:(void (^)(NSArray *))completion
