@@ -128,7 +128,7 @@
                               withCompletion:^(NSDictionary *postResponse) {
                                   
                                   [Post uniquePostWithContent:content
-                                                     objectId:nil
+                                                     objectId:postResponse[@"objectId"]
                                                        author:self.dataStore.currentUser
                                                       section:section
                                                     responses:nil
