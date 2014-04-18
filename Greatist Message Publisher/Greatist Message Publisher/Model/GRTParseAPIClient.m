@@ -211,7 +211,32 @@
     [newOp start];
 }
 
-
+- (void) flagPostID:(NSString *)postObjectID
+{
+    
+    NSString *parsePostURL = [NSString stringWithFormat:@"https://api.parse.com/1/classes/GRTPost/%@", postObjectID];
+    NSURL *url = [NSURL URLWithString:parsePostURL];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request addValue:self.restAPIKey forHTTPHeaderField:@"X-Parse-REST-API-Key"];
+    [request addValue:self.appID forHTTPHeaderField:@"X-Parse-Application-Id"];
+    
+    AFHTTPRequestOperation *newOp = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    
+    NSString *json = [NSString stringWithFormat:@"{\"isFlagged\":\"%d\"}",false];
+    request.HTTPBody = [json dataUsingEncoding:NSUTF8StringEncoding];
+    request.HTTPMethod = @"PUT";
+    
+    [newOp setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Flag Post Response: %@",responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Flag Post Error:%@",error);
+    }];
+    
+    [newOp start];
+    
+}
 
 #pragma mark - GRTResponse Helper Methods
 

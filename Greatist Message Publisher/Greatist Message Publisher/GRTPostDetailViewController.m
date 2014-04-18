@@ -8,6 +8,7 @@
 
 #import "GRTPostDetailViewController.h"
 #import "GRTDataStore.h"
+#import "GRTDataManager.h"
 #import "Response+Methods.h"
 
 @interface GRTPostDetailViewController ()
@@ -78,6 +79,7 @@
     UIImage *flagImage = [[flagIcon imageWithSize:CGSizeMake(20, 20)] stretchableImageWithLeftCapWidth:20 topCapHeight:20];
     flagIcon.iconFontSize = 15;
     [flagButton setBackgroundImage:flagImage forState:UIControlStateNormal];
+    [flagButton addTarget:self action:@selector(flagButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [postDetailView addSubview:flagButton];
 }
 
@@ -201,6 +203,11 @@
     NSString *labelText = [NSString stringWithFormat:@"%@", responseOptionCount];
     [self.responseLabelsArray[responseIndex] setText:labelText];
     
+}
+
+- (void)flagButtonTapped:(UIButton *)sender
+{
+//    [[GRTDataManager sharedManager] flagPost:self.post.objectId];
 }
 
 @end
