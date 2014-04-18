@@ -141,7 +141,7 @@
                               }];
 }
 
-- (void) flagPost:(NSString *)postIdString
+- (void) flagPostById:(NSString *)postIdString
 {
     [self.parseAPIClient flagPostID:postIdString];
 }
