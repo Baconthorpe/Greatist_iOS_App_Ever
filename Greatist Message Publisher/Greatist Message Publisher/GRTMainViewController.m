@@ -55,9 +55,6 @@
     GRTCornerTriangles *cornerTriangle = [GRTCornerTriangles new];
     self.dataManager = [GRTDataManager sharedManager];    
     [self.dataManager getPostsBasedOnFacebookFriends];
-    
-//    self.postsTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-//    self.postsTableView.separatorColor = [UIColor greatistLightGrayColor];
 
 //    [[GRTFacebookAPIClient sharedClient] verifyUserFacebookCachedInViewController:self];
     
