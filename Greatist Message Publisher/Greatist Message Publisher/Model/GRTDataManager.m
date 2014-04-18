@@ -182,7 +182,7 @@
     
     NSDate *createdAtDate = [self dateFromString:postDictionary[@"createdAt"]];
     
-    Post *newPost = [Post uniquePostWithContent:postDictionary[@"content"] objectId:nil author:nil section:section responses:nil timeStamp:createdAtDate inContext:self.managedObjectContext];
+    Post *newPost = [Post uniquePostWithContent:postDictionary[@"content"] objectId:postDictionary[@"objectId"] author:nil section:section responses:nil timeStamp:createdAtDate inContext:self.managedObjectContext];
     
     return newPost;
 }
