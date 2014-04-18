@@ -182,7 +182,7 @@
 
 
 - (void) postPostWithContent: (NSString *)content
-                     section: (NSString *)section
+                     section: (Section *)section
                 userObjectId: (NSString *)userObjectId
               userFacebookID: (NSString *)userFacebookID
               withCompletion: (void (^)(NSDictionary *))completion
