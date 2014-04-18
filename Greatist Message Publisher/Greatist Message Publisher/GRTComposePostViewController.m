@@ -53,7 +53,7 @@
     [self setupCategoryButtons];
     [self setupPostContent];
     
-    [self setupResponseTable];
+ 
     [self healthButtonTapped: nil];
   
     
@@ -74,31 +74,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)textViewDidBeginEditing:(UITextView *)textView
-{
-    NSLog(@"%@", textView.text);
-    [textView setTextColor:[UIColor greatistGrayColor]];
-    [textView setText:@""];
-}
-- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
-{
-    textView.textColor = [UIColor blackColor];
-    textView.text = @"";
-    
-    return YES;
-}
-
-- (void)textViewDidChange:(UITextView *)textView
-{
- 
-    if ([textView.text isEqualToString:@""])
-    {
-        textView.text = self.currentPlaceholder;
-        textView.textColor = [UIColor lightGrayColor];
-        [textView resignFirstResponder];
-    }
-}
-
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -117,7 +92,7 @@
 {
     UIButton *healthButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [healthButton setFrame:CGRectMake(130, 10, 45, 45)];
-    [healthButton setBackgroundImage:[UIImage imageNamed:@"Eat_Colored60x60"] forState:UIControlStateNormal];
+    [healthButton setBackgroundImage:[UIImage imageNamed:@"Health_Colored"] forState:UIControlStateNormal];
     healthButton.alpha = 0.3;
     [healthButton addTarget:self action:@selector(healthButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.postView addSubview:healthButton];
@@ -171,62 +146,6 @@
     self.rightQuoteLabel.font = [UIFont fontWithName:@"ArcherPro-Semibold" size:40];
 }
 
-//-(void)setupPostButton
-//{
-//    UIButton *postButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-//    UIImage *resizedPostImage = [UIImage imageWithImage:[UIImage imageNamed:@"Greatist_Logo_Badge_Blue"] scaledToSize:CGSizeMake(50, 50)];
-//    [postButton setBackgroundImage:resizedPostImage forState:UIControlStateNormal];
-//    [postButton setFrame:CGRectMake(145, 215, 30, 30)];
-//    [postButton addTarget:self action:@selector(postButton:) forControlEvents:UIControlEventTouchUpInside];
-//    [self.postView addSubview:postButton];
-//}
-
-- (void)setupResponseTable
-{
-    self.selectedCells = [[NSMutableArray alloc] init];
-}
-
-
-#pragma mark - Table View Methods
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [self.dataStore.validResponses count];
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"responseCell"];
-    ResponseOption *responseOption = [self.dataStore.validResponses objectAtIndex:indexPath.row];
-    cell.textLabel.text = responseOption.content;
-    cell.textLabel.font = [UIFont fontWithName:@"Avenir-Roman" size:12];
-    if ([self.selectedCells containsObject:@(indexPath.row)]) {
-        [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
-    } else {
-        [cell setAccessoryType:UITableViewCellAccessoryNone];
-    }
-    return cell;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if ([self.selectedCells containsObject:@(indexPath.row)]) {
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
-        [self.selectedCells removeObject:@(indexPath.row)];
-    } else {
-        if ([self.selectedCells count] < 4) {
-            [tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
-            [self.selectedCells addObject:@(indexPath.row)];
-        }
-    }
-    [tableView reloadData];
-}
 
 #pragma mark - IBAction Methods
 
@@ -240,34 +159,26 @@
         [responses addObject:newResponse];
     }
     [self.dataStore saveContext];
-    
-    // Fix this to use current user and not Anne
-//    Post *newPost = [Post postWithContent:self.postContentTextView.text author:anne section:self.verticalSelected responses:responses inContext:self.dataStore.managedObjectContext];
-  //  [self.dataStore saveContext];
-    
-    
 }
 
-- (void)verticalButtonTapped:(UIButton *)sender
-{
-    
-}
 
 -(void)healthButtonTapped: (UIButton *)sender
 {
  self.verticalSelected = self.verticals[@"health"];
-   // [self.postContentTextView resignFirstResponder];
+
 
    
-//    self.postContentTextView.placeholder = @"yummmmm";
-//    self.postContentTextView.placeholderColor = [UIColor greatistLightGrayColor];
-    
         [self dimVerticalButtons];
     UIButton *healthButton = self.verticalButtons[0];
     healthButton.alpha = 1.0;
     
     self.leftQuoteLabel.textColor = [UIColor greatistEatColor];
     self.rightQuoteLabel.textColor = [UIColor greatistEatColor];
+    
+    //    self.postContentTextView.placeholder = @"yummmmm";
+    //    self.postContentTextView.placeholderColor = [UIColor greatistLightGrayColor];
+    
+
 //    {
 //        [self.postContentTextView resignFirstResponder];
 //        
@@ -289,10 +200,6 @@
     
     self.verticalSelected = self.verticals[@"fitness"];
     
-//    self.postContentTextView.placeholder = @"owwwwww";
-//    [self.postContentTextView resignFirstResponder];
-    
-    //self.postContentTextView.placeholderColor = [UIColor greatistLightGrayColor];
     
     [self dimVerticalButtons];
     UIButton *fitnessButton = self.verticalButtons[1];
@@ -300,6 +207,11 @@
     
     self.leftQuoteLabel.textColor = [UIColor greatistMoveColor];
     self.rightQuoteLabel.textColor = [UIColor greatistMoveColor];
+    //    self.postContentTextView.placeholder = @"owwwwww";
+    //    [self.postContentTextView resignFirstResponder];
+    
+    //self.postContentTextView.placeholderColor = [UIColor greatistLightGrayColor];
+
     
 //    {
 //        [self.postContentTextView resignFirstResponder];
@@ -323,33 +235,36 @@
 {
     self.verticalSelected = self.verticals[@"happiness"];
     
-//    self.postContentTextView.placeholder = @"yyayyy";
-//    [self.postContentTextView resignFirstResponder];
-
-  //  self.postContentTextView.placeholderColor = [UIColor greatistLightGrayColor];
     
     
     [self dimVerticalButtons];
     UIButton *happinessButton = self.verticalButtons[2];
     happinessButton.alpha = 1.0;
-    
-//    {
-//        [self.postContentTextView resignFirstResponder];
-//        
-//        if (self.isDisplayingPlaceholder)
-//        {
-//            if ([self.postContentTextView.text isEqualToString:self.currentPlaceholder])
-//            {
-//                self.postContentTextView.text = @"connect button placeholder";
-//                self.postContentTextView.textColor = [UIColor lightGrayColor];
-//            }
-//            self.currentPlaceholder = @"eat button placeholder";
-//        }
-//    }
 
 
     self.leftQuoteLabel.textColor = [UIColor greatistGrowColor];
     self.rightQuoteLabel.textColor = [UIColor greatistGrowColor];
+    
+    //    self.postContentTextView.placeholder = @"yyayyy";
+    //    [self.postContentTextView resignFirstResponder];
+    
+    //  self.postContentTextView.placeholderColor = [UIColor greatistLightGrayColor];
+    
+    
+    //    {
+    //        [self.postContentTextView resignFirstResponder];
+    //
+    //        if (self.isDisplayingPlaceholder)
+    //        {
+    //            if ([self.postContentTextView.text isEqualToString:self.currentPlaceholder])
+    //            {
+    //                self.postContentTextView.text = @"connect button placeholder";
+    //                self.postContentTextView.textColor = [UIColor lightGrayColor];
+    //            }
+    //            self.currentPlaceholder = @"eat button placeholder";
+    //        }
+    //    }
+
     //self.postContentTextView.text = @"How do you feel today?";
 }
 
@@ -360,6 +275,32 @@
         button.alpha = 0.3;
     }
 }
+
+
+//- (void)textViewDidBeginEditing:(UITextView *)textView
+//{
+//    NSLog(@"%@", textView.text);
+//    [textView setTextColor:[UIColor greatistGrayColor]];
+//    [textView setText:@""];
+//}
+//- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
+//{
+//    textView.textColor = [UIColor blackColor];
+//    textView.text = @"";
+//    
+//    return YES;
+//}
+//
+//- (void)textViewDidChange:(UITextView *)textView
+//{
+//    
+//    if ([textView.text isEqualToString:@""])
+//    {
+//        textView.text = self.currentPlaceholder;
+//        textView.textColor = [UIColor lightGrayColor];
+//        [textView resignFirstResponder];
+//    }
+//}
 
 
 //-(void) connectButtonTapped: (UIButton *)sender
@@ -429,7 +370,19 @@
 //    [connectButton addSubview:connectLabel];
 
 
-
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"responseCell"];
+//    ResponseOption *responseOption = [self.dataStore.validResponses objectAtIndex:indexPath.row];
+//    cell.textLabel.text = responseOption.content;
+//    cell.textLabel.font = [UIFont fontWithName:@"Avenir-Roman" size:12];
+//    if ([self.selectedCells containsObject:@(indexPath.row)]) {
+//        [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+//    } else {
+//        [cell setAccessoryType:UITableViewCellAccessoryNone];
+//    }
+//    return cell;
+//}
 
 
 
