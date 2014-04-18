@@ -1,5 +1,5 @@
 platform :ios, '7.0'
-
+inhibit_all_warnings!
 pod 'FontAwesomeKit', '~> 2.1.5'
 pod "AFNetworking", "~> 2.0"
 pod 'Parse-iOS-SDK', '~> 1.2', :inhibit_warnings => true

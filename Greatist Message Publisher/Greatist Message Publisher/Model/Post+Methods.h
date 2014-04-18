@@ -28,8 +28,6 @@
 
 - (NSInteger) countOfResponsesWithContent: (NSString *)responseContent;
 
-- (NSDictionary *) dictionaryOfResponses;
-
 + (instancetype) uniquePostWithContent: (NSString *)content
                                 author: (User *)user
                                section: (Section *)section

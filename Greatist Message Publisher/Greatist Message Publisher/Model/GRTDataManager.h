@@ -24,6 +24,7 @@
                      FacebookAPIClient:(GRTFacebookAPIClient *)facebookClient
                   ManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
                              DataStore:(GRTDataStore *)dataStore;
+- (void) getInitialData;
 
 // User Methods
 - (User *) getCurrentUser;
@@ -32,16 +33,10 @@
 - (void) createNewUserWithFacebookID:(NSString *)facebookIDString;
 
 // Post Methods
-- (void) fetchPostsForFacebookFriends:(NSArray *)friendIDs
-                       WithCompletion:(void (^)(NSArray *posts))completionBlock;
-
-// Move me please???
-- (Post *) interpretPostFromDictionary: (NSDictionary *)postDictionary;
-- (void) interpretArrayOfPostDictionaries: (NSArray *)arrayOfPostDictionaries;
+- (void) getPostsBasedOnFacebookFriends;
 - (void) postPostAndSaveIfSuccessfulForContent: (NSString *)content
                                      inSection: (Section *)section;
-- (void) getPostsBasedOnFacebookFriends;
-
-
+// Response Methods
+- (void) getValidResponses;
 
 @end

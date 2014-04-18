@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="srb-3f-f49">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="atN-zU-tNv">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -65,7 +65,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zUo-sE-zde" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1106" y="98"/>
+            <point key="canvasLocation" x="1632" y="98"/>
         </scene>
         <!--Post Detail View Controller-->
         <scene sceneID="cYX-sP-fX9">
@@ -102,7 +102,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dsL-b7-6dW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1630" y="98"/>
+            <point key="canvasLocation" x="2156" y="98"/>
         </scene>
         <!--Compose Post View Controller - Compose-->
         <scene sceneID="8lP-4M-jjE">
@@ -257,13 +257,14 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="IsZ-s0-Sg9"/>
                     <connections>
                         <segue destination="63t-b3-iu9" kind="modal" identifier="loginToMain" id="4IJ-fL-jzO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YOl-li-j2d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-67" y="98"/>
+            <point key="canvasLocation" x="459" y="98"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wmt-mE-dA5">
@@ -281,7 +282,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dJ7-Ue-Yf2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="509" y="98"/>
+            <point key="canvasLocation" x="1035" y="98"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aeu-U4-T6a">
@@ -300,6 +301,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wVG-4s-tRU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1034" y="-1103"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="A3V-MN-1De">
+            <objects>
+                <navigationController storyboardIdentifier="facebookLoginNavBar" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="atN-zU-tNv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Icb-wM-jOd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="srb-3f-f49" kind="relationship" relationship="rootViewController" id="Jtw-uI-KDp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VCr-UD-XhC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-67" y="98"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
