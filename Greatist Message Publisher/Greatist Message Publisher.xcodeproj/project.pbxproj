@@ -72,6 +72,7 @@
 		55CA536819005B4E000E2A1E /* Health_White.eps in Resources */ = {isa = PBXBuildFile; fileRef = 55CA535019005B4E000E2A1E /* Health_White.eps */; };
 		55CA536919005B4E000E2A1E /* Health_White.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 55CA535119005B4E000E2A1E /* Health_White.jpg */; };
 		55CA536A19005B4E000E2A1E /* Health_White.png in Resources */ = {isa = PBXBuildFile; fileRef = 55CA535219005B4E000E2A1E /* Health_White.png */; };
+		55CA536D190171EE000E2A1E /* GRTPostLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CA536C190171EE000E2A1E /* GRTPostLogViewController.m */; };
 		87674F6018ECB64A00231453 /* ArcherPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 87674F5418ECB64A00231453 /* ArcherPro-Bold.otf */; };
 		87674F6118ECB64A00231453 /* ArcherPro-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 87674F5518ECB64A00231453 /* ArcherPro-BoldItalic.otf */; };
 		87674F6218ECB64A00231453 /* ArcherPro-BookItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 87674F5618ECB64A00231453 /* ArcherPro-BookItalic.otf */; };
@@ -205,6 +206,8 @@
 		55CA535019005B4E000E2A1E /* Health_White.eps */ = {isa = PBXFileReference; lastKnownFileType = file; path = Health_White.eps; sourceTree = "<group>"; };
 		55CA535119005B4E000E2A1E /* Health_White.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Health_White.jpg; sourceTree = "<group>"; };
 		55CA535219005B4E000E2A1E /* Health_White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Health_White.png; sourceTree = "<group>"; };
+		55CA536B190171EE000E2A1E /* GRTPostLogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTPostLogViewController.h; sourceTree = "<group>"; };
+		55CA536C190171EE000E2A1E /* GRTPostLogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTPostLogViewController.m; sourceTree = "<group>"; };
 		87674F5418ECB64A00231453 /* ArcherPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ArcherPro-Bold.otf"; sourceTree = "<group>"; };
 		87674F5518ECB64A00231453 /* ArcherPro-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ArcherPro-BoldItalic.otf"; sourceTree = "<group>"; };
 		87674F5618ECB64A00231453 /* ArcherPro-BookItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ArcherPro-BookItalic.otf"; sourceTree = "<group>"; };
@@ -376,6 +379,8 @@
 				55912DBC18EC68E50069FEEC /* GRTComposePostViewController.m */,
 				039FE8D018FEC4C900EC98DC /* GRTSelectResponseViewController.h */,
 				039FE8D118FEC4C900EC98DC /* GRTSelectResponseViewController.m */,
+				55CA536B190171EE000E2A1E /* GRTPostLogViewController.h */,
+				55CA536C190171EE000E2A1E /* GRTPostLogViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -889,6 +894,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55CA536D190171EE000E2A1E /* GRTPostLogViewController.m in Sources */,
 				55912DF318EC86840069FEEC /* Section+Methods.m in Sources */,
 				0F73663318F4B77B003D71DE /* Section.m in Sources */,
 				55912DBD18EC68E50069FEEC /* GRTComposePostViewController.m in Sources */,
