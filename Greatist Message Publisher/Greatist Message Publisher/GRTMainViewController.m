@@ -216,7 +216,7 @@
     separatorLineView.backgroundColor = [UIColor greatistLightGrayColor];
     [cell.contentView addSubview:separatorLineView];
     
-    if (([post.section.name isEqualToString:(@"Fitness")]) && (indexPath.row % 2 == 0))
+    if (([post.section.name isEqualToString:(@"fitness")]) && (indexPath.row % 2 == 0))
     {
         cell.backgroundColor = [UIColor greatistFitnessColor];
         cell.buttonBar.backgroundColor=[UIColor whiteColor];
@@ -230,7 +230,7 @@
         [fitnessIconView setFrame:CGRectMake(10, 15, 25, 20)];
 
     }
-    else if (([post.section.name isEqualToString:(@"Fitness")]) && (!indexPath.row % 2 == 0))
+    else if (([post.section.name isEqualToString:(@"fitness")]) && (!indexPath.row % 2 == 0))
     {
         cell.backgroundColor = [UIColor greatistFitnessColor];
         cell.buttonBar.backgroundColor=[UIColor whiteColor];
@@ -243,7 +243,7 @@
         [cell.contentView addSubview:fitnessIconView];
         [fitnessIconView setFrame:CGRectMake(290, 15, 25, 20)];
     }
-    else if (([post.section.name isEqualToString:(@"Health")]) && (indexPath.row % 2 == 0))
+    else if (([post.section.name isEqualToString:(@"health")]) && (indexPath.row % 2 == 0))
     {
         cell.backgroundColor = [UIColor greatistHappinessColor];
         cell.buttonBar.backgroundColor=[UIColor whiteColor];
@@ -256,7 +256,7 @@
         [cell.contentView addSubview:healthIconView];
         [healthIconView setFrame:CGRectMake(8, 12, 25, 25)];
     }
-    else if (([post.section.name isEqualToString:(@"Health")]) && (!indexPath.row % 2 == 0))
+    else if (([post.section.name isEqualToString:(@"health")]) && (!indexPath.row % 2 == 0))
     {
         cell.backgroundColor = [UIColor greatistHealthColor];
         cell.buttonBar.backgroundColor=[UIColor whiteColor];
@@ -269,7 +269,7 @@
         [cell.contentView addSubview:healthIconView];
         [healthIconView setFrame:CGRectMake(287, 12, 25, 25)];
     }
-    else if (([post.section.name isEqualToString:(@"Happiness")]) && (indexPath.row % 2 == 0))
+    else if (([post.section.name isEqualToString:(@"happiness")]) && (indexPath.row % 2 == 0))
     {
         cell.backgroundColor = [UIColor greatistHappinessColor];
         cell.buttonBar.backgroundColor=[UIColor whiteColor];
@@ -282,7 +282,7 @@
         [cell.contentView addSubview:happinessIconView];
         [happinessIconView setFrame:CGRectMake(8, 15, 18, 25)];
     }
-    else if (([post.section.name isEqualToString:(@"Happiness")]) && (!indexPath.row % 2 == 0))
+    else if (([post.section.name isEqualToString:(@"happiness")]) && (!indexPath.row % 2 == 0))
     {
         cell.backgroundColor = [UIColor greatistHappinessColor];
         cell.buttonBar.backgroundColor=[UIColor whiteColor];
