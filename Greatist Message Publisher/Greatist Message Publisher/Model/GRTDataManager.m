@@ -127,12 +127,14 @@
                               userFacebookID:self.dataStore.currentUser.facebookID
                               withCompletion:^(NSDictionary *postResponse) {
                                   
+                                  NSDate *createdAtDate = [self dateFromString:postResponse[@"createdAt"]];
+                                  
                                   [Post uniquePostWithContent:content
                                                      objectId:postResponse[@"objectId"]
                                                        author:self.dataStore.currentUser
                                                       section:section
                                                     responses:nil
-                                                    timeStamp:[NSDate date]
+                                                    timeStamp:createdAtDate
                                                     inContext:self.managedObjectContext];
                                   
                                   [self.dataStore saveContext];
