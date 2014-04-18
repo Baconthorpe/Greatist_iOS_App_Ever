@@ -2,7 +2,7 @@
 //  Post.h
 //  Greatist Message Publisher
 //
-//  Created by Leonard Li on 4/18/14.
+//  Created by Ezekiel Abuhoff on 4/18/14.
 //  Copyright (c) 2014 Ezekiel Abuhoff. All rights reserved.
 //
 
@@ -14,9 +14,10 @@
 @interface Post : NSManagedObject
 
 @property (nonatomic, retain) NSString * content;
+@property (nonatomic, retain) NSNumber * isFlagged;
 @property (nonatomic, retain) NSString * originType;
 @property (nonatomic, retain) NSDate * timeStamp;
-@property (nonatomic, retain) NSNumber * isFlagged;
+@property (nonatomic, retain) NSString * objectId;
 @property (nonatomic, retain) NSSet *responseOptions;
 @property (nonatomic, retain) NSSet *responses;
 @property (nonatomic, retain) Section *section;

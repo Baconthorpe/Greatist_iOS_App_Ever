@@ -38,6 +38,8 @@
 - (void) getPostsBasedOnFacebookFriends;
 - (void) postPostAndSaveIfSuccessfulForContent: (NSString *)content
                                      inSection: (Section *)section;
+- (void) flagPost:(NSString *)postIdString;
+
 // Response Methods
 - (void) getValidResponses;
 

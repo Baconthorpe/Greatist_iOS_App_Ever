@@ -182,7 +182,7 @@
 
 
 - (void) postPostWithContent: (NSString *)content
-                     section: (Section *)section
+                     section: (NSString *)section
                 userObjectId: (NSString *)userObjectId
               userFacebookID: (NSString *)userFacebookID
               withCompletion: (void (^)(NSDictionary *))completion
@@ -197,13 +197,15 @@
     
     AFHTTPRequestOperation *newOp = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     
-    NSString *json = [NSString stringWithFormat:@"{\"userObjectId\":\"%@\",\"userFacebookID\":\"%@\",\"content\":\"%@\",\"section\":\"%@\"}",userObjectId,userFacebookID,content,section];
+    NSString *json = [NSString stringWithFormat:@"{\"userObjectId\":\"%@\",\"userFacebookID\":\"%@\",\"content\":\"%@\",\"section\":\"%@\",\"isFlagged\":false}",userObjectId,userFacebookID,content,section];
     request.HTTPBody = [json dataUsingEncoding:NSUTF8StringEncoding];
     request.HTTPMethod = @"POST";
     
     [newOp setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Post Response: %@",responseObject);
-        completion(responseObject);
+//        NSDictionary *headerFieldsDictionary = [operation.response allHeaderFields];
+        NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+        completion(responseDictionary);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Post Response Error: %@",error);
     }];
@@ -211,7 +213,31 @@
     [newOp start];
 }
 
-
+- (void) flagPostID:(NSString *)postObjectID
+{
+    NSString *parsePostURL = [NSString stringWithFormat:@"https://api.parse.com/1/classes/GRTPost/%@", postObjectID];
+    NSURL *url = [NSURL URLWithString:parsePostURL];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request addValue:self.restAPIKey forHTTPHeaderField:@"X-Parse-REST-API-Key"];
+    [request addValue:self.appID forHTTPHeaderField:@"X-Parse-Application-Id"];
+    
+    AFHTTPRequestOperation *newOp = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    
+    NSString *json = @"{\"isFlagged\":true}";
+    request.HTTPBody = [json dataUsingEncoding:NSUTF8StringEncoding];
+    request.HTTPMethod = @"PUT";
+    
+    [newOp setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Flag successful. Update Post Response: %@",responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Flag unsuccessful. Update Post Error:%@",error);
+    }];
+    
+    [newOp start];
+    
+}
 
 #pragma mark - GRTResponse Helper Methods
 

@@ -17,6 +17,7 @@
                        inContext: (NSManagedObjectContext *)context;
 
 + (instancetype) postWithContent: (NSString *)content
+                        objectId: (NSString *)objectId
                           author: (User *)user
                          section: (Section *)section
                        responses: (NSSet *)responses
@@ -29,6 +30,7 @@
 - (NSInteger) countOfResponsesWithContent: (NSString *)responseContent;
 
 + (instancetype) uniquePostWithContent: (NSString *)content
+                              objectId: (NSString *)objectId
                                 author: (User *)user
                                section: (Section *)section
                              responses: (NSSet *)responses

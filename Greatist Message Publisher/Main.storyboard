@@ -16,16 +16,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="130" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="UCw-px-WOv">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="129" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="UCw-px-WOv">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="postCell" rowHeight="130" id="X6i-48-z3p" customClass="GRTPostTableViewCell">
-                                        <rect key="frame" x="0.0" y="86" width="320" height="130"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="postCell" rowHeight="129" id="X6i-48-z3p" customClass="GRTPostTableViewCell">
+                                        <rect key="frame" x="0.0" y="86" width="320" height="129"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="X6i-48-z3p" id="h8S-ZA-9rO">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="129"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -38,13 +38,9 @@
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="Item" id="5Ir-0D-0Mb">
-                                        <connections>
-                                            <segue destination="5S2-LN-hjh" kind="push" identifier="mainToPostLog" id="AXb-8t-1Y0"/>
-                                        </connections>
-                                    </barButtonItem>
+                                    <barButtonItem title="My Posts" id="uHI-e1-sKx"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="bOI-nX-fF0"/>
-                                    <barButtonItem title="Item" id="Jce-oV-dpT">
+                                    <barButtonItem title="New Post" id="Jce-oV-dpT">
                                         <connections>
                                             <action selector="composePostButtonTapped:" destination="8aK-fq-krb" id="Xhk-QR-s8s"/>
                                             <segue destination="kfc-Vb-UTS" kind="modal" identifier="" id="ycl-Om-gjX"/>
@@ -71,59 +67,12 @@
                         <outlet property="composePostButton" destination="Jce-oV-dpT" id="M2t-ce-WkM"/>
                         <outlet property="logoutBarButtonItem" destination="ntT-Qb-ejK" id="UGH-pE-uGW"/>
                         <outlet property="postsTableView" destination="UCw-px-WOv" id="e8e-Cw-6r8"/>
-                        <outlet property="userPostLogButton" destination="5Ir-0D-0Mb" id="apl-Ua-cs2"/>
+                        <segue destination="pkW-3h-UEb" kind="push" identifier="mainToMyPosts" id="cdp-so-Y2s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zUo-sE-zde" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1632" y="98"/>
-        </scene>
-        <!--Post Log View Controller-->
-        <scene sceneID="h42-De-xob">
-            <objects>
-                <viewController id="5S2-LN-hjh" customClass="GRTPostLogViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Mgt-DJ-PjO"/>
-                        <viewControllerLayoutGuide type="bottom" id="eSK-LQ-mBf"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="dWX-hc-FR8">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="130" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ly5-Jt-ZDH">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="130" id="HsC-TU-Auy" customClass="GRTPostTableViewCell">
-                                        <rect key="frame" x="0.0" y="86" width="320" height="130"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HsC-TU-Auy" id="cQF-zY-Y12">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="129"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="Nke-Mf-wW8">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="CFs-dp-IKc">
-                            <connections>
-                                <action selector="backButtonTapped:" destination="5S2-LN-hjh" id="wZ2-o9-NNm"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="postsTableView" destination="ly5-Jt-ZDH" id="6df-iT-qhZ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hDg-Ss-I2a" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2156" y="774"/>
+            <point key="canvasLocation" x="1174" y="-336"/>
         </scene>
         <!--Post Detail View Controller-->
         <scene sceneID="cYX-sP-fX9">
@@ -160,7 +109,39 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dsL-b7-6dW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2156" y="98"/>
+            <point key="canvasLocation" x="1698" y="-336"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="DAv-QF-Nbg">
+            <objects>
+                <tableViewController id="pkW-3h-UEb" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ylp-Ff-qaW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="MsY-rK-mNJ">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MsY-rK-mNJ" id="072-A9-LPP">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="pkW-3h-UEb" id="4fa-CY-6UH"/>
+                            <outlet property="delegate" destination="pkW-3h-UEb" id="NqP-br-OPy"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="J75-v1-q55">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="fiQ-YX-gR7"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AhK-HY-Ldo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1698" y="382"/>
+>>>>>>> 3531f483ade16c7d719d471757b794fdadf32e40
         </scene>
         <!--Compose Post View Controller - Compose-->
         <scene sceneID="8lP-4M-jjE">
@@ -265,7 +246,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XsK-Nh-RO5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1560" y="-1103"/>
+            <point key="canvasLocation" x="1102" y="-1537"/>
         </scene>
         <!--Select Response View Controller-->
         <scene sceneID="iHc-QH-piA">
@@ -322,7 +303,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UNm-m4-QO7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2044" y="-1103"/>
+            <point key="canvasLocation" x="1838" y="-1529"/>
         </scene>
         <!--Facebook Login View Controller-->
         <scene sceneID="ZWi-LS-xaD">
@@ -344,7 +325,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YOl-li-j2d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="459" y="98"/>
+            <point key="canvasLocation" x="1" y="-336"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wmt-mE-dA5">
@@ -362,7 +343,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dJ7-Ue-Yf2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1035" y="98"/>
+            <point key="canvasLocation" x="577" y="-336"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aeu-U4-T6a">
@@ -380,7 +361,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wVG-4s-tRU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1034" y="-1103"/>
+            <point key="canvasLocation" x="576" y="-1537"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="A3V-MN-1De">
@@ -398,7 +379,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VCr-UD-XhC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-67" y="98"/>
+            <point key="canvasLocation" x="-525" y="-336"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
