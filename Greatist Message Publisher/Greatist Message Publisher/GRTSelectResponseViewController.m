@@ -87,7 +87,11 @@
     
     
     // Fix this to use current user and not Anne
-Post *newPost = [Post postWithContent:self.content author:nil section:self.verticalPassed responses:responses inContext:self.dataStore.managedObjectContext];
+Post *newPost = [Post postWithContent:self.content
+                               author:nil
+                              section:self.verticalPassed
+                            responses:responses
+                            inContext:self.dataStore.managedObjectContext];
     [self.dataStore saveContext];
 
 //    // Fix this to use current user and not Anne

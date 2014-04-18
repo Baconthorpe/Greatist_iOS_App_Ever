@@ -22,10 +22,13 @@
     if (newPost)
     {
         newPost.content = content;
-        newPost.user = user;
-        newPost.section = section;
-        newPost.responses = responses;
         newPost.timeStamp = [NSDate date];
+        newPost.isFlagged = [NSNumber numberWithBool:NO];
+        
+        newPost.responses = responses;
+        newPost.section = section;
+        newPost.user = user;
+
     }
     
     return newPost;
@@ -43,10 +46,12 @@
     if (newPost)
     {
         newPost.content = content;
-        newPost.user = user;
-        newPost.section = section;
-        newPost.responses = responses;
         newPost.timeStamp = timeStamp;
+        newPost.isFlagged = [NSNumber numberWithBool:NO];
+        
+        newPost.responses = responses;
+        newPost.section = section;
+        newPost.user = user;
     }
     
     return newPost;

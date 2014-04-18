@@ -122,7 +122,7 @@
                                      inSection: (Section *)section
 {
     [self.parseAPIClient postPostWithContent:content
-                                     section:section.name
+                                     section:section
                                 userObjectId:nil
                               userFacebookID:self.dataStore.currentUser.facebookID
                               withCompletion:^(NSDictionary *postResponse) {
