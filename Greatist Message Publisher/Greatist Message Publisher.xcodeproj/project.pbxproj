@@ -408,6 +408,7 @@
 				87AD340318F878E70060CCA3 /* ResponseOption.m */,
 				87AD340518F87EA00060CCA3 /* ResponseOption+Methods.h */,
 				87AD340618F87EA00060CCA3 /* ResponseOption+Methods.m */,
+				0F1AFFEE18ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodeld */,
 				55912DDC18EC86840069FEEC /* GRTDataStore.h */,
 				55912DDD18EC86840069FEEC /* GRTDataStore.m */,
 				0FDCDDDC18F5C2BC0050E18C /* GRTParseAPIClient.h */,
@@ -416,7 +417,6 @@
 				87AD33ED18F5C0D00060CCA3 /* GRTFacebookAPIClient.m */,
 				87E6B3E918FECDD8006EF36A /* GRTDataManager.h */,
 				87E6B3EA18FECDD8006EF36A /* GRTDataManager.m */,
-				0F1AFFEE18ECB3D6006BB25B /* Greatist_Message_Publisher.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";

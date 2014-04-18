@@ -138,6 +138,11 @@
     }];
 }
 
+- (void) flagPost:(NSString *)postIdString
+{
+    [self.parseAPIClient flagPostID:postIdString];
+}
+
 #pragma mark - Response Helper Methods
 - (void) getValidResponses
 {

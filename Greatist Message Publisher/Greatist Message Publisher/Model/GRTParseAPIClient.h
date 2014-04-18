@@ -26,10 +26,11 @@
 - (void) getPostsWithFriendIDs:(NSArray *)friendsArray
                 WithCompletion:(void (^)(NSArray *posts))completionBlock;
 - (void) postPostWithContent: (NSString *)content
-                     section: (NSString *)section
+                     section: (Section *)section
                 userObjectId: (NSString *)userObjectId
               userFacebookID: (NSString *)userFacebookID
               withCompletion: (void (^)(NSDictionary *))completion;
+- (void) flagPostID:(NSString *)postObjectID;
 
 // GRTResponse
 - (void) getValidResponsesWithCompletion:(void (^)(NSArray *))completion;
