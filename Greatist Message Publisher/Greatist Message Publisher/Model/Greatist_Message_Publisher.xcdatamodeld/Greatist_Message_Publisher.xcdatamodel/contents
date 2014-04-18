@@ -3,6 +3,7 @@
     <entity name="Post" representedClassName="Post" syncable="YES">
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isFlagged" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="objectId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="originType" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timeStamp" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="responseOptions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ResponseOption" inverseName="posts" inverseEntity="ResponseOption" syncable="YES"/>
@@ -33,7 +34,7 @@
         <relationship name="responses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Response" inverseName="user" inverseEntity="Response" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Post" positionX="-171" positionY="177" width="128" height="163"/>
+        <element name="Post" positionX="-171" positionY="177" width="128" height="180"/>
         <element name="Response" positionX="-576" positionY="117" width="128" height="88"/>
         <element name="ResponseOption" positionX="-344" positionY="368" width="128" height="88"/>
         <element name="Section" positionX="18" positionY="18" width="128" height="75"/>
