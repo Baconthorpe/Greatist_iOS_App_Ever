@@ -54,7 +54,9 @@
     [self setupPostContent];
     
     [self setupResponseTable];
-    [self healthButtonTapped:nil];
+    [self healthButtonTapped: nil];
+  
+    
     
     [self.postContentTextView becomeFirstResponder];
     
@@ -63,7 +65,7 @@
     //   self.currentPlaceholder = @"This is my sample placeholder text";
     
     self.verticals = [self.dataStore dictionaryOfSections];
-    
+    self.verticalSelected = self.verticals[@"health"];
 }
 
 - (void)didReceiveMemoryWarning
