@@ -244,10 +244,10 @@
     }
     else if (([post.section.name isEqualToString:(@"health")]) && (indexPath.row % 2 == 0))
     {
-        cell.backgroundColor = [UIColor greatistHappinessColor];
+        cell.backgroundColor = [UIColor greatistHealthColor];
         cell.buttonBar.backgroundColor=[UIColor whiteColor];
         [cell.contentView addSubview:leftCornerTriangle];
-        [leftCornerTriangle setFillColor:[UIColor greatistHappinessColorSecondary]];
+        [leftCornerTriangle setFillColor:[UIColor greatistHealthColorSecondary]];
         
         UIImage *healthIconImage = [UIImage imageNamed:@"Health_White"];
         UIImage *scaledHealthIconImage = [UIImage imageWithImage:healthIconImage scaledToSize:CGSizeMake(25, 25)];
