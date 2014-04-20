@@ -136,7 +136,8 @@
 - (void)setupPostContent
 {
     self.postContentTextView.delegate = self;
-    [self.postContentTextView setTextColor:[UIColor greatistLightGrayColor]];
+    [self.postContentTextView setTextColor:[UIColor greatistGrayColor]];
+    [self.postContentTextView setFont:[UIFont fontWithName:@"ArcherPro-Semibold" size:20]];
     [[self.postContentTextView layer] setBorderColor:[[UIColor greatistLightGrayColor] CGColor]];
     [[self.postContentTextView layer] setBorderWidth:1];
     [[self.postContentTextView layer] setCornerRadius:2];
