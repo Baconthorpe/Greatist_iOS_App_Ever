@@ -156,8 +156,6 @@
     NSMutableSet *responses = [NSMutableSet new];
     for (NSNumber *index in self.selectedCells) {
         NSInteger indexInteger = [index integerValue];
-        Response *newResponse = [Response responseWithResponseOption:self.dataStore.validResponses[indexInteger] inContext:self.dataStore.managedObjectContext];
-        [responses addObject:newResponse];
     }
     [self.dataStore saveContext];
 }
