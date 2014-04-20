@@ -17,6 +17,7 @@
 @property (strong, nonatomic) NSMutableArray *selectedCells;
 @property (weak, nonatomic) IBOutlet UILabel *responseLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *navPostButton;
 
 @end
 
@@ -27,7 +28,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
 }
-    
     return self;
 }
 
@@ -149,7 +149,8 @@
 {
     self.dataStore.selectedResponses = [NSMutableDictionary new];
     for (NSNumber *index in self.selectedCells) {
-        NSInteger indexInteger = [index integerValue];        ResponseOption *currentResponseOption = [self.dataStore.validResponses objectAtIndex:indexInteger];
+        NSInteger indexInteger = [index integerValue];
+        ResponseOption *currentResponseOption = [self.dataStore.validResponses objectAtIndex:indexInteger];
         NSString *responseKey = currentResponseOption.content;
         [self.dataStore.selectedResponses setValue:@0 forKey:responseKey];
     }

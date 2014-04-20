@@ -312,7 +312,7 @@
         GRTPostTableViewCell *cell = (GRTPostTableViewCell *)[self.postsTableView cellForRowAtIndexPath:[self.postsTableView indexPathForSelectedRow]];
         
         nextVC.post = cell.post;
-        
+        [self.dataStore setSelectedResponsesFromJSONString:cell.post.responses];
         [self.postsTableView deselectRowAtIndexPath:[self.postsTableView indexPathForSelectedRow] animated:YES];
 
     }

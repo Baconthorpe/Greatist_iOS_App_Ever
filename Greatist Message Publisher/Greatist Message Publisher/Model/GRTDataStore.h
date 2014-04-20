@@ -29,11 +29,12 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
-+ (instancetype) sharedDataStore;
++ (instancetype)sharedDataStore;
 
-- (NSDictionary *) dictionaryOfSections;
+- (NSDictionary *)dictionaryOfSections;
 
-- (void) createInitialData;
-- (NSString *) getSelectedResponsesAsJSONString;
+- (void)createInitialData;
+- (void)setSelectedResponsesFromJSONString:(NSString *)responseString;
+- (NSString *)getSelectedResponsesAsJSONString;
 
 @end

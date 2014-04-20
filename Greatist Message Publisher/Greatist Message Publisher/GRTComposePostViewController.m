@@ -104,7 +104,7 @@
 {
     GRTSelectResponseViewController *nextViewController = segue.destinationViewController;
     nextViewController.verticalPassed = self.verticalSelected;
-    nextViewController.content =    self.postContentTextView.text;
+    nextViewController.content = self.postContentTextView.text;
     
 }
 - (IBAction)backButtonTapped:(id)sender {
@@ -141,7 +141,6 @@
     [fitnessLabel setTextColor:[UIColor greatistMoveColor]];
     [fitnessButton addSubview:fitnessLabel];
     
-    
     UIButton *happinessButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [happinessButton setFrame:CGRectMake(195, 10, 45, 45)];
     [happinessButton setBackgroundImage:[UIImage imageNamed:@"Grow_Colored60x60"] forState:UIControlStateNormal];
@@ -154,7 +153,8 @@
     [happinessLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:10]];
     [happinessLabel setTextColor:[UIColor greatistGrowColor]];
     [happinessButton addSubview:happinessLabel];
- self.verticalButtons = @[healthButton, fitnessButton, happinessButton];
+ 
+    self.verticalButtons = @[healthButton, fitnessButton, happinessButton];
     
 }
 
@@ -360,75 +360,6 @@
         button.alpha = 0.3;
     }
 }
-
-
-//-(void) connectButtonTapped: (UIButton *)sender
-//{
-//    NSString *nameSought = @"Connect";
-//    NSPredicate *connectSearch = [NSPredicate predicateWithFormat:@"name==%@", nameSought];
-//    NSArray *connectVerticals = [self.verticals filteredArrayUsingPredicate:connectSearch];
-//    self.verticalSelected= connectVerticals[0];
-//
-//    [self dimVerticalButtons];
-//    UIButton *connectButton = self.verticalButtons[4];
-//    connectButton.alpha = 1.0;
-//
-//    self.leftQuoteLabel.textColor = [UIColor greatistConnectColor];
-//    self.rightQuoteLabel.textColor = [UIColor greatistConnectColor];
-//    self.postContentTextView.text = @"Talk to the World";
-//}
-
-
-
-
-
-//    UIButton *playButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-//    [playButton setFrame:CGRectMake(240, 15, 30, 30)];
-//    [playButton setBackgroundImage:[UIImage imageNamed:@"Play_Colored60x60"] forState:UIControlStateNormal];
-//    playButton.alpha = 0.3;
-//    [playButton addTarget:self action:@selector(playButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-//    [self.postView addSubview:playButton];
-//
-//    UILabel *playLabel = [[UILabel alloc] initWithFrame:CGRectMake(3, 25, 30, 30)];
-//    [playLabel setText:@"PLAY"];
-//    [playLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:10]];
-//    [playLabel setTextColor:[UIColor greatistPlayColor]];
-//    [playButton addSubview:playLabel];
-
-
-
-//-(void)playButtonTapped: (UIButton *)sender
-//{
-//    NSString *nameSought = @"Play";
-//    NSPredicate *playSearch = [NSPredicate predicateWithFormat:@"name==%@", nameSought];
-//    NSArray *playVerticals = [self.verticals filteredArrayUsingPredicate:playSearch];
-//    self.verticalSelected= playVerticals[0];
-//
-//    [self dimVerticalButtons];
-//    UIButton *playButton = self.verticalButtons[2];
-//    playButton.alpha = 1.0;
-//
-//    self.leftQuoteLabel.textColor = [UIColor greatistPlayColor];
-//    self.rightQuoteLabel.textColor = [UIColor greatistPlayColor];
-//    self.postContentTextView.text = @"Discover a new drink last night?";
-//}
-//
-
-
-//    UIButton *connectButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-//    [connectButton setFrame:CGRectMake(140, 15, 30, 30)];
-//    [connectButton setBackgroundImage:[UIImage imageNamed:@"Connect_Colored"] forState:UIControlStateNormal];
-//    connectButton.alpha = 0.3;
-//    [connectButton addTarget:self action:@selector(connectButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-//    [self.postView addSubview:connectButton];
-//
-//    UILabel *connectLabel = [[UILabel alloc] initWithFrame:CGRectMake(-5, 25, 50, 30)];
-//    [connectLabel setText:@"CONNECT"];
-//    [connectLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:10]];
-//    [connectLabel setTextColor:[UIColor greatistConnectColor]];
-//    [connectButton addSubview:connectLabel];
-
-
 
 
 

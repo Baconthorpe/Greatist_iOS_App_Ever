@@ -42,5 +42,7 @@
 
 // Response Methods
 - (void) getValidResponses;
-
+- (void) incrementResponse:(NSString *)responseOptionString
+                 forPostID:(NSString *)postObjectID
+            withCompletion:(void (^)(NSString *updatedAt))completion;
 @end

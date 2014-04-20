@@ -163,12 +163,22 @@
     }];
 }
 
-- (void) getResponsesForPostID:(NSString *)postObjectID
-                withCompletion:(void (^)(NSArray *))completion
+- (void) incrementResponse:(NSString *)responseOptionString
+                 forPostID:(NSString *)postObjectID
+                withCompletion:(void (^)(NSString *))completion
 {
-    [self.parseAPIClient getResponsesForPostID:postObjectID withCompletion:nil];
+    NSString *responseOption = [responseOptionString stringByReplacingOccurrencesOfString:@"\\\"" withString:@"\""];
+    [self.parseAPIClient getPostForPostID:postObjectID withCompletion:^(NSDictionary *postDictionary) {
+        [self.dataStore setSelectedResponsesFromJSONString:postDictionary[@"responses"]];
+        NSInteger newResponseCount = [[self.dataStore.selectedResponses valueForKey:responseOption] integerValue] + 1;
+        [self.dataStore.selectedResponses setValue:@(newResponseCount) forKeyPath:responseOptionString];
+        [self.parseAPIClient updatePostID:postObjectID
+                            withResponses:[self.dataStore getSelectedResponsesAsJSONString]
+                           withCompletion:^(NSString *updatedAt) {
+            completion(updatedAt);
+        }];
+    }];
 }
-
 
 #pragma mark - Helper Methods
 -(NSDate *)dateFromString:(NSString *)string
@@ -200,15 +210,12 @@
     
     NSDate *createdAtDate = [self dateFromString:postDictionary[@"createdAt"]];
     
-//    NSError *error;
-//    NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:postDictionary[@"responses"]
-//                                                                       options:kNilOptions
-//                                                                         error:&error];
-//    if (&error) {
-//        NSLog(@"Error parsing responses: %@", error);
-//    }
-    
-    Post *newPost = [Post uniquePostWithContent:postDictionary[@"content"] objectId:postDictionary[@"objectId"] author:nil section:section responses:postDictionary[@"responses"] timeStamp:createdAtDate inContext:self.managedObjectContext];
+    Post *newPost = [Post uniquePostWithContent:postDictionary[@"content"]
+                                       objectId:postDictionary[@"objectId"]
+                                         author:nil section:section
+                                      responses:postDictionary[@"responses"]
+                                      timeStamp:createdAtDate
+                                      inContext:self.managedObjectContext];
     NSLog(@"Core Data New Post: %@", newPost);
     return newPost;
 }
