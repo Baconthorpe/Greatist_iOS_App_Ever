@@ -127,7 +127,9 @@
                                  withResponses: (NSString *)responseDictionaryString
                                 withCompletion: (void (^)(NSDictionary *postResponse))completion
 {
-    [self.parseAPIClient postPostWithContent:content
+    NSString *postContent = [content stringByReplacingOccurrencesOfString:@"'" withString:@"’"];
+    
+    [self.parseAPIClient postPostWithContent:postContent
                                      section:section.name
                                    responses:responseDictionaryString
                               userFacebookID:self.dataStore.currentUser.facebookID
@@ -135,7 +137,7 @@
       if (postResponse) {
           NSDate *createdAtDate = [self dateFromString:postResponse[@"createdAt"]];
           
-          [Post uniquePostWithContent:content
+          [Post uniquePostWithContent:postContent
                              objectId:postResponse[@"objectId"]
                                author:self.dataStore.currentUser
                               section:section
