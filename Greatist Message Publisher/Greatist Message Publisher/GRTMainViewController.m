@@ -206,10 +206,8 @@
     GRTCornerTriangles *leftCornerTriangle = [[GRTCornerTriangles alloc] initWithFrame:cell.bounds IsLeftTriangle:YES withFillColor:[UIColor greatistFitnessColor]];
     GRTCornerTriangles *rightCornerTriangle = [[GRTCornerTriangles alloc] initWithFrame:cell.bounds IsLeftTriangle:NO withFillColor:[UIColor greatistFitnessColor]];
     
-    
     cell.backgroundColor = [UIColor greatistColorForCategory:post.section.name];
     cell.buttonBar.backgroundColor=[UIColor whiteColor];
-    
     
     UIView *separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 5)];
     separatorLineView.backgroundColor = [UIColor greatistLightGrayColor];
