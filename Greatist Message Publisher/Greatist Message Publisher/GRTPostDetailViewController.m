@@ -188,7 +188,7 @@
 
 - (void)flagButtonTapped:(UIButton *)sender
 {
-    [[GRTDataManager sharedManager] flagPostById:self.post.objectId];
+    [[GRTDataManager sharedManager] flagPost:self.post];
 }
 
 @end

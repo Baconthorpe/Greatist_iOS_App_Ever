@@ -143,6 +143,7 @@
                               section:section
                             responses:responseDictionaryString
                             timeStamp:createdAtDate
+                            isFlagged:@0
                             inContext:self.managedObjectContext];
           
           [self.dataStore saveContext];
@@ -151,9 +152,11 @@
     }];
 }
 
-- (void) flagPostById:(NSString *)postIdString
+- (void) flagPost:(Post *)post
 {
-    [self.parseAPIClient flagPostID:postIdString];
+    [self.parseAPIClient flagPostID:post.objectId withCompletion:^(NSDictionary *response) {
+        post.isFlagged = @1;
+    }];
 }
 
 #pragma mark - Response Helper Methods
@@ -227,11 +230,14 @@
     
     NSDate *createdAtDate = [self dateFromString:postDictionary[@"createdAt"]];
     
+    NSLog(@"isFlagged for this post: %@",postDictionary[@"isFlagged"]);
+    
     Post *newPost = [Post uniquePostWithContent:postDictionary[@"content"]
                                        objectId:postDictionary[@"objectId"]
                                          author:nil section:section
                                       responses:postDictionary[@"responses"]
                                       timeStamp:createdAtDate
+                                      isFlagged:postDictionary[@"isFlagged"]
                                       inContext:self.managedObjectContext];
     NSLog(@"Core Data New Post: %@", newPost);
     return newPost;

@@ -22,6 +22,7 @@
                          section: (Section *)section
                        responses: (NSString *)responses
                        timeStamp: (NSDate *)timeStamp
+                       isFlagged: (NSNumber *)isFlagged
                        inContext: (NSManagedObjectContext *)context;
 
 + (instancetype) postWithContent: (NSString *)content
@@ -33,6 +34,7 @@
                                section: (Section *)section
                              responses: (NSString *)responses
                              timeStamp: (NSDate *)timeStamp
+                             isFlagged: (NSNumber *)isFlagged
                              inContext: (NSManagedObjectContext *)context;
 
 @end

@@ -32,7 +32,8 @@
                    responses: (NSString *)responseDictionaryString
               userFacebookID: (NSString *)userFacebookID
               withCompletion: (void (^)(NSDictionary *))completion;
-- (void) flagPostID:(NSString *)postObjectID;
+- (void) flagPostID:(NSString *)postObjectID
+     withCompletion:(void (^)(NSDictionary *))completion;
 
 // GRTResponse
 - (void) getValidResponsesWithCompletion:(void (^)(NSArray *))completion;

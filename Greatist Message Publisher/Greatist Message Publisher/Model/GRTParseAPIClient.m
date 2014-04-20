@@ -241,6 +241,7 @@
 }
 
 - (void) flagPostID:(NSString *)postObjectID
+     withCompletion:(void (^)(NSDictionary *))completion
 {
     NSString *parsePostURL = [NSString stringWithFormat:@"https://api.parse.com/1/classes/GRTPost/%@", postObjectID];
     NSURL *url = [NSURL URLWithString:parsePostURL];
@@ -258,6 +259,7 @@
     
     [newOp setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Parse Flag successful. Update Post Response: %@",responseObject);
+        completion(responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Parse Flag unsuccessful. Update Post Error:%@",error);
     }];
