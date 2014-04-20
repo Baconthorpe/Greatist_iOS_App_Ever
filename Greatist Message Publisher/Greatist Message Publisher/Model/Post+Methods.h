@@ -13,27 +13,25 @@
 + (instancetype) postWithContent: (NSString *)content
                           author: (User *)user
                          section: (Section *)section
-                       responses: (NSSet *)responses
+                       responses: (NSString *)responses
                        inContext: (NSManagedObjectContext *)context;
 
 + (instancetype) postWithContent: (NSString *)content
                         objectId: (NSString *)objectId
                           author: (User *)user
                          section: (Section *)section
-                       responses: (NSSet *)responses
+                       responses: (NSString *)responses
                        timeStamp: (NSDate *)timeStamp
                        inContext: (NSManagedObjectContext *)context;
 
 + (instancetype) postWithContent: (NSString *)content
                        inContext: (NSManagedObjectContext *)context;
 
-- (NSInteger) countOfResponsesWithContent: (NSString *)responseContent;
-
 + (instancetype) uniquePostWithContent: (NSString *)content
                               objectId: (NSString *)objectId
                                 author: (User *)user
                                section: (Section *)section
-                             responses: (NSSet *)responses
+                             responses: (NSString *)responses
                              timeStamp: (NSDate *)timeStamp
                              inContext: (NSManagedObjectContext *)context;
 

@@ -9,7 +9,6 @@
 #import "GRTPostDetailViewController.h"
 #import "GRTDataStore.h"
 #import "GRTDataManager.h"
-#import "Response+Methods.h"
 
 @interface GRTPostDetailViewController ()
 
@@ -17,7 +16,6 @@
 @property (strong, nonatomic) UIScrollView *mainScrollView;
 @property (strong, nonatomic) UIView *postDetailView;
 
-@property (strong, nonatomic) NSArray *responseOptionsArray;
 @property (strong, nonatomic) NSMutableArray *responseArray;
 @property (strong, nonatomic) NSMutableArray *responseLabelsArray;
 
@@ -86,7 +84,6 @@
 - (void)setupResponses
 {
     self.responseLabelsArray = [NSMutableArray new];
-    [self updateCountsForResponses];
     
     UIView *responseView = [[UIView alloc]initWithFrame:CGRectMake(0, 320, 320, 90)];
     [responseView setBackgroundColor:[UIColor greatistColorForCategory:self.post.section.name]];
@@ -107,28 +104,14 @@
             
             CGRect responseButtonFrame = CGRectMake(x+40, y, 100, 20);
             [responseButtonFramesArray addObject:[NSValue valueWithCGRect:responseButtonFrame]];
-            
         }
     }
     
-    NSMutableSet *responseOptionSet = [NSMutableSet new];
-    for (Response *response in [self.post.responses allObjects]) {
-        [responseOptionSet addObject:response.responseOption];
-    }
-    NSArray *responseOptionsArray = [responseOptionSet allObjects];
-    
-    NSMutableArray *responseArray = [NSMutableArray new];
-    for (Response *response in [self.post.responses allObjects]) {
-        [responseArray addObject:response];
-    }
+    NSArray *responseOptionsArray = [self.dataStore.selectedResponses allKeys];
     
     for (NSInteger i = 0; i < [responseOptionsArray count]; i++) {
-        
-        ResponseOption *responseOption = responseOptionsArray[i];
-        
-        NSPredicate *searchForResponse = [NSPredicate predicateWithFormat:@"responseOption == %@", responseOption];
-        NSArray *filteredResponseArray = [responseArray filteredArrayUsingPredicate:searchForResponse];
-        NSNumber *responseCount = @([filteredResponseArray count] -1);
+        NSString *responseContent = responseOptionsArray[i];
+        NSNumber *responseCount = [self.dataStore.selectedResponses valueForKey:responseContent];
         
         UILabel *newResponseCountLabel = [[UILabel alloc] initWithFrame:[[responseLabelFramesArray objectAtIndex:i] CGRectValue]];
         [newResponseCountLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:12]];
@@ -147,11 +130,10 @@
         [newResponseButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [newResponseButton.titleLabel setFont:[UIFont fontWithName:@"DINOT-Medium" size:12]];
         newResponseButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-        [newResponseButton setTitle:[responseOption.content uppercaseString] forState:UIControlStateNormal];
+        [newResponseButton setTitle:[responseContent uppercaseString] forState:UIControlStateNormal];
         [newResponseButton setTag:i];
         [newResponseButton addTarget:self action:@selector(responseButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
         [responseView addSubview:newResponseButton];
-        
     }
     
 }
@@ -161,47 +143,28 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)updateCountsForResponses
-{
-    NSMutableSet *responseOptionSet = [NSMutableSet new];
-    for (Response *response in [self.post.responses allObjects]) {
-        [responseOptionSet addObject:response.responseOption];
-    }
-    self.responseOptionsArray = [responseOptionSet allObjects];
-    
-    self.responseArray = [NSMutableArray new];
-    for (Response *response in [self.post.responses allObjects]) {
-        [self.responseArray addObject:response];
-    }
-}
-
-- (NSNumber *)getCountForResponseOption:(ResponseOption *)responseOption
-{
-    NSPredicate *searchForResponse = [NSPredicate predicateWithFormat:@"responseOption == %@", responseOption];
-    NSArray *filteredResponseArray = [self.responseArray filteredArrayUsingPredicate:searchForResponse];
-    return @([filteredResponseArray count] -1);
-}
-
 - (void)responseButtonTapped:(UIButton *)sender
 {
     UIButton *button = (UIButton *)sender;
     NSInteger responseIndex = [button tag];
     
     
-    Response *newResponse = [Response responseWithResponseOption:self.responseOptionsArray[responseIndex]
-                                                            post:self.post
-                                                          author:self.dataStore.currentUser
-                                                       inContext:self.dataStore.managedObjectContext];
-    NSLog(@"%@", newResponse);
-    [self.dataStore saveContext];
     
-    [self.post addResponsesObject:newResponse];
-    NSLog(@"%@", self.post);
-    [self updateCountsForResponses];
     
-    NSNumber *responseOptionCount = [self getCountForResponseOption:newResponse.responseOption];
-    NSString *labelText = [NSString stringWithFormat:@"%@", responseOptionCount];
-    [self.responseLabelsArray[responseIndex] setText:labelText];
+//    Response *newResponse = [Response responseWithResponseOption:self.responseOptionsArray[responseIndex]
+//                                                            post:self.post
+//                                                          author:self.dataStore.currentUser
+//                                                       inContext:self.dataStore.managedObjectContext];
+//    NSLog(@"%@", newResponse);
+//    [self.dataStore saveContext];
+//    
+//    [self.post addResponsesObject:newResponse];
+//    NSLog(@"%@", self.post);
+//    [self updateCountsForResponses];
+//    
+//    NSNumber *responseOptionCount = [self getCountForResponseOption:newResponse.responseOption];
+//    NSString *labelText = [NSString stringWithFormat:@"%@", responseOptionCount];
+//    [self.responseLabelsArray[responseIndex] setText:labelText];
     
 }
 

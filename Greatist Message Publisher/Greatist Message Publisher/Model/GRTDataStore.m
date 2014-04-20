@@ -10,7 +10,6 @@
 #import "GRTDataStore.h"
 #import "User+Methods.h"
 #import "Post+Methods.h"
-#import "Response+Methods.h"
 #import "Section+Methods.h"
 #import "GRTParseAPIClient.h"
 #import "GRTFacebookAPIClient.h"
@@ -30,6 +29,14 @@
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
 #pragma mark - Lazy Instantiation
+
+- (NSMutableDictionary *)selectedResponses
+{
+    if (!_selectedResponses) {
+        _selectedResponses = [NSMutableDictionary new];
+    }
+    return _selectedResponses;
+}
 
 - (NSFetchedResultsController *) postFRController
 {
@@ -229,6 +236,23 @@
     
 }
 
-
+- (NSString *) getSelectedResponsesAsJSONString
+{
+    NSError *error;
+    NSData *responseJSON = [NSJSONSerialization dataWithJSONObject:self.selectedResponses
+                                                       options:0
+                                                         error:&error];
+    NSString *responseString = @"";
+    if (!responseJSON) {
+        NSLog(@"Error Creating JSON for selectedResponses: %@", error);
+    } else {
+        responseString = [[NSString alloc] initWithBytes:[responseJSON bytes]
+                                                            length:[responseJSON length]
+                                                          encoding:NSUTF8StringEncoding];
+    }
+    
+    NSString *responseDictionaryString = [responseString stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
+    return responseDictionaryString;
+}
 
 @end

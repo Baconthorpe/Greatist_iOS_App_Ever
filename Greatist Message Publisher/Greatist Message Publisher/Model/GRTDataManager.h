@@ -34,8 +34,10 @@
 
 // Post Methods
 - (void) getPostsBasedOnFacebookFriends;
-- (void) postPostAndSaveIfSuccessfulForContent: (NSString *)content
-                                     inSection: (Section *)section;
+- (void) postPostAndSaveIfUnique: (NSString *)content
+                       inSection: (Section *)section
+                   withResponses: (NSString *)responseDictionaryString
+                  withCompletion: (void (^)(NSDictionary *postResponse))completion;
 - (void) flagPost:(NSString *)postIdString;
 
 // Response Methods

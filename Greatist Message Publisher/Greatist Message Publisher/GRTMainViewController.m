@@ -16,7 +16,6 @@
 #import "Section+Methods.h"
 #import "GRTFacebookAPIClient.h"
 #import "GRTCornerTriangles.h"
-#import "UIColor+Helpers.h"
 #import "GRTDataManager.h"
 #import <FacebookSDK/FacebookSDK.h>
 

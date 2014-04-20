@@ -27,12 +27,14 @@
                 WithCompletion:(void (^)(NSArray *posts))completionBlock;
 - (void) postPostWithContent: (NSString *)content
                      section: (NSString *)section
-                userObjectId: (NSString *)userObjectId
+                   responses: (NSString *)responseDictionaryString
               userFacebookID: (NSString *)userFacebookID
               withCompletion: (void (^)(NSDictionary *))completion;
 - (void) flagPostID:(NSString *)postObjectID;
 
 // GRTResponse
 - (void) getValidResponsesWithCompletion:(void (^)(NSArray *))completion;
-                   
+- (void) getResponsesForPostID:(NSString *)postObjectID
+                withCompletion:(void (^)(NSArray *))completion;
+
 @end
