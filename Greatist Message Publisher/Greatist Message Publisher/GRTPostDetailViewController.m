@@ -63,7 +63,7 @@
     [self.view addSubview:postDetailView];
     
     UILabel *postDetailLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 280, 280)];
-    NSString *postDetailText = [NSString stringWithFormat:@"“ %@ ”", self.post.content];
+    NSString *postDetailText = [NSString stringWithFormat:@"“\u00a0%@\u00a0”", self.post.content];
     [postDetailLabel setText:postDetailText];
     [postDetailLabel setNumberOfLines:0];
     [postDetailLabel setFont:[UIFont fontWithName:@"ArcherPro-SemiboldItalic" size:24]];
