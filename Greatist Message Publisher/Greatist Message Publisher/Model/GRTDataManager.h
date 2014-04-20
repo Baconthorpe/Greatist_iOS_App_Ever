@@ -34,6 +34,8 @@
                       withCompletion:(void (^)(BOOL isSuccessful))completion;
 
 // Post Methods
+- (void) getPostsBasedOnFacebookID;
+
 - (void) getPostsBasedOnFacebookFriends;
 - (void) postPostAndSaveIfUnique: (NSString *)content
                        inSection: (Section *)section

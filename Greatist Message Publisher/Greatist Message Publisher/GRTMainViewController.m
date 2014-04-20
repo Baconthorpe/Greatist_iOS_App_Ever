@@ -25,6 +25,7 @@
 - (IBAction)composePostButtonTapped:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *postsTableView;
 @property (weak, nonatomic) IBOutlet UIToolbar *logoutBarButtonItem;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *userPostLogButton;
 @property (strong, nonatomic) Section *section;
 @property (strong, nonatomic) GRTCornerTriangles *cornerTriangle;
 @property (strong, nonatomic) GRTDataStore *dataStore;
