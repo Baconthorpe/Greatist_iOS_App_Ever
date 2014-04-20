@@ -29,16 +29,23 @@
 // User Methods
 - (User *) getCurrentUser;
 - (void) setCurrentUser:(User *)user;
-- (void) fetchUsersWithCompletion:(void (^)(NSArray *users))completionBlock;
-- (void) createNewUserWithFacebookID:(NSString *)facebookIDString;
+- (void) getUsersWithCompletion:(void (^)(NSArray *users))completionBlock;
+- (void) createNewUserWithFacebookID:(NSString *)facebookIDString
+                      withCompletion:(void (^)(BOOL isSuccessful))completion;
 
 // Post Methods
 - (void) getPostsBasedOnFacebookFriends;
-- (void) postPostAndSaveIfSuccessfulForContent: (NSString *)content
-                                     inSection: (Section *)section;
-- (void) flagPost:(NSString *)postIdString;
+- (void) postPostAndSaveIfUnique: (NSString *)content
+                       inSection: (Section *)section
+                   withResponses: (NSString *)responseDictionaryString
+                  withCompletion: (void (^)(NSDictionary *postResponse))completion;
+- (void) flagPostById:(NSString *)postIdString;
 
 // Response Methods
 - (void) getValidResponses;
-
+- (void) getUpdatedResponsesForPostID:(NSString *)postObjectID
+                       withCompletion:(void (^)(NSDictionary *postDictionary))completion;
+- (void) incrementResponse:(NSString *)responseOptionString
+                 forPostID:(NSString *)postObjectID
+            withCompletion:(void (^)(NSString *updatedAt))completion;
 @end

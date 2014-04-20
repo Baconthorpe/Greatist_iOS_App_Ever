@@ -80,11 +80,11 @@
         NSError *error = nil;
         NSDictionary *userDictionary = [NSJSONSerialization JSONObjectWithData:userObject options:NSJSONReadingAllowFragments error:&error];
         if (error) {
-            NSLog(@"User JSON Serialization Error: %@", error);
+            NSLog(@"Parse User JSON Serialization Error: %@", error);
         }
         completionBlock(userDictionary[@"results"]);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Get User Error: %@",error);
+        NSLog(@"Parse Get User Error: %@",error);
     }];
     
     [newOp start];
@@ -108,10 +108,10 @@
     request.HTTPMethod = @"POST";
     
     [newOp setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"User Post Response Object: %@",responseObject);
+        NSLog(@"Parse User Post Response Object: %@",responseObject);
         completion(responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"User Post Error: %@",error);
+        NSLog(@"Parse User Post Error: %@",error);
     }];
     
     [newOp start];
@@ -136,10 +136,10 @@
     request.HTTPMethod = @"POST";
     
     [newOp setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"User Post Response Object: %@",responseObject);
+        NSLog(@"Parse User Post Response Object: %@",responseObject);
         completion(responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"User Post Error: %@",error);
+        NSLog(@"Parse User Post Error: %@",error);
     }];
     
     [newOp start];
@@ -170,23 +170,50 @@
         NSError *error = nil;
         NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:&error];
         if (error) {
-            NSLog(@"FriendPosts JSON Serialization Error: %@", error);
+            NSLog(@"Parse Get FriendPosts JSON Serialization Error: %@", error);
         }
         completionBlock(responseDictionary[@"result"]);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"FriendPosts (Post) Error: %@",error);
+        NSLog(@"Parse Get FriendPosts (Post) Error: %@",error);
     }];
     
     [newOp start];
 }
 
+- (void) getPostForPostID:(NSString *)postObjectID
+           withCompletion:(void (^)(NSDictionary *postDictionary))completion
+{
+    NSString *parsePostURL = [NSString stringWithFormat:@"https://api.parse.com/1/classes/GRTPost/%@", postObjectID];
+    NSURL *url = [NSURL URLWithString:parsePostURL];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request addValue:self.restAPIKey forHTTPHeaderField:@"X-Parse-REST-API-Key"];
+    [request addValue:self.appID forHTTPHeaderField:@"X-Parse-Application-Id"];
+    
+    AFHTTPRequestOperation *newOp = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    request.HTTPMethod = @"GET";
+    
+    [newOp setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSError *error = nil;
+        NSDictionary *postDictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:&error];
+        if (error) {
+            NSLog(@"Parse Get Responses For Post JSON Serialization Error: %@", error);
+        }
+        completion(postDictionary);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Parse Get Responses For Post Error: %@",error);
+    }];
+    
+    [newOp start];
+}
 
 - (void) postPostWithContent: (NSString *)content
                      section: (NSString *)section
-                userObjectId: (NSString *)userObjectId
+                   responses: (NSString *)responseDictionaryString
               userFacebookID: (NSString *)userFacebookID
               withCompletion: (void (^)(NSDictionary *))completion
 {
+
     NSString *parseDatabaseURL = @"https://api.parse.com/1/classes/GRTPost";
     NSURL *url = [NSURL URLWithString:parseDatabaseURL];
     
@@ -197,17 +224,17 @@
     
     AFHTTPRequestOperation *newOp = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     
-    NSString *json = [NSString stringWithFormat:@"{\"userObjectId\":\"%@\",\"userFacebookID\":\"%@\",\"content\":\"%@\",\"section\":\"%@\",\"isFlagged\":false}",userObjectId,userFacebookID,content,section];
+    NSString *json = [NSString stringWithFormat:@"{\"userFacebookID\":\"%@\",\"content\":\"%@\",\"section\":\"%@\",\"responses\":\"%@\",\"isFlagged\":false}",userFacebookID,content,section,responseDictionaryString];
+    
     request.HTTPBody = [json dataUsingEncoding:NSUTF8StringEncoding];
     request.HTTPMethod = @"POST";
     
     [newOp setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"Post Response: %@",responseObject);
-//        NSDictionary *headerFieldsDictionary = [operation.response allHeaderFields];
         NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+        NSLog(@"Parse Post Response: %@",responseDictionary);
         completion(responseDictionary);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Post Response Error: %@",error);
+        NSLog(@"Parse Post Response Error: %@",error);
     }];
     
     [newOp start];
@@ -230,9 +257,9 @@
     request.HTTPMethod = @"PUT";
     
     [newOp setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"Flag successful. Update Post Response: %@",responseObject);
+        NSLog(@"Parse Flag successful. Update Post Response: %@",responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Flag unsuccessful. Update Post Error:%@",error);
+        NSLog(@"Parse Flag unsuccessful. Update Post Error:%@",error);
     }];
     
     [newOp start];
@@ -249,15 +276,14 @@
          completion(responseDictionaries);
      } failure:^(NSURLSessionDataTask *task, NSError *error)
      {
-         NSLog(@"Responses Error: %@",error);
+         NSLog(@"Parse Get Valid Responses Error: %@",error);
      }];
 }
 
-
 - (void) updatePostID:(NSString *)postObjectID
-        WithResponses:(NSArray *)responseArray
+        withResponses:(NSString *)responseString
+       withCompletion:(void (^)(NSString *))completion
 {
-    
     NSString *parsePostURL = [NSString stringWithFormat:@"https://api.parse.com/1/classes/GRTPost/%@", postObjectID];
     NSURL *url = [NSURL URLWithString:parsePostURL];
     
@@ -268,118 +294,19 @@
     
     AFHTTPRequestOperation *newOp = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     
-    NSString *json = [NSString stringWithFormat:@"{\"responses\":\"%@\"}",responseArray];
+    NSString *json = [NSString stringWithFormat:@"{\"responses\":\"%@\"}",responseString];
     request.HTTPBody = [json dataUsingEncoding:NSUTF8StringEncoding];
     request.HTTPMethod = @"PUT";
     
     [newOp setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"Update Post Response: %@",responseObject);
+        NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
+        completion(responseDictionary[@"updatedAt"]);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Update Post Error:%@",error);
+        NSLog(@"Parse Update Post Error:%@",error);
     }];
     
     [newOp start];
     
-}
-
-- (void) getResponsesForPostID:(NSString *)postObjectID
-{
-    NSString *parsePostURL = [NSString stringWithFormat:@"https://api.parse.com/1/classes/GRTPost/%@", postObjectID];
-    NSURL *url = [NSURL URLWithString:parsePostURL];
-    
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    [request addValue:self.restAPIKey forHTTPHeaderField:@"X-Parse-REST-API-Key"];
-    [request addValue:self.appID forHTTPHeaderField:@"X-Parse-Application-Id"];
-    
-    AFHTTPRequestOperation *newOp = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    request.HTTPMethod = @"GET";
-    
-    [newOp setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSDictionary *postDictionary = responseObject;
-        NSArray *postResponses = postDictionary[@"responses"];
-        NSLog(@"Get Responses: %@", postResponses);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Get Responses Error: %@",error);
-    }];
-    
-    [newOp start];
-}
-
-
-- (void) postResponseWithContent: (NSString *)content
-                       timeStamp: (NSDate *)timeStamp
-                          userID: (NSString *)userID
-                            post: (NSString *)post
-{
-    NSString *parseDatabaseURL = @"https://api.parse.com/1/classes/Response";
-    NSURL *url = [NSURL URLWithString:parseDatabaseURL];
-    
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    [request addValue:self.restAPIKey forHTTPHeaderField:@"X-Parse-REST-API-Key"];
-    [request addValue:self.appID forHTTPHeaderField:@"X-Parse-Application-Id"];
-    
-    AFHTTPRequestOperation *newOp = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    
-    NSString *json = [NSString stringWithFormat:@"{\"Content\":\"%@\",\"timeStamp\":\"%@\",\"userID\":\"%@\",\"post\":\"%@\"}",content,timeStamp,userID,post];
-    request.HTTPBody = [json dataUsingEncoding:NSUTF8StringEncoding];
-    request.HTTPMethod = @"POST";
-    
-    [newOp setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"Post Response: %@",responseObject);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Post Response Error: %@",error);
-    }];
-    
-    [newOp start];
-    
-}
-
-
-#pragma mark - Old Post Methods
-
-- (void) getRelevantPostsWithCompletion:(void (^)(NSArray *))completion
-{
-    [self.manager GET:@"classes/Post" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject)
-     {
-         NSArray *relevantPosts = (NSArray *)responseObject;
-         
-         completion(relevantPosts);
-     } failure:^(NSURLSessionDataTask *task, NSError *error)
-     {
-         NSLog(@"Posts Error: %@",error);
-     }];
-}
-
-- (void) oldPostPostWithContent: (NSString *)content
-                     section: (NSString *)section
-                    latitude: (CGFloat)latitude
-                   longitude: (CGFloat)longitude
-                      userID: (NSString *)userID
-              withCompletion: (void (^)(NSDictionary *))completion
-{
-    NSString *parseDatabaseURL = @"https://api.parse.com/1/classes/Post";
-    NSURL *url = [NSURL URLWithString:parseDatabaseURL];
-    
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    [request addValue:self.restAPIKey forHTTPHeaderField:@"X-Parse-REST-API-Key"];
-    [request addValue:self.appID forHTTPHeaderField:@"X-Parse-Application-Id"];
-    
-    AFHTTPRequestOperation *newOp = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    
-    NSString *json = [NSString stringWithFormat:@"{\"UserID\":\"%@\",\"Content\":\"%@\",\"section\":\"%@\",\"latStamp\":%f,\"lonStamp\":%f}",userID,content,section,latitude,longitude];
-    request.HTTPBody = [json dataUsingEncoding:NSUTF8StringEncoding];
-    request.HTTPMethod = @"POST";
-    
-    [newOp setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"Post Response: %@",responseObject);
-        completion(responseObject);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Post Response Error: %@",error);
-    }];
-    
-    [newOp start];
 }
 
 @end

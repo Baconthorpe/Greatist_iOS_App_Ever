@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "User+Methods.h"
 #import "Post+Methods.h"
-#import "Response+Methods.h"
 #import "ResponseOption+Methods.h"
 #import "Section+Methods.h"
 #import "UIColor+Helpers.h"
@@ -25,14 +24,17 @@
 @property (strong, nonatomic) User *currentUser;
 @property (strong, nonatomic) NSArray *facebookFriends;
 @property (strong, nonatomic) NSArray *validResponses;
+@property (strong, nonatomic) NSMutableDictionary *selectedResponses;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
-+ (instancetype) sharedDataStore;
++ (instancetype)sharedDataStore;
 
-- (NSDictionary *) dictionaryOfSections;
+- (NSDictionary *)dictionaryOfSections;
 
-- (void) createInitialData;
+- (void)createInitialData;
+- (void)setSelectedResponsesFromJSONString:(NSString *)responseString;
+- (NSString *)getSelectedResponsesAsJSONString;
 
 @end

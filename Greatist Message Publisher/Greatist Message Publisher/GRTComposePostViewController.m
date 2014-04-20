@@ -81,7 +81,7 @@
 {
     GRTSelectResponseViewController *nextViewController = segue.destinationViewController;
     nextViewController.verticalPassed = self.verticalSelected;
-    nextViewController.content =    self.postContentTextView.text;
+    nextViewController.content = self.postContentTextView.text;
     
 }
 - (IBAction)backButtonTapped:(id)sender {
@@ -118,7 +118,6 @@
     [fitnessLabel setTextColor:[UIColor greatistMoveColor]];
     [fitnessButton addSubview:fitnessLabel];
     
-    
     UIButton *happinessButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [happinessButton setFrame:CGRectMake(195, 10, 45, 45)];
     [happinessButton setBackgroundImage:[UIImage imageNamed:@"Grow_Colored60x60"] forState:UIControlStateNormal];
@@ -131,7 +130,8 @@
     [happinessLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:10]];
     [happinessLabel setTextColor:[UIColor greatistGrowColor]];
     [happinessButton addSubview:happinessLabel];
- self.verticalButtons = @[healthButton, fitnessButton, happinessButton];
+ 
+    self.verticalButtons = @[healthButton, fitnessButton, happinessButton];
     
 }
 
@@ -158,8 +158,6 @@
     NSMutableSet *responses = [NSMutableSet new];
     for (NSNumber *index in self.selectedCells) {
         NSInteger indexInteger = [index integerValue];
-        Response *newResponse = [Response responseWithResponseOption:self.dataStore.validResponses[indexInteger] inContext:self.dataStore.managedObjectContext];
-        [responses addObject:newResponse];
     }
     [self.dataStore saveContext];
 }

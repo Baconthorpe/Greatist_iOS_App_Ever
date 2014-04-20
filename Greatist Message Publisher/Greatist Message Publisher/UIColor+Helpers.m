@@ -28,12 +28,12 @@
 + (UIColor *)greatistSecondaryColorForCategory:(NSString *)categoryString
 {
     if ([categoryString isEqualToString:@"health"]) {
-        return [UIColor greatistHealthColor];
+        return [UIColor greatistHealthColorSecondary];
     } else if ([categoryString isEqualToString:@"fitness"]) {
-        return [UIColor greatistFitnessColor];
+        return [UIColor greatistFitnessColorSecondary];
     }
     else if ([categoryString isEqualToString:@"happiness"]) {
-        return [UIColor greatistHappinessColor];
+        return [UIColor greatistHappinessColorSecondary];
     } else {
         return [UIColor greatistPrimaryColor];
     }

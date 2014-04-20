@@ -7,14 +7,13 @@
 //
 
 #import "Post+Methods.h"
-#import "Response+Methods.h"
 
 @implementation Post (Methods)
 
 + (instancetype) postWithContent: (NSString *)content
                           author: (User *)user
                          section: (Section *)section
-                       responses: (NSSet *)responses
+                       responses: (NSString *)responses
                        inContext: (NSManagedObjectContext *)context
 {
     Post *newPost = [NSEntityDescription insertNewObjectForEntityForName:@"Post" inManagedObjectContext:context];
@@ -38,7 +37,7 @@
                         objectId: (NSString *)objectId
                           author: (User *)user
                          section: (Section *)section
-                       responses: (NSSet *)responses
+                       responses: (NSString *)responses
                        timeStamp: (NSDate *)timeStamp
                        inContext: (NSManagedObjectContext *)context
 {
@@ -67,19 +66,11 @@
     return newPost;
 }
 
-- (NSInteger) countOfResponsesWithContent: (NSString *)responseContent
-{
-    NSPredicate *preciseContentSearch = [NSPredicate predicateWithFormat:@"content==%@",responseContent];
-    NSSet *setOfMatches = [self.responses filteredSetUsingPredicate:preciseContentSearch];
-    
-    return [setOfMatches count];
-}
-
 + (instancetype) uniquePostWithContent: (NSString *)content
                               objectId: (NSString *)objectId
                                 author: (User *)user
                                section: (Section *)section
-                             responses: (NSSet *)responses
+                             responses: (NSString *)responses
                              timeStamp: (NSDate *)timeStamp
                              inContext: (NSManagedObjectContext *)context
 {
@@ -97,6 +88,20 @@
     }
     
     return arrayOfMatches[0];
+}
+
+- (NSDictionary *) responseDictionaryForPost
+{
+    NSError *error;
+    NSData *responseData = [self.responses dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:responseData
+                                                                       options:kNilOptions
+                                                                         error:&error];
+    if (&error) {
+        NSLog(@"Error parsing response for post: %@", error);
+        return @{};
+    }
+    return responseDictionary;
 }
 
 

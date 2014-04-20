@@ -24,7 +24,7 @@
 
 -(NSString *)description
 {
-    return [NSString stringWithFormat:@"ResponseOption: %@", self.content];
+    return [NSString stringWithFormat:@"ResponseOption Desc: %@", self.content];
 }
 
 + (instancetype) uniqueResponseOptionWithContent: (NSString *)content

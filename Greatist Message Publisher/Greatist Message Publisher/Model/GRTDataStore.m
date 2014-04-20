@@ -10,7 +10,6 @@
 #import "GRTDataStore.h"
 #import "User+Methods.h"
 #import "Post+Methods.h"
-#import "Response+Methods.h"
 #import "Section+Methods.h"
 #import "GRTParseAPIClient.h"
 #import "GRTFacebookAPIClient.h"
@@ -31,7 +30,15 @@
 
 #pragma mark - Lazy Instantiation
 
-- (NSFetchedResultsController *) postFRController
+- (NSMutableDictionary *)selectedResponses
+{
+    if (!_selectedResponses) {
+        _selectedResponses = [NSMutableDictionary new];
+    }
+    return _selectedResponses;
+}
+
+- (NSFetchedResultsController *)postFRController
 {
     if (!_postFRController)
     {
@@ -52,7 +59,7 @@
 
 #pragma mark - Singleton Method
 
-+ (instancetype) sharedDataStore
++ (instancetype)sharedDataStore
 {
     static GRTDataStore *_shared = nil;
     static dispatch_once_t onceToken;
@@ -167,7 +174,7 @@
 #pragma mark - Basic Data Fetches
 
 
-- (NSDictionary *) dictionaryOfSections
+- (NSDictionary *)dictionaryOfSections
 {
     NSFetchRequest *sectionFetch = [NSFetchRequest fetchRequestWithEntityName:@"Section"];
     NSSortDescriptor *nameSort = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO];
@@ -187,7 +194,7 @@
 
 #pragma mark - Startup
 
-- (void) createInitialData
+- (void)createInitialData
 {
     NSFetchRequest *sectionFetch = [NSFetchRequest fetchRequestWithEntityName:@"Section"];
     
@@ -202,26 +209,26 @@
         [Post postWithContent:@"I joined a gym today!"
                        author:defaultUser
                       section:fitness
-                    responses:nil
+                    responses:@"{\"You Go Girl\":0,\"Rock On\":0,\"No Way\":0,\"Boo\":0}"
                     inContext:self.managedObjectContext];
         
         [Post postWithContent:@"I have a love + hate relationship with gluten."
                        author:defaultUser
                       section:health
-                    responses:nil
+                    responses:@"{\"You Go Girl\":0,\"Rock On\":0,\"No Way\":0,\"Boo\":0}"
                     inContext:self.managedObjectContext];
         
         [Post postWithContent:@"Spreading the good news about Paleo Diet"
                        author:defaultUser
                       section:health
-                    responses:nil
+                    responses:@"{\"You Go Girl\":0,\"Rock On\":0,\"No Way\":0,\"Boo\":0}"
                     inContext:self.managedObjectContext];
         
 
         [Post postWithContent:@"I love the WOD article!"
                        author:defaultUser
                       section:happiness
-                    responses:nil
+                    responses:@"{\"You Go Girl\":0,\"Rock On\":0,\"No Way\":0,\"Boo\":0}"
                     inContext:self.managedObjectContext];
         
         [self saveContext];
@@ -229,6 +236,38 @@
     
 }
 
+- (void)setSelectedResponsesFromJSONString:(NSString *)responseString
+{
+    NSString *responseDictionaryString = [responseString stringByReplacingOccurrencesOfString:@"\\\"" withString:@"\""];
+    NSData *responseData = [responseDictionaryString dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error = nil;
+    NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:responseData
+                                                                       options:0
+                                                                         error:&error];
+    if (!responseDictionary) {
+        NSLog(@"Error creating dictionary from responses in post: %@", error);
+    } else {
+        self.selectedResponses = [NSMutableDictionary dictionaryWithDictionary:responseDictionary];
+    }
+}
 
+- (NSString *)getSelectedResponsesAsJSONString
+{
+    NSError *error;
+    NSData *responseJSON = [NSJSONSerialization dataWithJSONObject:self.selectedResponses
+                                                       options:0
+                                                         error:&error];
+    NSString *responseString = @"";
+    if (!responseJSON) {
+        NSLog(@"Error Creating JSON for selectedResponses: %@", error);
+    } else {
+        responseString = [[NSString alloc] initWithBytes:[responseJSON bytes]
+                                                            length:[responseJSON length]
+                                                          encoding:NSUTF8StringEncoding];
+    }
+    
+    NSString *responseDictionaryString = [responseString stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
+    return responseDictionaryString;
+}
 
 @end

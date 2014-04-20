@@ -107,10 +107,11 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[GRTFacebookAPIClient sharedClient] getFriendIDsWithCompletion:^(NSArray *friendIDs)
      {
-         [self getPostsForFriends:friendIDs];
-         [self createUserIfNew];
-         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-         [self performSegueWithIdentifier:@"loginToMain" sender:nil];
+         [self createUserIfNewWithCompletion:^(BOOL userFound) {
+             [self getPostsForFriends:friendIDs];
+             [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+             [self performSegueWithIdentifier:@"loginToMain" sender:nil];
+         }];
      }];
     
 }
@@ -168,21 +169,23 @@
     [[GRTDataManager sharedManager] getPostsBasedOnFacebookFriends];
 }
 
-- (void)createUserIfNew
+- (void)createUserIfNewWithCompletion:(void (^)(BOOL userFound))completionBlock
 {
-    [[GRTDataManager sharedManager] fetchUsersWithCompletion:^(NSArray *users) {
+    [[GRTDataManager sharedManager] getUsersWithCompletion:^(NSArray *users) {
         BOOL userFound = NO;
         for (User *user in users) {
             if ([user.facebookID isEqualToString:self.facebookID]) {
                 [[GRTDataManager sharedManager] setCurrentUser:user];
-                NSLog(@"User %@ (%@) exists", self.facebookName, self.facebookID);
                 userFound = YES;
             }
         }
         if (!userFound) {
-            NSLog(@"Creating User %@", self.facebookName);
-            [[GRTDataManager sharedManager] createNewUserWithFacebookID:self.facebookID];
+            [[GRTDataManager sharedManager] createNewUserWithFacebookID:self.facebookID
+                                                         withCompletion:^(BOOL isSuccessful) {
+                 completionBlock(userFound);
+             }];
         }
+        completionBlock(userFound);
     }];
 }
 @end

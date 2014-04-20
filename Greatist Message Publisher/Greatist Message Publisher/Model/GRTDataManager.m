@@ -85,7 +85,7 @@
     self.dataStore.currentUser = user;
 }
 
-- (void) fetchUsersWithCompletion:(void (^)(NSArray *users))completionBlock
+- (void) getUsersWithCompletion:(void (^)(NSArray *users))completionBlock
 {
     [self.parseAPIClient getUsersWithCompletion:^(NSArray *users) {
         NSMutableArray *usersArray = [NSMutableArray new];
@@ -93,15 +93,16 @@
             User *newUser = [User userWithFacebookID:user[@"facebookID"] inContext:self.dataStore.managedObjectContext];
             [usersArray addObject:newUser];
         }
-        
         completionBlock(usersArray);
     }];
 }
 
 - (void) createNewUserWithFacebookID:(NSString *)facebookIDString
+                      withCompletion:(void (^)(BOOL isSuccessful))completion
 {
     [self.parseAPIClient postUserWithFacebookID:facebookIDString Completion:nil];
     [User userUniqueWithFacebookID:facebookIDString inContext:self.dataStore.managedObjectContext];
+    completion(YES);
 }
 
 #pragma mark - Post Helper Methods
@@ -109,7 +110,10 @@
 - (void) getPostsBasedOnFacebookFriends
 {
     [self.facebookAPIClient getFriendIDsWithCompletion:^(NSArray *facebookFriendIDs) {
-        [self.parseAPIClient getPostsWithFriendIDs:facebookFriendIDs
+        NSMutableArray *friendsPlusMeArray = [NSMutableArray arrayWithArray:facebookFriendIDs];
+        [friendsPlusMeArray addObject:self.dataStore.currentUser.facebookID];
+        [friendsPlusMeArray addObject:@"-1"];
+        [self.parseAPIClient getPostsWithFriendIDs:friendsPlusMeArray
                                     WithCompletion:^(NSArray *posts) {
             [self interpretArrayOfPostDictionaries:posts];
             [self.dataStore saveContext];
@@ -118,30 +122,36 @@
 }
 
 
-- (void) postPostAndSaveIfSuccessfulForContent: (NSString *)content
+- (void) postPostAndSaveIfUnique: (NSString *)content
                                      inSection: (Section *)section
+                                 withResponses: (NSString *)responseDictionaryString
+                                withCompletion: (void (^)(NSDictionary *postResponse))completion
 {
-    [self.parseAPIClient postPostWithContent:content
+    NSString *postContent = [content stringByReplacingOccurrencesOfString:@"'" withString:@"’"];
+    
+    [self.parseAPIClient postPostWithContent:postContent
                                      section:section.name
-                                userObjectId:nil
+                                   responses:responseDictionaryString
                               userFacebookID:self.dataStore.currentUser.facebookID
                               withCompletion:^(NSDictionary *postResponse) {
-                                  
-                                  NSDate *createdAtDate = [self dateFromString:postResponse[@"createdAt"]];
-                                  
-                                  [Post uniquePostWithContent:content
-                                                     objectId:postResponse[@"objectId"]
-                                                       author:self.dataStore.currentUser
-                                                      section:section
-                                                    responses:nil
-                                                    timeStamp:createdAtDate
-                                                    inContext:self.managedObjectContext];
-                                  
-                                  [self.dataStore saveContext];
-                              }];
+      if (postResponse) {
+          NSDate *createdAtDate = [self dateFromString:postResponse[@"createdAt"]];
+          
+          [Post uniquePostWithContent:postContent
+                             objectId:postResponse[@"objectId"]
+                               author:self.dataStore.currentUser
+                              section:section
+                            responses:responseDictionaryString
+                            timeStamp:createdAtDate
+                            inContext:self.managedObjectContext];
+          
+          [self.dataStore saveContext];
+          completion(postResponse);
+      }
+    }];
 }
 
-- (void) flagPost:(NSString *)postIdString
+- (void) flagPostById:(NSString *)postIdString
 {
     [self.parseAPIClient flagPostID:postIdString];
 }
@@ -156,6 +166,34 @@
             [responsesOptions addObject:newResponseOption];
         }
         self.dataStore.validResponses = responsesOptions;
+    }];
+}
+
+- (void) getUpdatedResponsesForPostID:(NSString *)postObjectID
+              withCompletion:(void (^)(NSDictionary *postDictionary))completion
+{
+    
+    [self.parseAPIClient getPostForPostID:postObjectID withCompletion:^(NSDictionary *postDictionary) {
+        [self.dataStore setSelectedResponsesFromJSONString:postDictionary[@"responses"]];
+        completion(postDictionary);
+    }];
+}
+- (void) incrementResponse:(NSString *)responseOptionString
+                 forPostID:(NSString *)postObjectID
+                withCompletion:(void (^)(NSString *updatedAt))completion
+{
+    
+    NSString *responseOption = [responseOptionString stringByReplacingOccurrencesOfString:@"\\\"" withString:@"\""];
+    [self getUpdatedResponsesForPostID:postObjectID
+               withCompletion:^(NSDictionary *postDictionary) {
+        NSInteger newResponseCount = [[self.dataStore.selectedResponses valueForKey:responseOption] integerValue] + 1;
+        [self.dataStore.selectedResponses setValue:@(newResponseCount) forKeyPath:responseOptionString];
+       
+        [self.parseAPIClient updatePostID:postObjectID
+                           withResponses:[self.dataStore getSelectedResponsesAsJSONString]
+                          withCompletion:^(NSString *updatedAt) {
+            completion(updatedAt);
+        }];
     }];
 }
 
@@ -189,8 +227,13 @@
     
     NSDate *createdAtDate = [self dateFromString:postDictionary[@"createdAt"]];
     
-    Post *newPost = [Post uniquePostWithContent:postDictionary[@"content"] objectId:postDictionary[@"objectId"] author:nil section:section responses:nil timeStamp:createdAtDate inContext:self.managedObjectContext];
-    
+    Post *newPost = [Post uniquePostWithContent:postDictionary[@"content"]
+                                       objectId:postDictionary[@"objectId"]
+                                         author:nil section:section
+                                      responses:postDictionary[@"responses"]
+                                      timeStamp:createdAtDate
+                                      inContext:self.managedObjectContext];
+    NSLog(@"Core Data New Post: %@", newPost);
     return newPost;
 }
 

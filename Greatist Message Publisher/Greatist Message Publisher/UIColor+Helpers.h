@@ -10,6 +10,7 @@
 
 @interface UIColor (Helpers)
 + (UIColor *)greatistColorForCategory:(NSString *)categoryString;
++ (UIColor *)greatistSecondaryColorForCategory:(NSString *)categoryString;
 + (UIColor *)greatistPrimaryColor;
 + (UIColor *)greatistBlueColor;
 + (UIColor *)greatistGrayColor;
