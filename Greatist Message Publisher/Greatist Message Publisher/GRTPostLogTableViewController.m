@@ -1,12 +1,12 @@
 //
-//  GRTPostLogViewController.m
+//  GRTPostLogTableViewController.m
 //  Greatist Message Publisher
 //
-//  Created by Elizabeth Choy on 4/18/14.
+//  Created by Elizabeth Choy on 4/20/14.
 //  Copyright (c) 2014 Ezekiel Abuhoff. All rights reserved.
 //
 
-#import "GRTPostLogViewController.h"
+#import "GRTPostLogTableViewController.h"
 #import "GRTMainViewController.h"
 #import "GRTPostTableViewCell.h"
 #import "GRTDataStore.h"
@@ -15,7 +15,7 @@
 #import "GRTCornerTriangles.h"
 #import "GRTDataManager.h"
 
-@interface GRTPostLogViewController ()
+@interface GRTPostLogTableViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *postsTableView;
 
@@ -29,7 +29,7 @@
 
 @end
 
-@implementation GRTPostLogViewController
+@implementation GRTPostLogTableViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -216,6 +216,12 @@
     [rightCornerTriangle setNeedsDisplay];
     
     return cell;
+}
+
+- (IBAction)backButtonTapped:(id)sender
+{
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+
 }
 
 

@@ -150,31 +150,31 @@
 
 #pragma mark - IBAction Methods
 
-- (void)postButton:(id)sender
-{
+//- (void)postButton:(id)sender
+//{
+////    // Fix this to use current user and not Anne
+////    NSMutableSet *responses = [NSMutableSet new];
+////    for (NSNumber *index in self.selectedCells) {
+////        NSInteger indexInteger = [index integerValue];
+////        Response *newResponse = [Response responseWithResponseOption:self.dataStore.validResponses[indexInteger] inContext:self.dataStore.managedObjectContext];
+////        [responses addObject:newResponse];
+////    }
+////    [self.dataStore saveContext];
+//    
 //    // Fix this to use current user and not Anne
-//    NSMutableSet *responses = [NSMutableSet new];
-//    for (NSNumber *index in self.selectedCells) {
-//        NSInteger indexInteger = [index integerValue];
-//        Response *newResponse = [Response responseWithResponseOption:self.dataStore.validResponses[indexInteger] inContext:self.dataStore.managedObjectContext];
-//        [responses addObject:newResponse];
+////    Post *newPost = [Post postWithContent:self.postContentTextView.text author:anne section:self.verticalSelected responses:responses inContext:self.dataStore.managedObjectContext];
+//  //  [self.dataStore saveContext];
+//    
+//    
+//    // Fix this to use current user and not Anne
+////    NSMutableSet *responses = [NSMutableSet new];
+////    for (NSNumber *index in self.selectedCells) {
+////        NSInteger indexInteger = [index integerValue];
+////        Response *newResponse = [Response responseWithResponseOption:self.dataStore.validResponses[indexInteger] inContext:self.dataStore.managedObjectContext];
+////        [responses addObject:newResponse];
 //    }
 //    [self.dataStore saveContext];
-    
-    // Fix this to use current user and not Anne
-//    Post *newPost = [Post postWithContent:self.postContentTextView.text author:anne section:self.verticalSelected responses:responses inContext:self.dataStore.managedObjectContext];
-  //  [self.dataStore saveContext];
-    
-    
-    // Fix this to use current user and not Anne
-    NSMutableSet *responses = [NSMutableSet new];
-    for (NSNumber *index in self.selectedCells) {
-        NSInteger indexInteger = [index integerValue];
-        Response *newResponse = [Response responseWithResponseOption:self.dataStore.validResponses[indexInteger] inContext:self.dataStore.managedObjectContext];
-        [responses addObject:newResponse];
-    }
-    [self.dataStore saveContext];
-}
+//}
 
 
 -(void)healthButtonTapped: (UIButton *)sender

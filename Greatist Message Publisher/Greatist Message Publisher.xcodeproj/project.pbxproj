@@ -94,7 +94,7 @@
 		55CA536819005B4E000E2A1E /* Health_White.eps in Resources */ = {isa = PBXBuildFile; fileRef = 55CA535019005B4E000E2A1E /* Health_White.eps */; };
 		55CA536919005B4E000E2A1E /* Health_White.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 55CA535119005B4E000E2A1E /* Health_White.jpg */; };
 		55CA536A19005B4E000E2A1E /* Health_White.png in Resources */ = {isa = PBXBuildFile; fileRef = 55CA535219005B4E000E2A1E /* Health_White.png */; };
-		55CA536D190171EE000E2A1E /* GRTPostLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CA536C190171EE000E2A1E /* GRTPostLogViewController.m */; };
+		55CA537919046CD5000E2A1E /* GRTPostLogTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55CA537819046CD5000E2A1E /* GRTPostLogTableViewController.m */; };
 		8732A07919032ABB00478D10 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 8732A07819032ABB00478D10 /* Post.m */; };
 		8732A07C19032CF700478D10 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 8732A07B19032CF700478D10 /* User.m */; };
 		87674F6018ECB64A00231453 /* ArcherPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 87674F5418ECB64A00231453 /* ArcherPro-Bold.otf */; };
@@ -248,8 +248,8 @@
 		55CA535019005B4E000E2A1E /* Health_White.eps */ = {isa = PBXFileReference; lastKnownFileType = file; path = Health_White.eps; sourceTree = "<group>"; };
 		55CA535119005B4E000E2A1E /* Health_White.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Health_White.jpg; sourceTree = "<group>"; };
 		55CA535219005B4E000E2A1E /* Health_White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Health_White.png; sourceTree = "<group>"; };
-		55CA536B190171EE000E2A1E /* GRTPostLogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTPostLogViewController.h; sourceTree = "<group>"; };
-		55CA536C190171EE000E2A1E /* GRTPostLogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTPostLogViewController.m; sourceTree = "<group>"; };
+		55CA537719046CD5000E2A1E /* GRTPostLogTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTPostLogTableViewController.h; sourceTree = "<group>"; };
+		55CA537819046CD5000E2A1E /* GRTPostLogTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTPostLogTableViewController.m; sourceTree = "<group>"; };
 		8732A07719032ABB00478D10 /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
 		8732A07819032ABB00478D10 /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		8732A07A19032CF700478D10 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -548,8 +548,8 @@
 				55912DBC18EC68E50069FEEC /* GRTComposePostViewController.m */,
 				039FE8D018FEC4C900EC98DC /* GRTSelectResponseViewController.h */,
 				039FE8D118FEC4C900EC98DC /* GRTSelectResponseViewController.m */,
-				55CA536B190171EE000E2A1E /* GRTPostLogViewController.h */,
-				55CA536C190171EE000E2A1E /* GRTPostLogViewController.m */,
+				55CA537719046CD5000E2A1E /* GRTPostLogTableViewController.h */,
+				55CA537819046CD5000E2A1E /* GRTPostLogTableViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1085,7 +1085,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8732A07C19032CF700478D10 /* User.m in Sources */,
-				55CA536D190171EE000E2A1E /* GRTPostLogViewController.m in Sources */,
 				55912DF318EC86840069FEEC /* Section+Methods.m in Sources */,
 				0F73663318F4B77B003D71DE /* Section.m in Sources */,
 				55912DBD18EC68E50069FEEC /* GRTComposePostViewController.m in Sources */,
@@ -1108,6 +1107,7 @@
 				0FA8355918EB70A4003C8687 /* main.m in Sources */,
 				55912DEF18EC86840069FEEC /* Post+Methods.m in Sources */,
 				55912DB518EC5AED0069FEEC /* GRTMainViewController.m in Sources */,
+				55CA537919046CD5000E2A1E /* GRTPostLogTableViewController.m in Sources */,
 				8767501418EE1E8D00231453 /* UIColor+Helpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
