@@ -85,7 +85,7 @@
     self.dataStore.currentUser = user;
 }
 
-- (void) fetchUsersWithCompletion:(void (^)(NSArray *users))completionBlock
+- (void) getUsersWithCompletion:(void (^)(NSArray *users))completionBlock
 {
     [self.parseAPIClient getUsersWithCompletion:^(NSArray *users) {
         NSMutableArray *usersArray = [NSMutableArray new];
@@ -93,15 +93,16 @@
             User *newUser = [User userWithFacebookID:user[@"facebookID"] inContext:self.dataStore.managedObjectContext];
             [usersArray addObject:newUser];
         }
-        
         completionBlock(usersArray);
     }];
 }
 
 - (void) createNewUserWithFacebookID:(NSString *)facebookIDString
+                      withCompletion:(void (^)(BOOL isSuccessful))completion
 {
     [self.parseAPIClient postUserWithFacebookID:facebookIDString Completion:nil];
     [User userUniqueWithFacebookID:facebookIDString inContext:self.dataStore.managedObjectContext];
+    completion(YES);
 }
 
 #pragma mark - Post Helper Methods

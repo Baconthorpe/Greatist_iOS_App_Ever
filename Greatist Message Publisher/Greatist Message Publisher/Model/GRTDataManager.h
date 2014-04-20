@@ -29,8 +29,9 @@
 // User Methods
 - (User *) getCurrentUser;
 - (void) setCurrentUser:(User *)user;
-- (void) fetchUsersWithCompletion:(void (^)(NSArray *users))completionBlock;
-- (void) createNewUserWithFacebookID:(NSString *)facebookIDString;
+- (void) getUsersWithCompletion:(void (^)(NSArray *users))completionBlock;
+- (void) createNewUserWithFacebookID:(NSString *)facebookIDString
+                      withCompletion:(void (^)(BOOL isSuccessful))completion;
 
 // Post Methods
 - (void) getPostsBasedOnFacebookFriends;

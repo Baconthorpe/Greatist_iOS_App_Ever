@@ -332,20 +332,12 @@
 
 - (void)setupNavBar
 {
-//    UIImage *navBar = [UIImage imageNamed:@"navBar.png"];
-    //    UIImage *scaledNavBar = [UIImage imageWithImage:navBar scaledToSize:CGSizeMake(320, 54)];
-//    CGRect navBarTop = CGRectMake(0, 0, 320, 30);
-//    [[UIColor greatistBlueColor] setFill];
-//    UIImage *navBarTopImage = [UIImage imageWithCGImage:navBarTop];
-//    CGRect navRect = [CGRectMake(0, 0, 320, 30)];
-    
+
     [self.navigationController.navigationBar setBarTintColor:[UIColor greatistLightGrayColor]];
-    
     UIImage *greatistLogoImage = [UIImage imageNamed:@"Greatist_Logo86x50"];
     UIImage *scaledGreatistLogoImage = [UIImage imageWithImage:greatistLogoImage scaledToSize:CGSizeMake(65, 38)];
     UIImageView *greatistLogoView = [[UIImageView alloc] initWithImage:scaledGreatistLogoImage];
     [self.navigationController.navigationBar.topItem setTitleView:greatistLogoView];
-    [self.navigationController.navigationBar setTitleVerticalPositionAdjustment:-4.0 forBarMetrics:UIBarMetricsDefault];
 }
 
 - (void)setupFooterToolbar
