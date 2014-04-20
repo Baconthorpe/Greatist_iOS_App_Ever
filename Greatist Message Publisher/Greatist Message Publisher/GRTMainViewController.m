@@ -26,6 +26,8 @@
 - (IBAction)composePostButtonTapped:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *postsTableView;
 @property (weak, nonatomic) IBOutlet UIToolbar *logoutBarButtonItem;
+@property (weak, nonatomic) IBOutlet UIToolbar *myPostsButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *logoutButton;
 @property (strong, nonatomic) Section *section;
 @property (strong, nonatomic) GRTCornerTriangles *cornerTriangle;
 @property (strong, nonatomic) GRTDataStore *dataStore;
@@ -55,6 +57,7 @@
     GRTCornerTriangles *cornerTriangle = [GRTCornerTriangles new];
     self.dataManager = [GRTDataManager sharedManager];    
     [self.dataManager getPostsBasedOnFacebookFriends];
+    [self.logoutButton = [UIFont fontWithName:<#(NSString *)#> size:<#(CGFloat)#>]
 
 //    [[GRTFacebookAPIClient sharedClient] verifyUserFacebookCachedInViewController:self];
     

@@ -16,6 +16,7 @@
 @property (strong, nonatomic) GRTDataStore *dataStore;
 @property (strong, nonatomic) UIScrollView *mainScrollView;
 @property (strong, nonatomic) UIView *postDetailView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
 
 @property (strong, nonatomic) NSArray *responseOptionsArray;
 @property (strong, nonatomic) NSMutableArray *responseArray;

@@ -11,6 +11,8 @@
 #import "GRTSelectResponseViewController.h"
 
 @interface GRTComposePostViewController ()
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
+@property (weak, nonatomic) IBOutlet UIButton *nextButton;
 
 @property (weak, nonatomic) IBOutlet GCPlaceholderTextView *postContentTextView;
 @property (weak, nonatomic) IBOutlet UIView *postView;
