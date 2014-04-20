@@ -157,12 +157,9 @@
 {
     UIButton *button = (UIButton *)sender;
     NSInteger responseIndex = [button tag];
-    NSLog(@"Button %d tapped", responseIndex);
     [[GRTDataManager sharedManager] incrementResponse:self.responseOptionsArray[responseIndex]
                                             forPostID:self.post.objectId
                                        withCompletion:^(NSString *updatedAt) {
-       NSLog(@"Responses String: %@", updatedAt);
-       NSLog(@"Selected Responses Dictionary: %@", self.dataStore.selectedResponses);
        [self updateResponseButtons];
     }];
 }

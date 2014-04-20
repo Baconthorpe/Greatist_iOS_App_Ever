@@ -175,12 +175,10 @@
         for (User *user in users) {
             if ([user.facebookID isEqualToString:self.facebookID]) {
                 [[GRTDataManager sharedManager] setCurrentUser:user];
-                NSLog(@"User %@ (%@) exists", self.facebookName, self.facebookID);
                 userFound = YES;
             }
         }
         if (!userFound) {
-            NSLog(@"Creating User %@", self.facebookName);
             [[GRTDataManager sharedManager] createNewUserWithFacebookID:self.facebookID];
         }
     }];

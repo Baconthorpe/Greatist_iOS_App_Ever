@@ -68,8 +68,6 @@
                                                   NSDictionary* result,
                                                   NSError *error) {
         NSArray* friends = [result objectForKey:@"data"];
-        NSLog(@"Found: %lu friends", (unsigned long)friends.count);
-        
         NSMutableArray *friendIDs = [NSMutableArray new];
         
         for (NSDictionary<FBGraphUser>* friend in friends) {

@@ -144,7 +144,6 @@
     }];
 }
 
-
 - (void) createDictionaryOfSelectedResponses
 {
     self.dataStore.selectedResponses = [NSMutableDictionary new];
