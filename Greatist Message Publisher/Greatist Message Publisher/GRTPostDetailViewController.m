@@ -44,7 +44,6 @@
 
     [self createPostDetail];
     [self setupResponses];
-    [self updateResponseButtons];
 }
 
 - (void)didReceiveMemoryWarning
@@ -114,6 +113,10 @@
     }
     
     self.responseOptionsArray = [[self.dataStore.selectedResponses allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    [[GRTDataManager sharedManager] getUpdatedResponsesForPostID:self.post.objectId withCompletion:^(NSDictionary *postDictionary) {
+        [self updateResponseButtons];
+    }];
+     
 }
 
 - (void)updateResponseButtons

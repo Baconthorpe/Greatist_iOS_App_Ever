@@ -181,9 +181,8 @@
 }
 
 - (void) getPostForPostID:(NSString *)postObjectID
-           withCompletion:(void (^)(NSDictionary *))completion
+           withCompletion:(void (^)(NSDictionary *postDictionary))completion
 {
-    NSLog(@"%@", postObjectID);
     NSString *parsePostURL = [NSString stringWithFormat:@"https://api.parse.com/1/classes/GRTPost/%@", postObjectID];
     NSURL *url = [NSURL URLWithString:parsePostURL];
     

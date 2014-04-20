@@ -109,7 +109,10 @@
 - (void) getPostsBasedOnFacebookFriends
 {
     [self.facebookAPIClient getFriendIDsWithCompletion:^(NSArray *facebookFriendIDs) {
-        [self.parseAPIClient getPostsWithFriendIDs:facebookFriendIDs
+        NSMutableArray *friendsPlusMeArray = [NSMutableArray arrayWithArray:facebookFriendIDs];
+        [friendsPlusMeArray addObject:self.dataStore.currentUser.facebookID];
+        [friendsPlusMeArray addObject:@"-1"];
+        [self.parseAPIClient getPostsWithFriendIDs:friendsPlusMeArray
                                     WithCompletion:^(NSArray *posts) {
             [self interpretArrayOfPostDictionaries:posts];
             [self.dataStore saveContext];
@@ -163,18 +166,29 @@
     }];
 }
 
-- (void) incrementResponse:(NSString *)responseOptionString
-                 forPostID:(NSString *)postObjectID
-                withCompletion:(void (^)(NSString *))completion
+- (void) getUpdatedResponsesForPostID:(NSString *)postObjectID
+              withCompletion:(void (^)(NSDictionary *postDictionary))completion
 {
-    NSString *responseOption = [responseOptionString stringByReplacingOccurrencesOfString:@"\\\"" withString:@"\""];
+    
     [self.parseAPIClient getPostForPostID:postObjectID withCompletion:^(NSDictionary *postDictionary) {
         [self.dataStore setSelectedResponsesFromJSONString:postDictionary[@"responses"]];
+        completion(postDictionary);
+    }];
+}
+- (void) incrementResponse:(NSString *)responseOptionString
+                 forPostID:(NSString *)postObjectID
+                withCompletion:(void (^)(NSString *updatedAt))completion
+{
+    
+    NSString *responseOption = [responseOptionString stringByReplacingOccurrencesOfString:@"\\\"" withString:@"\""];
+    [self getUpdatedResponsesForPostID:postObjectID
+               withCompletion:^(NSDictionary *postDictionary) {
         NSInteger newResponseCount = [[self.dataStore.selectedResponses valueForKey:responseOption] integerValue] + 1;
         [self.dataStore.selectedResponses setValue:@(newResponseCount) forKeyPath:responseOptionString];
+       
         [self.parseAPIClient updatePostID:postObjectID
-                            withResponses:[self.dataStore getSelectedResponsesAsJSONString]
-                           withCompletion:^(NSString *updatedAt) {
+                           withResponses:[self.dataStore getSelectedResponsesAsJSONString]
+                          withCompletion:^(NSString *updatedAt) {
             completion(updatedAt);
         }];
     }];

@@ -42,6 +42,8 @@
 
 // Response Methods
 - (void) getValidResponses;
+- (void) getUpdatedResponsesForPostID:(NSString *)postObjectID
+                       withCompletion:(void (^)(NSDictionary *postDictionary))completion;
 - (void) incrementResponse:(NSString *)responseOptionString
                  forPostID:(NSString *)postObjectID
             withCompletion:(void (^)(NSString *updatedAt))completion;
