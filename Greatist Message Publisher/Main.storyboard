@@ -68,6 +68,7 @@
                             <constraint firstItem="ntT-Qb-ejK" firstAttribute="leading" secondItem="d1n-ZX-oHO" secondAttribute="leading" id="QbR-vE-00V"/>
                             <constraint firstAttribute="trailing" secondItem="ntT-Qb-ejK" secondAttribute="trailing" id="b5S-I8-ffn"/>
                             <constraint firstItem="ntT-Qb-ejK" firstAttribute="top" secondItem="UCw-px-WOv" secondAttribute="bottom" id="drg-Am-hc3"/>
+                            <constraint firstItem="UCw-px-WOv" firstAttribute="top" secondItem="kMd-Fp-V9J" secondAttribute="bottom" constant="-64" id="iQU-GU-gsR"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="huM-hs-ViC"/>
