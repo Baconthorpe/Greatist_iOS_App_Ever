@@ -14,14 +14,13 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
 
-@property (weak, nonatomic) IBOutlet GCPlaceholderTextView *postContentTextView;
+@property (weak, nonatomic) IBOutlet UITextView *postContentTextView;
 @property (weak, nonatomic) IBOutlet UIView *postView;
 - (IBAction)backButtonTapped:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *leftQuoteLabel;
 @property (weak, nonatomic) IBOutlet UILabel *rightQuoteLabel;
 @property (strong, nonatomic) Section *verticalSelected;
-@property (strong, nonatomic) NSArray *verticalButtons;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSArray *verticalButtons;;
 @property (strong, nonatomic) NSMutableArray *selectedCells;
 @property (weak, nonatomic) IBOutlet UIButton *selectResponses;
 @property (weak, nonatomic) IBOutlet UILabel *placeholderLabel;
@@ -49,8 +48,7 @@
     
     self.dataStore = [GRTDataStore sharedDataStore];
     self.view.backgroundColor = [UIColor greatistLightGrayColor];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
+
     
     [self setupCategoryButtons];
     [self setupPostContent];
@@ -147,6 +145,8 @@
     
     self.leftQuoteLabel.font = [UIFont fontWithName:@"ArcherPro-Semibold" size:40];
     self.rightQuoteLabel.font = [UIFont fontWithName:@"ArcherPro-Semibold" size:40];
+
+    
 }
 
 
@@ -166,7 +166,7 @@
 -(void)healthButtonTapped: (UIButton *)sender
 {
  self.verticalSelected = self.verticals[@"health"];
-
+self.placeholderLabel.text = @"Share your latest yummy recipe!";
 
    
         [self dimVerticalButtons];
@@ -200,6 +200,7 @@
 {
     
     self.verticalSelected = self.verticals[@"fitness"];
+    self.placeholderLabel.text = @"Tell us about your morning run";
     
     
     [self dimVerticalButtons];
@@ -235,6 +236,7 @@
 -(void) happinessButtonTapped: (UIButton *)sender
 {
     self.verticalSelected = self.verticals[@"happiness"];
+    self.placeholderLabel.text = @"What are you excited about today?";
     
     
     
@@ -276,6 +278,7 @@
         button.alpha = 0.3;
     }
 }
+
 
 
 //- (void)textViewDidBeginEditing:(UITextView *)textView
