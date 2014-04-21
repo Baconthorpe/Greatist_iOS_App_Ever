@@ -15,13 +15,8 @@
 @property (strong, nonatomic) GRTDataStore *dataStore;
 @property (strong, nonatomic) UIScrollView *mainScrollView;
 @property (strong, nonatomic) UIView *postDetailView;
-
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
-
-
 @property (strong, nonatomic) UIView *responseView;
-
-
 @property (strong, nonatomic) NSMutableArray *responseArray;
 @property (strong, nonatomic) NSMutableArray *responseLabelsArray;
 @property (strong, nonatomic) NSMutableArray *responseLabelFramesArray;
@@ -92,11 +87,34 @@
         [flagButton setTitle:@"FLAG INAPPROPRIATE" forState:UIControlStateNormal];
         //    FAKFontAwesome *flagIcon = [FAKFontAwesome flagIconWithSize:15];
         //    [flagIcon addAttribute:NSForegroundColorAttributeName value:[UIColor greatistColorForCategory:self.post.section.name]];
-        UIImage *flagImage = [[UIImage imageWithImage:[UIImage imageNamed:@"Flag_Fill"] scaledToSize:CGSizeMake(20, 40)] stretchableImageWithLeftCapWidth:20 topCapHeight:20];
+        
+        
+        if ([self.post.section.name isEqualToString: @"happiness"])
+        {
+            UIImage *flagImage = [[UIImage imageWithImage:[UIImage imageNamed:@"Flag_Fill_Happiness"] scaledToSize:CGSizeMake(20, 40)] stretchableImageWithLeftCapWidth:20 topCapHeight:20];
+            [flagButton setBackgroundImage:flagImage forState:UIControlStateNormal];
+            [flagButton addTarget:self action:@selector(flagButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+            [postDetailView addSubview:flagButton];
+        }
+        
+        if ([self.post.section.name isEqualToString:@"health"])
+        {
+            UIImage *flagImage = [[UIImage imageWithImage:[UIImage imageNamed:@"Flag_Fill_Health"] scaledToSize:CGSizeMake(20, 40)] stretchableImageWithLeftCapWidth:20 topCapHeight:20];
+            [flagButton setBackgroundImage:flagImage forState:UIControlStateNormal];
+            [flagButton addTarget:self action:@selector(flagButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+            [postDetailView addSubview:flagButton];
+        }
+        
+        if ([self.post.section.name isEqualToString: @"fitness"])
+        {
+            UIImage *flagImage = [[UIImage imageWithImage:[UIImage imageNamed:@"Flag_Fill_Fitness"] scaledToSize:CGSizeMake(20, 40)] stretchableImageWithLeftCapWidth:20 topCapHeight:20];
+            [flagButton setBackgroundImage:flagImage forState:UIControlStateNormal];
+            [flagButton addTarget:self action:@selector(flagButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+            [postDetailView addSubview:flagButton];
+        }
+
         //    flagIcon.iconFontSize = 15;
-        [flagButton setBackgroundImage:flagImage forState:UIControlStateNormal];
-        [flagButton addTarget:self action:@selector(flagButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-        [postDetailView addSubview:flagButton];
+        
     }
 
 //    UIButton *flagButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0336322719054E1500A1B243 /* UIFont+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 0336322619054E1500A1B243 /* UIFont+Helpers.m */; };
+		0336322C190599A900A1B243 /* Flag_Fill_Fitness.png in Resources */ = {isa = PBXBuildFile; fileRef = 03363229190599A900A1B243 /* Flag_Fill_Fitness.png */; };
+		0336322D190599A900A1B243 /* Flag_Fill_Happiness.png in Resources */ = {isa = PBXBuildFile; fileRef = 0336322A190599A900A1B243 /* Flag_Fill_Happiness.png */; };
+		0336322E190599A900A1B243 /* Flag_Fill_Health.png in Resources */ = {isa = PBXBuildFile; fileRef = 0336322B190599A900A1B243 /* Flag_Fill_Health.png */; };
 		039FE8D218FEC4C900EC98DC /* GRTSelectResponseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 039FE8D118FEC4C900EC98DC /* GRTSelectResponseViewController.m */; };
 		03A2662218EDFABF002790AB /* GRTTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03A2662118EDFABF002790AB /* GRTTableViewCell.xib */; };
 		03A2662518EDFD11002790AB /* GRTPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A2662418EDFD11002790AB /* GRTPostTableViewCell.m */; };
@@ -125,6 +128,9 @@
 /* Begin PBXFileReference section */
 		0336322519054E1500A1B243 /* UIFont+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Helpers.h"; sourceTree = "<group>"; };
 		0336322619054E1500A1B243 /* UIFont+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Helpers.m"; sourceTree = "<group>"; };
+		03363229190599A900A1B243 /* Flag_Fill_Fitness.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Flag_Fill_Fitness.png; sourceTree = "<group>"; };
+		0336322A190599A900A1B243 /* Flag_Fill_Happiness.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Flag_Fill_Happiness.png; sourceTree = "<group>"; };
+		0336322B190599A900A1B243 /* Flag_Fill_Health.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Flag_Fill_Health.png; sourceTree = "<group>"; };
 		039FE8D018FEC4C900EC98DC /* GRTSelectResponseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRTSelectResponseViewController.h; sourceTree = "<group>"; };
 		039FE8D118FEC4C900EC98DC /* GRTSelectResponseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRTSelectResponseViewController.m; sourceTree = "<group>"; };
 		03A2662118EDFABF002790AB /* GRTTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GRTTableViewCell.xib; sourceTree = "<group>"; };
@@ -284,6 +290,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03363228190599A900A1B243 /* Flag Category Colors */ = {
+			isa = PBXGroup;
+			children = (
+				03363229190599A900A1B243 /* Flag_Fill_Fitness.png */,
+				0336322A190599A900A1B243 /* Flag_Fill_Happiness.png */,
+				0336322B190599A900A1B243 /* Flag_Fill_Health.png */,
+			);
+			path = "Flag Category Colors";
+			sourceTree = "<group>";
+		};
 		0FA8353E18EB70A3003C8687 = {
 			isa = PBXGroup;
 			children = (
@@ -544,6 +560,7 @@
 		87674F5118ECB64A00231453 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				03363228190599A900A1B243 /* Flag Category Colors */,
 				87674F5218ECB64A00231453 /* Fonts */,
 				87674F5E18ECB64A00231453 /* Images */,
 			);
@@ -780,6 +797,7 @@
 				55CA536519005B4E000E2A1E /* Health_Colored.eps in Resources */,
 				55CA535C19005B4E000E2A1E /* Flag_Reverse.eps in Resources */,
 				87674FCE18EDAF0500231453 /* Discover_Gray.png in Resources */,
+				0336322C190599A900A1B243 /* Flag_Fill_Fitness.png in Resources */,
 				87674FE918EDAF0500231453 /* Move_Colored.png in Resources */,
 				0F30132A18EE0F2D008A4FCB /* Eat_Colored60x60.png in Resources */,
 				03A2662218EDFABF002790AB /* GRTTableViewCell.xib in Resources */,
@@ -823,6 +841,7 @@
 				87674FFA18EDAF0500231453 /* Play_White.png in Resources */,
 				55CA536A19005B4E000E2A1E /* Health_White.png in Resources */,
 				55CA536119005B4E000E2A1E /* Grow_Colored.png in Resources */,
+				0336322D190599A900A1B243 /* Flag_Fill_Happiness.png in Resources */,
 				55CA535919005B4E000E2A1E /* Flag_Fill.eps in Resources */,
 				87674F6918ECB64A00231453 /* Greatist_Logo.png in Resources */,
 				87674F6318ECB64A00231453 /* ArcherPro-Light.otf in Resources */,
@@ -830,6 +849,7 @@
 				87674F6718ECB64A00231453 /* DINOT-Bold.otf in Resources */,
 				55CA536919005B4E000E2A1E /* Health_White.jpg in Resources */,
 				55CA536819005B4E000E2A1E /* Health_White.eps in Resources */,
+				0336322E190599A900A1B243 /* Flag_Fill_Health.png in Resources */,
 				87674F6218ECB64A00231453 /* ArcherPro-BookItalic.otf in Resources */,
 				87674F6018ECB64A00231453 /* ArcherPro-Bold.otf in Resources */,
 				55CA535619005B4E000E2A1E /* Move_White.eps in Resources */,
