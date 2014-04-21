@@ -23,7 +23,6 @@
 @property (strong, nonatomic) NSArray *verticalButtons;;
 @property (strong, nonatomic) NSMutableArray *selectedCells;
 
-- (IBAction)nextButtonTapped:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *placeholderLabel;
 @property (nonatomic) BOOL isDisplayingPlaceholder;
 @property (nonatomic) NSString *currentPlaceholder;
@@ -46,8 +45,46 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [self initialize];
     self.dataStore = [GRTDataStore sharedDataStore];
+    
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+- (void)textViewDidChange:(UITextView *)textView
+{
+
+    if ([self.postContentTextView.text length] < 10 || [self.postContentTextView.text length] >140) {
+        self.nextButton.enabled = NO;
+    }
+    else {
+        self.nextButton.enabled = YES;
+    }
+    
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    GRTSelectResponseViewController *nextViewController = segue.destinationViewController;
+    nextViewController.verticalPassed = self.verticalSelected;
+    nextViewController.content = self.postContentTextView.text;
+ 
+    
+    
+}
+
+- (IBAction)backButtonTapped:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+#pragma mark - Helper Methods
+- (void)initialize
+{
     self.view.backgroundColor = [UIColor greatistLightGrayColor];
     [self setupCategoryButtons];
     [self setupPostContent];
@@ -68,43 +105,6 @@
     self.nextButton.enabled = NO;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-- (void)textViewDidChange:(UITextView *)textView
-{
-
-    if ([self.postContentTextView.text length] < 10 || [self.postContentTextView.text length] >140) {
-       
-        self.nextButton.enabled = NO;
-        
-        
-    }
-    else {
-        
-        self.nextButton.enabled = YES;
-        
-    }
-    
-}
-
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    GRTSelectResponseViewController *nextViewController = segue.destinationViewController;
-    nextViewController.verticalPassed = self.verticalSelected;
-    nextViewController.content = self.postContentTextView.text;
- 
-    
-    
-}
-- (IBAction)backButtonTapped:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-
-#pragma mark - Helper Methods
 - (void)setupCategoryButtons
 {
     UIButton *healthButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -224,21 +224,4 @@ self.placeholderLabel.text = @"Share your latest yummy recipe!";
     }
 }
 
-
-
-
-- (IBAction)nextButtonTapped:(id)sender {
-    
-
-}
 @end
-
-//- (void)postButton:(id)sender
-//{
-//    // Fix this to use current user and not Anne
-//    NSMutableSet *responses = [NSMutableSet new];
-//    for (NSNumber *index in self.selectedCells) {
-//        NSInteger indexInteger = [index integerValue];
-//    }
-//    [self.dataStore saveContext];
-//}

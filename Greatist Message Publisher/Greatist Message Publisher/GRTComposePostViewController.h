@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface GRTComposePostViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextViewDelegate>
+@interface GRTComposePostViewController : UIViewController <UITextViewDelegate>
 
 @property NSDictionary *verticals;
 
