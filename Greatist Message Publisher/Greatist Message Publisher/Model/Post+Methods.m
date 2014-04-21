@@ -39,6 +39,7 @@
                          section: (Section *)section
                        responses: (NSString *)responses
                        timeStamp: (NSDate *)timeStamp
+                       isFlagged: (NSNumber *)isFlagged
                        inContext: (NSManagedObjectContext *)context
 {
     Post *newPost = [NSEntityDescription insertNewObjectForEntityForName:@"Post" inManagedObjectContext:context];
@@ -48,7 +49,7 @@
         newPost.content = content;
         newPost.objectId = objectId;
         newPost.timeStamp = timeStamp;
-        newPost.isFlagged = [NSNumber numberWithBool:NO];
+        newPost.isFlagged = isFlagged;
         
         newPost.responses = responses;
         newPost.section = section;
@@ -72,6 +73,7 @@
                                section: (Section *)section
                              responses: (NSString *)responses
                              timeStamp: (NSDate *)timeStamp
+                             isFlagged: (NSNumber *)isFlagged
                              inContext: (NSManagedObjectContext *)context
 {
     NSFetchRequest *postSearch = [NSFetchRequest fetchRequestWithEntityName:@"Post"];
@@ -84,7 +86,7 @@
     
     if ([arrayOfMatches count] == 0)
     {
-        return [Post postWithContent:content objectId:objectId author:user section:section responses:responses timeStamp:timeStamp inContext:context];
+        return [Post postWithContent:content objectId:objectId author:user section:section responses:responses timeStamp:timeStamp isFlagged:isFlagged inContext:context];
     }
     
     return arrayOfMatches[0];

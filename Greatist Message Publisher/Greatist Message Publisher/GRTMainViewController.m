@@ -53,7 +53,7 @@
     [self initialize];
     [self setupNavBar];
     [self setupFooterToolbar];
-    
+    [self setupRefreshControl];
     [self.dataManager getPostsBasedOnFacebookFriends];
 
     [self.logoutButton setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
@@ -74,6 +74,7 @@
     
     // Do any additional setup after loading the view.
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -316,6 +317,16 @@
     [postButton setBackgroundImage:resizedPostImage forState:UIControlStateNormal];
     [postButton setFrame:CGRectMake(145, 250, 40, 40)];
     [self.composePostButton setImage:resizedPostImage];
+}
+
+- (void)setupRefreshControl {
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    [self.postsTableView addSubview:refreshControl];
+}
+
+- (void)refresh:(UIRefreshControl *)refreshControl {
+    [refreshControl endRefreshing];
 }
 
     

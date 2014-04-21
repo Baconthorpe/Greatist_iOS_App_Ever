@@ -48,6 +48,9 @@
         NSSortDescriptor *postDate = [[NSSortDescriptor alloc] initWithKey:@"timeStamp" ascending:NO];
         postFetch.sortDescriptors = @[postDate];
         
+        NSPredicate *unflaggedOnly = [NSPredicate predicateWithFormat:@"isFlagged==0"];
+        postFetch.predicate = unflaggedOnly;
+        
         [NSFetchedResultsController deleteCacheWithName:@"postCache"];
         _postFRController = [[NSFetchedResultsController alloc] initWithFetchRequest:postFetch managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"postCache"];
         

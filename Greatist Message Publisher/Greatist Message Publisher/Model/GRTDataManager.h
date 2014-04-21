@@ -39,7 +39,8 @@
                        inSection: (Section *)section
                    withResponses: (NSString *)responseDictionaryString
                   withCompletion: (void (^)(NSDictionary *postResponse))completion;
-- (void) flagPostById:(NSString *)postIdString;
+- (void) flagPost:(Post *)post
+   withCompletion:(void (^)(NSDictionary *))completion;
 
 // Response Methods
 - (void) getValidResponses;

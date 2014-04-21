@@ -31,12 +31,15 @@
                      section: (NSString *)section
                    responses: (NSString *)responseDictionaryString
               userFacebookID: (NSString *)userFacebookID
+              usersResponded: (NSString *)usersRespondedDictionary
               withCompletion: (void (^)(NSDictionary *))completion;
-- (void) flagPostID:(NSString *)postObjectID;
+- (void) flagPostID:(NSString *)postObjectID
+     withCompletion:(void (^)(NSDictionary *))completion;
 
 // GRTResponse
 - (void) getValidResponsesWithCompletion:(void (^)(NSArray *))completion;
 - (void) updatePostID:(NSString *)postObjectID
         withResponses:(NSString *)responseString
+   withUsersResponded:(NSString *)usersRespondedString
        withCompletion:(void (^)(NSString *updatedAt))completion;
 @end
