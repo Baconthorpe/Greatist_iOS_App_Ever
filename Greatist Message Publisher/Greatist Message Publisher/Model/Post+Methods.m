@@ -89,7 +89,15 @@
         return [Post postWithContent:content objectId:objectId author:user section:section responses:responses timeStamp:timeStamp isFlagged:isFlagged inContext:context];
     }
     
-    return arrayOfMatches[0];
+    Post *existingPost = arrayOfMatches[0];
+    
+    if ([existingPost.isFlagged integerValue] != [isFlagged integerValue])
+    {
+        existingPost.isFlagged = isFlagged;
+        [context save:nil];
+    }
+    
+    return existingPost;
 }
 
 - (NSDictionary *) responseDictionaryForPost
