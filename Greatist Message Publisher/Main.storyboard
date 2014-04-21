@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="atN-zU-tNv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="atN-zU-tNv">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -117,24 +117,27 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dsL-b7-6dW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1698" y="-336"/>
+            <point key="canvasLocation" x="2238" y="-336"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Post Log Table View Controller - My Posts-->
         <scene sceneID="DAv-QF-Nbg">
             <objects>
-                <tableViewController id="pkW-3h-UEb" sceneMemberID="viewController">
+                <tableViewController id="pkW-3h-UEb" customClass="GRTPostLogTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ylp-Ff-qaW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="MsY-rK-mNJ">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="postCell" id="MsY-rK-mNJ" customClass="GRTPostTableViewCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MsY-rK-mNJ" id="072-A9-LPP">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Bbk-ZY-vJO" kind="push" identifier="logToDetail" id="kaj-YT-LqA"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -142,8 +145,12 @@
                             <outlet property="delegate" destination="pkW-3h-UEb" id="NqP-br-OPy"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="J75-v1-q55">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="fiQ-YX-gR7"/>
+                    <navigationItem key="navigationItem" title="My Posts" id="J75-v1-q55">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="fiQ-YX-gR7">
+                            <connections>
+                                <action selector="backButtonTapped:" destination="pkW-3h-UEb" id="d1R-Qt-z1q"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AhK-HY-Ldo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -390,4 +397,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="kaj-YT-LqA"/>
+    </inferredMetricsTieBreakers>
 </document>
