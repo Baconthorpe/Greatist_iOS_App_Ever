@@ -67,7 +67,7 @@
     self.mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 66, 320, 320)];
     self.mainScrollView.backgroundColor = [UIColor purpleColor];
     
-    UIView *postDetailView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 320)];
+    UIView *postDetailView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 620)];
     
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self.view addSubview:postDetailView];
@@ -84,7 +84,7 @@
     if (![self.post.user.facebookID isEqualToString:self.dataStore.currentUser.facebookID])
     {
         UIButton *flagButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [flagButton setFrame:CGRectMake(170, 280, 140, 40)];
+        [flagButton setFrame:CGRectMake(180, 410, 140, 40)];
         [flagButton setTitleColor:[UIColor greatistColorForCategory:self.post.section.name] forState:UIControlStateNormal];
         [flagButton.titleLabel setFont:[UIFont fontWithName:@"DINOT-Medium" size:10]];
         flagButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
@@ -196,12 +196,28 @@
        [self updateResponseButtons];
     }];
 }
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+
+    if (buttonIndex == 0) {
+        [[GRTDataManager sharedManager] flagPost:self.post withCompletion:^(NSDictionary *response) {
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }];
+    }
+}
 
 - (void)flagButtonTapped:(UIButton *)sender
 {
-    [[GRTDataManager sharedManager] flagPost:self.post withCompletion:^(NSDictionary *response) {
-        [self.navigationController popToRootViewControllerAnimated:YES];
-    }];
-}
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Flag Post"
+                                                    message:@"This will remove this post from everyone's feed- are you sure you want to remove?"
+                                                   delegate:self
+                                          cancelButtonTitle:@"Remove Post"
+                                          otherButtonTitles:@"Cancel", nil];
+    [alert show];
 
+//    [[GRTDataManager sharedManager] flagPost:self.post withCompletion:^(NSDictionary *response) {
+//        [self.navigationController popToRootViewControllerAnimated:YES];
+//    }];
+  
+}
 @end

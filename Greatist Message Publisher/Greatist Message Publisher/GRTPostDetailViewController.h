@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Post+Methods.h"
 
-@interface GRTPostDetailViewController : UIViewController
+@interface GRTPostDetailViewController : UIViewController <UIAlertViewDelegate>
 
 @property (strong, nonatomic) Post *post;
 

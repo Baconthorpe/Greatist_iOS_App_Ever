@@ -196,12 +196,25 @@
 
 }
 
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    // the user clicked OK
+    if (buttonIndex == 0) {[FBSession.activeSession closeAndClearTokenInformation];
+        
+        UIViewController *startVC = [self.navigationController presentingViewController];
+        [startVC dismissViewControllerAnimated:YES completion:nil];
+    }
+}
 - (IBAction)logoutButtonTapped:(UIBarButtonItem *)sender
 {
-    [FBSession.activeSession closeAndClearTokenInformation];
     
-    UIViewController *startVC = [self.navigationController presentingViewController];
-    [startVC dismissViewControllerAnimated:YES completion:nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Logout"
+                                                    message:@"Are you sure you want to log out?"
+                                                   delegate:self
+                                          cancelButtonTitle:@"Logout"
+                                          otherButtonTitles:@"Cancel", nil];
+    [alert show];
+
+    
 }
 
 #pragma mark - Cell Methods
