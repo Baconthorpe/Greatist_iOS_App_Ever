@@ -60,6 +60,28 @@
     return _postFRController;
 }
 
+- (NSFetchedResultsController *)userPostFRController
+{
+    if (!_userPostFRController)
+    {
+        NSFetchRequest *postFetch = [[NSFetchRequest alloc] initWithEntityName:@"Post"];
+        postFetch.fetchBatchSize = 20;
+        
+        NSSortDescriptor *postDate = [[NSSortDescriptor alloc] initWithKey:@"timeStamp" ascending:NO];
+        postFetch.sortDescriptors = @[postDate];
+        
+        NSPredicate *userOnly = [NSPredicate predicateWithFormat:@"user.facebookID==%@ AND isFlagged==0",self.currentUser.facebookID];
+        postFetch.predicate = userOnly;
+        
+        [NSFetchedResultsController deleteCacheWithName:@"userPostCache"];
+        _userPostFRController = [[NSFetchedResultsController alloc] initWithFetchRequest:postFetch managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"userPostCache"];
+        
+        [_userPostFRController performFetch:nil];
+    }
+    
+    return _userPostFRController;
+}
+
 #pragma mark - Singleton Method
 
 + (instancetype)sharedDataStore
