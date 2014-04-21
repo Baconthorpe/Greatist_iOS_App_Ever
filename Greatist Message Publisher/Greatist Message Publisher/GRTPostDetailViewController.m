@@ -139,6 +139,7 @@
     self.responseLabelsArray = [NSMutableArray new];
     
     self.responseView = [[UIView alloc]initWithFrame:CGRectMake(0, 320, 320, 90)];
+    [MBProgressHUD showHUDAddedTo:self.responseView animated:YES];
     [self.responseView setBackgroundColor:[UIColor greatistColorForCategory:self.post.section.name]];
     [self.view addSubview:self.responseView];
     
@@ -163,6 +164,7 @@
     self.responseOptionsArray = [[self.dataStore.selectedResponses allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
     [[GRTDataManager sharedManager] getUpdatedResponsesForPostID:self.post.objectId withCompletion:^(NSDictionary *postDictionary) {
         [self updateResponseButtons];
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     }];
      
 }
