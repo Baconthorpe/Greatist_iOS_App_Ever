@@ -209,9 +209,9 @@
 {
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Flag Post"
-                                                    message:@"This will remove this post from everyone's feed- are you sure you want to remove?"
+                                                    message:@"This will remove this post from everyone's feed- are you sure you want to flag this post?"
                                                    delegate:self
-                                          cancelButtonTitle:@"Remove Post"
+                                          cancelButtonTitle:@"Flag"
                                           otherButtonTitles:@"Cancel", nil];
     [alert show];
 
