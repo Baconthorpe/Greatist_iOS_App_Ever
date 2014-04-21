@@ -71,20 +71,23 @@
     [postDetailLabel setTextColor:[UIColor greatistColorForCategory:self.post.section.name]];
     [postDetailView addSubview:postDetailLabel];
     
-    UIButton *flagButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [flagButton setFrame:CGRectMake(170, 280, 140, 40)];
-    [flagButton setTitleColor:[UIColor greatistColorForCategory:self.post.section.name] forState:UIControlStateNormal];
-    [flagButton.titleLabel setFont:[UIFont fontWithName:@"DINOT-Medium" size:10]];
-    flagButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-    flagButton.contentEdgeInsets = UIEdgeInsetsMake(0, 25, 0, 0);
-    [flagButton setTitle:@"FLAG INAPPROPRIATE" forState:UIControlStateNormal];
-//    FAKFontAwesome *flagIcon = [FAKFontAwesome flagIconWithSize:15];
-//    [flagIcon addAttribute:NSForegroundColorAttributeName value:[UIColor greatistColorForCategory:self.post.section.name]];
-    UIImage *flagImage = [[UIImage imageWithImage:[UIImage imageNamed:@"Flag_Fill"] scaledToSize:CGSizeMake(20, 40)] stretchableImageWithLeftCapWidth:20 topCapHeight:20];
-//    flagIcon.iconFontSize = 15;
-    [flagButton setBackgroundImage:flagImage forState:UIControlStateNormal];
-    [flagButton addTarget:self action:@selector(flagButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-    [postDetailView addSubview:flagButton];
+    if (![self.post.user.facebookID isEqualToString:self.dataStore.currentUser.facebookID])
+    {
+        UIButton *flagButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [flagButton setFrame:CGRectMake(170, 280, 140, 40)];
+        [flagButton setTitleColor:[UIColor greatistColorForCategory:self.post.section.name] forState:UIControlStateNormal];
+        [flagButton.titleLabel setFont:[UIFont fontWithName:@"DINOT-Medium" size:10]];
+        flagButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        flagButton.contentEdgeInsets = UIEdgeInsetsMake(0, 25, 0, 0);
+        [flagButton setTitle:@"FLAG INAPPROPRIATE" forState:UIControlStateNormal];
+        //    FAKFontAwesome *flagIcon = [FAKFontAwesome flagIconWithSize:15];
+        //    [flagIcon addAttribute:NSForegroundColorAttributeName value:[UIColor greatistColorForCategory:self.post.section.name]];
+        UIImage *flagImage = [[UIImage imageWithImage:[UIImage imageNamed:@"Flag_Fill"] scaledToSize:CGSizeMake(20, 40)] stretchableImageWithLeftCapWidth:20 topCapHeight:20];
+        //    flagIcon.iconFontSize = 15;
+        [flagButton setBackgroundImage:flagImage forState:UIControlStateNormal];
+        [flagButton addTarget:self action:@selector(flagButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+        [postDetailView addSubview:flagButton];
+    }
 
 //    UIButton *flagButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 //    [flagButton setBackgroundImage:[UIImage imageNamed:@"Flag_Fill"] forState:UIControlStateNormal];
@@ -100,8 +103,6 @@
 //    [flagLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:10]];
 //    [flagLabel setTextColor:[UIColor greatistColorForCategory:self.post.section.name]];
 //    [flagButton addSubview:flagLabel];
-
-   
 
 }
 
@@ -188,7 +189,9 @@
 
 - (void)flagButtonTapped:(UIButton *)sender
 {
-//    [[GRTDataManager sharedManager] flagPost:self.post.objectId];
+    [[GRTDataManager sharedManager] flagPost:self.post withCompletion:^(NSDictionary *response) {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }];
 }
 
 @end

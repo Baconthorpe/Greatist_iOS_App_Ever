@@ -134,10 +134,14 @@
 {
     NSString *postContent = [content stringByReplacingOccurrencesOfString:@"'" withString:@"’"];
     
+    NSMutableDictionary *usersRespondedDictionary = [NSMutableDictionary new];
+    [usersRespondedDictionary setValue:@"Creator" forKey:self.dataStore.currentUser.facebookID];
+    
     [self.parseAPIClient postPostWithContent:postContent
                                      section:section.name
                                    responses:responseDictionaryString
                               userFacebookID:self.dataStore.currentUser.facebookID
+                              usersResponded:[self makeStringFromDictionary:usersRespondedDictionary]
                               withCompletion:^(NSDictionary *postResponse) {
       if (postResponse) {
           NSDate *createdAtDate = [self dateFromString:postResponse[@"createdAt"]];
@@ -148,6 +152,7 @@
                               section:section
                             responses:responseDictionaryString
                             timeStamp:createdAtDate
+                            isFlagged:@0
                             inContext:self.managedObjectContext];
           
           [self.dataStore saveContext];
@@ -156,9 +161,14 @@
     }];
 }
 
-- (void) flagPost:(NSString *)postIdString
+- (void) flagPost:(Post *)post
+   withCompletion:(void (^)(NSDictionary *))completion
 {
-    [self.parseAPIClient flagPostID:postIdString];
+    [self.parseAPIClient flagPostID:post.objectId withCompletion:^(NSDictionary *response) {
+        post.isFlagged = @1;
+        [self.dataStore saveContext];
+        completion(response);
+    }];
 }
 
 #pragma mark - Response Helper Methods
@@ -177,28 +187,42 @@
 - (void) getUpdatedResponsesForPostID:(NSString *)postObjectID
               withCompletion:(void (^)(NSDictionary *postDictionary))completion
 {
-    
     [self.parseAPIClient getPostForPostID:postObjectID withCompletion:^(NSDictionary *postDictionary) {
         [self.dataStore setSelectedResponsesFromJSONString:postDictionary[@"responses"]];
         completion(postDictionary);
     }];
 }
+
 - (void) incrementResponse:(NSString *)responseOptionString
                  forPostID:(NSString *)postObjectID
                 withCompletion:(void (^)(NSString *updatedAt))completion
 {
     
     NSString *responseOption = [responseOptionString stringByReplacingOccurrencesOfString:@"\\\"" withString:@"\""];
+    
     [self getUpdatedResponsesForPostID:postObjectID
                withCompletion:^(NSDictionary *postDictionary) {
-        NSInteger newResponseCount = [[self.dataStore.selectedResponses valueForKey:responseOption] integerValue] + 1;
-        [self.dataStore.selectedResponses setValue:@(newResponseCount) forKeyPath:responseOptionString];
-       
+        NSString *usersRespondedString = postDictionary[@"usersResponded"];
+        NSMutableDictionary *usersRespondedDictionary = [NSMutableDictionary dictionaryWithDictionary:[self makeDictionaryFromString:usersRespondedString]];
+                   
+        if ([[usersRespondedDictionary allKeys] containsObject:self.dataStore.currentUser.facebookID]) {
+            if ([[usersRespondedDictionary objectForKey:self.dataStore.currentUser.facebookID] isEqualToString:responseOption]) {
+                [usersRespondedDictionary removeObjectForKey:self.dataStore.currentUser.facebookID];
+                NSInteger newResponseCount = [[self.dataStore.selectedResponses valueForKey:responseOption] integerValue] - 1;
+                [self.dataStore.selectedResponses setValue:@(newResponseCount) forKeyPath:responseOptionString];
+            }
+        } else {
+            [usersRespondedDictionary setValue:responseOptionString forKey:self.dataStore.currentUser.facebookID];
+            NSInteger newResponseCount = [[self.dataStore.selectedResponses valueForKey:responseOption] integerValue] + 1;
+            [self.dataStore.selectedResponses setValue:@(newResponseCount) forKeyPath:responseOptionString];
+        }
+        NSString *usersResponded = [self makeStringFromDictionary:usersRespondedDictionary];
         [self.parseAPIClient updatePostID:postObjectID
                            withResponses:[self.dataStore getSelectedResponsesAsJSONString]
+                      withUsersResponded:usersResponded
                           withCompletion:^(NSString *updatedAt) {
-            completion(updatedAt);
-        }];
+                              completion(updatedAt);
+                          }];
     }];
 }
 
@@ -232,14 +256,57 @@
     
     NSDate *createdAtDate = [self dateFromString:postDictionary[@"createdAt"]];
     
+    NSLog(@"isFlagged for this post: %@",postDictionary[@"isFlagged"]);
+    
     Post *newPost = [Post uniquePostWithContent:postDictionary[@"content"]
                                        objectId:postDictionary[@"objectId"]
-                                         author:nil section:section
+                                         author:nil
+                                        section:section
                                       responses:postDictionary[@"responses"]
                                       timeStamp:createdAtDate
+                                      isFlagged:postDictionary[@"isFlagged"]
                                       inContext:self.managedObjectContext];
-    NSLog(@"Core Data New Post: %@", newPost);
     return newPost;
+}
+
+- (NSDictionary *) makeDictionaryFromString:(NSString *)inputString
+{
+    NSString *filteredInputString = [inputString stringByReplacingOccurrencesOfString:@"\\\"" withString:@"\""];
+    NSDictionary *inputDictionary = @{};
+    NSData *inputData = [filteredInputString dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error;
+    if (inputData) {
+        NSError *error = nil;
+        inputDictionary = [NSJSONSerialization JSONObjectWithData:inputData
+                                                          options:NSJSONReadingMutableContainers
+                                                            error:&error];
+    }
+    if(!inputDictionary) {
+        NSLog(@"JSON Serialization Error Making Dictionary: %@", error);
+    }
+    return inputDictionary;
+}
+
+- (NSString *) makeStringFromDictionary:(NSDictionary *)inputDictionary
+{
+    NSString *inputString = @"";
+    NSData *inputData;
+    NSError *error;
+    if (inputDictionary) {
+        inputData = [NSJSONSerialization dataWithJSONObject:inputDictionary
+                                                            options:0
+                                                              error:&error];
+    }
+    if (!inputData) {
+        NSLog(@"JSON Serialization Error Making String: %@", error);
+    } else {
+        inputString = [[NSString alloc] initWithBytes:[inputData bytes]
+                                               length:[inputData length]
+                                             encoding:NSUTF8StringEncoding];
+    }
+    
+    NSString *filteredInputString = [inputString stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
+    return filteredInputString;
 }
 
 @end
