@@ -80,6 +80,7 @@
        
         self.nextButton.enabled = NO;
         
+        
     }
     else {
         
@@ -107,39 +108,39 @@
 - (void)setupCategoryButtons
 {
     UIButton *healthButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [healthButton setFrame:CGRectMake(130, 5, 45, 45)];
+    [healthButton setFrame:CGRectMake(130, 2, 35, 35)];
     [healthButton setBackgroundImage:[UIImage imageNamed:@"Health_Colored"] forState:UIControlStateNormal];
     healthButton.alpha = 0.3;
     [healthButton addTarget:self action:@selector(healthButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.postView addSubview:healthButton];
     
-    UILabel *healthLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 40, 45, 25)];
+    UILabel *healthLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 30, 45, 25)];
     [healthLabel setText:@"HEALTH"];
     [healthLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:10]];
     [healthLabel setTextColor:[UIColor greatistEatColor]];
     [healthButton addSubview:healthLabel];
     
     UIButton *fitnessButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [fitnessButton setFrame:CGRectMake(60, 5, 45, 45)];
+    [fitnessButton setFrame:CGRectMake(60, 2, 35, 35)];
     [fitnessButton setBackgroundImage:[UIImage imageNamed:@"Move_Colored60x60"] forState:UIControlStateNormal];
     fitnessButton.alpha = 0.3;
     [fitnessButton addTarget:self action:@selector(fitnessButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.postView addSubview:fitnessButton];
     
-    UILabel *fitnessLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 40, 45, 25)];
+    UILabel *fitnessLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 30, 45, 25)];
     [fitnessLabel setText:@"FITNESS"];
     [fitnessLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:10]];
     [fitnessLabel setTextColor:[UIColor greatistMoveColor]];
     [fitnessButton addSubview:fitnessLabel];
     
     UIButton *happinessButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [happinessButton setFrame:CGRectMake(195, 5, 45, 45)];
+    [happinessButton setFrame:CGRectMake(195, 2, 35, 35)];
     [happinessButton setBackgroundImage:[UIImage imageNamed:@"Grow_Colored60x60"] forState:UIControlStateNormal];
     happinessButton.alpha = 0.3;
     [happinessButton addTarget:self action:@selector(happinessButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.postView addSubview:happinessButton];
     
-    UILabel *happinessLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 40, 60, 25)];
+    UILabel *happinessLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 30, 60, 25)];
     [happinessLabel setText:@"HAPPINESS"];
     [happinessLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:10]];
     [happinessLabel setTextColor:[UIColor greatistGrowColor]];
@@ -169,7 +170,7 @@
 -(void)healthButtonTapped: (UIButton *)sender
 {
  self.verticalSelected = self.verticals[@"health"];
-self.placeholderLabel.text = @"Share your latest yummy recipe! In 140 characters or fewer.";
+self.placeholderLabel.text = @"Share your latest yummy recipe!";
 
    
         [self dimVerticalButtons];
@@ -185,7 +186,7 @@ self.placeholderLabel.text = @"Share your latest yummy recipe! In 140 characters
 {
     
     self.verticalSelected = self.verticals[@"fitness"];
-    self.placeholderLabel.text = @"Tell us about your morning run, in 140 characters or fewer.";
+    self.placeholderLabel.text = @"Tell us about your morning run";
     
     
     [self dimVerticalButtons];
@@ -201,7 +202,7 @@ self.placeholderLabel.text = @"Share your latest yummy recipe! In 140 characters
 -(void) happinessButtonTapped: (UIButton *)sender
 {
     self.verticalSelected = self.verticals[@"happiness"];
-    self.placeholderLabel.text = @"What are you excited about today? Tell us in 140 characters or fewer.";
+    self.placeholderLabel.text = @"What are you excited about today?";
     
     
     
