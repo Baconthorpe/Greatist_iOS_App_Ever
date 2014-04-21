@@ -71,7 +71,7 @@
     [postDetailLabel setTextColor:[UIColor greatistColorForCategory:self.post.section.name]];
     [postDetailView addSubview:postDetailLabel];
     
-    if (![self.post.user isEqual:self.dataStore.currentUser])
+    if (![self.post.user.facebookID isEqualToString:self.dataStore.currentUser.facebookID])
     {
         UIButton *flagButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [flagButton setFrame:CGRectMake(170, 280, 140, 40)];

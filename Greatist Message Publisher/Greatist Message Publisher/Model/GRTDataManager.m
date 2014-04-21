@@ -157,6 +157,7 @@
 {
     [self.parseAPIClient flagPostID:post.objectId withCompletion:^(NSDictionary *response) {
         post.isFlagged = @1;
+        [self.dataStore saveContext];
         completion(response);
     }];
 }
@@ -236,7 +237,8 @@
     
     Post *newPost = [Post uniquePostWithContent:postDictionary[@"content"]
                                        objectId:postDictionary[@"objectId"]
-                                         author:nil section:section
+                                         author:nil
+                                        section:section
                                       responses:postDictionary[@"responses"]
                                       timeStamp:createdAtDate
                                       isFlagged:postDictionary[@"isFlagged"]
