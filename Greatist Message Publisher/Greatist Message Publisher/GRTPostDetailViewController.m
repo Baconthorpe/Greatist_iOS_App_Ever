@@ -134,12 +134,13 @@
     
     self.responseOptionsArray = [[self.dataStore.selectedResponses allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
     [[GRTDataManager sharedManager] getUpdatedResponsesForPostID:self.post.objectId withCompletion:^(NSDictionary *postDictionary) {
-        [self updateResponseButtons];
+        [self updateResponseButtonsWithResponseClicked:nil wasIncremented:NO];
     }];
      
 }
 
-- (void)updateResponseButtons
+- (void)updateResponseButtonsWithResponseClicked:(NSString *)selectedResponse
+                                   wasIncremented:(BOOL)wasIncremented
 {
     [[self.responseView subviews] makeObjectsPerformSelector: @selector(removeFromSuperview)];
     for (NSInteger i = 0; i < [self.responseOptionsArray count]; i++) {
@@ -161,7 +162,15 @@
         UIButton *newResponseButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [newResponseButton setFrame:[[self.responseButtonFramesArray objectAtIndex:i] CGRectValue]];
         [newResponseButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [newResponseButton.titleLabel setFont:[UIFont fontWithName:@"DINOT-Medium" size:12]];
+        if ([selectedResponse isEqualToString:responseContent]) {
+            if (wasIncremented) {
+                [newResponseButton.titleLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:14]];
+            } else {
+                [newResponseButton.titleLabel setFont:[UIFont fontWithName:@"DINOT-Medium" size:12]];
+            }
+        } else {
+            [newResponseButton.titleLabel setFont:[UIFont fontWithName:@"DINOT-Medium" size:12]];
+        }
         newResponseButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         [newResponseButton setTitle:[responseContent uppercaseString] forState:UIControlStateNormal];
         [newResponseButton setTag:i];
@@ -182,8 +191,9 @@
     NSInteger responseIndex = [button tag];
     [[GRTDataManager sharedManager] incrementResponse:self.responseOptionsArray[responseIndex]
                                             forPostID:self.post.objectId
-                                       withCompletion:^(NSString *updatedAt) {
-       [self updateResponseButtons];
+                                       withCompletion:^(BOOL wasResponseIncremented, NSString *selectedResponse) {
+       [self updateResponseButtonsWithResponseClicked:selectedResponse
+                                       wasIncremented:wasResponseIncremented];
     }];
 }
 

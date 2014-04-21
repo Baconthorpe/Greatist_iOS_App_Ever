@@ -190,13 +190,14 @@
 
 - (void) incrementResponse:(NSString *)responseOptionString
                  forPostID:(NSString *)postObjectID
-                withCompletion:(void (^)(NSString *updatedAt))completion
+                withCompletion:(void (^)(BOOL wasResponseIncremented, NSString *selectedResponse))completion
 {
     
     NSString *responseOption = [responseOptionString stringByReplacingOccurrencesOfString:@"\\\"" withString:@"\""];
     
     [self getUpdatedResponsesForPostID:postObjectID
                withCompletion:^(NSDictionary *postDictionary) {
+        BOOL wasResponseIncremented;
         NSString *usersRespondedString = postDictionary[@"usersResponded"];
         NSMutableDictionary *usersRespondedDictionary = [NSMutableDictionary dictionaryWithDictionary:[self makeDictionaryFromString:usersRespondedString]];
                    
@@ -205,18 +206,20 @@
                 [usersRespondedDictionary removeObjectForKey:self.dataStore.currentUser.facebookID];
                 NSInteger newResponseCount = [[self.dataStore.selectedResponses valueForKey:responseOption] integerValue] - 1;
                 [self.dataStore.selectedResponses setValue:@(newResponseCount) forKeyPath:responseOptionString];
+                wasResponseIncremented = NO;
             }
         } else {
             [usersRespondedDictionary setValue:responseOptionString forKey:self.dataStore.currentUser.facebookID];
             NSInteger newResponseCount = [[self.dataStore.selectedResponses valueForKey:responseOption] integerValue] + 1;
             [self.dataStore.selectedResponses setValue:@(newResponseCount) forKeyPath:responseOptionString];
+            wasResponseIncremented = YES;
         }
         NSString *usersResponded = [self makeStringFromDictionary:usersRespondedDictionary];
         [self.parseAPIClient updatePostID:postObjectID
                            withResponses:[self.dataStore getSelectedResponsesAsJSONString]
                       withUsersResponded:usersResponded
                           withCompletion:^(NSString *updatedAt) {
-                              completion(updatedAt);
+                              completion(wasResponseIncremented, responseOptionString);
                           }];
     }];
 }
