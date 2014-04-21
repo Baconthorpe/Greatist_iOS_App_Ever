@@ -127,8 +127,8 @@
                                  withResponses: (NSString *)responseDictionaryString
                                 withCompletion: (void (^)(NSDictionary *postResponse))completion
 {
-    NSString *postContent = [content stringByReplacingOccurrencesOfString:@"'" withString:@"’"];
-    
+    NSString *postContent = [content stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
+
     NSMutableDictionary *usersRespondedDictionary = [NSMutableDictionary new];
     [usersRespondedDictionary setValue:@"Creator" forKey:self.dataStore.currentUser.facebookID];
     
@@ -141,7 +141,7 @@
       if (postResponse) {
           NSDate *createdAtDate = [self dateFromString:postResponse[@"createdAt"]];
           
-          [Post uniquePostWithContent:postContent
+          [Post uniquePostWithContent:content
                              objectId:postResponse[@"objectId"]
                                author:self.dataStore.currentUser
                               section:section
@@ -251,9 +251,9 @@
     
     NSDate *createdAtDate = [self dateFromString:postDictionary[@"createdAt"]];
     
-    NSLog(@"isFlagged for this post: %@",postDictionary[@"isFlagged"]);
-    
-    Post *newPost = [Post uniquePostWithContent:postDictionary[@"content"]
+    NSString *postContent = postDictionary[@"content"];
+    NSString *postContentQuotes = [postContent stringByReplacingOccurrencesOfString:@"\\\"" withString:@"\""];
+    Post *newPost = [Post uniquePostWithContent:postContentQuotes
                                        objectId:postDictionary[@"objectId"]
                                          author:nil
                                         section:section

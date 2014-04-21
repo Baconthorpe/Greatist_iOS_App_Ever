@@ -232,7 +232,6 @@
     
     [newOp setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
-        NSLog(@"Parse Post Response: %@",responseDictionary);
         completion(responseDictionary);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Parse Post Response Error: %@",error);
