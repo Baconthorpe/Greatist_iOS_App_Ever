@@ -74,7 +74,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.dataStore.postFRController.sections[0] numberOfObjects];
+    return [self.dataStore.userPostFRController.sections[0] numberOfObjects];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -86,7 +86,7 @@
 - (GRTPostTableViewCell *) configureCellForMainTableViewWithIndexPath: (NSIndexPath *)indexPath
 {
     GRTPostTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"postCell"];
-    Post *post = [self.dataStore.postFRController objectAtIndexPath:indexPath];
+    Post *post = [self.dataStore.userPostFRController objectAtIndexPath:indexPath];
     [cell configureWithPost:post];
     
     GRTCornerTriangles *leftCornerTriangle = [[GRTCornerTriangles alloc] initWithFrame:cell.bounds IsLeftTriangle:YES withFillColor:[UIColor greatistFitnessColor]];
@@ -237,7 +237,7 @@
 {
     UITableView *tableView = self.tableView;
     
-    if ([controller isEqual:self.dataStore.postFRController])
+    if ([controller isEqual:self.dataStore.userPostFRController])
     {
         newIndexPath = [NSIndexPath indexPathForRow:newIndexPath.row inSection:0];
         
