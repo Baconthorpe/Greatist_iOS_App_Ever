@@ -153,9 +153,11 @@
 }
 
 - (void) flagPost:(Post *)post
+   withCompletion:(void (^)(NSDictionary *))completion
 {
     [self.parseAPIClient flagPostID:post.objectId withCompletion:^(NSDictionary *response) {
         post.isFlagged = @1;
+        completion(response);
     }];
 }
 
