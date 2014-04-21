@@ -39,7 +39,7 @@
 {
     self.post = post;
     self.postLabel.text = self.post.content;
-    self.postLabel.font = [UIFont fontWithName:@"ArcherPro-Bold" size:18];
+    self.postLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:18];
     self.postLabel.textColor = [UIColor whiteColor];
     
     return self;
@@ -50,7 +50,7 @@
     UIView *blueView = [UIView new];
     blueView.backgroundColor = [UIColor greatistBlueColor];
     self.cell.backgroundView = blueView;
-    [self.buttonBar setBackgroundColor:[UIColor greatistLightGrayColor]];
+    //[self.buttonBar setBackgroundColor:[UIColor greatistLightGrayColor]];
 
 //    FAKFontAwesome *flagIcon = [FAKFontAwesome flagIconWithSize:15];
 //    [flagIcon addAttribute:NSForegroundColorAttributeName value:[UIColor redColor]];

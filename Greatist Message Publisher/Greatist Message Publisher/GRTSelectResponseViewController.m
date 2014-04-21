@@ -10,6 +10,7 @@
 #import "GRTMainTableViewController.h"
 #import "GRTDataStore.h"
 #import "GRTDataManager.h"
+#import "UIFont+Helpers.h"
 
 @interface GRTSelectResponseViewController ()
 @property (strong, nonatomic) GRTDataStore *dataStore;
@@ -38,6 +39,9 @@
     self.dataStore = [GRTDataStore sharedDataStore];
     self.dataManager = [GRTDataManager sharedManager];
     [self setupResponseTable];
+    self.responseLabel.font = [UIFont fontWithName:@"DINOT-Medium" size:18];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning

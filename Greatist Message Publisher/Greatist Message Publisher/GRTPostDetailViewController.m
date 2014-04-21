@@ -18,6 +18,7 @@
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *backButton;
 
+
 @property (strong, nonatomic) UIView *responseView;
 
 
@@ -48,6 +49,11 @@
 
     [self createPostDetail];
     [self setupResponses];
+    [self.backButton setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                [UIFont fontWithName:@"DINOT-Medium" size:18],
+                                                NSFontAttributeName,
+                                                nil]
+                                     forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning
@@ -150,7 +156,7 @@
         NSNumber *responseCount = [self.dataStore.selectedResponses valueForKey:responseContent];
         
         UILabel *newResponseCountLabel = [[UILabel alloc] initWithFrame:[[self.responseLabelFramesArray objectAtIndex:i] CGRectValue]];
-        [newResponseCountLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:12]];
+        [newResponseCountLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:16]];
         newResponseCountLabel.textColor = [UIColor whiteColor];
         newResponseCountLabel.text = [NSString stringWithFormat:@"%@", responseCount ];
         [newResponseCountLabel setTextAlignment:NSTextAlignmentCenter];
@@ -164,7 +170,7 @@
         UIButton *newResponseButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [newResponseButton setFrame:[[self.responseButtonFramesArray objectAtIndex:i] CGRectValue]];
         [newResponseButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [newResponseButton.titleLabel setFont:[UIFont fontWithName:@"DINOT-Medium" size:12]];
+        [newResponseButton.titleLabel setFont:[UIFont fontWithName:@"DINOT-Medium" size:14]];
         newResponseButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         [newResponseButton setTitle:[responseContent uppercaseString] forState:UIControlStateNormal];
         [newResponseButton setTag:i];

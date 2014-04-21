@@ -26,11 +26,12 @@
 - (IBAction)composePostButtonTapped:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *postsTableView;
 @property (weak, nonatomic) IBOutlet UIToolbar *logoutBarButtonItem;
-@property (weak, nonatomic) IBOutlet UIToolbar *myPostsButton;
+
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *logoutButton;
 @property (strong, nonatomic) Section *section;
 @property (strong, nonatomic) GRTDataStore *dataStore;
 @property (strong, nonatomic) GRTDataManager *dataManager;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *myPostsButton;
 
 @end
 
@@ -54,7 +55,18 @@
     [self setupFooterToolbar];
     
     [self.dataManager getPostsBasedOnFacebookFriends];
- //[self.logoutButton.title.text
+
+    [self.logoutButton setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                [UIFont fontWithName:@"DINOT-Medium" size:18],
+                                                NSFontAttributeName,
+                                                nil]
+                                     forState:UIControlStateNormal];
+    [self.myPostsButton setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                [UIFont fontWithName:@"DINOT-Medium" size:18],
+                                                NSFontAttributeName,
+                                                nil]
+                                     forState:UIControlStateNormal];
+    
     
     
 
