@@ -211,6 +211,7 @@
                      section: (NSString *)section
                    responses: (NSString *)responseDictionaryString
               userFacebookID: (NSString *)userFacebookID
+              usersResponded: (NSString *)usersRespondedString
               withCompletion: (void (^)(NSDictionary *))completion
 {
 
@@ -223,8 +224,8 @@
     [request addValue:self.appID forHTTPHeaderField:@"X-Parse-Application-Id"];
     
     AFHTTPRequestOperation *newOp = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    
-    NSString *json = [NSString stringWithFormat:@"{\"userFacebookID\":\"%@\",\"content\":\"%@\",\"section\":\"%@\",\"responses\":\"%@\",\"isFlagged\":false}",userFacebookID,content,section,responseDictionaryString];
+
+    NSString *json = [NSString stringWithFormat:@"{\"userFacebookID\":\"%@\",\"content\":\"%@\",\"section\":\"%@\",\"responses\":\"%@\",\"usersResponded\":\"%@\",\"isFlagged\":false }",userFacebookID,content,section,responseDictionaryString, usersRespondedString];
     
     request.HTTPBody = [json dataUsingEncoding:NSUTF8StringEncoding];
     request.HTTPMethod = @"POST";
@@ -282,6 +283,7 @@
 
 - (void) updatePostID:(NSString *)postObjectID
         withResponses:(NSString *)responseString
+   withUsersResponded:(NSString *)usersRespondedString
        withCompletion:(void (^)(NSString *))completion
 {
     NSString *parsePostURL = [NSString stringWithFormat:@"https://api.parse.com/1/classes/GRTPost/%@", postObjectID];
@@ -294,7 +296,7 @@
     
     AFHTTPRequestOperation *newOp = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     
-    NSString *json = [NSString stringWithFormat:@"{\"responses\":\"%@\"}",responseString];
+    NSString *json = [NSString stringWithFormat:@"{\"responses\":\"%@\",\"usersResponded\":\"%@\"}",responseString, usersRespondedString];
     request.HTTPBody = [json dataUsingEncoding:NSUTF8StringEncoding];
     request.HTTPMethod = @"PUT";
     
@@ -308,5 +310,8 @@
     [newOp start];
     
 }
+
+#pragma mark - Helper Methods
+
 
 @end
