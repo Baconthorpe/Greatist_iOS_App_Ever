@@ -308,6 +308,7 @@
 }
 
 - (void)refresh:(UIRefreshControl *)refreshControl {
+    [self.dataManager getPostsBasedOnFacebookFriends];
     [refreshControl endRefreshing];
 }
 
