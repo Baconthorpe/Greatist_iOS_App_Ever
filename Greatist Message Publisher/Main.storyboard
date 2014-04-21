@@ -13,11 +13,11 @@
                         <viewControllerLayoutGuide type="bottom" id="GSI-76-x99"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="d1n-ZX-oHO">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="129" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="UCw-px-WOv">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="436"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -35,8 +35,11 @@
                                 </prototypes>
                             </tableView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ntT-Qb-ejK">
-                                <rect key="frame" x="0.0" y="436" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="fex-9e-fWe"/>
+                                </constraints>
                                 <items>
                                     <barButtonItem title="My Posts" id="uHI-e1-sKx">
                                         <connections>
@@ -61,10 +64,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="ntT-Qb-ejK" secondAttribute="trailing" id="0LA-Uj-D3Y"/>
-                            <constraint firstItem="ntT-Qb-ejK" firstAttribute="leading" secondItem="d1n-ZX-oHO" secondAttribute="leading" id="8A4-m6-i43"/>
-                            <constraint firstItem="ntT-Qb-ejK" firstAttribute="top" secondItem="UCw-px-WOv" secondAttribute="bottom" id="db3-ck-zPR"/>
-                            <constraint firstItem="GSI-76-x99" firstAttribute="top" secondItem="ntT-Qb-ejK" secondAttribute="bottom" id="mOu-nx-tE6"/>
+                            <constraint firstItem="GSI-76-x99" firstAttribute="top" secondItem="ntT-Qb-ejK" secondAttribute="bottom" id="Oca-W7-NDU"/>
+                            <constraint firstItem="ntT-Qb-ejK" firstAttribute="leading" secondItem="d1n-ZX-oHO" secondAttribute="leading" id="QbR-vE-00V"/>
+                            <constraint firstAttribute="trailing" secondItem="ntT-Qb-ejK" secondAttribute="trailing" id="b5S-I8-ffn"/>
+                            <constraint firstItem="ntT-Qb-ejK" firstAttribute="top" secondItem="UCw-px-WOv" secondAttribute="bottom" id="drg-Am-hc3"/>
+                            <constraint firstItem="UCw-px-WOv" firstAttribute="top" secondItem="kMd-Fp-V9J" secondAttribute="bottom" constant="-64" id="iQU-GU-gsR"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="huM-hs-ViC"/>
@@ -89,15 +93,15 @@
                         <viewControllerLayoutGuide type="bottom" id="gV4-dx-dDQ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="0wf-eZ-Nas">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6xE-Ze-HaS">
-                                <rect key="frame" x="0.0" y="66" width="320" height="414"/>
+                                <rect key="frame" x="0.0" y="66" width="320" height="502"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CyG-sz-DbO">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="414"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="502"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </view>
                                 </subviews>
@@ -125,7 +129,7 @@
             <objects>
                 <tableViewController id="pkW-3h-UEb" customClass="GRTPostLogTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ylp-Ff-qaW">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -167,11 +171,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Tta-Ou-UMV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="33Z-uS-GDD">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5qo-we-Wmv">
-                                <rect key="frame" x="0.0" y="66" width="320" height="414"/>
+                                <rect key="frame" x="0.0" y="66" width="320" height="502"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="“   " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ue-CW-ror">
@@ -189,7 +193,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gf9-pJ-3nY">
-                                        <rect key="frame" x="55" y="75" width="210" height="109"/>
+                                        <rect key="frame" x="55" y="75" width="210" height="197"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -199,7 +203,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="light" enablesReturnKeyAutomatically="YES"/>
                                     </textView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="”" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="17" translatesAutoresizingMaskIntoConstraints="NO" id="EU6-QT-8ud">
-                                        <rect key="frame" x="268" y="174" width="17" height="48"/>
+                                        <rect key="frame" x="268" y="262" width="17" height="48"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -267,11 +271,11 @@
                         <viewControllerLayoutGuide type="bottom" id="cXX-dE-tE0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="CSQ-2M-MaV">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="coo-vN-z3V">
-                                <rect key="frame" x="0.0" y="65" width="320" height="415"/>
+                                <rect key="frame" x="0.0" y="65" width="320" height="503"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -325,7 +329,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Qwf-t2-PpL"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="DNh-jc-bUo">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -396,7 +400,7 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="dMZ-Hk-g8o"/>
