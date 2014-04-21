@@ -27,7 +27,6 @@
 @property (weak, nonatomic) IBOutlet UIToolbar *logoutBarButtonItem;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *userPostLogButton;
 @property (strong, nonatomic) Section *section;
-@property (strong, nonatomic) GRTCornerTriangles *cornerTriangle;
 @property (strong, nonatomic) GRTDataStore *dataStore;
 @property (strong, nonatomic) GRTDataManager *dataManager;
 
@@ -52,8 +51,6 @@
     [self setupNavBar];
     [self setupFooterToolbar];
     
-    GRTCornerTriangles *cornerTriangle = [GRTCornerTriangles new];
-    self.dataManager = [GRTDataManager sharedManager];    
     [self.dataManager getPostsBasedOnFacebookFriends];
 
 //    [[GRTFacebookAPIClient sharedClient] verifyUserFacebookCachedInViewController:self];
@@ -191,6 +188,15 @@
 
 #pragma mark - Cell Methods
 
+- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(GRTPostTableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    for (UIView *view in cell.contentView.subviews) {
+        if (![view isEqual:cell.postLabel] && ![view isEqual:cell.buttonBar]) {
+            [view removeFromSuperview];
+        }
+    }
+}
+
 
 - (GRTPostTableViewCell *) configureCellForMainTableViewWithIndexPath: (NSIndexPath *)indexPath
 {
@@ -199,102 +205,45 @@
     [cell configureWithPost:post];
     
     GRTCornerTriangles *leftCornerTriangle = [[GRTCornerTriangles alloc] initWithFrame:cell.bounds IsLeftTriangle:YES withFillColor:[UIColor greatistFitnessColor]];
-
     GRTCornerTriangles *rightCornerTriangle = [[GRTCornerTriangles alloc] initWithFrame:cell.bounds IsLeftTriangle:NO withFillColor:[UIColor greatistFitnessColor]];
-    
     
     cell.backgroundColor = [UIColor greatistColorForCategory:post.section.name];
     cell.buttonBar.backgroundColor=[UIColor whiteColor];
-    
-    for (UIView *view in cell.contentView.subviews) {
-        if (![view isEqual:cell.postLabel] && ![view isEqual:cell.buttonBar]) {
-            [view removeFromSuperview];
-        }
-    }
     
     UIView *separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 5)];
     separatorLineView.backgroundColor = [UIColor greatistLightGrayColor];
     [cell.contentView addSubview:separatorLineView];
     
-    if (([post.section.name isEqualToString:(@"fitness")]) && (indexPath.row % 2 == 0))
-    {
-        cell.backgroundColor = [UIColor greatistFitnessColor];
-        cell.buttonBar.backgroundColor=[UIColor whiteColor];
+    UIImage *iconImage;
+    UIImage *scaledIconImage;
+    CGRect iconRect;
+    
+    if (indexPath.row % 2 == 0) {
         [cell.contentView addSubview:leftCornerTriangle];
-        [leftCornerTriangle setFillColor:[UIColor greatistFitnessColorSecondary]];
-        
-        UIImage *fitnessIconImage = [UIImage imageNamed:@"Move_White"];
-        UIImage *scaledFitnessIconImage = [UIImage imageWithImage:fitnessIconImage scaledToSize:CGSizeMake(25, 20)];
-        UIImageView *fitnessIconView = [[UIImageView alloc] initWithImage:scaledFitnessIconImage];
-        [cell.contentView addSubview:fitnessIconView];
-        [fitnessIconView setFrame:CGRectMake(10, 15, 25, 20)];
-
-    }
-    else if (([post.section.name isEqualToString:(@"fitness")]) && (!indexPath.row % 2 == 0))
-    {
-        cell.backgroundColor = [UIColor greatistFitnessColor];
-        cell.buttonBar.backgroundColor=[UIColor whiteColor];
+        [leftCornerTriangle setFillColor:[UIColor greatistSecondaryColorForCategory:post.section.name]];
+    } else {
         [cell.contentView addSubview:rightCornerTriangle];
-        [rightCornerTriangle setFillColor:[UIColor greatistFitnessColorSecondary]];
-        
-        UIImage *fitnessIconImage = [UIImage imageNamed:@"Move_White"];
-        UIImage *scaledFitnessIconImage = [UIImage imageWithImage:fitnessIconImage scaledToSize:CGSizeMake(25, 20)];
-        UIImageView *fitnessIconView = [[UIImageView alloc] initWithImage:scaledFitnessIconImage];
-        [cell.contentView addSubview:fitnessIconView];
-        [fitnessIconView setFrame:CGRectMake(290, 15, 25, 20)];
+        [rightCornerTriangle setFillColor:[UIColor greatistSecondaryColorForCategory:post.section.name]];
     }
-    else if (([post.section.name isEqualToString:(@"health")]) && (indexPath.row % 2 == 0))
-    {
-        cell.backgroundColor = [UIColor greatistHappinessColor];
-        cell.buttonBar.backgroundColor=[UIColor whiteColor];
-        [cell.contentView addSubview:leftCornerTriangle];
-        [leftCornerTriangle setFillColor:[UIColor greatistHappinessColorSecondary]];
-        
-        UIImage *healthIconImage = [UIImage imageNamed:@"Health_White"];
-        UIImage *scaledHealthIconImage = [UIImage imageWithImage:healthIconImage scaledToSize:CGSizeMake(25, 25)];
-        UIImageView *healthIconView = [[UIImageView alloc] initWithImage:scaledHealthIconImage];
-        [cell.contentView addSubview:healthIconView];
-        [healthIconView setFrame:CGRectMake(8, 12, 25, 25)];
+    
+    if ([post.section.name isEqualToString:(@"fitness")]) {
+        iconImage = [UIImage imageNamed:@"Move_White"];
+        scaledIconImage = [UIImage imageWithImage:iconImage scaledToSize:CGSizeMake(25, 20)];
+        iconRect = (indexPath.row % 2 == 0) ?  CGRectMake(10,15,25,20) : CGRectMake(290,15,25,20);
+    } else if ([post.section.name isEqualToString:(@"health")]) {
+        iconImage = [UIImage imageNamed:@"Health_White"];
+        scaledIconImage = [UIImage imageWithImage:iconImage scaledToSize:CGSizeMake(25, 25)];
+        iconRect = (indexPath.row % 2 == 0) ?  CGRectMake(8,12,25,25) : CGRectMake(287,12,25,25);
+    } else if ([post.section.name isEqualToString:(@"happiness")]) {
+        iconImage = [UIImage imageNamed:@"Grow_White"];
+        scaledIconImage = [UIImage imageWithImage:iconImage scaledToSize:CGSizeMake(18, 25)];
+        iconRect = (indexPath.row % 2 == 0) ?  CGRectMake(8,15,18,25) : CGRectMake(290,10,18,25);
     }
-    else if (([post.section.name isEqualToString:(@"health")]) && (!indexPath.row % 2 == 0))
-    {
-        cell.backgroundColor = [UIColor greatistHealthColor];
-        cell.buttonBar.backgroundColor=[UIColor whiteColor];
-        [cell.contentView addSubview:rightCornerTriangle];
-        [rightCornerTriangle setFillColor:[UIColor greatistHealthColorSecondary]];
-        
-        UIImage *healthIconImage = [UIImage imageNamed:@"Health_White"];
-        UIImage *scaledHealthIconImage = [UIImage imageWithImage:healthIconImage scaledToSize:CGSizeMake(25, 25)];
-        UIImageView *healthIconView = [[UIImageView alloc] initWithImage:scaledHealthIconImage];
-        [cell.contentView addSubview:healthIconView];
-        [healthIconView setFrame:CGRectMake(287, 12, 25, 25)];
-    }
-    else if (([post.section.name isEqualToString:(@"happiness")]) && (indexPath.row % 2 == 0))
-    {
-        cell.backgroundColor = [UIColor greatistHappinessColor];
-        cell.buttonBar.backgroundColor=[UIColor whiteColor];
-        [cell.contentView addSubview:leftCornerTriangle];
-        [leftCornerTriangle setFillColor:[UIColor greatistHappinessColorSecondary]];
-        
-        UIImage *happinessIconImage = [UIImage imageNamed:@"Grow_White"];
-        UIImage *scaledHappinessIconImage = [UIImage imageWithImage:happinessIconImage scaledToSize:CGSizeMake(18, 25)];
-        UIImageView *happinessIconView = [[UIImageView alloc] initWithImage:scaledHappinessIconImage];
-        [cell.contentView addSubview:happinessIconView];
-        [happinessIconView setFrame:CGRectMake(8, 15, 18, 25)];
-    }
-    else if (([post.section.name isEqualToString:(@"happiness")]) && (!indexPath.row % 2 == 0))
-    {
-        cell.backgroundColor = [UIColor greatistHappinessColor];
-        cell.buttonBar.backgroundColor=[UIColor whiteColor];
-        [cell.contentView addSubview:rightCornerTriangle];
-        [rightCornerTriangle setFillColor:[UIColor greatistHappinessColorSecondary]];
-        
-        UIImage *happinessIconImage = [UIImage imageNamed:@"Grow_White"];
-        UIImage *scaledHappinessIconImage = [UIImage imageWithImage:happinessIconImage scaledToSize:CGSizeMake(18, 25)];
-        UIImageView *happinessIconView = [[UIImageView alloc] initWithImage:scaledHappinessIconImage];
-        [cell.contentView addSubview:happinessIconView];
-        [happinessIconView setFrame:CGRectMake(290, 10, 18, 25)];
-    }
+    UIImageView *iconView = [[UIImageView alloc] initWithImage:scaledIconImage];
+    
+    [iconView setFrame:iconRect];
+    [cell.contentView addSubview:iconView];
+    
     [leftCornerTriangle setNeedsDisplay];
     [rightCornerTriangle setNeedsDisplay];
     
@@ -325,6 +274,7 @@
 {
    [self.postsTableView registerNib:[UINib nibWithNibName:@"GRTTableViewCell" bundle:nil] forCellReuseIdentifier:@"postCell"];
     self.dataStore = [GRTDataStore sharedDataStore];
+    self.dataManager = [GRTDataManager sharedManager];
     self.postsTableView.delegate = self;
     self.postsTableView.dataSource = self;
     self.dataStore.postFRController.delegate = self;

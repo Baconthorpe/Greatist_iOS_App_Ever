@@ -107,8 +107,8 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[GRTFacebookAPIClient sharedClient] getFriendIDsWithCompletion:^(NSArray *friendIDs)
      {
-         [self getPostsForFriends:friendIDs];
          [self createUserIfNewWithCompletion:^(BOOL userFound) {
+             [self getPostsForFriends:friendIDs];
              [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
              [self performSegueWithIdentifier:@"loginToMain" sender:nil];
          }];
