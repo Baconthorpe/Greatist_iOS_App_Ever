@@ -18,6 +18,7 @@
 #import "GRTCornerTriangles.h"
 #import "GRTDataManager.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import "UIColor+Helpers.h"
 
 @interface GRTMainViewController ()
 
@@ -53,7 +54,9 @@
     [self setupFooterToolbar];
     
     [self.dataManager getPostsBasedOnFacebookFriends];
-    [self.logoutButton = [UIFont fontWithName:<#(NSString *)#> size:<#(CGFloat)#>]
+ //[self.logoutButton.title.text
+    
+    
 
 //    [[GRTFacebookAPIClient sharedClient] verifyUserFacebookCachedInViewController:self];
     

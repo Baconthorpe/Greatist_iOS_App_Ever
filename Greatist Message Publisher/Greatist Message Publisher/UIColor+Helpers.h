@@ -32,4 +32,22 @@
 + (UIColor *)greatistPlayColorSecondary;
 + (UIColor *)greatistDiscoverColor;
 + (UIColor *)greatistDiscoverColorSecondary;
++ (UIFont *)ArcherProBoldSmall;
++ (UIFont *)ArcherProBoldBig;
++ (UIFont *)ArcherProBoldItalicSmall;
++ (UIFont *)ArcherProBoldItalicBig;
++ (UIFont *)ArcherProBookItalicSmall;
++ (UIFont *)ArcherProLightSmall;
++ (UIFont *)ArcherProLightBig;
++ (UIFont *)ArcherProMediumSmall;
++ (UIFont *)ArcherProMediumLarge;
++ (UIFont *)ArcherProSemiboldSmall;
++ (UIFont *)ArcherProSemiboldLarge;
++ (UIFont *)ArcherProSemiboldItalicSmall;
++ (UIFont *)ArcherProSemiboldItalicLarge;
++ (UIFont *)DINBoldSmall;
++ (UIFont *)DINBoldLarge;
++ (UIFont *)DINMediumSmall;
++ (UIFont *)DINMediumLarge;
+
 @end
