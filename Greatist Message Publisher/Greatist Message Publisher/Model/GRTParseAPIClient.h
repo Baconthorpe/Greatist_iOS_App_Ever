@@ -18,6 +18,7 @@
 
 - (void) postUserWithFacebookID:(NSString *)fbookID
                      Completion:(void (^)(NSDictionary *))completion;
+
 - (void) postUserWithName:(NSString *)name
                FacebookID:(NSString *)fbookID
                Completion:(void (^)(NSDictionary *))completion;
@@ -25,8 +26,10 @@
 // GRTPosts
 - (void) getPostsWithFriendIDs:(NSArray *)friendsArray
                 WithCompletion:(void (^)(NSArray *posts))completionBlock;
+
 - (void) getPostForPostID:(NSString *)postObjectID
            withCompletion:(void (^)(NSDictionary *postDictionary))completion;
+
 - (void) postPostWithContent: (NSString *)content
                      section: (NSString *)section
                    responses: (NSString *)responseDictionaryString

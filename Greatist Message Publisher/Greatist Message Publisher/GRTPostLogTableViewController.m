@@ -14,6 +14,7 @@
 #import "Section+Methods.h"
 #import "GRTCornerTriangles.h"
 #import "GRTDataManager.h"
+#import "GRTPostDetailViewController.h"
 
 @interface GRTPostLogTableViewController ()
 
@@ -44,7 +45,7 @@
 {
     [super viewDidLoad];
     [self initialize];
-    [self setupNavBar];
+//    [self setupNavBar];
     
     self.dataManager = [GRTDataManager sharedManager];
     [self.dataManager getPostsBasedOnFacebookID];
@@ -67,16 +68,16 @@
     self.dataStore.postFRController.delegate = self;
 }
 
-- (void)setupNavBar
-{
-    [self.navigationController.navigationBar setBarTintColor:[UIColor greatistLightGrayColor]];
-    
-    UIImage *greatistLogoImage = [UIImage imageNamed:@"Greatist_Logo86x50"];
-    UIImage *scaledGreatistLogoImage = [UIImage imageWithImage:greatistLogoImage scaledToSize:CGSizeMake(65, 38)];
-    UIImageView *greatistLogoView = [[UIImageView alloc] initWithImage:scaledGreatistLogoImage];
-    [self.navigationController.navigationBar.topItem setTitleView:greatistLogoView];
-    [self.navigationController.navigationBar setTitleVerticalPositionAdjustment:-4.0 forBarMetrics:UIBarMetricsDefault];
-}
+//- (void)setupNavBar
+//{
+//    [self.navigationController.navigationBar setBarTintColor:[UIColor greatistLightGrayColor]];
+//    
+//    UIImage *greatistLogoImage = [UIImage imageNamed:@"Greatist_Logo86x50"];
+//    UIImage *scaledGreatistLogoImage = [UIImage imageWithImage:greatistLogoImage scaledToSize:CGSizeMake(65, 38)];
+//    UIImageView *greatistLogoView = [[UIImageView alloc] initWithImage:scaledGreatistLogoImage];
+//    [self.navigationController.navigationBar.topItem setTitleView:greatistLogoView];
+//    [self.navigationController.navigationBar setTitleVerticalPositionAdjustment:-4.0 forBarMetrics:UIBarMetricsDefault];
+//}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -98,15 +99,19 @@
     return [self.dataStore.postFRController.sections[0] numberOfObjects];
 }
 
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.postsTableView endUpdates];
+    [self performSegueWithIdentifier:@"mainToDetail" sender:self];
 }
-
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
 {
     [self.postsTableView beginUpdates];
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+{
+    [self.postsTableView endUpdates];
 }
 
 - (GRTPostTableViewCell *) configureCellForMainTableViewWithIndexPath: (NSIndexPath *)indexPath
@@ -222,6 +227,21 @@
 {
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"logToDetail"])
+    {
+        GRTPostDetailViewController *nextVC = segue.destinationViewController;
+        GRTPostTableViewCell *cell = (GRTPostTableViewCell *)[self.postsTableView cellForRowAtIndexPath:[self.postsTableView indexPathForSelectedRow]];
+        
+        nextVC.post = cell.post;
+        [self.dataStore setSelectedResponsesFromJSONString:cell.post.responses];
+        [self.postsTableView deselectRowAtIndexPath:[self.postsTableView indexPathForSelectedRow] animated:YES];
+        
+    }
+    
 }
 
 
