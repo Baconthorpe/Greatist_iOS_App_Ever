@@ -47,6 +47,7 @@
     [super viewDidLoad];
     self.dataStore = [GRTDataStore sharedDataStore];
     [self initialize];
+    [self becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
