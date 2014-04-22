@@ -65,7 +65,7 @@
     [FBProfilePictureView class];
     self.dataStore = [GRTDataStore sharedDataStore];
     [[GRTDataManager sharedManager] getInitialData];
-    [self.dataStore createInitialData];
+//    [self.dataStore createInitialData];
 }
 
 #pragma mark - Facebook Login Helper Methods
