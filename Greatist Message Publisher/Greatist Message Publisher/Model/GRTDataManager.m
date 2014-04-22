@@ -253,13 +253,20 @@
     
     NSDate *createdAtDate = [self dateFromString:postDictionary[@"createdAt"]];
     
-    User *stranger = [User userUniqueWithFacebookID:@"stranger" inContext:self.managedObjectContext];
+    User *author;
+    if ([postDictionary[@"userFacebookID"] isEqualToString:self.dataStore.currentUser.facebookID])
+    {
+        author = self.dataStore.currentUser;
+    } else
+    {
+        author = [User userUniqueWithFacebookID:@"stranger" inContext:self.managedObjectContext];
+    }
     
     NSString *postContent = postDictionary[@"content"];
     NSString *postContentQuotes = [postContent stringByReplacingOccurrencesOfString:@"\\\"" withString:@"\""];
     Post *newPost = [Post uniquePostWithContent:postContentQuotes
                                        objectId:postDictionary[@"objectId"]
-                                         author:stranger
+                                         author:author
                                         section:section
                                       responses:postDictionary[@"responses"]
                                       timeStamp:createdAtDate
