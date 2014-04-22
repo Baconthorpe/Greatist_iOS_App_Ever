@@ -4,8 +4,12 @@
             "applicationId": "K10PcfKibqynmF6Z2LMsmlZGCzrvEki1HNxj5g6f", 
             "masterKey": "bu84t5zrRKf9h7Rbh5uPC23k4gE0CCqlX0ZH6YpD"
         }, 
+        "HealthyTalk": {
+            "applicationId": "0XBk0UlcQyisXFdVgjBwWhn7NY0quRKdEeUu4NWp", 
+            "masterKey": "stskuk19c6e5Frmd1j1taacPHKtZWtM5g0Qgl4kf"
+        }, 
         "_default": {
-            "link": "ExperimentingWithParse"
+            "link": "HealthyTalk"
         }
     }, 
     "global": {
