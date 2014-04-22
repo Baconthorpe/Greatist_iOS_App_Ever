@@ -256,7 +256,7 @@
                     responses:@"{\"You Go Girl\":0,\"Rock On\":0,\"No Way\":0,\"Boo\":0}"
                     inContext:self.managedObjectContext];
         
-        [self saveContext];
+//        [self saveContext];
     }
     
 }

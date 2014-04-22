@@ -73,7 +73,7 @@
                           section:self.verticalPassed
                         responses:[self.dataStore getSelectedResponsesAsJSONString]
                         inContext:self.dataStore.managedObjectContext];
-            [self.dataStore saveContext];
+//            [self.dataStore saveContext];
         } else {
             // Add Alertview
         }

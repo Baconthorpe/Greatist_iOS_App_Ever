@@ -116,7 +116,7 @@
         [self.parseAPIClient getPostsWithFriendIDs:friendsPlusMeArray
                                     WithCompletion:^(NSArray *posts) {
             [self interpretArrayOfPostDictionaries:posts];
-            [self.dataStore saveContext];
+//            [self.dataStore saveContext];
         }];
     }];
 }
@@ -154,7 +154,7 @@
                                                            isFlagged:@0
                                                            inContext:self.managedObjectContext];
                                          
-                                         [self.dataStore saveContext];
+//                                         [self.dataStore saveContext];
                                          success(successResponse);
                                      }
                                  } withFailure:^(NSDictionary *failureResponse) {
@@ -167,7 +167,7 @@
 {
     [self.parseAPIClient flagPostID:post.objectId withCompletion:^(NSDictionary *response) {
         post.isFlagged = @1;
-        [self.dataStore saveContext];
+//        [self.dataStore saveContext];
         completion(response);
     }];
 }
