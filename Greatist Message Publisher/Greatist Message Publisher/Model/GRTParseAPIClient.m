@@ -212,7 +212,8 @@
                    responses: (NSString *)responseDictionaryString
               userFacebookID: (NSString *)userFacebookID
               usersResponded: (NSString *)usersRespondedString
-              withCompletion: (void (^)(NSDictionary *))completion
+                 withSuccess: (void (^)(NSDictionary *))success
+                 withFailure: (void (^)(NSDictionary *))failure
 {
 
     NSString *parseDatabaseURL = @"https://api.parse.com/1/classes/GRTPost";
@@ -232,9 +233,10 @@
     
     [newOp setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil];
-        completion(responseDictionary);
+        success(responseDictionary);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Parse Post Response Error: %@",error);
+        failure(error);
     }];
     
     [newOp start];

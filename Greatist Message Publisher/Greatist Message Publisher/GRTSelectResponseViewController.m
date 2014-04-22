@@ -155,8 +155,11 @@
     [self.dataManager postPostAndSaveIfUnique:self.content
                                     inSection:self.verticalPassed
                                 withResponses:[self.dataStore getSelectedResponsesAsJSONString]
-                               withCompletion:^(NSDictionary *postResponse) {
-    }];
+                               withSuccess:^(NSDictionary *postResponse) {
+                                   completion(postResponse);
+                               } withFailure:^(NSDictionary *postResponse) {
+                                   [self noInternetAlert];
+                               }];
 }
 
 - (void) createDictionaryOfSelectedResponses
@@ -168,6 +171,17 @@
         NSString *responseKey = currentResponseOption.content;
         [self.dataStore.selectedResponses setValue:@0 forKey:responseKey];
     }
+}
+
+- (void) noInternetAlert
+{
+    UIAlertView *noInternet = [[UIAlertView alloc] initWithTitle:@"Sorry!"
+                                                         message:@"We can't connect to our servers right now."
+                                                        delegate:self
+                                               cancelButtonTitle:@"Ok"
+                                               otherButtonTitles:nil];
+    
+    [noInternet show];
 }
 
 

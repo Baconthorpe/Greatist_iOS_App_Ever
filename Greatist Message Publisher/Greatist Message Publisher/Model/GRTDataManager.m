@@ -125,9 +125,10 @@
 
 
 - (void) postPostAndSaveIfUnique: (NSString *)content
-                                     inSection: (Section *)section
-                                 withResponses: (NSString *)responseDictionaryString
-                                withCompletion: (void (^)(NSDictionary *postResponse))completion
+                       inSection: (Section *)section
+                   withResponses: (NSString *)responseDictionaryString
+                     withSuccess: (void (^)(NSDictionary *postResponse))success
+                     withFailure: (void (^)(NSDictionary *postResponse))failure
 {
     NSString *postContent = [content stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
 
@@ -139,23 +140,26 @@
                                    responses:responseDictionaryString
                               userFacebookID:self.dataStore.currentUser.facebookID
                               usersResponded:[self makeStringFromDictionary:usersRespondedDictionary]
-                              withCompletion:^(NSDictionary *postResponse) {
-      if (postResponse) {
-          NSDate *createdAtDate = [self dateFromString:postResponse[@"createdAt"]];
-          
-          [Post uniquePostWithContent:content
-                             objectId:postResponse[@"objectId"]
-                               author:self.dataStore.currentUser
-                              section:section
-                            responses:responseDictionaryString
-                            timeStamp:createdAtDate
-                            isFlagged:@0
-                            inContext:self.managedObjectContext];
-          
-//          [self.dataStore saveContext];
-          completion(postResponse);
-      }
-    }];
+                                 withSuccess:^(NSDictionary *successResponse)
+    {
+                                     if (successResponse) {
+                                         NSDate *createdAtDate = [self dateFromString:successResponse[@"createdAt"]];
+                                         
+                                         [Post uniquePostWithContent:content
+                                                            objectId:successResponse[@"objectId"]
+                                                              author:self.dataStore.currentUser
+                                                             section:section
+                                                           responses:responseDictionaryString
+                                                           timeStamp:createdAtDate
+                                                           isFlagged:@0
+                                                           inContext:self.managedObjectContext];
+                                         
+                                         [self.dataStore saveContext];
+                                         success(successResponse);
+                                     }
+                                 } withFailure:^(NSDictionary *failureResponse) {
+                                     failure(failureResponse);
+                                 }];
 }
 
 - (void) flagPost:(Post *)post
