@@ -19,6 +19,7 @@
 #import "GRTDataManager.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import "UIColor+Helpers.h"
+#import <FontAwesomeKit.h>
 
 @interface GRTMainViewController ()
 
@@ -56,16 +57,16 @@
     [self setupRefreshControl];
     [self.dataManager getPostsBasedOnFacebookFriends];
 
-    [self.logoutButton setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
-                                                [UIFont fontWithName:@"DINOT-Medium" size:18],
-                                                NSFontAttributeName,
-                                                nil]
-                                     forState:UIControlStateNormal];
-    [self.myPostsButton setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
-                                                [UIFont fontWithName:@"DINOT-Medium" size:18],
-                                                NSFontAttributeName,
-                                                nil]
-                                     forState:UIControlStateNormal];
+//    //[self.logoutButton setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+//                                                [UIFont fontWithName:@"DINOT-Medium" size:18],
+//                                                NSFontAttributeName,
+//                                                nil]
+//                                     forState:UIControlStateNormal];
+//   // [self.myPostsButton setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+//                                                [UIFont fontWithName:@"DINOT-Medium" size:18],
+//                                                NSFontAttributeName,
+//                                                nil]
+//                                     forState:UIControlStateNormal];
     
     
     
@@ -236,7 +237,7 @@
     [cell configureWithPost:post];
     
     GRTCornerTriangles *leftCornerTriangle = [[GRTCornerTriangles alloc] initWithFrame:cell.bounds IsLeftTriangle:YES withFillColor:[UIColor greatistFitnessColor]];
-    GRTCornerTriangles *rightCornerTriangle = [[GRTCornerTriangles alloc] initWithFrame:cell.bounds IsLeftTriangle:NO withFillColor:[UIColor greatistFitnessColor]];
+    //GRTCornerTriangles *rightCornerTriangle = [[GRTCornerTriangles alloc] initWithFrame:cell.bounds IsLeftTriangle:NO withFillColor:[UIColor greatistFitnessColor]];
     
     cell.backgroundColor = [UIColor greatistColorForCategory:post.section.name];
     cell.buttonBar.backgroundColor=[UIColor whiteColor];
@@ -253,22 +254,22 @@
         [cell.contentView addSubview:leftCornerTriangle];
         [leftCornerTriangle setFillColor:[UIColor greatistSecondaryColorForCategory:post.section.name]];
     } else {
-        [cell.contentView addSubview:rightCornerTriangle];
-        [rightCornerTriangle setFillColor:[UIColor greatistSecondaryColorForCategory:post.section.name]];
+        [cell.contentView addSubview:leftCornerTriangle];
+        [leftCornerTriangle setFillColor:[UIColor greatistSecondaryColorForCategory:post.section.name]];
     }
     
     if ([post.section.name isEqualToString:(@"fitness")]) {
         iconImage = [UIImage imageNamed:@"Move_White"];
         scaledIconImage = [UIImage imageWithImage:iconImage scaledToSize:CGSizeMake(25, 20)];
-        iconRect = (indexPath.row % 2 == 0) ?  CGRectMake(10,15,25,20) : CGRectMake(290,15,25,20);
+        iconRect = CGRectMake(10,15,25,20);
     } else if ([post.section.name isEqualToString:(@"health")]) {
         iconImage = [UIImage imageNamed:@"Health_White"];
         scaledIconImage = [UIImage imageWithImage:iconImage scaledToSize:CGSizeMake(25, 25)];
-        iconRect = (indexPath.row % 2 == 0) ?  CGRectMake(8,12,25,25) : CGRectMake(287,12,25,25);
+        iconRect = CGRectMake(8,12,25,25);
     } else if ([post.section.name isEqualToString:(@"happiness")]) {
         iconImage = [UIImage imageNamed:@"Grow_White"];
         scaledIconImage = [UIImage imageWithImage:iconImage scaledToSize:CGSizeMake(18, 25)];
-        iconRect = (indexPath.row % 2 == 0) ?  CGRectMake(8,15,18,25) : CGRectMake(290,10,18,25);
+        iconRect = CGRectMake(8,15,18,25);
     }
     UIImageView *iconView = [[UIImageView alloc] initWithImage:scaledIconImage];
     
@@ -276,7 +277,7 @@
     [cell.contentView addSubview:iconView];
     
     [leftCornerTriangle setNeedsDisplay];
-    [rightCornerTriangle setNeedsDisplay];
+    //[rightCornerTriangle setNeedsDisplay];
     
     return cell;
 }

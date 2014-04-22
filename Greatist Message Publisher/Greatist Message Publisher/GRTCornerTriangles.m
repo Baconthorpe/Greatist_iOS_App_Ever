@@ -32,33 +32,33 @@
 -(void)drawLeftHRect
 {
     UIBezierPath *trianglePath = [UIBezierPath bezierPath];
-    [trianglePath moveToPoint: CGPointMake(0, 5)];
-    [trianglePath addLineToPoint:CGPointMake(0,70)];
-    [trianglePath addLineToPoint:CGPointMake(70, 5)];
+    [trianglePath moveToPoint: CGPointMake(0, 6)];
+    [trianglePath addLineToPoint:CGPointMake(0,77)];
+    [trianglePath addLineToPoint:CGPointMake(77, 6)];
     [trianglePath closePath];
     
-    [[UIColor greatistLightGrayColor] setStroke];
+    //[[UIColor greatistLightGrayColor] setStroke];
     [self.fillColor setFill];
     
     [trianglePath fill];
-    [trianglePath stroke];
+    //[trianglePath stroke];
 }
 
 
--(void)drawRightHRect
-{
-    UIBezierPath *trianglePath = [UIBezierPath bezierPath];
-    [trianglePath moveToPoint: CGPointMake(320, 5)];
-    [trianglePath addLineToPoint:CGPointMake(320,70)];
-    [trianglePath addLineToPoint:CGPointMake(250, 5)];
-    [trianglePath closePath];
-    
-    [[UIColor greatistLightGrayColor] setStroke];
-    [self.fillColor setFill];
-    
-    [trianglePath fill];
-    [trianglePath stroke];
-}
+//-(void)drawRightHRect
+//{
+//    UIBezierPath *trianglePath = [UIBezierPath bezierPath];
+//    [trianglePath moveToPoint: CGPointMake(320, 5)];
+//    [trianglePath addLineToPoint:CGPointMake(320,70)];
+//    [trianglePath addLineToPoint:CGPointMake(250, 5)];
+//    [trianglePath closePath];
+//    
+//    [[UIColor greatistLightGrayColor] setStroke];
+//    [self.fillColor setFill];
+//    
+//    [trianglePath fill];
+//    [trianglePath stroke];
+//}
 
 
 - (void)drawRect:(CGRect)rect
@@ -66,10 +66,10 @@
     if (self.isLeftTriangle) {
         [self drawLeftHRect];
     }
-    else if (!self.isLeftTriangle)
-    {
-        [self drawRightHRect];
-    }
+//    else if (!self.isLeftTriangle)
+//    {
+//        [self drawRightHRect];
+//    }
 }
 
 

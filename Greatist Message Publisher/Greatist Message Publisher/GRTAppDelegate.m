@@ -24,13 +24,7 @@
 {
     [self initialSetup];
     [self beginFacebookLogin];
-    
-    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:
-     @{
-       NSFontAttributeName:[UIFont fontWithName:@"DINOT-Medium" size:16]
-       }
-                                                                                            forState:UIControlStateNormal];
-
+    [self setUpNavButtons];
     return YES;
 }
 
@@ -93,6 +87,17 @@
     }
 }
 
+
+- (void) setUpNavButtons
+{
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:
+     @{
+       NSFontAttributeName:[UIFont fontWithName:@"DINOT-Medium" size:16]
+       }
+                                                                                            forState:UIControlStateNormal];
+}
+
+     
 // Needed for Facebook Login in AppDelegate.  Do not move.
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
