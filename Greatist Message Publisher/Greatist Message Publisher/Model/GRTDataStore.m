@@ -295,4 +295,23 @@
     return responseDictionaryString;
 }
 
+#pragma mark - Data Maintenance
+
+- (void) clearOldPosts
+{
+    NSFetchRequest *timeStampSearch = [NSFetchRequest fetchRequestWithEntityName:@"Post"];
+    NSSortDescriptor *byTime = [NSSortDescriptor sortDescriptorWithKey:@"timeStamp" ascending:NO];
+    timeStampSearch.sortDescriptors = @[byTime];
+    
+    NSArray *postsByTime = [self.managedObjectContext executeFetchRequest:timeStampSearch error:nil];
+    for (Post *post in postsByTime) {
+        if ([postsByTime indexOfObject:post] > 50 && post.user.facebookID != self.currentUser.facebookID)
+        {
+            [self.managedObjectContext deleteObject:post];
+        }
+    }
+    
+    [self saveContext];
+}
+
 @end

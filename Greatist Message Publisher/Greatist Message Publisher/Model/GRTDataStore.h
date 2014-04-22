@@ -38,4 +38,6 @@
 - (void)setSelectedResponsesFromJSONString:(NSString *)responseString;
 - (NSString *)getSelectedResponsesAsJSONString;
 
+- (void) clearOldPosts;
+
 @end
