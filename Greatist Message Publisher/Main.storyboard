@@ -16,10 +16,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="129" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="UCw-px-WOv">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="129" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="UCw-px-WOv">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="VaI-aU-S5E"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="postCell" rowHeight="129" id="X6i-48-z3p" customClass="GRTPostTableViewCell">
                                         <rect key="frame" x="0.0" y="86" width="320" height="129"/>
@@ -68,6 +71,7 @@
                             <constraint firstItem="ntT-Qb-ejK" firstAttribute="leading" secondItem="d1n-ZX-oHO" secondAttribute="leading" id="QbR-vE-00V"/>
                             <constraint firstAttribute="trailing" secondItem="ntT-Qb-ejK" secondAttribute="trailing" id="b5S-I8-ffn"/>
                             <constraint firstItem="ntT-Qb-ejK" firstAttribute="top" secondItem="UCw-px-WOv" secondAttribute="bottom" id="drg-Am-hc3"/>
+                            <constraint firstAttribute="centerX" secondItem="UCw-px-WOv" secondAttribute="centerX" id="fLg-KS-co6"/>
                             <constraint firstItem="UCw-px-WOv" firstAttribute="top" secondItem="kMd-Fp-V9J" secondAttribute="bottom" constant="-64" id="iQU-GU-gsR"/>
                         </constraints>
                     </view>
