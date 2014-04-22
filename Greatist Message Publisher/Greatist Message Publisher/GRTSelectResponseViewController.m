@@ -39,7 +39,10 @@
     self.dataStore = [GRTDataStore sharedDataStore];
     self.dataManager = [GRTDataManager sharedManager];
     [self setupResponseTable];
-    self.responseLabel.font = [UIFont fontWithName:@"DINOT-Medium" size:18];
+    self.responseLabel.font = [UIFont fontWithName:@"DINOT-Medium" size:16];
+    self.responseLabel.textColor = [UIColor greatistGrayColor];
+    
+    self.responseLabel.backgroundColor = [UIColor greatistLightGrayColor];
     
     
 }
