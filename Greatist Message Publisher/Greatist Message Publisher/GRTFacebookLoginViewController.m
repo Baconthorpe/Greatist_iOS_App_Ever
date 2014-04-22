@@ -14,6 +14,7 @@
 @interface GRTFacebookLoginViewController () <FBLoginViewDelegate>
 
 @property (strong, nonatomic) UILabel *appName;
+@property (strong, nonatomic) UILabel *appTagline;
 @property (strong, nonatomic) FBProfilePictureView *profilePictureView;
 @property (strong, nonatomic) UILabel *nameLabel;
 
@@ -131,12 +132,20 @@
     [self.view addSubview:loginView];
     
     self.appName = [[UILabel alloc] init];
-    self.appName.text = @"BodyTalk";
+    self.appName.text = @"HealthyTalk";
     self.appName.textAlignment = NSTextAlignmentCenter;
-    self.appName.font = [UIFont fontWithName:@"ArcherPro-Medium" size:36];
+    self.appName.font = [UIFont fontWithName:@"DINOT-Bold" size:32];
     [self.view addSubview:self.appName];
     
-    self.profilePictureView = [[FBProfilePictureView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+    self.appTagline = [[UILabel alloc] init];
+    self.appTagline.text = @"Share your health and fitness \n thoughts anonymously with your friends";
+    self.appTagline.textAlignment = NSTextAlignmentCenter;
+    [self.appTagline setFont:[UIFont fontWithName:@"DINOT-Medium" size:12]];
+    self.appTagline.numberOfLines = 2;
+    self.appTagline.lineBreakMode = NSLineBreakByWordWrapping;
+    [self.view addSubview:self.appTagline];
+    
+    self.profilePictureView = [[FBProfilePictureView alloc] initWithFrame:CGRectMake(0, 0, 70, 70)];
     [[self.profilePictureView layer] setCornerRadius:15];
     [self.view addSubview:self.profilePictureView];
     
@@ -149,19 +158,26 @@
     [self.nameLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.profilePictureView setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.appName setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.appTagline setTranslatesAutoresizingMaskIntoConstraints:NO];
     [loginView setTranslatesAutoresizingMaskIntoConstraints:NO];
     
     [self.view removeConstraints:self.view.constraints];
     NSDictionary *views = @{@"superview": self.view,
                             @"appName" : self.appName,
+                            @"appTagline" : self.appTagline,
                             @"profilePicture": self.profilePictureView,
                             @"nameLabel": self.nameLabel,
                             @"loginView": loginView};
     
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(10)-[appName]-(10)-|" options:NSLayoutFormatAlignAllCenterY metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(10)-[appName]-(10)-|"
+                                                                      options:NSLayoutFormatAlignAllCenterY
+                                                                      metrics:nil
+                                                                        views:views]];
 
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(20)-[appName]-(10)-[profilePicture]-(10)-[nameLabel]-(10)-[loginView]-(10)-|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:views]];
-     
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(10)-[appName][appTagline]-(15)-[profilePicture]-(10)-[nameLabel]-(10)-[loginView]-(10)-|"
+                                                                      options:NSLayoutFormatAlignAllCenterX
+                                                                      metrics:nil
+                                                                        views:views]];
 }
 
 - (void)getPostsForFriends:(NSArray *)friendIDs
