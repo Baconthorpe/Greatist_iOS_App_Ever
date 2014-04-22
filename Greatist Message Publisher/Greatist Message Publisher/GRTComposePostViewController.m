@@ -91,16 +91,16 @@
     [self.postContentTextView becomeFirstResponder];
     self.verticals = [self.dataStore dictionaryOfSections];
     self.verticalSelected = self.verticals[@"health"];
-    [self.cancelButton setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
-                                                [UIFont fontWithName:@"DINOT-Medium" size:18],
-                                                NSFontAttributeName,
-                                                nil]
-                                     forState:UIControlStateNormal];
-    [self.nextButton setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
-                                              [UIFont fontWithName:@"DINOT-Medium" size:18],
-                                              NSFontAttributeName,
-                                              nil]
-                                   forState:UIControlStateNormal];
+//    [self.cancelButton setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+//                                                [UIFont fontWithName:@"DINOT-Medium" size:18],
+//                                                NSFontAttributeName,
+//                                                nil]
+//                                     forState:UIControlStateNormal];
+//    [self.nextButton setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+//                                              [UIFont fontWithName:@"DINOT-Medium" size:18],
+//                                              NSFontAttributeName,
+//                                              nil]
+//                                   forState:UIControlStateNormal];
     self.nextButton.enabled = NO;
 }
 

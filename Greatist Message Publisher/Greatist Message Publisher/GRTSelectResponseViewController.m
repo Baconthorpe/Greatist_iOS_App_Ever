@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *navPostButton;
 @property (weak, nonatomic) IBOutlet UILabel *instructionLabel;
 
+
 @end
 
 @implementation GRTSelectResponseViewController
@@ -42,9 +43,15 @@
     self.responseLabel.font = [UIFont fontWithName:@"DINOT-Medium" size:16];
     self.responseLabel.textColor = [UIColor greatistGrayColor];
     
-    self.responseLabel.backgroundColor = [UIColor greatistLightGrayColor];
+//    self.responseLabel.backgroundColor = [UIColor greatistLightGrayColor];
+//    [self.navPostButton setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+//                                              [UIFont fontWithName:@"DINOT-Medium" size:18],
+//                                              NSFontAttributeName,
+//                                              nil]
+//                                   forState:UIControlStateNormal];
     
-    
+   
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -93,7 +100,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"responseCell"];
     ResponseOption *currentResponseOption = [self.dataStore.validResponses objectAtIndex:indexPath.row];
     cell.textLabel.text = currentResponseOption.content;
-    cell.textLabel.font = [UIFont fontWithName:@"Avenir-Roman" size:12];
+    cell.textLabel.font = [UIFont fontWithName:@"DINOT-Medium" size:14];
     if ([self.selectedCells containsObject:@(indexPath.row)]) {
         [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
     } else {

@@ -262,7 +262,7 @@
             </objects>
             <point key="canvasLocation" x="1102" y="-1537"/>
         </scene>
-        <!--Select Response View Controller-->
+        <!--Select Response View Controller - Responses-->
         <scene sceneID="iHc-QH-piA">
             <objects>
                 <viewController id="ZHH-GQ-SE8" customClass="GRTSelectResponseViewController" sceneMemberID="viewController">
@@ -300,7 +300,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="bWE-z1-Amg">
+                    <navigationItem key="navigationItem" title="Responses" id="bWE-z1-Amg">
+                        <barButtonItem key="backBarButtonItem" title=" " id="GFF-79-5Ar"/>
                         <barButtonItem key="rightBarButtonItem" title="Post" width="100" id="V9U-f7-kp8">
                             <inset key="imageInsets" minX="100" minY="0.0" maxX="100" maxY="0.0"/>
                             <connections>
