@@ -38,7 +38,8 @@
 - (void) postPostAndSaveIfUnique: (NSString *)content
                        inSection: (Section *)section
                    withResponses: (NSString *)responseDictionaryString
-                  withCompletion: (void (^)(NSDictionary *postResponse))completion;
+                     withSuccess: (void (^)(NSDictionary *postResponse))success
+                     withFailure: (void (^)(NSDictionary *postResponse))failure;
 - (void) flagPost:(Post *)post
    withCompletion:(void (^)(NSDictionary *))completion;
 

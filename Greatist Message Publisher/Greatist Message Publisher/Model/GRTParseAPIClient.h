@@ -31,8 +31,9 @@
                      section: (NSString *)section
                    responses: (NSString *)responseDictionaryString
               userFacebookID: (NSString *)userFacebookID
-              usersResponded: (NSString *)usersRespondedDictionary
-              withCompletion: (void (^)(NSDictionary *))completion;
+              usersResponded: (NSString *)usersRespondedString
+                 withSuccess: (void (^)(NSDictionary *))success
+                 withFailure: (void (^)(NSDictionary *))failure;
 - (void) flagPostID:(NSString *)postObjectID
      withCompletion:(void (^)(NSDictionary *))completion;
 
