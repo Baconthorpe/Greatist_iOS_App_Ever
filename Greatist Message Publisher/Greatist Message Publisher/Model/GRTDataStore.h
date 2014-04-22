@@ -27,6 +27,9 @@
 @property (strong, nonatomic) NSArray *validResponses;
 @property (strong, nonatomic) NSMutableDictionary *selectedResponses;
 
+@property (strong, nonatomic) NSString *postInProgressContent;
+@property (strong, nonatomic) Section *postInProgressVertical;
+
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
