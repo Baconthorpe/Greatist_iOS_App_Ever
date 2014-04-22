@@ -76,6 +76,16 @@
     // Do any additional setup after loading the view.
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    self.dataStore.postFRController.delegate = self;
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    self.dataStore.postFRController.delegate = nil;
+}
+
 
 - (void)didReceiveMemoryWarning
 {

@@ -68,9 +68,9 @@
     
     [self postPostThroughParseWithCompletion:^(BOOL isSuccessful) {
         if (isSuccessful) {
-            [Post postWithContent:self.content
+            [Post postWithContent:self.dataStore.postInProgressContent
                            author:nil
-                          section:self.verticalPassed
+                          section:self.dataStore.postInProgressVertical
                         responses:[self.dataStore getSelectedResponsesAsJSONString]
                         inContext:self.dataStore.managedObjectContext];
 //            [self.dataStore saveContext];
@@ -152,8 +152,8 @@
 
 - (void) postPostThroughParseWithCompletion: (void (^)(BOOL isSuccessful))completion
 {
-    [self.dataManager postPostAndSaveIfUnique:self.content
-                                    inSection:self.verticalPassed
+    [self.dataManager postPostAndSaveIfUnique:self.dataStore.postInProgressContent
+                                    inSection:self.dataStore.postInProgressVertical
                                 withResponses:[self.dataStore getSelectedResponsesAsJSONString]
                                withSuccess:^(NSDictionary *postResponse) {
                                    completion(postResponse);

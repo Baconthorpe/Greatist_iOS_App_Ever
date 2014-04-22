@@ -68,12 +68,12 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    GRTSelectResponseViewController *nextViewController = segue.destinationViewController;
-    nextViewController.verticalPassed = self.verticalSelected;
-    nextViewController.content = self.postContentTextView.text;
+//    GRTSelectResponseViewController *nextViewController = segue.destinationViewController;
+//    nextViewController.verticalPassed = self.verticalSelected;
+//    nextViewController.content = self.postContentTextView.text;
  
-    
-    
+    self.dataStore.postInProgressContent = self.postContentTextView.text;
+    self.dataStore.postInProgressVertical = self.verticalSelected;
 }
 
 - (IBAction)backButtonTapped:(id)sender {
