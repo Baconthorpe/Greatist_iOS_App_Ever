@@ -6,7 +6,8 @@
 #
 # Pods/
 
-
+# Greatist
+GRTConstants.*
 
 # Xcode
 .DS_Store
