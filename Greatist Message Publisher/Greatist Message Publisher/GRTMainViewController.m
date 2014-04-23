@@ -372,8 +372,8 @@
     UIImage *leftLandscapeImage = [envelopeIcon imageWithSize:CGSizeMake(30, 30)];
     self.myPostsButton.image = leftLandscapeImage;
     
-    FAKFontAwesome *pencilIcon = [FAKFontAwesome pencilSquareIconWithSize:60];
-    UIImage *centerLandscapeImage = [pencilIcon imageWithSize:CGSizeMake(80, 80)];
+    FAKFontAwesome *pencilIcon = [FAKFontAwesome pencilSquareIconWithSize:50];
+    UIImage *centerLandscapeImage = [pencilIcon imageWithSize:CGSizeMake(50, 50)];
     self.composePostButton.image = centerLandscapeImage;
 
 }
