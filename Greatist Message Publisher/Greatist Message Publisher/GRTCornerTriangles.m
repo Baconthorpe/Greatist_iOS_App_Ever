@@ -32,9 +32,9 @@
 -(void)drawLeftHRect
 {
     UIBezierPath *trianglePath = [UIBezierPath bezierPath];
-    [trianglePath moveToPoint: CGPointMake(0, 6)];
+    [trianglePath moveToPoint: CGPointMake(0, 5.5)];
     [trianglePath addLineToPoint:CGPointMake(0,77)];
-    [trianglePath addLineToPoint:CGPointMake(77, 6)];
+    [trianglePath addLineToPoint:CGPointMake(77, 5.5)];
     [trianglePath closePath];
     
     //[[UIColor greatistLightGrayColor] setStroke];
