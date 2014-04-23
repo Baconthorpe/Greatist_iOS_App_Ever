@@ -229,32 +229,32 @@
         Section *health = [Section sectionWithName:@"health" inContext:self.managedObjectContext];
         Section *fitness = [Section sectionWithName:@"fitness" inContext:self.managedObjectContext];
 
-        User *defaultUser = [User userUniqueWithFacebookID:@"-1" inContext:self.managedObjectContext];
+//        User *defaultUser = [User userUniqueWithFacebookID:@"-1" inContext:self.managedObjectContext];
 
-        [Post postWithContent:@"I joined a gym today!"
-                       author:defaultUser
-                      section:fitness
-                    responses:@"{\"You Go Girl\":0,\"Rock On\":0,\"No Way\":0,\"Boo\":0}"
-                    inContext:self.managedObjectContext];
-        
-        [Post postWithContent:@"I have a love + hate relationship with gluten."
-                       author:defaultUser
-                      section:health
-                    responses:@"{\"You Go Girl\":0,\"Rock On\":0,\"No Way\":0,\"Boo\":0}"
-                    inContext:self.managedObjectContext];
-        
-        [Post postWithContent:@"Spreading the good news about Paleo Diet"
-                       author:defaultUser
-                      section:health
-                    responses:@"{\"You Go Girl\":0,\"Rock On\":0,\"No Way\":0,\"Boo\":0}"
-                    inContext:self.managedObjectContext];
-        
-
-        [Post postWithContent:@"I love the WOD article!"
-                       author:defaultUser
-                      section:happiness
-                    responses:@"{\"You Go Girl\":0,\"Rock On\":0,\"No Way\":0,\"Boo\":0}"
-                    inContext:self.managedObjectContext];
+//        [Post postWithContent:@"I joined a gym today!"
+//                       author:defaultUser
+//                      section:fitness
+//                    responses:@"{\"You Go Girl\":0,\"Rock On\":0,\"No Way\":0,\"Boo\":0}"
+//                    inContext:self.managedObjectContext];
+//        
+//        [Post postWithContent:@"I have a love + hate relationship with gluten."
+//                       author:defaultUser
+//                      section:health
+//                    responses:@"{\"You Go Girl\":0,\"Rock On\":0,\"No Way\":0,\"Boo\":0}"
+//                    inContext:self.managedObjectContext];
+//        
+//        [Post postWithContent:@"Spreading the good news about Paleo Diet"
+//                       author:defaultUser
+//                      section:health
+//                    responses:@"{\"You Go Girl\":0,\"Rock On\":0,\"No Way\":0,\"Boo\":0}"
+//                    inContext:self.managedObjectContext];
+//        
+//
+//        [Post postWithContent:@"I love the WOD article!"
+//                       author:defaultUser
+//                      section:happiness
+//                    responses:@"{\"You Go Girl\":0,\"Rock On\":0,\"No Way\":0,\"Boo\":0}"
+//                    inContext:self.managedObjectContext];
         
 //        [self saveContext];
 

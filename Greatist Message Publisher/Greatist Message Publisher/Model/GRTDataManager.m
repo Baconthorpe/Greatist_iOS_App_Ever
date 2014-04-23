@@ -154,7 +154,7 @@
                                                            isFlagged:@0
                                                            inContext:self.managedObjectContext];
                                          
-//                                         [self.dataStore saveContext];
+                                         [self.dataStore saveContext];
                                          success(successResponse);
                                      }
                                  } withFailure:^(NSDictionary *failureResponse) {
