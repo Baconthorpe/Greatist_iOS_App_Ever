@@ -8,7 +8,6 @@
 
 #import "GRTParseAPIClient.h"
 #import "AFNetworking.h"
-#import "GRTConstants.h"
 
 @interface GRTParseAPIClient ()
 
@@ -41,12 +40,12 @@
 
 - (NSString *) restAPIKey
 {
-    return PARSE_REST_API_KEY;
+    return @"74yK4IEW4G3bbWu8DCZ2ZOxhzXZnshMBvjq79OPG";
 }
 
 - (NSString *) appID
 {
-    return PARSE_APP_ID;
+    return @"K10PcfKibqynmF6Z2LMsmlZGCzrvEki1HNxj5g6f";
 }
 
 - (AFHTTPSessionManager *) manager
