@@ -107,7 +107,7 @@
     separatorLineView.backgroundColor = [UIColor greatistLightGrayColor];
     [cell.contentView addSubview:separatorLineView];
     
-    if (([post.section.name isEqualToString:(@"fitness")]) && (indexPath.row % 2 == 0))
+    if ([post.section.name isEqualToString:(@"fitness")])
     {
         cell.backgroundColor = [UIColor greatistFitnessColor];
         cell.buttonBar.backgroundColor=[UIColor whiteColor];
