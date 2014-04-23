@@ -156,7 +156,7 @@
                                     inSection:self.dataStore.postInProgressVertical
                                 withResponses:[self.dataStore getSelectedResponsesAsJSONString]
                                withSuccess:^(NSDictionary *postResponse) {
-                                   completion(postResponse);
+                                   completion(YES);
                                } withFailure:^(NSDictionary *postResponse) {
                                    [self noInternetAlert];
                                }];
