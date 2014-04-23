@@ -67,16 +67,16 @@
     [self createDictionaryOfSelectedResponses];
     
     [self postPostThroughParseWithCompletion:^(BOOL isSuccessful) {
-        if (isSuccessful) {
-            [Post postWithContent:self.dataStore.postInProgressContent
-                           author:nil
-                          section:self.dataStore.postInProgressVertical
-                        responses:[self.dataStore getSelectedResponsesAsJSONString]
-                        inContext:self.dataStore.managedObjectContext];
-//            [self.dataStore saveContext];
-        } else {
-            // Add Alertview
-        }
+//        if (isSuccessful) {
+//            [Post postWithContent:self.dataStore.postInProgressContent
+//                           author:nil
+//                          section:self.dataStore.postInProgressVertical
+//                        responses:[self.dataStore getSelectedResponsesAsJSONString]
+//                        inContext:self.dataStore.managedObjectContext];
+////            [self.dataStore saveContext];
+//        } else {
+//            // Add Alertview
+//        }
     }];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
