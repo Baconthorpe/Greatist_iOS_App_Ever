@@ -56,6 +56,12 @@
     [self setupFooterToolbar];
     [self setupRefreshControl];
     [self.dataManager getPostsBasedOnFacebookFriends];
+    [self setupIcons];
+
+    
+
+    
+    
 
 //    //[self.logoutButton setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
 //                                                [UIFont fontWithName:@"DINOT-Medium" size:18],
@@ -202,10 +208,7 @@
 
 #pragma mark - Button Methods
 
-- (IBAction)composePostButtonTapped:(id)sender
-{
 
-}
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     // the user clicked OK
@@ -327,20 +330,26 @@
 {
 
     [self.navigationController.navigationBar setBarTintColor:[UIColor greatistLightGrayColor]];
-    UIImage *greatistLogoImage = [UIImage imageNamed:@"Greatist_Logo86x50"];
-    UIImage *scaledGreatistLogoImage = [UIImage imageWithImage:greatistLogoImage scaledToSize:CGSizeMake(65, 38)];
-    UIImageView *greatistLogoView = [[UIImageView alloc] initWithImage:scaledGreatistLogoImage];
-    [self.navigationController.navigationBar.topItem setTitleView:greatistLogoView];
+    //[self.navigationController.navigationBar.topItem.titleView
+    [self.navigationController.navigationBar.topItem setTitle:@"HEALTHY TALK"];
+//    [self.navigationController.navigationItem.titleView [UIFont fontWithName:@"DINOT-Medium" size:18]];
+//     
+    
+    //[self.navigationController.navigationBar.topItem
+//    UIImage *greatistLogoImage = [UIImage imageNamed:@"Greatist_Logo86x50"];
+//    UIImage *scaledGreatistLogoImage = [UIImage imageWithImage:greatistLogoImage scaledToSize:CGSizeMake(65, 38)];
+//    UIImageView *greatistLogoView = [[UIImageView alloc] initWithImage:scaledGreatistLogoImage];
+//    [self.navigationController.navigationBar.topItem setTitleView:greatistLogoView];
 }
 
 - (void)setupFooterToolbar
 {
     [[UIToolbar appearance] setBackgroundColor:[UIColor greatistLightGrayColor]];
-    UIButton *postButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    UIImage *resizedPostImage = [UIImage imageWithImage:[UIImage imageNamed:@"Greatist_Logo_Badge_Blue"] scaledToSize:CGSizeMake(40, 40)];
-    [postButton setBackgroundImage:resizedPostImage forState:UIControlStateNormal];
-    [postButton setFrame:CGRectMake(145, 250, 40, 40)];
-    [self.composePostButton setImage:resizedPostImage];
+//    UIButton *postButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//    UIImage *resizedPostImage = [UIImage imageWithImage:[UIImage imageNamed:@"Greatist_Logo_Badge_Blue"] scaledToSize:CGSizeMake(40, 40)];
+//    [postButton setBackgroundImage:resizedPostImage forState:UIControlStateNormal];
+//    [postButton setFrame:CGRectMake(145, 250, 40, 40)];
+//    [self.composePostButton setImage:resizedPostImage];
 }
 
 - (void)setupRefreshControl {
@@ -353,6 +362,20 @@
     [self.dataManager getPostsBasedOnFacebookFriends];
     [refreshControl endRefreshing];
 }
+- (void) setupIcons
+{
+    FAKFontAwesome *gearIcon = [FAKFontAwesome cogIconWithSize:30];
+    UIImage *rightLandscapeImage = [gearIcon imageWithSize:CGSizeMake(30, 30)];
+    self.logoutButton.image = rightLandscapeImage;
+    
+    FAKFontAwesome *envelopeIcon = [FAKFontAwesome envelopeIconWithSize:30];
+    UIImage *leftLandscapeImage = [envelopeIcon imageWithSize:CGSizeMake(30, 30)];
+    self.myPostsButton.image = leftLandscapeImage;
+    
+    FAKFontAwesome *pencilIcon = [FAKFontAwesome pencilSquareIconWithSize:50];
+    UIImage *centerLandscapeImage = [pencilIcon imageWithSize:CGSizeMake(50, 50)];
+    self.composePostButton.image = centerLandscapeImage;
 
+}
     
 @end

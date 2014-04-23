@@ -47,6 +47,7 @@
     [super viewDidLoad];
     self.dataStore = [GRTDataStore sharedDataStore];
     [self initialize];
+    [self becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
@@ -107,39 +108,39 @@
 - (void)setupCategoryButtons
 {
     UIButton *healthButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [healthButton setFrame:CGRectMake(130, 2, 35, 35)];
+    [healthButton setFrame:CGRectMake(130, 4, 35, 35)];
     [healthButton setBackgroundImage:[UIImage imageNamed:@"Health_Colored"] forState:UIControlStateNormal];
     healthButton.alpha = 0.3;
     [healthButton addTarget:self action:@selector(healthButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.postView addSubview:healthButton];
     
-    UILabel *healthLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 30, 45, 25)];
+    UILabel *healthLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 28, 45, 25)];
     [healthLabel setText:@"HEALTH"];
     [healthLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:10]];
     [healthLabel setTextColor:[UIColor greatistEatColor]];
     [healthButton addSubview:healthLabel];
     
     UIButton *fitnessButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [fitnessButton setFrame:CGRectMake(60, 2, 35, 35)];
+    [fitnessButton setFrame:CGRectMake(70, 8, 35, 35)];
     [fitnessButton setBackgroundImage:[UIImage imageNamed:@"Move_Colored60x60"] forState:UIControlStateNormal];
     fitnessButton.alpha = 0.3;
     [fitnessButton addTarget:self action:@selector(fitnessButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.postView addSubview:fitnessButton];
     
-    UILabel *fitnessLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 30, 45, 25)];
+    UILabel *fitnessLabel = [[UILabel alloc] initWithFrame:CGRectMake(-3, 24, 45, 25)];
     [fitnessLabel setText:@"FITNESS"];
     [fitnessLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:10]];
     [fitnessLabel setTextColor:[UIColor greatistMoveColor]];
     [fitnessButton addSubview:fitnessLabel];
     
     UIButton *happinessButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [happinessButton setFrame:CGRectMake(195, 2, 35, 35)];
+    [happinessButton setFrame:CGRectMake(192, 4, 34, 34)];
     [happinessButton setBackgroundImage:[UIImage imageNamed:@"Grow_Colored60x60"] forState:UIControlStateNormal];
     happinessButton.alpha = 0.3;
     [happinessButton addTarget:self action:@selector(happinessButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.postView addSubview:happinessButton];
     
-    UILabel *happinessLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 30, 60, 25)];
+    UILabel *happinessLabel = [[UILabel alloc] initWithFrame:CGRectMake(-8, 28, 60, 25)];
     [happinessLabel setText:@"HAPPINESS"];
     [happinessLabel setFont:[UIFont fontWithName:@"DINOT-Bold" size:10]];
     [happinessLabel setTextColor:[UIColor greatistGrowColor]];

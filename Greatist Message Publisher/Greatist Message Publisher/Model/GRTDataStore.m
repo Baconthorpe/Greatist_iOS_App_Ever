@@ -229,7 +229,7 @@
         Section *health = [Section sectionWithName:@"health" inContext:self.managedObjectContext];
         Section *fitness = [Section sectionWithName:@"fitness" inContext:self.managedObjectContext];
 
-        User *defaultUser = [User userUniqueWithFacebookID:@"0" inContext:self.managedObjectContext];
+        User *defaultUser = [User userUniqueWithFacebookID:@"-1" inContext:self.managedObjectContext];
 
         [Post postWithContent:@"I joined a gym today!"
                        author:defaultUser
@@ -257,6 +257,7 @@
                     inContext:self.managedObjectContext];
         
 //        [self saveContext];
+
     }
     
 }
