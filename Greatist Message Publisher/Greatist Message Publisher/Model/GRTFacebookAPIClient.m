@@ -71,7 +71,7 @@
         NSMutableArray *friendIDs = [NSMutableArray new];
         
         for (NSDictionary<FBGraphUser>* friend in friends) {
-            //NSLog(@"I have a friend named %@ with id %@", friend.name, friend.id);
+//            NSLog(@"I have a friend named %@ with id %@", friend.name, friend.id);
             [friendIDs addObject:friend.id];
         }
         
